@@ -11,10 +11,13 @@
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create</property>
         <property name="connection.pool_size">100</property>
         <property name="current_session_context_class">thread</property>
         <mapping class="com.poornama.data.objects.User"/>
         <mapping class="com.poornama.data.objects.UserRole"/>
+        <mapping class="com.poornama.data.objects.Employee"/>
+        <mapping class="com.poornama.data.objects.EmployeeType"/>
+        <mapping class="com.poornama.data.objects.EmployeeAttendance"/>
     </session-factory>
 </hibernate-configuration>

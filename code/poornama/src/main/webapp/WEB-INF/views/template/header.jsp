@@ -1,6 +1,6 @@
 <%@include file="include.jsp" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <%@include file="style.jsp" %>

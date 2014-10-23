@@ -10,7 +10,21 @@
                 <div class="modal-body">
                     <h3 class="modal-title" id="myModalLabel" style="text-align: center;">Login</h3>
                     <br/>
-
+                    <%
+                        String isLoginFailed = "";
+                        try {
+                            isLoginFailed = session.getAttribute("isLoginFailed").toString();
+                        } catch (NullPointerException ex) {
+                            isLoginFailed = "false";
+                        }
+                        if (isLoginFailed.equals("true")) {
+                    %>
+                    <div class="alert alert-danger" role="alert">
+                        Enter a valid username or password.
+                    </div>
+                    <%
+                        }
+                    %>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
@@ -31,10 +45,10 @@
         </div>
     </div>
 </form>
+
 <script>
     $(document).ready(function () {
         $('#loginModal').modal('show');
     });
-
 </script>
 <%@ include file="../template/footer.jsp" %>

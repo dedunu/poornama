@@ -873,3 +873,401 @@
 23 Oct 2014 16:35:09,085 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
 23 Oct 2014 16:35:09,089 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
 23 Oct 2014 16:35:09,093 DEBUG [com.poornama.data.dao.UserRoleDAO] delete()
+23 Oct 2014 16:44:22,814 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 16:44:22,814 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 16:44:22,814 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 20:07:17,960 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:07:17,961 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 20:07:17,961 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 20:09:45,806 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:09:45,807 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 20:09:45,808 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 20:09:54,411 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 20:09:54,412 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 20:09:54,417 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:09:55,553 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:09:55,553 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+23 Oct 2014 20:09:55,554 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 20:09:55,554 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login failed
+23 Oct 2014 20:09:55,554 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 20:09:55,559 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:09:55,559 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 20:10:09,164 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 20:10:09,164 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 20:10:09,167 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:10:09,204 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:10:09,204 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 20:10:09,204 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 20:10:09,204 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:10:09,206 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:10:09,206 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 20:10:09,210 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:10:09,210 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 20:12:43,039 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:12:43,040 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 20:12:43,040 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 20:18:30,938 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 20:18:30,940 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 20:18:30,946 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:18:32,095 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:18:32,095 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+23 Oct 2014 20:18:32,096 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 20:18:32,096 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login failed
+23 Oct 2014 20:18:32,096 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 20:18:32,101 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:18:32,101 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 20:29:59,262 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:29:59,263 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 20:30:30,836 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 20:30:30,836 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 20:30:30,836 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:30:30,872 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:30:30,872 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 20:30:30,872 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 20:30:30,872 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:30:30,880 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:30:30,880 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 20:30:30,884 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:30:30,884 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 20:30:37,545 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 20:30:37,546 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 20:30:37,546 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:30:37,550 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:30:37,550 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 20:30:37,550 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 20:30:37,550 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:30:37,554 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:30:37,554 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 20:30:37,561 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:30:37,561 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 20:36:07,049 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 20:36:07,051 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 20:36:07,056 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:36:08,174 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:36:08,175 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 20:36:08,175 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 20:36:08,175 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:36:08,178 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:36:08,178 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 20:36:08,183 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:36:08,183 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 20:36:36,975 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 20:36:36,975 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 20:36:36,975 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:36:36,982 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:36:36,983 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 20:36:36,983 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 20:36:36,983 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:36:36,986 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:36:36,986 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 20:36:36,989 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:36:36,989 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 20:36:45,666 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:36:45,666 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 20:36:45,666 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 20:36:47,340 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 20:36:47,340 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 20:36:47,340 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:36:47,344 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:36:47,344 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 20:36:47,344 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 20:36:47,344 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:36:47,347 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:36:47,347 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 20:36:47,352 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:36:47,352 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 20:42:42,925 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 20:42:42,925 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 20:42:42,925 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:42:42,930 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:42:42,930 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 20:42:42,930 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 20:42:42,930 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:42:42,935 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:42:42,935 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 20:42:42,939 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:42:42,939 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 20:59:39,501 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 20:59:39,501 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 20:59:39,501 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:59:39,503 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:59:39,503 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 20:59:39,503 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 20:59:39,503 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 20:59:39,505 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 20:59:39,505 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 20:59:39,513 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 20:59:39,513 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 21:02:51,411 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:02:51,412 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 21:02:51,413 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 21:02:55,342 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:02:55,343 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 21:02:55,348 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:02:56,485 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:02:56,486 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 21:02:56,486 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 21:02:56,486 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:02:56,488 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:02:56,488 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 21:02:56,494 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:02:56,494 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 21:04:10,861 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:04:10,863 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 21:04:10,867 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:04:12,015 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:04:12,016 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 21:04:12,016 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 21:04:12,016 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:04:12,019 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:04:12,019 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 21:04:12,024 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:04:12,025 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 21:05:42,229 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:05:42,229 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 21:05:42,229 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:05:42,237 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:05:42,237 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 21:05:42,238 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 21:05:42,238 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:05:42,245 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:05:42,245 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 21:05:42,249 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:05:42,249 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 21:24:04,779 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:24:04,780 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 21:24:04,780 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 21:24:08,280 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:24:08,282 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 21:24:08,286 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:24:09,439 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:24:09,440 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 21:24:09,440 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 21:24:09,440 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:24:09,442 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:24:09,442 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 21:24:09,447 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:24:09,447 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 21:26:38,641 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:26:38,641 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 21:26:49,754 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:26:49,755 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 21:26:49,755 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:26:49,762 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:26:49,762 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 21:26:49,762 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 21:26:49,762 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:26:49,765 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:26:49,765 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 21:26:49,768 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:26:49,768 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 21:30:24,877 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:30:24,879 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 21:30:24,884 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:30:25,989 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:30:25,990 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 21:30:25,990 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 21:30:25,990 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:30:25,992 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:30:25,992 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 21:30:25,997 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:30:25,999 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 21:32:18,995 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:32:18,997 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 21:32:19,001 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:32:20,105 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:32:20,106 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 21:32:20,106 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 21:32:20,106 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:32:20,108 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:32:20,109 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 21:32:20,114 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:32:20,115 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 21:32:57,632 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:32:57,634 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 21:32:57,647 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:32:58,745 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:32:58,746 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 21:32:58,746 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 21:32:58,746 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:32:58,749 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:32:58,749 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 21:32:58,755 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:32:58,756 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 21:48:02,456 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:48:02,458 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 21:48:02,462 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:48:03,578 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:48:03,579 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 21:48:03,579 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 21:48:03,579 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:48:03,581 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:48:03,581 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 21:48:03,588 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:48:03,590 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 21:54:05,729 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:54:05,732 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 21:54:05,736 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:54:06,866 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:54:06,867 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 21:54:06,867 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 21:54:06,867 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:54:06,869 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:54:06,869 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 21:54:06,876 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:54:06,876 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 21:56:21,609 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:56:28,307 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 21:56:28,310 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 21:56:28,316 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:56:29,459 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:56:29,460 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 21:56:29,460 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 21:56:29,460 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 21:56:29,462 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 21:56:29,462 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 21:56:29,467 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 21:56:29,467 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 22:09:12,501 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:09:12,503 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 22:09:12,506 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:09:13,623 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:09:13,623 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:09:13,624 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 22:09:13,624 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:09:13,626 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:09:13,626 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 22:09:13,631 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 22:09:13,632 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 22:10:05,089 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:10:05,091 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 22:10:05,110 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:10:06,229 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:10:06,230 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:10:06,230 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 22:10:06,230 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:10:06,235 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:10:06,235 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 22:10:06,241 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 22:10:06,243 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 22:13:41,671 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:13:41,673 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 22:13:41,677 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:13:42,795 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:13:42,795 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:13:42,796 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 22:13:42,796 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:13:42,797 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:13:42,798 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 22:13:42,802 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 22:13:42,803 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 22:14:38,934 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:14:38,936 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 22:14:38,956 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:14:40,101 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:14:40,102 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:14:40,102 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 22:14:40,102 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:14:40,105 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:14:40,105 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 22:14:40,110 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 22:14:40,111 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 22:23:19,757 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:23:19,758 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 22:23:19,762 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:23:20,950 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:23:20,951 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:23:20,951 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 22:23:20,951 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:23:20,953 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:23:20,953 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 22:23:20,959 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 22:23:20,960 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 22:26:03,908 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:26:03,910 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 22:26:03,915 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:26:05,108 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:26:05,109 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:26:05,109 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 22:26:05,109 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:26:05,111 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:26:05,111 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 22:26:05,116 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 22:26:05,117 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 22:26:27,475 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:26:27,477 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 22:26:27,496 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:26:28,654 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:26:28,655 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:26:28,655 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 22:26:28,655 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:26:28,657 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:26:28,657 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 22:26:28,662 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 22:26:28,664 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 22:26:54,930 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:26:54,933 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 22:26:54,938 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:26:56,130 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:26:56,131 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:26:56,131 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 22:26:56,131 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:26:56,133 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:26:56,134 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 22:26:56,139 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 22:26:56,140 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 22:30:07,684 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:30:07,684 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 22:30:07,684 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:30:07,689 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:30:07,689 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:30:07,689 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 22:30:07,689 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:30:07,693 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:30:07,693 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 22:30:07,696 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 22:30:07,696 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 22:33:42,398 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:33:47,786 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:34:45,158 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 22:34:45,159 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 22:34:45,160 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 22:34:47,885 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 22:34:47,887 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 22:34:47,892 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:34:49,297 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 22:34:49,297 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+23 Oct 2014 22:34:49,298 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:34:49,298 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login failed
+23 Oct 2014 22:34:49,298 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 22:34:49,304 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 22:34:49,304 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 22:45:48,158 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 22:45:49,502 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 22:45:49,508 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 22:45:49,514 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 22:45:49,519 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 22:45:49,520 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 22:45:49,520 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 22:45:49,542 DEBUG [com.poornama.data.dao.UserRoleDAO] getByName()
+23 Oct 2014 22:45:49,543 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:45:49,549 DEBUG [com.poornama.data.dao.UserDAO] create()
+23 Oct 2014 22:45:49,550 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:45:49,557 DEBUG [com.poornama.data.dao.UserDAO] create()
+23 Oct 2014 22:45:49,560 DEBUG [com.poornama.data.dao.UserRoleDAO] getByName()
+23 Oct 2014 22:45:49,560 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 22:45:49,568 DEBUG [com.poornama.data.dao.UserDAO] create()
+23 Oct 2014 23:14:38,754 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 23:14:38,754 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 23:14:38,754 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 23:14:42,699 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 23:14:42,699 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 23:14:42,699 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 23:14:42,737 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 23:14:42,737 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 23:14:42,737 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 23:14:42,737 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 23:14:42,740 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 23:14:42,740 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 23:14:42,742 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 23:14:42,742 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard

@@ -4,6 +4,9 @@ import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.data.objects.UserRole;
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
 
 /**
  * Created by dedunu on 10/23/14.
@@ -51,6 +54,19 @@ public class UserRoleDAO {
         databaseSession.commitTransaction();
         databaseSession.close();
         log.debug("[" + className + "] getById()");
+        return userRole;
+    }
+
+    public UserRole getByName(String name) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(UserRole.class);
+        SimpleExpression simpleExpression = Restrictions.eq("name", name);
+        UserRole userRole = (UserRole) criteria.add(simpleExpression)
+                .uniqueResult();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        log.debug("[" + className + "] getByName()");
         return userRole;
     }
 }
