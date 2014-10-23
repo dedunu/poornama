@@ -1,0 +1,794 @@
+22 Oct 2014 22:08:18,954 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:18,955 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:18,955 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,173 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,174 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,174 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,376 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,377 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,377 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,593 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,594 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,594 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,995 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,995 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:55,995 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:56,287 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:56,287 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:56,287 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:56,626 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:56,626 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:08:56,626 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:13:47,471 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:13:47,473 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:13:47,473 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:14:40,278 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:14:40,279 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:14:40,279 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:14:40,472 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:14:40,474 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:14:40,474 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:15:14,949 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:15:14,950 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:15:14,950 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:15:32,860 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:15:32,861 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:15:32,861 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:16:09,868 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:16:09,869 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:16:09,869 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:18:17,778 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:18:17,780 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:18:17,780 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:18:19,171 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:18:19,172 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:18:19,172 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:18:22,929 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:18:22,929 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:18:22,929 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:13,388 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:13,389 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:13,389 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:13,623 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:13,624 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:13,624 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:13,875 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:13,875 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:13,875 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:14,099 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:14,099 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:14,099 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:14,331 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:14,332 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:14,332 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:14,723 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:14,723 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:14,723 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:16,077 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:16,077 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:21:16,077 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:23:02,203 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:23:02,204 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:23:02,204 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:33,413 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:33,414 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:33,414 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:33,829 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:33,830 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:33,830 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:34,196 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:34,196 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:34,196 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:34,632 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:34,632 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:34,632 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:35,213 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:35,214 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:35,214 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:35,515 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:35,515 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:35,515 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:35,803 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:35,803 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:35,803 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,053 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,053 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,053 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,307 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,307 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,307 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,513 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,513 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,513 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,747 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,747 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,747 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,928 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,928 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:36,928 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:37,101 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:37,101 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:37,101 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:37,749 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:37,749 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:37,749 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:38,773 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:38,773 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:25:38,773 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:26:32,785 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:26:32,786 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:26:32,786 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:24,895 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:24,896 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:24,896 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:31,317 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:31,318 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:31,318 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:31,577 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:31,580 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:31,580 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:57,342 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:57,343 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:57,343 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:57,528 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:57,532 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:57,532 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:57,764 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:57,765 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:57,765 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:58,262 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:58,262 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:58,262 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:58,948 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:58,948 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:58,948 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:59,715 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:59,715 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:27:59,715 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:28:00,654 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:28:00,654 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+22 Oct 2014 22:28:00,654 INFO  GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:04:04,166 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:04:15,961 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:04:16,556 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:04:16,897 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:04:17,072 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:04:17,232 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:04:18,372 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:04:18,545 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:04:18,719 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:04:19,209 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:05:02,118 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:05:03,315 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:05:04,106 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:05:04,855 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:05:05,570 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:05:06,399 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:05:57,984 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:06:52,700 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:06:57,433 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:06:58,087 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:23,515 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:24,984 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:25,609 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:26,124 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:26,290 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:26,458 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:26,627 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:26,792 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:26,957 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:27,117 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:27,507 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:27,672 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:27,843 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:28,003 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:28,175 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:28,622 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:29,117 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:29,292 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:29,452 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:30,061 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:30,555 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:30,610 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:30,671 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:30,727 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:30,816 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:30,925 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:30,990 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,086 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,174 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,274 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,358 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,468 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,511 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,561 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,611 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,655 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,678 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,743 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,786 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,841 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,953 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:31,994 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:32,070 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:32,164 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:32,275 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:32,369 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:33,326 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:11:33,632 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:17:54,577 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:19:13,961 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:19:13,962 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: request is not null
+23 Oct 2014 11:19:13,963 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: session is not null
+23 Oct 2014 11:22:39,298 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:22:39,299 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: session is not null
+23 Oct 2014 11:24:59,850 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:24:59,852 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: session is not null
+23 Oct 2014 11:26:50,661 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:26:50,663 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: isLoggedIn=false
+23 Oct 2014 11:26:52,045 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:26:53,097 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:26:53,929 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:26:54,498 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:26:54,690 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:28:05,201 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:28:05,202 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: isLoggedIn=false
+23 Oct 2014 11:30:42,589 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:30:42,590 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 11:30:49,578 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:30:57,250 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:30:59,222 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:30:59,899 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:31:00,336 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:31:00,824 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:31:01,159 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:15,185 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:15,186 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 11:34:15,186 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 11:34:39,515 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:46,776 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:50,785 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:51,285 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:51,524 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:51,703 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:51,893 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:52,091 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:52,295 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:52,483 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:52,679 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:52,868 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:34:53,055 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:37:03,927 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:37:03,928 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 11:37:03,928 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 11:37:09,447 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:37:09,450 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 11:37:13,674 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:37:13,674 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 11:38:57,311 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:38:57,313 ERROR GlobalLogger : [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 11:38:57,314 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 11:39:03,044 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:39:03,044 DEBUG GlobalLogger : [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 11:45:50,894 DEBUG GlobalLogger : [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 11:49:18,113 DEBUG GlobalLogger : [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 11:51:29,474 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 11:53:00,759 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:53:00,760 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 11:53:00,760 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 11:53:03,030 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:53:03,030 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 11:53:07,563 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 11:53:07,563 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 12:00:24,622 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 12:00:36,902 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 12:00:36,903 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 12:00:36,903 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 12:00:58,991 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 12:01:03,110 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 12:01:03,111 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 12:01:03,111 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 12:01:04,698 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 12:01:04,700 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 12:10:04,930 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 12:10:32,857 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 12:10:32,859 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 12:10:32,859 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 12:11:55,155 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 12:12:18,916 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 12:12:18,917 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 12:12:18,918 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 12:12:26,191 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 12:12:26,192 DEBUG [com.poornama.web.controller.SessionController] login: redirecting to dashboard
+23 Oct 2014 12:42:24,814 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 12:42:34,383 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 12:42:34,383 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 12:42:34,384 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 12:42:45,402 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 12:42:45,403 DEBUG [com.poornama.web.controller.SessionController] login: redirecting to dashboard
+23 Oct 2014 12:58:14,203 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 12:58:14,225 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 12:58:15,721 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 12:58:39,265 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 12:58:39,281 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 12:58:40,394 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 12:59:44,781 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 12:59:44,795 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 12:59:45,838 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:01:58,716 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:01:58,731 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:01:59,773 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:01:59,791 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:03:16,374 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:03:16,393 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:03:17,708 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:03:17,725 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:04:00,885 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:04:00,903 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:04:01,926 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:04:01,942 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:04:19,244 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:04:19,260 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:04:20,263 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:04:20,280 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:19:23,421 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:19:23,443 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:19:24,664 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:19:24,686 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:19:35,635 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:19:35,635 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 13:19:35,635 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 13:19:39,976 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 13:19:39,977 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 13:19:39,982 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:19:41,129 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+23 Oct 2014 13:19:41,129 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 13:20:03,275 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:20:03,292 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:20:04,281 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:20:04,301 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:22:24,278 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:22:24,279 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 13:22:24,279 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 13:22:30,346 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 13:22:30,347 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 13:22:30,351 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:22:31,502 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+23 Oct 2014 13:22:31,503 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 13:47:35,197 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:47:35,217 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:47:36,213 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:47:36,226 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:47:52,446 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:47:52,464 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:47:53,455 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:47:53,473 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:48:16,907 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:48:16,920 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:48:17,882 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:48:17,903 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:49:33,389 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:49:33,406 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:49:34,637 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:49:34,659 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:49:46,208 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:49:46,209 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 13:49:46,209 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 13:56:09,250 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:56:09,265 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:56:10,327 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:56:10,343 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:56:26,603 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:56:26,605 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 13:56:26,605 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 13:57:45,246 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:57:45,260 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 13:57:46,265 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:57:46,281 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:57:51,650 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:57:51,652 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 13:57:51,653 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 13:57:54,639 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 13:57:54,640 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 13:57:54,644 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:57:56,614 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+23 Oct 2014 13:57:56,615 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 13:57:56,622 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:57:56,622 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 13:58:00,088 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 13:58:00,088 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 13:58:00,088 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 13:58:00,090 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+23 Oct 2014 13:58:00,090 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 13:58:00,096 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:00,096 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 13:58:33,847 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:33,847 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:33,993 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:33,993 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:37,785 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:37,785 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:38,381 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:38,381 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:38,572 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:38,572 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:38,738 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:38,738 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:38,897 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:38,898 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:39,055 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:39,055 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:39,217 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:39,217 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:39,373 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:39,373 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:39,873 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:39,873 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:39,938 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:39,938 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,037 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,038 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,111 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,111 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,137 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,137 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,188 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,188 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,245 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,246 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,329 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,329 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,396 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,396 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,479 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,479 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,500 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,500 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,553 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,553 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,626 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,626 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,666 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,666 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,710 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,710 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,733 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,734 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,738 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,738 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,795 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,795 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,889 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,889 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:40,927 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:40,927 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:41,006 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:41,006 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:41,079 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:41,079 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:41,153 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:41,153 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:41,225 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:41,225 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:41,300 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:41,300 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 13:58:41,336 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 13:58:41,336 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 14:08:03,863 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:08:03,875 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:08:04,946 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:08:04,962 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:08:52,365 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:08:52,366 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 14:08:52,366 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:08:52,723 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:08:52,728 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 14:08:53,458 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:08:53,458 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 14:11:19,251 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:11:20,214 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:11:20,215 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:11:20,240 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:11:20,267 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:12:21,959 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:12:22,919 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:12:22,919 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:12:22,943 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:12:22,969 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:12:39,947 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:12:40,962 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:12:40,964 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:12:40,991 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:12:41,017 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:34:12,723 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:34:12,735 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:34:13,807 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:34:13,807 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:34:13,810 ERROR Duplicate entry 'dedunumax' for key 'UK_hl8fftx66p59oqgkkcfit3eay'
+23 Oct 2014 14:34:13,815 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:35:04,844 ERROR Lock wait timeout exceeded; try restarting transaction
+23 Oct 2014 14:35:04,847 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:35:39,523 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:35:39,535 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:35:40,472 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:35:40,473 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:35:40,475 ERROR Duplicate entry 'dedunumax' for key 'UK_hl8fftx66p59oqgkkcfit3eay'
+23 Oct 2014 14:35:40,480 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:36:23,269 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:36:23,288 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:36:29,777 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:36:29,777 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:36:29,779 ERROR Duplicate entry 'dedunumax' for key 'UK_hl8fftx66p59oqgkkcfit3eay'
+23 Oct 2014 14:36:29,783 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:37:20,810 ERROR Lock wait timeout exceeded; try restarting transaction
+23 Oct 2014 14:37:20,812 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:37:45,793 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:37:45,806 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:37:46,990 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:37:46,991 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:37:46,993 ERROR Duplicate entry 'dedunumax' for key 'UK_hl8fftx66p59oqgkkcfit3eay'
+23 Oct 2014 14:37:46,997 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:40:59,886 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:40:59,889 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:41:01,688 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:41:01,718 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:41:01,719 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 14:41:01,719 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:41:04,785 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 14:41:04,787 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 14:41:04,787 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:41:04,832 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 14:41:04,838 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:41:04,838 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:41:06,185 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 14:41:06,185 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 14:41:06,185 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:41:06,188 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 14:41:06,195 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:41:06,195 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:41:29,162 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:41:29,162 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 14:41:29,162 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:41:32,700 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 14:41:32,700 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 14:41:32,700 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:41:32,703 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 14:41:32,708 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:41:32,708 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:41:39,971 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 14:41:39,971 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 14:41:39,971 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:41:39,975 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 14:41:39,977 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:41:39,977 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:42:31,274 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:42:31,275 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:42:38,361 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:42:38,361 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 14:42:38,361 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:42:45,273 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 14:42:45,273 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 14:42:45,273 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:42:45,286 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 14:42:45,290 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:42:45,290 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:42:54,699 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 14:42:54,699 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 14:42:54,699 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:42:54,703 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 14:42:54,705 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:42:54,706 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:44:11,359 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:44:11,382 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:45:06,993 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:45:06,997 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:45:07,635 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:45:07,636 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:45:08,257 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:45:14,568 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:45:14,568 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 14:45:14,568 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:45:17,422 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 14:45:17,423 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 14:45:17,423 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:45:17,460 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login failed
+23 Oct 2014 14:45:17,460 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 14:45:17,463 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:45:17,463 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:53:59,857 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:53:59,858 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 14:53:59,858 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:54:09,089 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:54:09,091 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:54:09,498 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:54:09,498 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:54:10,330 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:54:12,173 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:54:12,173 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 14:54:15,641 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 14:54:15,642 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 14:54:15,642 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:54:15,674 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:54:15,674 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 14:54:15,674 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 14:54:15,677 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:54:15,677 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 14:54:30,168 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:54:30,168 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 14:54:51,314 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 14:54:51,314 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 14:54:51,314 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:54:51,318 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:54:51,318 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 14:54:51,318 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 14:54:51,322 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:54:51,322 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 14:55:06,744 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 14:55:06,745 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 14:55:06,745 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 14:55:06,746 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+23 Oct 2014 14:55:06,746 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 14:55:06,747 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login failed
+23 Oct 2014 14:55:06,747 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 14:55:06,751 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 14:55:06,751 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:02:26,918 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:02:26,932 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:04:26,342 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:04:26,354 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:05:39,844 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:05:39,847 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:05:40,395 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:05:40,396 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:05:41,408 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:08:43,401 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:08:43,402 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 15:08:43,402 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:08:46,493 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:08:46,494 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:08:46,499 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:08:47,711 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:08:47,711 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+23 Oct 2014 15:08:47,712 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:08:47,712 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login failed
+23 Oct 2014 15:08:47,712 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 15:08:47,717 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:08:47,717 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:08:50,722 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:08:50,722 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:08:50,722 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:08:50,726 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:08:50,726 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+23 Oct 2014 15:08:50,726 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:08:50,726 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login failed
+23 Oct 2014 15:08:50,726 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+23 Oct 2014 15:08:50,734 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:08:50,734 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:08:54,179 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:08:54,179 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:08:54,233 DEBUG [com.poornama.data.dao.UserDAO] create()
+23 Oct 2014 15:08:54,233 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:08:54,240 DEBUG [com.poornama.data.dao.UserDAO] create()
+23 Oct 2014 15:08:54,567 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:08:54,567 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:08:58,139 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:08:58,139 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:09:01,027 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:09:01,027 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:09:04,956 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:09:04,956 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:09:04,956 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:09:04,966 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:09:04,966 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:09:04,966 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 15:09:04,966 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 15:09:04,974 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:09:04,974 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 15:18:35,534 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:18:35,535 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 15:18:35,535 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:18:40,076 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:18:40,077 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:18:40,090 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:18:42,328 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:18:42,328 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:18:42,328 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:18:43,811 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:18:43,811 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:18:43,811 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:18:45,044 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:18:45,044 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:18:45,044 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:18:48,790 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:18:48,790 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:18:48,790 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:25:22,585 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:25:22,586 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 15:25:22,586 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:25:26,785 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:25:26,786 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:25:26,798 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:25:27,902 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:25:27,903 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:25:27,903 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 15:25:27,903 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 15:25:27,908 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:25:27,908 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 15:26:21,643 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:26:21,644 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 15:26:21,645 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:26:30,434 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:26:30,436 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:26:30,439 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:26:31,537 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:26:31,538 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:26:31,538 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 15:26:31,538 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 15:26:31,542 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:26:31,542 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 15:29:30,886 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:29:30,886 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 15:29:30,886 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:32:51,330 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:32:51,332 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 15:32:51,332 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:32:55,322 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:32:55,323 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:32:55,327 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:32:56,395 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:32:56,396 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:32:56,396 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 15:32:56,396 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 15:32:56,401 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:32:56,401 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 15:34:11,154 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:34:11,154 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 15:36:34,384 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:36:34,385 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 15:36:34,385 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:36:37,816 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:36:37,818 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:36:37,822 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:36:38,967 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:36:38,968 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:36:38,968 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 15:36:38,968 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 15:36:38,973 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:36:38,973 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 15:43:46,469 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:43:46,471 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 15:43:46,472 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:43:51,501 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:43:51,503 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:43:51,507 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:43:52,976 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:43:52,977 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:43:52,977 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 15:43:52,977 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 15:43:52,982 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:43:52,982 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 15:54:17,962 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:54:17,963 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+23 Oct 2014 15:54:17,963 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+23 Oct 2014 15:54:23,498 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:54:23,499 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:54:23,503 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:54:24,599 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:54:24,600 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:54:24,600 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 15:54:24,600 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:54:24,601 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:54:24,601 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 15:54:24,606 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:54:24,606 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 15:54:42,607 DEBUG [com.poornama.web.controller.SessionController] login: login()
+23 Oct 2014 15:54:42,607 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+23 Oct 2014 15:54:42,607 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:54:42,616 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:54:42,616 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 15:54:42,616 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Login success
+23 Oct 2014 15:54:42,616 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 15:54:42,620 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 15:54:42,620 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
+23 Oct 2014 15:54:42,624 DEBUG [com.poornama.web.controller.MainController] index: index()
+23 Oct 2014 15:54:42,624 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard

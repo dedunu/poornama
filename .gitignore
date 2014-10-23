@@ -1,0 +1,7 @@
+*.class
+*.ear
+*.jar
+*.war
+target/
+.idea/
+poornama.iml

@@ -1,0 +1,31 @@
+
+User Login
+
+Attendence
+
+Employee Creation
+
+Employee type
+	Owner
+	Manager
+	Driver
+	Cleaner
+	Technician
+
+Bank Account
+	Cheque management
+	Bank account balance management
+	cheque reminder
+
+
+Vehicle
+	Vehicle reminder	
+		insurance
+		license
+		repair
+		service
+	milage
+	vehicle type
+
+
+		
