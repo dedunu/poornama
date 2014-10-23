@@ -46,7 +46,8 @@ public class UserDAOTest {
         user1.setUserName("doe3");
         user1.setPassword("rootroot");
         userDAO.create(user1);
-        User user = userDAO.getByUserName("deo3");
+        User user = userDAO.getByUserName("doe3");
         userDAO.delete(user);
+        Assert.assertTrue(true);
     }
 }

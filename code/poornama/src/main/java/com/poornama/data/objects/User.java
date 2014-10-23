@@ -17,6 +17,9 @@ public class User {
     private String userName;
     private String displayName;
     private String password;
+    @ManyToOne
+    @JoinColumn(name = "userRoleId")
+    private UserRole userRole;
 
     public String getUserName() {
         return userName;
@@ -28,6 +31,14 @@ public class User {
 
     public String getDisplayName() {
         return displayName;
+    }
+
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
     }
 
     public void setDisplayName(String displayName) {

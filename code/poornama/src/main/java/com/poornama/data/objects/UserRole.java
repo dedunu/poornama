@@ -6,12 +6,22 @@ import javax.persistence.*;
  * Created by dedunu on 10/22/14.
  */
 @Entity
-@Table
-public class UserType {
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
+public class UserRole {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name = "name")
     private String name;
+    private String displayName;
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
 
     public int getId() {
         return id;

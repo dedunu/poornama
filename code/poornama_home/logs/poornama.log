@@ -792,3 +792,84 @@
 23 Oct 2014 15:54:42,620 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
 23 Oct 2014 15:54:42,624 DEBUG [com.poornama.web.controller.MainController] index: index()
 23 Oct 2014 15:54:42,624 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+23 Oct 2014 16:26:01,434 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:26:02,531 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 16:26:19,754 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:26:20,641 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 16:26:20,641 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:26:20,646 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 16:26:20,659 DEBUG [com.poornama.data.dao.UserRoleDAO] delete()
+23 Oct 2014 16:26:38,321 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:26:38,332 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:26:39,260 DEBUG [com.poornama.data.dao.UserDAO] create()
+23 Oct 2014 16:26:39,280 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 16:26:39,281 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:26:39,281 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:26:39,293 DEBUG [com.poornama.data.dao.UserDAO] create()
+23 Oct 2014 16:26:39,293 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:26:39,293 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:26:39,303 DEBUG [com.poornama.data.dao.UserDAO] create()
+23 Oct 2014 16:26:39,306 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 16:26:39,314 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:26:39,320 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 16:26:39,321 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:26:39,327 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 16:26:39,327 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:26:39,334 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 16:26:39,350 DEBUG [com.poornama.data.dao.UserRoleDAO] delete()
+23 Oct 2014 16:27:13,301 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:27:13,314 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:27:14,170 ERROR Duplicate entry 'doe3' for key 'UK_hl8fftx66p59oqgkkcfit3eay'
+23 Oct 2014 16:27:44,282 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:27:44,293 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:27:45,132 ERROR Duplicate entry 'doe2' for key 'UK_hl8fftx66p59oqgkkcfit3eay'
+23 Oct 2014 16:27:45,137 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:27:45,138 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:27:45,143 ERROR Duplicate entry 'doe1' for key 'UK_hl8fftx66p59oqgkkcfit3eay'
+23 Oct 2014 16:27:45,145 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:27:45,146 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:27:45,152 ERROR Duplicate entry 'doe3' for key 'UK_hl8fftx66p59oqgkkcfit3eay'
+23 Oct 2014 16:27:45,154 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:27:45,176 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 16:27:45,176 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:27:45,187 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 16:27:45,187 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:27:45,193 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 16:27:45,212 DEBUG [com.poornama.data.dao.UserRoleDAO] delete()
+23 Oct 2014 16:27:53,164 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:27:53,175 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:27:54,047 ERROR Duplicate entry 'doe2' for key 'UK_hl8fftx66p59oqgkkcfit3eay'
+23 Oct 2014 16:27:54,052 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:27:54,052 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:27:54,057 ERROR Duplicate entry 'doe1' for key 'UK_hl8fftx66p59oqgkkcfit3eay'
+23 Oct 2014 16:27:54,059 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:27:54,060 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:27:54,067 ERROR Duplicate entry 'doe3' for key 'UK_hl8fftx66p59oqgkkcfit3eay'
+23 Oct 2014 16:27:54,069 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:27:54,094 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 16:27:54,095 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:27:54,105 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 16:27:54,106 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:27:54,110 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 16:27:54,122 DEBUG [com.poornama.data.dao.UserRoleDAO] delete()
+23 Oct 2014 16:35:08,009 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:35:08,021 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:35:09,012 DEBUG [com.poornama.data.dao.UserDAO] create()
+23 Oct 2014 16:35:09,031 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 16:35:09,032 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:35:09,032 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:35:09,042 DEBUG [com.poornama.data.dao.UserDAO] create()
+23 Oct 2014 16:35:09,042 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:35:09,043 DEBUG [com.poornama.api.security.PasswordHash] getHash
+23 Oct 2014 16:35:09,048 DEBUG [com.poornama.data.dao.UserDAO] create()
+23 Oct 2014 16:35:09,055 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 16:35:09,067 DEBUG [com.poornama.data.dao.UserDAO] delete()
+23 Oct 2014 16:35:09,067 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+23 Oct 2014 16:35:09,069 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+23 Oct 2014 16:35:09,070 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:35:09,074 DEBUG [com.poornama.data.dao.UserRoleDAO] getById()
+23 Oct 2014 16:35:09,077 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:35:09,084 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 16:35:09,085 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+23 Oct 2014 16:35:09,089 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+23 Oct 2014 16:35:09,093 DEBUG [com.poornama.data.dao.UserRoleDAO] delete()
