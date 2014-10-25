@@ -6,6 +6,8 @@ import java.util.Date;
 /**
  * Created by dedunu on 10/21/14.
  */
+@Entity
+@Table
 public class EmployeeAttendance {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

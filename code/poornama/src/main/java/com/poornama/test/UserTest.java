@@ -12,7 +12,7 @@ public class UserTest {
     public void runTest(){
         UserDAO userDAO = new UserDAO();
         UserRoleDAO userRoleDAO = new UserRoleDAO();
-        UserRole userRole = new UserRole();
+        UserRole userRole;
 
         userRole = userRoleDAO.getByName("admin");
 

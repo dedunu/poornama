@@ -30,10 +30,10 @@ public class Authentication {
         String hashPassword = passwordHash.getHash(username, password);
 
         if(hashedPasswordDB.equals(hashPassword)){
-            log.debug("[" + className + "] doAuthenticate: Login success");
+            log.info("[" + className + "] doAuthenticate: Login success " + username);
             return true;
         } else {
-            log.debug("[" + className + "] doAuthenticate: Login failed");
+            log.info("[" + className + "] doAuthenticate: Login failed " + username);
             return false;
         }
     }

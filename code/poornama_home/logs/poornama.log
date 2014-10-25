@@ -1271,3 +1271,184 @@
 23 Oct 2014 23:14:42,740 DEBUG [com.poornama.web.controller.SessionController] login: Sucess, redirecting to home controller
 23 Oct 2014 23:14:42,742 DEBUG [com.poornama.web.controller.MainController] index: index()
 23 Oct 2014 23:14:42,742 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=true, redirecting to user/dashboard
+24 Oct 2014 01:02:12,667 DEBUG [com.poornama.web.configuration.SpringConfiguration] onStartup()
+24 Oct 2014 01:02:12,741 DEBUG [com.poornama.web.configuration.SpringConfiguration] onStartup : completed successfully.
+24 Oct 2014 01:02:13,459 DEBUG [com.poornama.web.configuration.SpringConfiguration] setupViewResolver()
+24 Oct 2014 01:02:39,859 DEBUG [com.poornama.web.controller.MainController] index: index()
+24 Oct 2014 01:02:39,861 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+24 Oct 2014 01:02:39,861 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+24 Oct 2014 01:02:42,506 DEBUG [com.poornama.web.controller.SessionController] login: login()
+24 Oct 2014 01:02:42,507 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+24 Oct 2014 01:02:42,512 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+24 Oct 2014 01:02:42,514 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:02:42,515 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:02:42,517 DEBUG [com.poornama.api.db.SessionFactoryGenerator] buildSessionFactory()
+24 Oct 2014 01:02:44,285 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:02:44,334 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:02:44,334 DEBUG [com.poornama.api.db.DatabaseSession] createCriteria()
+24 Oct 2014 01:02:44,382 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:02:44,383 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:02:44,385 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+24 Oct 2014 01:02:44,385 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+24 Oct 2014 01:02:44,386 DEBUG [com.poornama.api.security.PasswordHash] getHash
+24 Oct 2014 01:02:44,386 INFO  [com.poornama.logic.Authentication] doAuthenticate: Login failed dedunumax
+24 Oct 2014 01:02:44,386 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+24 Oct 2014 01:02:44,394 DEBUG [com.poornama.web.controller.MainController] index: index()
+24 Oct 2014 01:02:44,394 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+24 Oct 2014 01:02:52,929 DEBUG [com.poornama.web.controller.SessionController] login: login()
+24 Oct 2014 01:02:52,930 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+24 Oct 2014 01:02:52,930 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+24 Oct 2014 01:02:52,930 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:02:52,930 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:02:52,930 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:02:52,930 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:02:52,930 DEBUG [com.poornama.api.db.DatabaseSession] createCriteria()
+24 Oct 2014 01:02:52,936 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:02:52,937 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:02:52,937 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+24 Oct 2014 01:02:52,937 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+24 Oct 2014 01:02:52,938 DEBUG [com.poornama.api.security.PasswordHash] getHash
+24 Oct 2014 01:02:52,938 INFO  [com.poornama.logic.Authentication] doAuthenticate: Login failed dedunumax
+24 Oct 2014 01:02:52,938 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+24 Oct 2014 01:02:52,941 DEBUG [com.poornama.web.controller.MainController] index: index()
+24 Oct 2014 01:02:52,941 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+24 Oct 2014 01:03:03,275 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+24 Oct 2014 01:03:03,277 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:03,277 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:03,278 DEBUG [com.poornama.api.db.SessionFactoryGenerator] buildSessionFactory()
+24 Oct 2014 01:03:04,837 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:04,870 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:04,870 DEBUG [com.poornama.api.db.DatabaseSession] save()
+24 Oct 2014 01:03:04,935 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:04,945 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:04,947 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+24 Oct 2014 01:03:04,947 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:04,947 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:04,947 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:04,947 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:04,948 DEBUG [com.poornama.api.db.DatabaseSession] save()
+24 Oct 2014 01:03:04,950 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:04,964 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:04,965 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+24 Oct 2014 01:03:04,965 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:04,965 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:04,965 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:04,965 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:04,965 DEBUG [com.poornama.api.db.DatabaseSession] save()
+24 Oct 2014 01:03:04,967 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:04,973 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:04,973 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+24 Oct 2014 01:03:04,973 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:04,973 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:04,973 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:04,974 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:04,974 DEBUG [com.poornama.api.db.DatabaseSession] save()
+24 Oct 2014 01:03:04,976 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:04,981 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:04,981 DEBUG [com.poornama.data.dao.UserRoleDAO] create()
+24 Oct 2014 01:03:04,982 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+24 Oct 2014 01:03:04,983 DEBUG [com.poornama.data.dao.UserRoleDAO] UserDAO: constructor()
+24 Oct 2014 01:03:04,983 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:04,983 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:04,983 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:04,983 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:04,983 DEBUG [com.poornama.api.db.DatabaseSession] createCriteria()
+24 Oct 2014 01:03:05,017 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:05,018 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:05,018 DEBUG [com.poornama.data.dao.UserRoleDAO] getByName()
+24 Oct 2014 01:03:05,018 DEBUG [com.poornama.api.security.PasswordHash] getHash
+24 Oct 2014 01:03:05,018 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:05,019 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:05,019 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:05,019 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:05,019 DEBUG [com.poornama.api.db.DatabaseSession] save()
+24 Oct 2014 01:03:05,022 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:05,028 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:05,029 DEBUG [com.poornama.data.dao.UserDAO] create()
+24 Oct 2014 01:03:05,029 DEBUG [com.poornama.api.security.PasswordHash] getHash
+24 Oct 2014 01:03:05,029 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:05,029 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:05,029 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:05,029 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:05,029 DEBUG [com.poornama.api.db.DatabaseSession] save()
+24 Oct 2014 01:03:05,031 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:05,036 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:05,036 DEBUG [com.poornama.data.dao.UserDAO] create()
+24 Oct 2014 01:03:05,036 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:05,036 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:05,036 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:05,037 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:05,037 DEBUG [com.poornama.api.db.DatabaseSession] createCriteria()
+24 Oct 2014 01:03:05,038 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:05,039 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:05,039 DEBUG [com.poornama.data.dao.UserRoleDAO] getByName()
+24 Oct 2014 01:03:05,039 DEBUG [com.poornama.api.security.PasswordHash] getHash
+24 Oct 2014 01:03:05,039 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:05,039 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:05,039 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:05,040 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:05,040 DEBUG [com.poornama.api.db.DatabaseSession] save()
+24 Oct 2014 01:03:05,041 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:05,047 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:05,047 DEBUG [com.poornama.data.dao.UserDAO] create()
+24 Oct 2014 01:03:18,308 DEBUG [com.poornama.web.configuration.SpringConfiguration] onStartup()
+24 Oct 2014 01:03:18,376 DEBUG [com.poornama.web.configuration.SpringConfiguration] onStartup : completed successfully.
+24 Oct 2014 01:03:19,137 DEBUG [com.poornama.web.configuration.SpringConfiguration] setupViewResolver()
+24 Oct 2014 01:03:35,008 DEBUG [com.poornama.web.controller.MainController] index: index()
+24 Oct 2014 01:03:35,009 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+24 Oct 2014 01:03:35,009 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+24 Oct 2014 01:03:37,459 DEBUG [com.poornama.web.controller.SessionController] login: login()
+24 Oct 2014 01:03:37,460 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+24 Oct 2014 01:03:37,464 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+24 Oct 2014 01:03:37,465 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:37,465 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:37,466 DEBUG [com.poornama.api.db.SessionFactoryGenerator] buildSessionFactory()
+24 Oct 2014 01:03:39,277 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:39,323 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:39,323 DEBUG [com.poornama.api.db.DatabaseSession] createCriteria()
+24 Oct 2014 01:03:39,385 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:39,387 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:39,389 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+24 Oct 2014 01:03:39,389 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+24 Oct 2014 01:03:39,390 DEBUG [com.poornama.api.security.PasswordHash] getHash
+24 Oct 2014 01:03:39,390 INFO  [com.poornama.logic.Authentication] doAuthenticate: Login failed dedunumax
+24 Oct 2014 01:03:39,391 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+24 Oct 2014 01:03:39,396 DEBUG [com.poornama.web.controller.MainController] index: index()
+24 Oct 2014 01:03:39,397 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+24 Oct 2014 01:03:45,045 DEBUG [com.poornama.web.controller.SessionController] login: login()
+24 Oct 2014 01:03:45,045 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+24 Oct 2014 01:03:45,045 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+24 Oct 2014 01:03:45,045 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:45,045 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:45,045 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:45,045 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:45,046 DEBUG [com.poornama.api.db.DatabaseSession] createCriteria()
+24 Oct 2014 01:03:45,052 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:45,052 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:45,052 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+24 Oct 2014 01:03:45,052 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+24 Oct 2014 01:03:45,052 DEBUG [com.poornama.api.security.PasswordHash] getHash
+24 Oct 2014 01:03:45,052 INFO  [com.poornama.logic.Authentication] doAuthenticate: Login failed dedunumax
+24 Oct 2014 01:03:45,052 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+24 Oct 2014 01:03:45,057 DEBUG [com.poornama.web.controller.MainController] index: index()
+24 Oct 2014 01:03:45,057 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+24 Oct 2014 01:03:49,996 DEBUG [com.poornama.web.controller.MainController] index: index()
+24 Oct 2014 01:03:49,996 ERROR [com.poornama.web.controller.MainController] index: NullPointerException
+24 Oct 2014 01:03:49,997 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login
+24 Oct 2014 01:03:54,254 DEBUG [com.poornama.web.controller.SessionController] login: login()
+24 Oct 2014 01:03:54,255 DEBUG [com.poornama.logic.Authentication] doAuthenticate: doAuthenticate()
+24 Oct 2014 01:03:54,255 DEBUG [com.poornama.data.dao.UserDAO] UserDAO: constructor()
+24 Oct 2014 01:03:54,255 DEBUG [com.poornama.api.db.DatabaseSession] constructor()
+24 Oct 2014 01:03:54,255 DEBUG [com.poornama.api.db.SessionGenerator] getSession()
+24 Oct 2014 01:03:54,255 DEBUG [com.poornama.api.db.SessionFactoryGenerator] getSessionFactory()
+24 Oct 2014 01:03:54,255 DEBUG [com.poornama.api.db.DatabaseSession] beginTransaction()
+24 Oct 2014 01:03:54,255 DEBUG [com.poornama.api.db.DatabaseSession] createCriteria()
+24 Oct 2014 01:03:54,259 DEBUG [com.poornama.api.db.DatabaseSession] commitTransaction()
+24 Oct 2014 01:03:54,259 DEBUG [com.poornama.api.db.DatabaseSession] close()
+24 Oct 2014 01:03:54,260 DEBUG [com.poornama.data.dao.UserDAO] getByUserName()
+24 Oct 2014 01:03:54,260 DEBUG [com.poornama.logic.Authentication] doAuthenticate: Couldn't retrieve user
+24 Oct 2014 01:03:54,260 DEBUG [com.poornama.api.security.PasswordHash] getHash
+24 Oct 2014 01:03:54,260 INFO  [com.poornama.logic.Authentication] doAuthenticate: Login failed dedunumax
+24 Oct 2014 01:03:54,260 DEBUG [com.poornama.web.controller.SessionController] login: failed redirecting to login page with error
+24 Oct 2014 01:03:54,263 DEBUG [com.poornama.web.controller.MainController] index: index()
+24 Oct 2014 01:03:54,263 DEBUG [com.poornama.web.controller.MainController] index: isLoggedIn=false, redirecting to user/login

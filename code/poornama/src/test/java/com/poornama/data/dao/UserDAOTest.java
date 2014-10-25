@@ -1,4 +1,4 @@
-package com.poornam.data.dao;
+package com.poornama.data.dao;
 
 import com.poornama.data.dao.UserDAO;
 import com.poornama.data.objects.User;
