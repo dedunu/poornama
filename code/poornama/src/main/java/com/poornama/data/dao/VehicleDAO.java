@@ -2,70 +2,70 @@ package com.poornama.data.dao;
 
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.data.objects.User;
+import com.poornama.data.objects.Vehicle;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 
 /**
- * Created by dedunu on 10/22/14.
+ * Created by dedunu on 11/4/14.
  */
-public class UserDAO {
+public class VehicleDAO {
     private static Logger log = GlobalLogger.getLogger();
-    private static String className = UserDAO.class.getName();
+    private static String className = VehicleDAO.class.getName();
 
-    public UserDAO() {
-        log.debug("[" + className + "] UserDAO: constructor()");
+    public VehicleDAO() {
+        log.debug("[" + className + "] VehicleDAO: constructor()");
     }
 
-    public void create(User user) {
+    public void create(Vehicle vehicle) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
-        databaseSession.save(user);
+        databaseSession.save(vehicle);
         databaseSession.commitTransaction();
         databaseSession.close();
         log.debug("[" + className + "] create()");
     }
 
-    public void delete(User user) {
+    public void delete(Vehicle vehicle) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
-        databaseSession.delete(user);
+        databaseSession.delete(vehicle);
         databaseSession.commitTransaction();
         databaseSession.close();
         log.debug("[" + className + "] delete()");
     }
 
-    public void update(User user) {
+    public void update(Vehicle vehicle) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
-        databaseSession.update(user);
+        databaseSession.update(vehicle);
         databaseSession.commitTransaction();
         databaseSession.close();
         log.debug("[" + className + "] update()");
     }
 
-    public User getById(int id) {
+    public Vehicle getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
-        User user = (User) databaseSession.getById(User.class, id);
+        Vehicle vehicle = (Vehicle) databaseSession.getById(Vehicle.class, id);
         databaseSession.commitTransaction();
         databaseSession.close();
         log.debug("[" + className + "] getById()");
-        return user;
+        return vehicle;
     }
 
-    public User getByUserName(String userName) {
+    public Vehicle getByVehicleNumber(String vehicleNumber) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
-        Criteria criteria = databaseSession.createCriteria(User.class);
-        SimpleExpression simpleExpression = Restrictions.eq("userName", userName);
-        User user = (User) criteria.add(simpleExpression)
+        Criteria criteria = databaseSession.createCriteria(Vehicle.class);
+        SimpleExpression simpleExpression = Restrictions.eq("vehicleNumber", vehicleNumber);
+        Vehicle vehicle = (Vehicle) criteria.add(simpleExpression)
                 .uniqueResult();
         databaseSession.commitTransaction();
         databaseSession.close();
-        log.debug("[" + className + "] getByUserName()");
-        return user;
+        log.debug("[" + className + "] getByVehicleNumber()");
+        return vehicle;
     }
 }

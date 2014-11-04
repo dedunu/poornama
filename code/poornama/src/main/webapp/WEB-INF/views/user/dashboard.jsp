@@ -37,6 +37,41 @@
     })
 </script>
 
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <i class="fa fa-check-square-o"></i> Attendance
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-success" id="create-attendance">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button type="button" class="btn btn-primary" id="search-attendance">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+            <button type="button" class="btn btn-primary" id="edit-attendance">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button type="button" class="btn btn-danger" id="delete-attendance">
+                <span class="glyphicon glyphicon-minus"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    $('#create-attendance').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/attendance/create";
+    })
+    $('#search-attendance').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/attendance/search";
+    })
+    $('#edit-attendance').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/attendance/edit";
+    })
+    $('#delete-attendance').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/attendance/delete";
+    })
+</script>
+
 <div class="panel panel-primary">
     <div class="panel-body">
         <i class="fa fa-truck"></i> Vehicle
@@ -68,6 +103,40 @@
     })
     $('#delete-vehicle').on('click', function (e) {
         window.location.href = "${pageContext.request.contextPath}/vehicle/delete";
+    })
+</script>
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <i class="fa fa-user"></i> User
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-success" id="create-user">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button type="button" class="btn btn-primary" id="search-user">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+            <button type="button" class="btn btn-primary" id="edit-user">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button type="button" class="btn btn-danger" id="delete-user">
+                <span class="glyphicon glyphicon-minus"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    $('#create-user').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/user/create";
+    })
+    $('#search-user').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/user/search";
+    })
+    $('#edit-user').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/user/edit";
+    })
+    $('#delete-user').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/user/delete";
     })
 </script>
 <br/>
