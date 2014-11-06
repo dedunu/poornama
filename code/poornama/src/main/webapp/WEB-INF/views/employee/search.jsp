@@ -3,7 +3,7 @@
 
 </style>
 <div class="row">
-    <div class="col-sm-6 col-md-6">
+    <div>
         <form class="navbar-form" role="search">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search" id="search" name="search">
@@ -17,11 +17,13 @@
         </form>
     </div>
 </div>
+
 <div class="row">
     <div id="tableContainer">
         ${table}
     </div>
 </div>
+
 <script>
 
     $("#btnSearch").click(function () {

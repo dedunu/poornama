@@ -10,15 +10,9 @@ import org.junit.Test;
  */
 @Ignore
 public class UserRoleTest {
-   /*
-        Owner
-        Manager
-        Driver
-        Cleaner
-        Technician
-    */
-   @Test
-    public void runTest(){
+
+    @Test
+    public void runTest() {
         UserRoleDAO userRoleDAO = new UserRoleDAO();
 
         UserRole userRole1 = new UserRole();

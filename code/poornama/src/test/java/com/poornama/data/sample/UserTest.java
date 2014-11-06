@@ -14,7 +14,7 @@ import org.junit.Test;
 public class UserTest {
 
     @Test
-    public void runTest(){
+    public void runTest() {
         UserDAO userDAO = new UserDAO();
         UserRoleDAO userRoleDAO = new UserRoleDAO();
         UserRole userRole;

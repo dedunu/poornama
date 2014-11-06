@@ -1,9 +1,10 @@
 package com.poornama.web.controller;
 
+import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
-import com.poornama.logic.PresentationList;
 import com.poornama.logic.object.EmployeeLogic;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,11 +22,14 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/employee/")
 public class EmployeeController {
+    private static Logger log = GlobalLogger.getLogger();
+    private static String className = EmployeeController.class.getName();
 
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model, HttpSession session) {
-        PresentationList presentationList = new PresentationList();
-        model.addAttribute("employeeList", presentationList.getEmployeeTypeSelectList());
+        EmployeeLogic employeeLogic = new EmployeeLogic();
+        model.addAttribute("employeeList", employeeLogic.getEmployeeTypeSelectList());
+        log.debug("[" + className + "] createForm()");
         return "employee/create";
     }
 
@@ -35,11 +39,14 @@ public class EmployeeController {
         Notification notification = employeeLogic.createPatient(request);
         model.addAttribute("message", notification.getMessage());
         if (notification.getNotificationType() == NotificationType.DANGER) {
+            log.error("[" + className + "] createEmployee: failed");
             return "notify/danger";
         }
         if (notification.getNotificationType() == NotificationType.SUCCESS) {
+            log.info("[" + className + "] createEmployee: success");
             return "notify/success";
         }
+        log.fatal("[" + className + "] createEmployee: cannot reach this phrase");
         return "redirect:/";
     }
 
@@ -60,6 +67,7 @@ public class EmployeeController {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         String table = employeeLogic.getEmployeeTable("");
         model.addAttribute("table", table);
+        log.debug("[" + className + "] searchForm()");
         return "employee/search";
     }
 
@@ -68,10 +76,14 @@ public class EmployeeController {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         String table = employeeLogic.getEmployeeTable(name);
         response.getWriter().print(table);
+        log.debug("[" + className + "] searchAJAX()");
     }
 
     @RequestMapping(value = "edit", method = RequestMethod.POST)
     public String editEmployee(Model model, HttpSession session) {
-        return "user/dashboard";
+        EmployeeLogic employeeLogic = new EmployeeLogic();
+        model.addAttribute("employeeList", employeeLogic.getEmployeeTypeSelectList());
+        log.debug("[" + className + "] editEmployee()");
+        return "user/edit";
     }
 }

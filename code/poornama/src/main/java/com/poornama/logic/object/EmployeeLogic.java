@@ -113,4 +113,15 @@ public class EmployeeLogic {
         return table;
     }
 
+    public String getEmployeeTypeSelectList() {
+        EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();
+        List<EmployeeType> employeeTypeList = employeeTypeDAO.getAll();
+        String list = "";
+        for (EmployeeType employeeType : employeeTypeList) {
+            list = list + "\t\t<option value =\"" + employeeType.getId() + "\">" + employeeType.getDisplayName() + "</option>\n";
+        }
+        log.debug("[" + className + "] getEmployeeTypeSelectList()");
+        return list;
+    }
+
 }
