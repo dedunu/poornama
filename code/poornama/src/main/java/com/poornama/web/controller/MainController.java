@@ -7,13 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/")
 public class MainController {
-
     private static Logger log = GlobalLogger.getLogger();
     private static String className = MainController.class.getName();
 
@@ -41,10 +39,4 @@ public class MainController {
             return "user/login";
         }
     }
-
-    @RequestMapping("test")
-    public String test(Model model, HttpServletRequest request) {
-        return "redirect:/";
-    }
-
 }

@@ -15,10 +15,11 @@ import javax.servlet.http.HttpSession;
 public class EmployeeController {
     @RequestMapping(value="create",method = RequestMethod.GET)
     public String createForm(Model model,HttpSession session){
-        return "";
+        return "user/dashboard";
     }
+
     @RequestMapping(value="create",method = RequestMethod.POST)
     public String createEmployee(Model model,HttpSession session){
-        return "";
+        return "user/dashboard";
     }
 }

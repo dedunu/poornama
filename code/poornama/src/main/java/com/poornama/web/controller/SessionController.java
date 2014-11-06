@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -57,8 +56,7 @@ public class SessionController {
     }
 
     @RequestMapping(value = "logout",method = RequestMethod.GET)
-    public String logout(Model model, HttpServletRequest request){
-        HttpSession session = request.getSession(true);
+    public String logout(Model model, HttpSession session) {
         log.debug("[" + className + "] logout: Logout User - " + session.getAttribute("userName").toString());
         session.setAttribute("displayName",null);
         session.setAttribute("userId",null);
