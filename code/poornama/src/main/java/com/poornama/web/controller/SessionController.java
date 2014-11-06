@@ -42,7 +42,7 @@ public class SessionController {
                 session.setAttribute("userName", userName);
                 session.setAttribute("isLoggedIn","true");
                 session.setAttribute("isLoginFailed", "false");
-                log.debug("[" + className + "] login: Sucess, redirecting to home controller");
+                log.debug("[" + className + "] login: Success, redirecting to home controller");
                 return "redirect:/";
             } else {
                 log.debug("[" + className + "] login: failed redirecting to login page with error");
@@ -59,11 +59,13 @@ public class SessionController {
     @RequestMapping(value = "logout",method = RequestMethod.GET)
     public String logout(Model model, HttpServletRequest request){
         HttpSession session = request.getSession(true);
+        log.debug("[" + className + "] logout: Logout User - " + session.getAttribute("userName").toString());
         session.setAttribute("displayName",null);
         session.setAttribute("userId",null);
         session.setAttribute("userName",null);
         session.setAttribute("isLoggedIn","false");
         session.setAttribute("isLoginFailed","false");
+        log.debug("[" + className + "] logout: Success, redirecting to user/logic");
         return "user/login";
     }
 }

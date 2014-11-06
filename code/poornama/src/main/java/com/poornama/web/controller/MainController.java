@@ -1,7 +1,6 @@
 package com.poornama.web.controller;
 
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.test.Test;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,9 +44,6 @@ public class MainController {
 
     @RequestMapping("test")
     public String test(Model model, HttpServletRequest request) {
-        Test test = new Test();
-        test.runTests();
-
         return "redirect:/";
     }
 

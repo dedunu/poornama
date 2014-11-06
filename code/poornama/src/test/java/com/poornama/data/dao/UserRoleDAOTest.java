@@ -1,9 +1,10 @@
 package com.poornama.data.dao;
 
-import com.poornama.data.dao.UserRoleDAO;
 import com.poornama.data.objects.UserRole;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Random;
 
 /**
  * Created by dedunu on 10/23/14.
@@ -15,8 +16,10 @@ public class UserRoleDAOTest {
     @Test
     public void createUserRole(){
         UserRole userRole = new UserRole();
-        userRole.setName("admin");
-        userRole.setDisplayName("Administrator");
+        Random random = new Random();
+        int value = random.nextInt(10000);
+        userRole.setName("test" + value);
+        userRole.setDisplayName("Temp" + value);
         userRoleDAO.create(userRole);
         Assert.assertTrue(true);
     }
@@ -24,17 +27,13 @@ public class UserRoleDAOTest {
     @Test
     public void deleteUser(){
         UserRole userRole = new UserRole();
-        userRole.setName("manager");
-        userRole.setDisplayName("Manager");
+        Random random = new Random();
+        int value = random.nextInt(10000);
+        userRole.setName("test" + value);
+        userRole.setDisplayName("Temp" + value);
         userRoleDAO.create(userRole);
         userRoleDAO.delete(userRole);
         Assert.assertTrue(true);
     }
 
-    @Test
-    public void cleanDatabase(){
-        UserRole userRole = new UserRole();
-        userRole = userRoleDAO.getById(1);
-        userRoleDAO.delete(userRole);
-    }
 }

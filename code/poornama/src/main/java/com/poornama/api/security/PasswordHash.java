@@ -24,7 +24,7 @@ public class PasswordHash {
             digest.update(plainText.getBytes(), 0, plainText.length());
             result = new BigInteger(1, digest.digest()).toString(16);
         } catch (NoSuchAlgorithmException e) {
-            log.error("[" + className + "] getHash: NoSuchAlgorithmException");
+
             e.printStackTrace();
         }
         log.debug("[" + className + "] getHash");

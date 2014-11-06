@@ -1,14 +1,19 @@
-package com.poornama.test;
+package com.poornama.data.sample;
 
 import com.poornama.data.dao.UserDAO;
 import com.poornama.data.dao.UserRoleDAO;
 import com.poornama.data.objects.User;
 import com.poornama.data.objects.UserRole;
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Created by dedunu on 10/23/14.
  */
+@Ignore
 public class UserTest {
+
+    @Test
     public void runTest(){
         UserDAO userDAO = new UserDAO();
         UserRoleDAO userRoleDAO = new UserRoleDAO();
@@ -38,7 +43,5 @@ public class UserTest {
         user3.setPassword("rootroot");
         user3.setUserRole(userRole);
         userDAO.create(user3);
-
-
     }
 }

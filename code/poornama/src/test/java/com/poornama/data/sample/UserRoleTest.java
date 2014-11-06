@@ -1,11 +1,14 @@
-package com.poornama.test;
+package com.poornama.data.sample;
 
 import com.poornama.data.dao.UserRoleDAO;
 import com.poornama.data.objects.UserRole;
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * Created by dedunu on 10/23/14.
  */
+@Ignore
 public class UserRoleTest {
    /*
         Owner
@@ -14,7 +17,7 @@ public class UserRoleTest {
         Cleaner
         Technician
     */
-
+   @Test
     public void runTest(){
         UserRoleDAO userRoleDAO = new UserRoleDAO();
 
