@@ -30,10 +30,10 @@
         window.location.href = "${pageContext.request.contextPath}/employee/search";
     })
     $('#edit-employee').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/employee/edit";
+        window.location.href = "${pageContext.request.contextPath}/employee/search";
     })
     $('#delete-employee').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/employee/delete";
+        window.location.href = "${pageContext.request.contextPath}/employee/search";
     })
 </script>
 
@@ -65,10 +65,10 @@
         window.location.href = "${pageContext.request.contextPath}/attendance/search";
     })
     $('#edit-attendance').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/attendance/edit";
+        window.location.href = "${pageContext.request.contextPath}/attendance/search";
     })
     $('#delete-attendance').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/attendance/delete";
+        window.location.href = "${pageContext.request.contextPath}/attendance/search";
     })
 </script>
 
@@ -99,10 +99,10 @@
         window.location.href = "${pageContext.request.contextPath}/vehicle/search";
     })
     $('#edit-vehicle').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/vehicle/edit";
+        window.location.href = "${pageContext.request.contextPath}/vehicle/search";
     })
     $('#delete-vehicle').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/vehicle/delete";
+        window.location.href = "${pageContext.request.contextPath}/vehicle/search";
     })
 </script>
 
@@ -133,10 +133,10 @@
         window.location.href = "${pageContext.request.contextPath}/user/search";
     })
     $('#edit-user').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/user/edit";
+        window.location.href = "${pageContext.request.contextPath}/user/search";
     })
     $('#delete-user').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/user/delete";
+        window.location.href = "${pageContext.request.contextPath}/user/search";
     })
 </script>
 <br/>

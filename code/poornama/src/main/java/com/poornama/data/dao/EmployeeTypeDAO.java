@@ -5,6 +5,8 @@ import com.poornama.api.logging.GlobalLogger;
 import com.poornama.data.objects.EmployeeType;
 import org.apache.log4j.Logger;
 
+import java.util.List;
+
 /**
  * Created by dedunu on 11/4/14.
  */
@@ -51,5 +53,15 @@ public class EmployeeTypeDAO {
         databaseSession.close();
         log.debug("[" + className + "] getById()");
         return employeeType;
+    }
+
+    public List<EmployeeType> getAll() {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        List<EmployeeType> employeeTypeList = databaseSession.getAll(EmployeeType.class);
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        log.debug("[" + className + "] getAll()");
+        return employeeTypeList;
     }
 }

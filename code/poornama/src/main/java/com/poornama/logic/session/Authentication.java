@@ -1,4 +1,4 @@
-package com.poornama.logic;
+package com.poornama.logic.session;
 
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.security.PasswordHash;
