@@ -9,6 +9,8 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 
+import java.util.List;
+
 /**
  * Created by dedunu on 11/4/14.
  */
@@ -68,5 +70,27 @@ public class EmployeeDAO {
         databaseSession.close();
         log.debug("[" + className + "] getByfirstName()");
         return employee;
+    }
+
+    public List<Employee> searchByFirstName(String firstName) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(Employee.class);
+        SimpleExpression simpleExpression = Restrictions.like("firstName", firstName + "%");
+        List<Employee> employeeList = criteria.add(simpleExpression).list();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        log.debug("[" + className + "] searchByFirstName()");
+        return employeeList;
+    }
+
+    public List<Employee> getAll() {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        List<Employee> employeeList = databaseSession.getAll(Employee.class);
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        log.debug("[" + className + "] getAll()");
+        return employeeList;
     }
 }

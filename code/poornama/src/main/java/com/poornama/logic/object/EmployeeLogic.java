@@ -1,6 +1,7 @@
 package com.poornama.logic.object;
 
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.api.presentation.DataTableGenerator;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.data.dao.EmployeeDAO;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by dedunu on 11/7/14.
@@ -25,7 +27,7 @@ public class EmployeeLogic {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();
         Employee employee = new Employee();
-        EmployeeType employeeType = new EmployeeType();
+        EmployeeType employeeType;
         Notification notification = new Notification();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date dateOfBirth = new Date();
@@ -79,4 +81,36 @@ public class EmployeeLogic {
 
         return notification;
     }
+
+    public String getEmployeeTable(String searchCriteria) {
+        List<Employee> employeeList;
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        DataTableGenerator dataTableGenerator = new DataTableGenerator();
+        String table;
+        if (searchCriteria.equals("")) {
+            employeeList = employeeDAO.getAll();
+        } else {
+            employeeList = employeeDAO.searchByFirstName(searchCriteria);
+        }
+
+        table = dataTableGenerator.getStartTable();
+        String dataArray[] = new String[4];
+        dataArray[0] = "Name";
+        dataArray[1] = "NIC Number";
+        dataArray[2] = "Telephone";
+        dataArray[3] = "Emergency";
+        table = table + dataTableGenerator.getTableHeader(dataArray);
+        table = table + dataTableGenerator.getStartTableBody();
+        for (Employee employee : employeeList) {
+            dataArray[0] = employee.getFirstName() + " " + employee.getLastName();
+            dataArray[1] = Integer.toString(employee.getNic()) + "V";
+            dataArray[2] = employee.getTelephoneNumber();
+            dataArray[3] = employee.getEmergencyContact();
+            table = table + dataTableGenerator.getTableBodyRow(dataArray, "edit/" + employee.getId(), "delete/" + employee.getId());
+        }
+        table = table + dataTableGenerator.getEndTableBody();
+        table = table + dataTableGenerator.getEndTable();
+        return table;
+    }
+
 }

@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  * Created by dedunu on 10/24/14.
@@ -45,6 +47,27 @@ public class EmployeeController {
     public String editForm(Model model, @PathVariable String id, HttpSession session) {
         model.addAttribute("id", id);
         return "employee/edit";
+    }
+
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+    public String deleteForm(Model model, @PathVariable String id, HttpSession session) {
+        model.addAttribute("id", id);
+        return "employee/delete";
+    }
+
+    @RequestMapping(value = "search", method = RequestMethod.GET)
+    public String searchForm(Model model, HttpServletResponse response) throws IOException {
+        EmployeeLogic employeeLogic = new EmployeeLogic();
+        String table = employeeLogic.getEmployeeTable("");
+        model.addAttribute("table", table);
+        return "employee/search";
+    }
+
+    @RequestMapping(value = "search/{name}", method = RequestMethod.POST)
+    public void searchAJAX(Model model, @PathVariable("name") String name, HttpServletResponse response) throws IOException {
+        EmployeeLogic employeeLogic = new EmployeeLogic();
+        String table = employeeLogic.getEmployeeTable(name);
+        response.getWriter().print(table);
     }
 
     @RequestMapping(value = "edit", method = RequestMethod.POST)

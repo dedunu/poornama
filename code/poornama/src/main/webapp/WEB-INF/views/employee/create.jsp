@@ -31,7 +31,11 @@
         <label for="nic" class="col-sm-3 control-label">NIC Number</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="nic" name="nic" placeholder="">
+            <div class="input-group">
+                <input type="text" class="form-control" id="nic" name="nic" placeholder="">
+                <span class="input-group-addon">V</span>
+            </div>
+
         </div>
     </div>
     <div class="form-group">
