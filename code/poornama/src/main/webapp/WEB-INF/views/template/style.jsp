@@ -1,13 +1,13 @@
 
     <!-- CSS References -->
     <link rel="stylesheet"
-          href="http://localhost:8080/cdn/bootstrap/css/bootstrap.min.css"/>
+          href="/cdn/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet"
-          href="http://localhost:8080/cdn/bootstrap/css/bootstrap-theme.min.css"/>
+          href="/cdn/bootstrap/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet"
-          href="http://localhost:8080/cdn/jquery-ui/jquery-ui.min.css"/>
+          href="/cdn/jquery-ui/jquery-ui.min.css"/>
     <link rel="stylesheet"
-          href="http://localhost:8080/cdn/font-awesome/css/font-awesome.min.css"/>
+          href="/cdn/font-awesome/css/font-awesome.min.css"/>
 
     <style>
         body {
