@@ -6,6 +6,7 @@ import com.poornama.api.logging.GlobalLogger;
 import com.poornama.data.objects.Employee;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 
@@ -64,6 +65,18 @@ public class EmployeeDAO {
         return employee;
     }
 
+    public Employee getById(String id) {
+        int employeeId;
+        Employee employee = null;
+        try {
+            employeeId = Integer.parseInt(id);
+            employee = getById(employeeId);
+        } catch (Exception e){
+            log.debug("[" + className + "] getById(String): failed retrieving employee");
+        }
+        return employee;
+    }
+
     public Employee getByfirstName(String firstName) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -82,6 +95,7 @@ public class EmployeeDAO {
         databaseSession.beginTransaction();
         Criteria criteria = databaseSession.createCriteria(Employee.class);
         SimpleExpression simpleExpression = Restrictions.like("firstName", firstName + "%");
+        criteria.addOrder(Order.asc("firstName"));
         List<Employee> employeeList = criteria.add(simpleExpression).list();
         databaseSession.commitTransaction();
         databaseSession.close();
@@ -92,7 +106,9 @@ public class EmployeeDAO {
     public List<Employee> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
-        List<Employee> employeeList = databaseSession.getAll(Employee.class);
+        Criteria criteria = databaseSession.createCriteria(Employee.class);
+        criteria.addOrder(Order.asc("firstName"));
+        List<Employee> employeeList = criteria.list();
         databaseSession.commitTransaction();
         databaseSession.close();
         log.debug("[" + className + "] getAll()");

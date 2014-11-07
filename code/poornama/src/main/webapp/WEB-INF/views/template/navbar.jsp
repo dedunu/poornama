@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" style="color: white">
+            <a class="navbar-brand" href="${pageContext.request.contextPath}" style="color: white">
                 <i class="fa fa-truck"></i> Poornama
             </a>
         </div>

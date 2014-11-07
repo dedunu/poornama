@@ -107,8 +107,50 @@ public class EmployeeController {
 
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("employeeId") String employeeId, HttpSession session) {
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        Employee employee;
+        try {
+            employee = employeeDAO.getById(Integer.parseInt(employeeId));
+        } catch (Exception e){
+            log.error("[" + className + "] editForm: error in retrieving Employee by Id");
+            model.addAttribute("message","Something went wrong with Employee data. Please try again.");
+            return "notify/danger";
+        }
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        Date dateOfBirth = employee.getDateOfBirth();
+        Date dateOfJoining = employee.getDateOfJoining();
         model.addAttribute("employeeId", employeeId);
+        model.addAttribute("firstName", employee.getFirstName());
+        model.addAttribute("lastName", employee.getLastName());
+        model.addAttribute("employeeType",employee.getEmployeeType().getDisplayName());
+        model.addAttribute("nic", employee.getNic());
+        model.addAttribute("address", employee.getAddress());
+        model.addAttribute("dateOfBirth", dateFormat.format(dateOfBirth));
+        model.addAttribute("dateOfJoining", dateFormat.format(dateOfJoining));
+        model.addAttribute("description", employee.getDescription());
+        model.addAttribute("telephone", employee.getTelephoneNumber());
+        model.addAttribute("emergencyContact", employee.getEmergencyContact());
         return "employee/delete";
+    }
+
+    @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.POST)
+    public String deleteEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpSession session) {
+        EmployeeLogic employeeLogic = new EmployeeLogic();
+        Notification notification = employeeLogic.deleteEmployee(employeeId);
+        switch (notification.getNotificationType()){
+            case DANGER:
+                model.addAttribute("message", notification.getMessage());
+                log.error("[" + className + "] deleteEmployee: error in deleting Employee");
+                return "notify/danger";
+            case SUCCESS:
+                model.addAttribute("message", notification.getMessage());
+                log.info("[" + className + "] deleteEmployee: deleted Employee successfully");
+                return "notify/success";
+            default:
+                model.addAttribute("message", "Something went wrong. Please contact developer.");
+                log.error("[" + className + "] deleteEmployee: fatal error in deleting Employee");
+                return "notify/danger";
+        }
     }
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
@@ -128,5 +170,10 @@ public class EmployeeController {
         log.debug("[" + className + "] searchAJAX()");
     }
 
+    @RequestMapping(value = "search", method = RequestMethod.POST)
+    public void searchAJAXAll(Model model, HttpServletResponse response) throws IOException {
+        searchAJAX(model,"",response);
+        log.debug("[" + className + "] searchAJAXAll()");
+    }
 
 }

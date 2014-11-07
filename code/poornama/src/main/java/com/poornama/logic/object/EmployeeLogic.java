@@ -146,6 +146,22 @@ public class EmployeeLogic {
 
         return notification;
     }
+
+    public Notification deleteEmployee(String employeeId){
+        Notification notification = new Notification();
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        try {
+            Employee employee = employeeDAO.getById(employeeId);
+            employeeDAO.delete(employee);
+            notification.setNotificationType(NotificationType.SUCCESS);
+            notification.setMessage("Deleted employee successfully");
+        } catch (Exception e){
+            notification.setNotificationType(NotificationType.DANGER);
+            notification.setMessage("Deleted employee failed. Please try again.");
+        }
+        return notification;
+    }
+
     public void getEmployee(Model model, int employeeId){
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee employee = employeeDAO.getById(employeeId);

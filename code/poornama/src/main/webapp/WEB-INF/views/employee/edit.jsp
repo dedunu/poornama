@@ -88,7 +88,7 @@
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-10">
             <button type="submit" class="btn btn-primary">Save</button>
-            <a href="${pageContext.request.contextPath}">
+            <a href="${pageContext.request.contextPath}/employee/search">
                 <button type="button" class="btn btn-default">Cancel</button>
             </a>
         </div>
