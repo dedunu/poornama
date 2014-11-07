@@ -1,22 +1,13 @@
+##################################
+## TODO
+##################################
 
-X - User Login
-
-Attendence
-
-Employee Creation
-
-Employee type
-	Owner
-	Manager
-	Driver
-	Cleaner
-	Technician
+Attendance
 
 Bank Account
 	Cheque management
 	Bank account balance management
-	cheque reminder
-
+	Cheque reminder
 
 Vehicle
 	Vehicle reminder
@@ -24,5 +15,19 @@ Vehicle
 		license
 		repair
 		service
-	milage
+	mileage
 	vehicle type
+
+##################################
+## Done
+##################################
+User Login
+
+Employee CRUD
+
+Employee type
+	Owner
+	Manager
+	Driver
+	Cleaner
+	Technician
