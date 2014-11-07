@@ -20,8 +20,12 @@ public class TestController {
     private static String className = TestController.class.getName();
 
     @RequestMapping(value = "test1", method = RequestMethod.GET)
-    public String index(Model model, HttpSession session) {
+    public String test1(Model model, HttpSession session) {
         model.addAttribute("message", "This is a notification. And we have created a patient on my system.");
         return "notify/success";
+    }
+    @RequestMapping(value = "test2", method = RequestMethod.GET)
+    public String test2(Model model, HttpSession session) {
+        return "test/testSelect";
     }
 }

@@ -8,7 +8,7 @@ public class GlobalLogger {
     private static String className = GlobalLogger.class.getName();
 
     protected GlobalLogger() {
-        logger.info("[" + className + "] Logger Initialized");
+
     }
 
     public static Logger getLogger() {

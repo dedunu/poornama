@@ -40,6 +40,11 @@ public class EmployeeDAO {
         log.debug("[" + className + "] delete()");
     }
 
+    public void deleteById(int id){
+        Employee employee = getById(id);
+        delete(employee);
+        log.debug("[" + className + "] deleteById()");
+    }
     public void update(Employee employee) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();

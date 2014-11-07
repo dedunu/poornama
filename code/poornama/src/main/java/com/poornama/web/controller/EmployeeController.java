@@ -3,7 +3,10 @@ package com.poornama.web.controller;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
+import com.poornama.data.dao.EmployeeDAO;
+import com.poornama.data.objects.Employee;
 import com.poornama.logic.object.EmployeeLogic;
+import com.poornama.logic.object.EmployeeTypeLogic;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +18,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by dedunu on 10/24/14.
@@ -27,8 +33,8 @@ public class EmployeeController {
 
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model, HttpSession session) {
-        EmployeeLogic employeeLogic = new EmployeeLogic();
-        model.addAttribute("employeeList", employeeLogic.getEmployeeTypeSelectList());
+        EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
+        model.addAttribute("employeeList", employeeTypeLogic.getEmployeeTypeSelectList());
         log.debug("[" + className + "] createForm()");
         return "employee/create";
     }
@@ -36,7 +42,7 @@ public class EmployeeController {
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createEmployee(Model model, HttpSession session, HttpServletRequest request) {
         EmployeeLogic employeeLogic = new EmployeeLogic();
-        Notification notification = employeeLogic.createPatient(request);
+        Notification notification = employeeLogic.createEmployee(request);
         model.addAttribute("message", notification.getMessage());
         if (notification.getNotificationType() == NotificationType.DANGER) {
             log.error("[" + className + "] createEmployee: failed");
@@ -50,15 +56,58 @@ public class EmployeeController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
-    public String editForm(Model model, @PathVariable String id, HttpSession session) {
-        model.addAttribute("id", id);
+    @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.GET)
+    public String editForm(Model model, @PathVariable("employeeId") String employeeId, HttpSession session) {
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        Employee employee;
+        try {
+            employee = employeeDAO.getById(Integer.parseInt(employeeId));
+        } catch (Exception e){
+            log.error("[" + className + "] editForm: error in retrieving Employee by Id");
+            model.addAttribute("message","Something went wrong with Employee data. Please try again.");
+            return "notify/danger";
+        }
+        EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        Date dateOfBirth = employee.getDateOfBirth();
+        Date dateOfJoining = employee.getDateOfJoining();
+
+        model.addAttribute("employeeList", employeeTypeLogic.getEmployeeTypeSelectList());
+        model.addAttribute("employeeId", employeeId);
+        model.addAttribute("firstName", employee.getFirstName());
+        model.addAttribute("lastName", employee.getLastName());
+        model.addAttribute("employeeType",employee.getEmployeeType().getId());
+        model.addAttribute("nic", employee.getNic());
+        model.addAttribute("address", employee.getAddress());
+        model.addAttribute("dateOfBirth", dateFormat.format(dateOfBirth));
+        model.addAttribute("dateOfJoining", dateFormat.format(dateOfJoining));
+        model.addAttribute("description", employee.getDescription());
+        model.addAttribute("telephone", employee.getTelephoneNumber());
+        model.addAttribute("emergencyContact", employee.getEmergencyContact());
         return "employee/edit";
     }
 
-    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
-    public String deleteForm(Model model, @PathVariable String id, HttpSession session) {
-        model.addAttribute("id", id);
+    @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.POST)
+    public String editEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpSession session, HttpServletRequest request) {
+        EmployeeLogic employeeLogic = new EmployeeLogic();
+        Notification notification = employeeLogic.editEmployee(request, employeeId);
+        log.debug("[" + className + "] editEmployee()");
+        model.addAttribute("message", notification.getMessage());
+        if (notification.getNotificationType() == NotificationType.DANGER) {
+            log.error("[" + className + "] editEmployee: failed");
+            return "notify/danger";
+        }
+        if (notification.getNotificationType() == NotificationType.SUCCESS) {
+            log.info("[" + className + "] editEmployee: success");
+            return "notify/success";
+        }
+        log.fatal("[" + className + "] editEmployee: cannot reach this phrase");
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.GET)
+    public String deleteForm(Model model, @PathVariable("employeeId") String employeeId, HttpSession session) {
+        model.addAttribute("employeeId", employeeId);
         return "employee/delete";
     }
 
@@ -79,11 +128,5 @@ public class EmployeeController {
         log.debug("[" + className + "] searchAJAX()");
     }
 
-    @RequestMapping(value = "edit", method = RequestMethod.POST)
-    public String editEmployee(Model model, HttpSession session) {
-        EmployeeLogic employeeLogic = new EmployeeLogic();
-        model.addAttribute("employeeList", employeeLogic.getEmployeeTypeSelectList());
-        log.debug("[" + className + "] editEmployee()");
-        return "user/edit";
-    }
+
 }

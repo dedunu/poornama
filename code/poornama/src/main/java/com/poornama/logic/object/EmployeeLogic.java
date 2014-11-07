@@ -9,6 +9,7 @@ import com.poornama.data.dao.EmployeeTypeDAO;
 import com.poornama.data.objects.Employee;
 import com.poornama.data.objects.EmployeeType;
 import org.apache.log4j.Logger;
+import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
@@ -23,7 +24,7 @@ public class EmployeeLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = EmployeeLogic.class.getName();
 
-    public Notification createPatient(HttpServletRequest request) {
+    public Notification createEmployee(HttpServletRequest request) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();
         Employee employee = new Employee();
@@ -82,6 +83,78 @@ public class EmployeeLogic {
         return notification;
     }
 
+    public Notification editEmployee(HttpServletRequest request, String employeeId) {
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();
+        Employee employee = new Employee();
+        EmployeeType employeeType;
+        Notification notification = new Notification();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        Date dateOfBirth = new Date();
+        Date dateOfJoining = new Date();
+        int nic = 0;
+        int employeeTypeId = 0;
+        int id = 0;
+        try {
+            dateOfBirth = simpleDateFormat.parse(request.getParameter("dateOfBirth"));
+        } catch (ParseException e) {
+            log.error("[" + className + "] editEmployee: Error in parsing dateOfBirth");
+        }
+        try {
+            dateOfJoining = simpleDateFormat.parse(request.getParameter("dateOfJoining"));
+        } catch (ParseException e) {
+            log.error("[" + className + "] editEmployee: Error in parsing dateOfJoining");
+        }
+        try {
+            nic = Integer.parseInt(request.getParameter("nic"));
+        } catch (Exception e) {
+            log.error("[" + className + "] editEmployee: Error in parsing nic");
+        }
+        try {
+            employeeTypeId = Integer.parseInt(request.getParameter("employeeType"));
+        } catch (Exception e) {
+            log.error("[" + className + "] editEmployee: Error in parsing employeeTypeId");
+        }
+        try {
+            id = Integer.parseInt(employeeId);
+        } catch (Exception e){
+            log.error("[" + className + "] editEmployee: Error in parsing employeeId");
+        }
+        employeeType = employeeTypeDAO.getById(employeeTypeId);
+        employee.setId(id);
+        employee.setAddress(request.getParameter("address"));
+        employee.setDateOfBirth(dateOfBirth);
+        employee.setDateOfJoining(dateOfJoining);
+        employee.setDescription(request.getParameter("description"));
+        employee.setEmergencyContact(request.getParameter("emergencyContact"));
+        employee.setFirstName(request.getParameter("firstName"));
+        employee.setLastName(request.getParameter("lastName"));
+        employee.setTelephoneNumber(request.getParameter("telephone"));
+        employee.setNic(nic);
+        employee.setEmployeeType(employeeType);
+
+        try {
+            employeeDAO.update(employee);
+            notification.setNotificationType(NotificationType.SUCCESS);
+            notification.setMessage("Employee data updated successfully.");
+            log.info("[" + className + "] editEmployee: created Employee");
+        } catch (Exception e) {
+            notification.setNotificationType(NotificationType.DANGER);
+            notification.setMessage("Something went wrong with creating employee. Please try again.");
+            log.error("[" + className + "] editEmployee: failed creating employee");
+        }
+
+        return notification;
+    }
+    public void getEmployee(Model model, int employeeId){
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        Employee employee = employeeDAO.getById(employeeId);
+        model.addAttribute("id",employeeId);
+        model.addAttribute("firstName", employee.getFirstName());
+        model.addAttribute("lastName", employee.getLastName());
+
+    }
+
     public String getEmployeeTable(String searchCriteria) {
         List<Employee> employeeList;
         EmployeeDAO employeeDAO = new EmployeeDAO();
@@ -111,17 +184,6 @@ public class EmployeeLogic {
         table = table + dataTableGenerator.getEndTableBody();
         table = table + dataTableGenerator.getEndTable();
         return table;
-    }
-
-    public String getEmployeeTypeSelectList() {
-        EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();
-        List<EmployeeType> employeeTypeList = employeeTypeDAO.getAll();
-        String list = "";
-        for (EmployeeType employeeType : employeeTypeList) {
-            list = list + "\t\t<option value =\"" + employeeType.getId() + "\">" + employeeType.getDisplayName() + "</option>\n";
-        }
-        log.debug("[" + className + "] getEmployeeTypeSelectList()");
-        return list;
     }
 
 }
