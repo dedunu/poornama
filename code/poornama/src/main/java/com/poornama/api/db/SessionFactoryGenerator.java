@@ -14,9 +14,9 @@ public class SessionFactoryGenerator {
         Hibernate sessions.
      */
 
+    private static final SessionFactory sessionFactory = buildSessionFactory();
     private static Logger log = GlobalLogger.getLogger();
     private static String className = SessionFactoryGenerator.class.getName();
-    private static final SessionFactory sessionFactory = buildSessionFactory();
     private static ServiceRegistry serviceRegistry;
 
     /*

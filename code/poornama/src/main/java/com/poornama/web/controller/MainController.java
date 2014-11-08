@@ -25,6 +25,7 @@ public class MainController {
             isLoggedIn = session.getAttribute("isLoggedIn").toString();
         } catch (NullPointerException ex) {
             session.setAttribute("isLoggedIn", "false");
+            session.setAttribute("userRole", null);
             log.error("[" + className + "] index: NullPointerException");
             isLoggedIn = "false";
         }

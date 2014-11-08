@@ -70,7 +70,7 @@ public class VehicleController {
         }
         VehicleType vehicleType = new VehicleType();
 
-        model.addAttribute("vehicleId",vehicle.getId());
+        model.addAttribute("vehicleId", vehicle.getId());
         model.addAttribute("vehicleNumber", vehicle.getVehicleNumber());
         model.addAttribute("vehicleType", vehicle.getVehicleType().getId());
         model.addAttribute("vehicleTypeList", vehicleTypeLogic.getVehicleTypeSelectList());
@@ -140,7 +140,7 @@ public class VehicleController {
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model, HttpServletResponse response) throws IOException {
-        VehicleLogic vehicleLogic= new VehicleLogic();
+        VehicleLogic vehicleLogic = new VehicleLogic();
         String table = vehicleLogic.getVehicleTable();
         model.addAttribute("table", table);
         log.debug("[" + className + "] searchForm()");

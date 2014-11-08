@@ -24,7 +24,7 @@ public class EmployeeAttendanceLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = EmployeeAttendanceLogic.class.getName();
 
-    public Notification save(String data, String dateString){
+    public Notification save(String data, String dateString) {
         Notification notification = new Notification();
         String array[] = data.split("\\|");
         HashMap<String, Integer> attendanceMap = new HashMap<>();
@@ -37,27 +37,27 @@ public class EmployeeAttendanceLogic {
 
         try {
             date = simpleDateFormat.parse(dateString);
-        } catch (ParseException e){
+        } catch (ParseException e) {
             log.error("[" + className + "] save: Error in parsing startDate");
             notification.setNotificationType(NotificationType.DANGER);
             return notification;
         }
 
         for (String key : array) {
-            attendanceMap.put(key,1);
+            attendanceMap.put(key, 1);
         }
 
-        for (Employee employee : employeeList){
+        for (Employee employee : employeeList) {
             calendar.setTime(date);
-            for (int i = 1; i < 8; i++ ) {
+            for (int i = 1; i < 8; i++) {
                 EmployeeAttendance employeeAttendance = employeeAttendanceDAO.getByIdDate(employee, calendar.getTime());
-                if (employeeAttendance == null){
+                if (employeeAttendance == null) {
                     employeeAttendance = new EmployeeAttendance();
                     employeeAttendance.setEmployee(employee);
                     employeeAttendance.setDate(calendar.getTime());
                 }
 
-                if(attendanceMap.get(employee.getId() + "_" + i) == null){
+                if (attendanceMap.get(employee.getId() + "_" + i) == null) {
                     employeeAttendance.setAttendance(false);
                 } else {
                     employeeAttendance.setAttendance(true);

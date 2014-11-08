@@ -39,6 +39,7 @@ public class SessionController {
                 session.setAttribute("displayName", user.getDisplayName());
                 session.setAttribute("userId", user.getId());
                 session.setAttribute("userName", userName);
+                session.setAttribute("userRole", user.getUserRole().getName());
                 session.setAttribute("isLoggedIn", "true");
                 session.setAttribute("isLoginFailed", "false");
                 log.debug("[" + className + "] login: Success, redirecting to home controller");
@@ -48,11 +49,23 @@ public class SessionController {
                 session.setAttribute("displayName", null);
                 session.setAttribute("userId", null);
                 session.setAttribute("userName", null);
+                session.setAttribute("userRole", null);
                 session.setAttribute("isLoggedIn", "false");
                 session.setAttribute("isLoginFailed", "true");
                 return "redirect:/";
             }
         }
+    }
+
+    @RequestMapping(value = "denied", method = RequestMethod.GET)
+    public String accessDenied(Model model, HttpSession session) {
+        try {
+            session.setAttribute("message", "Sorry, the page you just requested is not available to you due to security reasons.");
+        } catch (Exception e) {
+            log.debug("[" + className + "] accessDenied: exception while setting sessionAttribute");
+        }
+        log.debug("[" + className + "] accessDenied: Success, reidrected to notify/danger");
+        return "notify/danger";
     }
 
     @RequestMapping(value = "logout", method = RequestMethod.GET)
@@ -61,6 +74,7 @@ public class SessionController {
             session.setAttribute("displayName", null);
             session.setAttribute("userId", null);
             session.setAttribute("userName", null);
+            session.setAttribute("userRole", null);
             session.setAttribute("isLoggedIn", "false");
             session.setAttribute("isLoginFailed", "false");
         } catch (Exception e) {

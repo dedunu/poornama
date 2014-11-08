@@ -23,16 +23,16 @@ public class EmployeeAttendance {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public Employee getEmployee() {
         return employee;
     }
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public Date getDate() {

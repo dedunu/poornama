@@ -117,7 +117,7 @@ public class VehicleLogic {
         return notification;
     }
 
-    public String getVehicleTable(){
+    public String getVehicleTable() {
         List<Vehicle> vehicleList;
         VehicleDAO vehicleDAO = new VehicleDAO();
         DataTableGenerator dataTableGenerator = new DataTableGenerator();
@@ -140,6 +140,17 @@ public class VehicleLogic {
         table = table + dataTableGenerator.getEndTableBody();
         table = table + dataTableGenerator.getEndTable();
         return table;
+    }
+
+    public String getVehicleSelectList() {
+        VehicleDAO vehicleDAO = new VehicleDAO();
+        List<Vehicle> vehicleList = vehicleDAO.getAll();
+        String list = "";
+        for (Vehicle vehicle : vehicleList) {
+            list = list + "\t\t<option value =\"" + vehicle.getId() + "\">" + vehicle.getVehicleNumber() + "</option>\n";
+        }
+        log.debug("[" + className + "] getVehicleSelectList()");
+        return list;
     }
 
 }

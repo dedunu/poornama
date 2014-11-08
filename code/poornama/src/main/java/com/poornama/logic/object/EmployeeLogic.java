@@ -205,4 +205,14 @@ public class EmployeeLogic {
         return table;
     }
 
+    public String getEmployeeSelectList() {
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        List<Employee> employeeList = employeeDAO.getAll();
+        String list = "";
+        for (Employee employee : employeeList) {
+            list = list + "\t\t<option value =\"" + employee.getId() + "\">" + employee.getFirstName() + " " + employee.getLastName() + "</option>\n";
+        }
+        log.debug("[" + className + "] getEmployeeSelectList()");
+        return list;
+    }
 }

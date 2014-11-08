@@ -41,7 +41,7 @@ public class EmployeeAttendanceController {
     }
 
     @RequestMapping(value = "save", method = RequestMethod.POST)
-    public void saveAJAX(Model model, @RequestParam("data") String data,  @RequestParam("date") String date,HttpServletResponse response) throws IOException {
+    public void saveAJAX(Model model, @RequestParam("data") String data, @RequestParam("date") String date, HttpServletResponse response) throws IOException {
         EmployeeAttendanceLogic employeeAttendanceLogic = new EmployeeAttendanceLogic();
         Notification notification = employeeAttendanceLogic.save(data, date);
         if (notification.getNotificationType() == NotificationType.SUCCESS) {

@@ -1,22 +1,18 @@
 <%@ include file="../template/headerWithNav.jsp" %>
-<style scoped>
-
-</style>
-
-<%--
-
-    RoleManager roleManager = new RoleManager();
+<%
+    RoleValidator roleValidator = new RoleValidator();
     List<String> roles = new ArrayList<String>();
     roles.add("admin");
     roles.add("manager");
     roles.add("accountant");
     roles.add("clerk");
-    roleManager.validate(request, response, roles);
+    roleValidator.validate(session, request, response, roles);
+%>
+<style scoped>
 
-    RoleManager roleManager = new RoleManager();
-    roleManager.validate(request, response, "admin");
+</style>
 
---%>
+Settings
 
 <script>
 
