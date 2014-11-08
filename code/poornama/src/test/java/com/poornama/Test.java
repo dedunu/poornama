@@ -1,41 +1,35 @@
 package com.poornama;
 
-import com.poornama.api.presentation.DataTableGenerator;
+import com.poornama.api.logging.GlobalLogger;
+import com.poornama.data.dao.EmployeeAttendanceDAO;
+import com.poornama.data.dao.EmployeeDAO;
+import com.poornama.data.objects.Employee;
+import com.poornama.data.objects.EmployeeAttendance;
+import org.apache.log4j.Logger;
 import org.junit.Ignore;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by dedunu on 11/6/14.
  */
 @Ignore
 public class Test {
-    public static void main(String args[]) {
-        DataTableGenerator dataTableGenerator = new DataTableGenerator();
-        String table;
-        String headerArray[] = new String[4];
-        String rowArray[] = new String[4];
+    private static Logger log = GlobalLogger.getLogger();
+    private static String className = Test.class.getName();
 
-        headerArray[0] = "header1";
-        headerArray[1] = "header2";
-        headerArray[2] = "header3";
-        headerArray[3] = "header4";
+    public static void main(String args[]) throws Exception {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = simpleDateFormat.parse("05/02/2014");
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        EmployeeAttendanceDAO employeeAttendanceDAO = new EmployeeAttendanceDAO();
+        List<Employee> employeeList = employeeDAO.searchByFirstName("Dedunu");
 
-        rowArray[0] = "data1";
-        rowArray[1] = "Dedunu Dhananjaya";
-        rowArray[2] = "data3";
-        rowArray[3] = "data4";
+        Long l = 3L;
+        EmployeeAttendance employeeAttendance1 = employeeAttendanceDAO.getById(l);
+        System.out.print(employeeAttendance1.getAttendance());
 
-        table = dataTableGenerator.getStartTable();
-        table = table + dataTableGenerator.getTableHeader(headerArray);
-        table = table + dataTableGenerator.getStartTableBody();
-        table = table + dataTableGenerator.getTableBodyRow(rowArray, "url1", "url2");
-        table = table + dataTableGenerator.getTableBodyRow(rowArray, "url1", "url2");
-        table = table + dataTableGenerator.getTableBodyRow(rowArray, "url1", "url2");
-        table = table + dataTableGenerator.getTableBodyRow(rowArray, "url1", "url2");
-        table = table + dataTableGenerator.getTableBodyRow(rowArray, "url1", "url2");
-        table = table + dataTableGenerator.getTableBodyRow(rowArray, "url1", "url2");
-        table = table + dataTableGenerator.getEndTableBody();
-        table = table + dataTableGenerator.getEndTable();
-
-        System.out.println(table);
     }
 }

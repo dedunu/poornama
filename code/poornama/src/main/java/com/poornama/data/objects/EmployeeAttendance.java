@@ -7,11 +7,12 @@ import java.util.Date;
  * Created by dedunu on 10/21/14.
  */
 @Entity
-@Table
+@Table(name="EmployeeAttendance", uniqueConstraints = @UniqueConstraint(columnNames = {"date", "employeeId"}))
 public class EmployeeAttendance {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name="date")
     private Date date;
     private boolean attendance;
     @ManyToOne
@@ -50,4 +51,7 @@ public class EmployeeAttendance {
         this.attendance = attendance;
     }
 
+    public boolean getAttendance() {
+        return attendance;
+    }
 }

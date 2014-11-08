@@ -4,6 +4,7 @@ package com.poornama.api.presentation;
  * Created by dedunu on 11/6/14.
  */
 public class DataTableGenerator {
+
     public String getStartTable() {
         String tableString;
         tableString = "<div class=\"table-responsive\">\n";
@@ -11,7 +12,7 @@ public class DataTableGenerator {
         return tableString;
     }
 
-    private String getStartTableHeader() {
+    protected String getStartTableHeader() {
         String tableString;
         tableString = "\t\t<thead>\n";
         tableString = tableString + "\t\t\t<tr>\n";
@@ -30,7 +31,7 @@ public class DataTableGenerator {
         return tableString;
     }
 
-    private String getEndTableHeader() {
+    protected String getEndTableHeader() {
         String tableString;
         tableString = "\t\t\t</tr>\n";
         tableString = tableString + "\t\t</thead>\n";
@@ -63,18 +64,18 @@ public class DataTableGenerator {
 
     public String getEndTable() {
         String tableString;
-        tableString = "</table>\n";
+        tableString = "\t</table>\n";
         tableString = tableString + "</div>\n";
         return tableString;
     }
 
-    private String getEditButton(String editUrl) {
+    protected String getEditButton(String editUrl) {
         String tableString;
         tableString = "\t\t\t\t<td><a href=\"" + editUrl + "\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>\n";
         return tableString;
     }
 
-    private String getDeleteButton(String deleteUrl) {
+    protected String getDeleteButton(String deleteUrl) {
         String tableString;
         tableString = "\t\t\t\t<td><a href=\"" + deleteUrl + "\"><span class=\"glyphicon glyphicon-minus\" style=\"color:red\"></span></a></td>\n";
         return tableString;
