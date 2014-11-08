@@ -8,6 +8,8 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 
+import java.util.List;
+
 /**
  * Created by dedunu on 11/4/14.
  */
@@ -68,6 +70,16 @@ public class VehicleTypeDAO {
         databaseSession.close();
         log.debug("[" + className + "] getByName()");
         return vehicleType;
+    }
+
+    public List<VehicleType> getAll() {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        List<VehicleType> vehicleTypeList = databaseSession.getAll(VehicleType.class);
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        log.debug("[" + className + "] getAll()");
+        return vehicleTypeList;
     }
 
 }

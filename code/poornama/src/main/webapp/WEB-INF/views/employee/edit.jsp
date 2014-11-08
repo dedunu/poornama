@@ -24,7 +24,7 @@
 
         <div class="col-sm-3">
             <select class="form-control" id="employeeType" name="employeeType">
-                ${employeeList}
+                ${employeeTypeList}
             </select>
         </div>
     </div>

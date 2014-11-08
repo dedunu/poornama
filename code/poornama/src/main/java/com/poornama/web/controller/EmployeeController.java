@@ -34,7 +34,7 @@ public class EmployeeController {
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model, HttpSession session) {
         EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
-        model.addAttribute("employeeList", employeeTypeLogic.getEmployeeTypeSelectList());
+        model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
         log.debug("[" + className + "] createForm()");
         return "employee/create";
     }
@@ -72,7 +72,7 @@ public class EmployeeController {
         Date dateOfBirth = employee.getDateOfBirth();
         Date dateOfJoining = employee.getDateOfJoining();
 
-        model.addAttribute("employeeList", employeeTypeLogic.getEmployeeTypeSelectList());
+        model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
         model.addAttribute("employeeId", employeeId);
         model.addAttribute("firstName", employee.getFirstName());
         model.addAttribute("lastName", employee.getLastName());

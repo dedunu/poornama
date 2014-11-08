@@ -1,11 +1,6 @@
 ##################################
 ## TODO
 ##################################
-Bank Account
-	Cheque management
-	Bank account balance management
-	Cheque reminder
-
 Vehicle
 	Vehicle reminder
 		insurance
@@ -13,15 +8,22 @@ Vehicle
 		repair
 		service
 	mileage
-	vehicle type
+
+Bank Account
+	Cheque management
+	Bank account balance management
+	Cheque reminder
 
 ##################################
 ## Done
 ##################################
 User Login
 
-Employee CRUD
-
+CRUD
+	Employee
+	Attendance
+	Vehicle
+	
 Employee type
 	Owner
 	Manager
@@ -29,4 +31,8 @@ Employee type
 	Cleaner
 	Technician
 
-	Attendance
+Vehicle Type
+	Pprime Mover
+	Trailer
+	cab
+	van

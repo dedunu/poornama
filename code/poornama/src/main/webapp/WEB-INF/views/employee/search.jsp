@@ -3,19 +3,17 @@
 
 </style>
 <div class="row">
-    <div>
-        <form class="navbar-form" role="search">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search" id="searchText" name="searchText">
+    <form class="navbar-form pull-right" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" id="searchText" name="searchText">
 
-                <div class="input-group-btn">
-                    <button class="btn btn-default" type="button" id="searchButton" name="searchButton">
-                        <i class="glyphicon glyphicon-search"></i>
-                    </button>
-                </div>
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="button" id="searchButton" name="searchButton">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 
 <div class="row">

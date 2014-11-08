@@ -97,8 +97,6 @@ public class EmployeeAttendanceLogic {
             calendar.add(Calendar.DATE, 1);
         }
 
-        simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-
         table = plainDataTableGenerator.getStartTable();
         table = table + plainDataTableGenerator.getTableHeader(dataArray);
         table = table + plainDataTableGenerator.getStartTableBody();

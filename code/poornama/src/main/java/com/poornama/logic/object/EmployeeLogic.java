@@ -9,7 +9,6 @@ import com.poornama.data.dao.EmployeeTypeDAO;
 import com.poornama.data.objects.Employee;
 import com.poornama.data.objects.EmployeeType;
 import org.apache.log4j.Logger;
-import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
@@ -170,15 +169,6 @@ public class EmployeeLogic {
         }
 
         return notification;
-    }
-
-    public void getEmployee(Model model, int employeeId) {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        Employee employee = employeeDAO.getById(employeeId);
-        model.addAttribute("id", employeeId);
-        model.addAttribute("firstName", employee.getFirstName());
-        model.addAttribute("lastName", employee.getLastName());
-
     }
 
     public String getEmployeeTable(String searchCriteria) {

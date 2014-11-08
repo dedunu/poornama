@@ -23,7 +23,7 @@
 
         <div class="col-sm-3">
             <select class="form-control" id="employeeType" name="employeeType">
-                ${employeeList}
+                ${employeeTypeList}
             </select>
         </div>
     </div>
@@ -83,7 +83,7 @@
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-10">
             <button type="submit" class="btn btn-success">Create</button>
-            <a href="${pageContext.request.contextPath}/employee/search">
+            <a href="${pageContext.request.contextPath}">
                 <button type="button" class="btn btn-default">Cancel</button>
             </a>
         </div>
