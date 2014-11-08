@@ -24,10 +24,11 @@ public class PasswordHash {
             digest.update(plainText.getBytes(), 0, plainText.length());
             result = new BigInteger(1, digest.digest()).toString(16);
         } catch (NoSuchAlgorithmException e) {
-
-            e.printStackTrace();
+            log.error("[" + className + "] getHash: NoSuchAlgorithmException");
         }
+
         log.debug("[" + className + "] getHash");
+
         return result;
     }
 }

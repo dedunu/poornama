@@ -2,8 +2,13 @@ package com.poornama.data.dao;
 
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.data.objects.Employee;
 import com.poornama.data.objects.EmployeeAttendance;
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
+import org.hibernate.criterion.Restrictions;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,6 +34,15 @@ public class EmployeeAttendanceDAO {
         log.debug("[" + className + "] create()");
     }
 
+    public void saveOrUpdate(EmployeeAttendance employeeAttendance) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        databaseSession.saveOrUpdate(employeeAttendance);
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        log.debug("[" + className + "] saveOrUpdate()");
+    }
+
     public void delete(EmployeeAttendance employeeAttendance) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -47,14 +61,25 @@ public class EmployeeAttendanceDAO {
         log.debug("[" + className + "] update()");
     }
 
-    public EmployeeAttendance getByIdDate(int id, Date date) {
+    public EmployeeAttendance getByIdDate(Employee employee, Date date) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
-        EmployeeAttendance employeeAttendance = (EmployeeAttendance) databaseSession.getById(EmployeeAttendance.class, id);
+        Criteria criteria = databaseSession.createCriteria(EmployeeAttendance.class);
+        Criterion employeeIdCriterion = Restrictions.eq("employee", employee);
+        Criterion dateCriterion = Restrictions.eq("date", date);
+        LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, dateCriterion);
+        criteria.add(logicalExpression);
+        EmployeeAttendance employeeAttendance = (EmployeeAttendance) criteria.uniqueResult();
         databaseSession.commitTransaction();
         databaseSession.close();
         log.debug("[" + className + "] getById()");
         return employeeAttendance;
+    }
+
+    public EmployeeAttendance getByIdDate(int employeeId, Date date) {
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        Employee employee = employeeDAO.getById(employeeId);
+        return getByIdDate(employee, date);
     }
 
     public EmployeeAttendance getByIdDate(String id, Date date) {

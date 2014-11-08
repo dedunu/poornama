@@ -42,33 +42,15 @@
     <div class="panel-body">
         <i class="fa fa-check-square-o"></i> Attendance
         <div class="btn-group pull-right">
-            <button type="button" class="btn btn-success" id="create-attendance">
-                <span class="glyphicon glyphicon-plus"></span>
-            </button>
-            <button type="button" class="btn btn-primary" id="search-attendance">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
-            <button type="button" class="btn btn-primary" id="edit-attendance">
+            <button type="button" class="btn btn-primary" id="attendance">
                 <span class="glyphicon glyphicon-pencil"></span>
-            </button>
-            <button type="button" class="btn btn-danger" id="delete-attendance">
-                <span class="glyphicon glyphicon-minus"></span>
             </button>
         </div>
     </div>
 </div>
 <script>
-    $('#create-attendance').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/attendance/create";
-    })
-    $('#search-attendance').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/attendance/search";
-    })
-    $('#edit-attendance').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/attendance/search";
-    })
-    $('#delete-attendance').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/attendance/search";
+    $('#attendance').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/attendance";
     })
 </script>
 

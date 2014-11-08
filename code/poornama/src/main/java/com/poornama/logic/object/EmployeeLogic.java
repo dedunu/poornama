@@ -41,21 +41,25 @@ public class EmployeeLogic {
         } catch (ParseException e) {
             log.error("[" + className + "] createEmployee: Error in parsing dateOfBirth");
         }
+
         try {
             dateOfJoining = simpleDateFormat.parse(request.getParameter("dateOfJoining"));
         } catch (ParseException e) {
             log.error("[" + className + "] createEmployee: Error in parsing dateOfJoining");
         }
+
         try {
             nic = Integer.parseInt(request.getParameter("nic"));
         } catch (Exception e) {
             log.error("[" + className + "] createEmployee: Error in parsing nic");
         }
+
         try {
             employeeTypeId = Integer.parseInt(request.getParameter("employeeType"));
         } catch (Exception e) {
             log.error("[" + className + "] createEmployee: Error in parsing employeeTypeId");
         }
+
         employeeType = employeeTypeDAO.getById(employeeTypeId);
 
         employee.setAddress(request.getParameter("address"));
@@ -100,21 +104,25 @@ public class EmployeeLogic {
         } catch (ParseException e) {
             log.error("[" + className + "] editEmployee: Error in parsing dateOfBirth");
         }
+
         try {
             dateOfJoining = simpleDateFormat.parse(request.getParameter("dateOfJoining"));
         } catch (ParseException e) {
             log.error("[" + className + "] editEmployee: Error in parsing dateOfJoining");
         }
+
         try {
             nic = Integer.parseInt(request.getParameter("nic"));
         } catch (Exception e) {
             log.error("[" + className + "] editEmployee: Error in parsing nic");
         }
+
         try {
             employeeTypeId = Integer.parseInt(request.getParameter("employeeType"));
         } catch (Exception e) {
             log.error("[" + className + "] editEmployee: Error in parsing employeeTypeId");
         }
+
         try {
             id = Integer.parseInt(employeeId);
         } catch (Exception e) {
@@ -150,6 +158,7 @@ public class EmployeeLogic {
     public Notification deleteEmployee(String employeeId) {
         Notification notification = new Notification();
         EmployeeDAO employeeDAO = new EmployeeDAO();
+
         try {
             Employee employee = employeeDAO.getById(employeeId);
             employeeDAO.delete(employee);
@@ -159,6 +168,7 @@ public class EmployeeLogic {
             notification.setNotificationType(NotificationType.DANGER);
             notification.setMessage("Deleted employee failed. Please try again.");
         }
+
         return notification;
     }
 
@@ -176,6 +186,7 @@ public class EmployeeLogic {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         DataTableGenerator dataTableGenerator = new DataTableGenerator();
         String table;
+
         if (searchCriteria.equals("")) {
             employeeList = employeeDAO.getAll();
         } else {
@@ -190,6 +201,7 @@ public class EmployeeLogic {
         dataArray[3] = "Emergency";
         table = table + dataTableGenerator.getTableHeader(dataArray);
         table = table + dataTableGenerator.getStartTableBody();
+
         for (Employee employee : employeeList) {
             dataArray[0] = employee.getFirstName() + " " + employee.getLastName();
             dataArray[1] = Integer.toString(employee.getNic()) + "V";
@@ -197,6 +209,7 @@ public class EmployeeLogic {
             dataArray[3] = employee.getEmergencyContact();
             table = table + dataTableGenerator.getTableBodyRow(dataArray, "edit/" + employee.getId(), "delete/" + employee.getId());
         }
+
         table = table + dataTableGenerator.getEndTableBody();
         table = table + dataTableGenerator.getEndTable();
         return table;

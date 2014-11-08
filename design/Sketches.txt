@@ -1,9 +1,6 @@
 ##################################
 ## TODO
 ##################################
-
-Attendance
-
 Bank Account
 	Cheque management
 	Bank account balance management
@@ -31,3 +28,5 @@ Employee type
 	Driver
 	Cleaner
 	Technician
+
+	Attendance

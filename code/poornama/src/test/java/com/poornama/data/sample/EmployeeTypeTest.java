@@ -15,6 +15,7 @@ public class EmployeeTypeTest {
      Cleaner
      Technician
     */
+
     @Test
     public void runTest() {
         EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();

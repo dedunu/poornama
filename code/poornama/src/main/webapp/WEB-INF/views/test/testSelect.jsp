@@ -5,8 +5,7 @@
 </style>
 <%
     EmployeeAttendanceLogic employeeAttendanceLogic = new EmployeeAttendanceLogic();
-    out.println(employeeAttendanceLogic.getEmployeeAttendanceTable("01/05/2014"));
-
+    out.println(employeeAttendanceLogic.getEmployeeAttendanceTable("04/27/2014"));
 %>
 
 

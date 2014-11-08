@@ -51,7 +51,4 @@ public class EmployeeAttendance {
         this.attendance = attendance;
     }
 
-    public boolean getAttendance() {
-        return attendance;
-    }
 }

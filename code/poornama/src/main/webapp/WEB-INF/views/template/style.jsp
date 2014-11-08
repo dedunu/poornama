@@ -17,4 +17,8 @@
     .container-fluid {
         max-width: 940px;
     }
+
+    .div-hidden {
+        visibility: hidden;
+    }
 </style>

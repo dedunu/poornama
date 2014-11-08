@@ -1,16 +1,10 @@
 package com.poornama;
 
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.data.dao.EmployeeAttendanceDAO;
-import com.poornama.data.dao.EmployeeDAO;
-import com.poornama.data.objects.Employee;
-import com.poornama.data.objects.EmployeeAttendance;
 import org.apache.log4j.Logger;
 import org.junit.Ignore;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * Created by dedunu on 11/6/14.
@@ -21,15 +15,12 @@ public class Test {
     private static String className = Test.class.getName();
 
     public static void main(String args[]) throws Exception {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date date = simpleDateFormat.parse("05/02/2014");
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        EmployeeAttendanceDAO employeeAttendanceDAO = new EmployeeAttendanceDAO();
-        List<Employee> employeeList = employeeDAO.searchByFirstName("Dedunu");
-
-        Long l = 5L;
-        EmployeeAttendance employeeAttendance1 = employeeAttendanceDAO.getById(l);
-        System.out.print(employeeAttendance1.getAttendance());
-
+        String string = "1_5|6_1|8_2|8_3|";
+        String array[] = string.split("\\|");
+        HashMap<String, Integer> attendanceMap = new HashMap<>();
+        for (String text : array) {
+            attendanceMap.put(text,1);
+        }
+        System.out.println(attendanceMap.get("1_6"));
     }
 }
