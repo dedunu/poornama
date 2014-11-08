@@ -19,7 +19,7 @@ public class EmployeeAttendanceLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = EmployeeAttendanceLogic.class.getName();
 
-    public String getEmployeeAttendanceTable(String startDate){
+    public String getEmployeeAttendanceTable(String startDate) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         List<Employee> employeeList = employeeDAO.getAll();
         PlainDataTableGenerator plainDataTableGenerator = new PlainDataTableGenerator();
@@ -38,7 +38,7 @@ public class EmployeeAttendanceLogic {
         calendar.setTime(date);
 
         dataArray[0] = "Name";
-        for(int i = 1; i < 8; i++){
+        for (int i = 1; i < 8; i++) {
             dataArray[i] = simpleDateFormat.format(calendar.getTime());
             calendar.add(Calendar.DATE, 1);
         }
@@ -50,7 +50,7 @@ public class EmployeeAttendanceLogic {
         for (Employee employee : employeeList) {
             int employeeCount = 0;
             dataArray[0] = employee.getFirstName() + " " + employee.getLastName();
-            for(int i = 1; i < 8; i++){
+            for (int i = 1; i < 8; i++) {
                 dataArray[i] = "<input type=\"checkbox\" name=\"attendance\" value=\"" + employee.getId() + "_" + i + "\"/>";
             }
             employeeCount++;

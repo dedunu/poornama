@@ -41,11 +41,12 @@ public class EmployeeDAO {
         log.debug("[" + className + "] delete()");
     }
 
-    public void deleteById(int id){
+    public void deleteById(int id) {
         Employee employee = getById(id);
         delete(employee);
         log.debug("[" + className + "] deleteById()");
     }
+
     public void update(Employee employee) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -71,7 +72,7 @@ public class EmployeeDAO {
         try {
             employeeId = Integer.parseInt(id);
             employee = getById(employeeId);
-        } catch (Exception e){
+        } catch (Exception e) {
             log.debug("[" + className + "] getById(String): failed retrieving employee");
         }
         return employee;

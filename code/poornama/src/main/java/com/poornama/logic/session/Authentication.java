@@ -14,7 +14,7 @@ public class Authentication {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = Authentication.class.getName();
 
-    public boolean doAuthenticate(String username, String password){
+    public boolean doAuthenticate(String username, String password) {
         log.debug("[" + className + "] doAuthenticate: doAuthenticate()");
 
         UserDAO userDAO = new UserDAO();
@@ -29,7 +29,7 @@ public class Authentication {
         PasswordHash passwordHash = new PasswordHash();
         String hashPassword = passwordHash.getHash(username, password);
 
-        if(hashedPasswordDB.equals(hashPassword)){
+        if (hashedPasswordDB.equals(hashPassword)) {
             log.info("[" + className + "] doAuthenticate: Login success " + username);
             return true;
         } else {

@@ -62,9 +62,9 @@ public class EmployeeController {
         Employee employee;
         try {
             employee = employeeDAO.getById(Integer.parseInt(employeeId));
-        } catch (Exception e){
+        } catch (Exception e) {
             log.error("[" + className + "] editForm: error in retrieving Employee by Id");
-            model.addAttribute("message","Something went wrong with Employee data. Please try again.");
+            model.addAttribute("message", "Something went wrong with Employee data. Please try again.");
             return "notify/danger";
         }
         EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
@@ -76,7 +76,7 @@ public class EmployeeController {
         model.addAttribute("employeeId", employeeId);
         model.addAttribute("firstName", employee.getFirstName());
         model.addAttribute("lastName", employee.getLastName());
-        model.addAttribute("employeeType",employee.getEmployeeType().getId());
+        model.addAttribute("employeeType", employee.getEmployeeType().getId());
         model.addAttribute("nic", employee.getNic());
         model.addAttribute("address", employee.getAddress());
         model.addAttribute("dateOfBirth", dateFormat.format(dateOfBirth));
@@ -111,9 +111,9 @@ public class EmployeeController {
         Employee employee;
         try {
             employee = employeeDAO.getById(Integer.parseInt(employeeId));
-        } catch (Exception e){
+        } catch (Exception e) {
             log.error("[" + className + "] editForm: error in retrieving Employee by Id");
-            model.addAttribute("message","Something went wrong with Employee data. Please try again.");
+            model.addAttribute("message", "Something went wrong with Employee data. Please try again.");
             return "notify/danger";
         }
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
@@ -122,7 +122,7 @@ public class EmployeeController {
         model.addAttribute("employeeId", employeeId);
         model.addAttribute("firstName", employee.getFirstName());
         model.addAttribute("lastName", employee.getLastName());
-        model.addAttribute("employeeType",employee.getEmployeeType().getDisplayName());
+        model.addAttribute("employeeType", employee.getEmployeeType().getDisplayName());
         model.addAttribute("nic", employee.getNic());
         model.addAttribute("address", employee.getAddress());
         model.addAttribute("dateOfBirth", dateFormat.format(dateOfBirth));
@@ -137,7 +137,7 @@ public class EmployeeController {
     public String deleteEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpSession session) {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.deleteEmployee(employeeId);
-        switch (notification.getNotificationType()){
+        switch (notification.getNotificationType()) {
             case DANGER:
                 model.addAttribute("message", notification.getMessage());
                 log.error("[" + className + "] deleteEmployee: error in deleting Employee");
@@ -172,7 +172,7 @@ public class EmployeeController {
 
     @RequestMapping(value = "search", method = RequestMethod.POST)
     public void searchAJAXAll(Model model, HttpServletResponse response) throws IOException {
-        searchAJAX(model,"",response);
+        searchAJAX(model, "", response);
         log.debug("[" + className + "] searchAJAXAll()");
     }
 

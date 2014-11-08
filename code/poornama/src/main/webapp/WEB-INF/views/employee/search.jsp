@@ -26,7 +26,7 @@
 
 <script>
 
-    $("#searchText").keyup(function() {
+    $("#searchText").keyup(function () {
         searchEmployee();
     });
 

@@ -32,7 +32,7 @@ public class EmployeeAttendanceController {
 
     @RequestMapping(value = "search", method = RequestMethod.POST)
     public void searchAJAXAll(Model model, HttpServletResponse response) throws IOException {
-        searchAJAX(model,"",response);
+        searchAJAX(model, "", response);
         log.debug("[" + className + "] searchAJAXAll()");
     }
 }

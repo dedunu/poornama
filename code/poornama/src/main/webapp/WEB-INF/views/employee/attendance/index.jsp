@@ -4,7 +4,7 @@
 </style>
 
 <div class="week-picker"></div>
-<br /><br />
+<br/><br/>
 <label>Week :</label> <span id="startDate"></span> - <span id="endDate"></span>
 
 <div class="row">

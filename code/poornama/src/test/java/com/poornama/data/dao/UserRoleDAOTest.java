@@ -14,7 +14,7 @@ public class UserRoleDAOTest {
     private UserRoleDAO userRoleDAO = new UserRoleDAO();
 
     @Test
-    public void createUserRole(){
+    public void createUserRole() {
         UserRole userRole = new UserRole();
         Random random = new Random();
         int value = random.nextInt(10000);
@@ -25,7 +25,7 @@ public class UserRoleDAOTest {
     }
 
     @Test
-    public void deleteUser(){
+    public void deleteUser() {
         UserRole userRole = new UserRole();
         Random random = new Random();
         int value = random.nextInt(10000);

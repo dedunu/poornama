@@ -4,9 +4,12 @@
         padding-top: 7px;
     }
 </style>
-<div class="alert alert-danger" role="alert">Once you delete data you cannot restore it. Please be careful when you are deleting records.</div>
+<div class="alert alert-danger" role="alert">Once you delete data you cannot restore it. Please be careful when you are
+    deleting records.
+</div>
 
-<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/employee/delete/${employeeId}">
+<form class="form-horizontal" role="form" method="post"
+      action="${pageContext.request.contextPath}/employee/delete/${employeeId}">
     <div class="form-group">
         <label class="col-sm-3 control-label">Name</label>
 

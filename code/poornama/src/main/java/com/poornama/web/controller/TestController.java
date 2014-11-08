@@ -24,6 +24,7 @@ public class TestController {
         model.addAttribute("message", "This is a notification. And we have created a patient on my system.");
         return "notify/success";
     }
+
     @RequestMapping(value = "test2", method = RequestMethod.GET)
     public String test2(Model model, HttpSession session) {
         return "test/testSelect";

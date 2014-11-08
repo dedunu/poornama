@@ -27,7 +27,7 @@ public class Test {
         EmployeeAttendanceDAO employeeAttendanceDAO = new EmployeeAttendanceDAO();
         List<Employee> employeeList = employeeDAO.searchByFirstName("Dedunu");
 
-        Long l = 3L;
+        Long l = 5L;
         EmployeeAttendance employeeAttendance1 = employeeAttendanceDAO.getById(l);
         System.out.print(employeeAttendance1.getAttendance());
 

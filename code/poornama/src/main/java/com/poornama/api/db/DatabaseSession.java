@@ -17,59 +17,59 @@ public class DatabaseSession {
     private static String className = DatabaseSession.class.getName();
     private Session session;
 
-    public DatabaseSession(){
+    public DatabaseSession() {
         log.debug("[" + className + "] constructor()");
         SessionGenerator sessionGenerator = new SessionGenerator();
         session = sessionGenerator.getSession();
     }
 
-    public void beginTransaction(){
+    public void beginTransaction() {
         log.debug("[" + className + "] beginTransaction()");
         this.session.getTransaction().begin();
     }
 
-    public void commitTransaction(){
+    public void commitTransaction() {
         log.debug("[" + className + "] commitTransaction()");
         this.session.getTransaction().commit();
     }
 
-    public void save(Object object){
+    public void save(Object object) {
         log.debug("[" + className + "] save()");
         this.session.save(object);
     }
 
-    public void delete(Object object){
+    public void delete(Object object) {
         log.debug("[" + className + "] delete()");
         this.session.delete(object);
     }
 
-    public void update(Object object){
+    public void update(Object object) {
         log.debug("[" + className + "] update()");
         this.session.update(object);
     }
 
-    public void saveOrUpdate(Object object){
+    public void saveOrUpdate(Object object) {
         log.debug("[" + className + "] saveOrUpdate()");
         this.session.saveOrUpdate(object);
     }
 
-    public Object getById(Class clazz, Serializable id ){
+    public Object getById(Class clazz, Serializable id) {
         log.debug("[" + className + "] getById()");
         return this.session.get(clazz, id);
     }
 
-    public List getAll(Class clazz){
+    public List getAll(Class clazz) {
         log.debug("[" + className + "] getAll()");
         Criteria criteria = this.session.createCriteria(clazz);
         return criteria.list();
     }
 
-    public Criteria createCriteria(Class clazz){
+    public Criteria createCriteria(Class clazz) {
         log.debug("[" + className + "] createCriteria()");
         return this.session.createCriteria(clazz);
     }
 
-    public void close(){
+    public void close() {
         log.debug("[" + className + "] close()");
         this.session.close();
     }

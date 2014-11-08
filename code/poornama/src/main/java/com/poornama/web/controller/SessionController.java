@@ -23,47 +23,50 @@ public class SessionController {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = SessionController.class.getName();
 
-    @RequestMapping(value="login",method = RequestMethod.POST)
-    public String login(Model model,HttpSession session, @RequestParam("username") String userName, @RequestParam("password") String password){
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public String login(Model model, HttpSession session, @RequestParam("username") String userName, @RequestParam("password") String password) {
         log.debug("[" + className + "] login: login()");
 
-        if(session.getAttribute("isLoggedIn").equals("true")){
+        if (session.getAttribute("isLoggedIn").equals("true")) {
             log.debug("[" + className + "] login: redirecting to home controller");
             return "redirect:/";
         } else {
             Authentication authentication = new Authentication();
             boolean isAuthenticated = authentication.doAuthenticate(userName, password);
-            if(isAuthenticated){
+            if (isAuthenticated) {
                 UserDAO userDAO = new UserDAO();
                 User user = userDAO.getByUserName(userName);
-                session.setAttribute("displayName",user.getDisplayName());
-                session.setAttribute("userId",user.getId());
+                session.setAttribute("displayName", user.getDisplayName());
+                session.setAttribute("userId", user.getId());
                 session.setAttribute("userName", userName);
-                session.setAttribute("isLoggedIn","true");
+                session.setAttribute("isLoggedIn", "true");
                 session.setAttribute("isLoginFailed", "false");
                 log.debug("[" + className + "] login: Success, redirecting to home controller");
                 return "redirect:/";
             } else {
                 log.debug("[" + className + "] login: failed redirecting to login page with error");
-                session.setAttribute("displayName",null);
-                session.setAttribute("userId",null);
-                session.setAttribute("userName",null);
-                session.setAttribute("isLoggedIn","false");
-                session.setAttribute("isLoginFailed","true");
+                session.setAttribute("displayName", null);
+                session.setAttribute("userId", null);
+                session.setAttribute("userName", null);
+                session.setAttribute("isLoggedIn", "false");
+                session.setAttribute("isLoginFailed", "true");
                 return "redirect:/";
             }
         }
     }
 
-    @RequestMapping(value = "logout",method = RequestMethod.GET)
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
     public String logout(Model model, HttpSession session) {
-        log.debug("[" + className + "] logout: Logout User - " + session.getAttribute("userName").toString());
-        session.setAttribute("displayName",null);
-        session.setAttribute("userId",null);
-        session.setAttribute("userName",null);
-        session.setAttribute("isLoggedIn","false");
-        session.setAttribute("isLoginFailed","false");
+        try {
+            session.setAttribute("displayName", null);
+            session.setAttribute("userId", null);
+            session.setAttribute("userName", null);
+            session.setAttribute("isLoggedIn", "false");
+            session.setAttribute("isLoginFailed", "false");
+        } catch (Exception e) {
+            log.debug("[" + className + "] logout: throw an error while logging out.");
+        }
         log.debug("[" + className + "] logout: Success, redirecting to user/logic");
-        return "user/login";
+        return "redirect:/";
     }
 }

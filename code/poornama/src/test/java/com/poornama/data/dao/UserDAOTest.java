@@ -14,7 +14,7 @@ public class UserDAOTest {
     private UserDAO userDAO = new UserDAO();
 
     @Test
-    public void createUser(){
+    public void createUser() {
         User user1 = new User();
         Random random = new Random();
         int value = random.nextInt(10000);
@@ -26,7 +26,7 @@ public class UserDAOTest {
     }
 
     @Test
-    public void getUserByName(){
+    public void getUserByName() {
         User user1 = new User();
         Random random = new Random();
         int value = random.nextInt(10000);
@@ -38,14 +38,14 @@ public class UserDAOTest {
         Assert.assertTrue(user2.getDisplayName().equals("Temp" + value));
     }
 
-    @Test(expected=NullPointerException.class)
-    public void getUserByNameNotExisting(){
+    @Test(expected = NullPointerException.class)
+    public void getUserByNameNotExisting() {
         User user = userDAO.getByUserName("Temp_Not");
         String displayName = user.getDisplayName();
     }
 
     @Test
-    public void deleteUser(){
+    public void deleteUser() {
         User user1 = new User();
         Random random = new Random();
         int value = random.nextInt(10000);

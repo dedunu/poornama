@@ -62,7 +62,7 @@ public class EmployeeAttendanceDAO {
 
         try {
             employeeId = Integer.parseInt(id);
-        } catch (Exception e){
+        } catch (Exception e) {
             log.debug("[" + className + "] getByIdDate(): error in parsing id");
         }
         return getByIdDate(employeeId, date);
