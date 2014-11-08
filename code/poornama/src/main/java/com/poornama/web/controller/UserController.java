@@ -3,11 +3,11 @@ package com.poornama.web.controller;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
-import com.poornama.data.dao.EmployeeDAO;
-import com.poornama.data.objects.Employee;
+import com.poornama.data.dao.UserDAO;
+import com.poornama.data.objects.User;
 import com.poornama.logic.object.EmployeeLogic;
-import com.poornama.logic.object.EmployeeTypeLogic;
 import com.poornama.logic.object.UserLogic;
+import com.poornama.logic.object.UserRoleLogic;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by dedunu on 10/24/14.
@@ -32,58 +29,46 @@ public class UserController {
 
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
-        EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
-        model.addAttribute("userRoleList", employeeTypeLogic.getEmployeeTypeSelectList());
+        UserRoleLogic userRoleLogic = new UserRoleLogic();
+        model.addAttribute("userRoleList", userRoleLogic.getUserRoleSelectList());
         log.debug("[" + className + "] createForm()");
         return "user/create";
     }
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
-    public String createEmployee(Model model, HttpServletRequest request) {
+    public String createUser(Model model, HttpServletRequest request) {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.createEmployee(request);
         model.addAttribute("message", notification.getMessage());
         if (notification.getNotificationType() == NotificationType.DANGER) {
-            log.error("[" + className + "] createEmployee: failed");
+            log.error("[" + className + "] createUser: failed");
             return "notify/danger";
         }
         if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            log.info("[" + className + "] createEmployee: success");
+            log.info("[" + className + "] createUser: success");
             return "notify/success";
         }
-        log.fatal("[" + className + "] createEmployee: cannot reach this phrase");
+        log.fatal("[" + className + "] createUser: cannot reach this phrase");
         return "redirect:/";
     }
 
-    @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.GET)
-    public String editForm(Model model, @PathVariable("employeeId") String employeeId) {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        Employee employee;
+    @RequestMapping(value = "edit/{userId}", method = RequestMethod.GET)
+    public String editForm(Model model, @PathVariable("userId") String userId) {
+        UserDAO userDAO = new UserDAO();
+        User user;
         try {
-            employee = employeeDAO.getById(Integer.parseInt(employeeId));
+            user = userDAO.getById(Integer.parseInt(userId));
         } catch (Exception e) {
-            log.error("[" + className + "] editForm: error in retrieving Employee by Id");
-            model.addAttribute("message", "Something went wrong with Employee data. Please try again.");
+            log.error("[" + className + "] editForm: error in retrieving User by Id");
+            model.addAttribute("message", "Something went wrong with User data. Please try again.");
             return "notify/danger";
         }
-        EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date dateOfBirth = employee.getDateOfBirth();
-        Date dateOfJoining = employee.getDateOfJoining();
-
-        model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
-        model.addAttribute("employeeId", employeeId);
-        model.addAttribute("firstName", employee.getFirstName());
-        model.addAttribute("lastName", employee.getLastName());
-        model.addAttribute("employeeType", employee.getEmployeeType().getId());
-        model.addAttribute("nic", employee.getNic());
-        model.addAttribute("address", employee.getAddress());
-        model.addAttribute("dateOfBirth", dateFormat.format(dateOfBirth));
-        model.addAttribute("dateOfJoining", dateFormat.format(dateOfJoining));
-        model.addAttribute("description", employee.getDescription());
-        model.addAttribute("telephone", employee.getTelephoneNumber());
-        model.addAttribute("emergencyContact", employee.getEmergencyContact());
-        return "employee/edit";
+        UserRoleLogic userRoleLogic = new UserRoleLogic();
+        model.addAttribute("userRoleList", userRoleLogic.getUserRoleSelectList());
+        model.addAttribute("userName", user.getUserName());
+        model.addAttribute("displayName", user.getDisplayName());
+        model.addAttribute("userRole", user.getUserRole().getId());
+        return "user/edit";
     }
 
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.POST)
@@ -104,50 +89,40 @@ public class UserController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.GET)
-    public String deleteForm(Model model, @PathVariable("employeeId") String employeeId) {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        Employee employee;
+    @RequestMapping(value = "delete/{userId}", method = RequestMethod.GET)
+    public String deleteForm(Model model, @PathVariable("userId") String userId) {
+        UserDAO userDAO = new UserDAO();
+        User user;
         try {
-            employee = employeeDAO.getById(Integer.parseInt(employeeId));
+            user = userDAO.getById(Integer.parseInt(userId));
         } catch (Exception e) {
-            log.error("[" + className + "] editForm: error in retrieving Employee by Id");
-            model.addAttribute("message", "Something went wrong with Employee data. Please try again.");
+            log.error("[" + className + "] deleteForm: error in retrieving User by Id");
+            model.addAttribute("message", "Something went wrong with User data. Please try again.");
             return "notify/danger";
         }
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date dateOfBirth = employee.getDateOfBirth();
-        Date dateOfJoining = employee.getDateOfJoining();
-        model.addAttribute("employeeId", employeeId);
-        model.addAttribute("firstName", employee.getFirstName());
-        model.addAttribute("lastName", employee.getLastName());
-        model.addAttribute("employeeType", employee.getEmployeeType().getDisplayName());
-        model.addAttribute("nic", employee.getNic());
-        model.addAttribute("address", employee.getAddress());
-        model.addAttribute("dateOfBirth", dateFormat.format(dateOfBirth));
-        model.addAttribute("dateOfJoining", dateFormat.format(dateOfJoining));
-        model.addAttribute("description", employee.getDescription());
-        model.addAttribute("telephone", employee.getTelephoneNumber());
-        model.addAttribute("emergencyContact", employee.getEmergencyContact());
-        return "employee/delete";
+        model.addAttribute("userId", userId);
+        model.addAttribute("userName", user.getUserName());
+        model.addAttribute("displayName", user.getDisplayName());
+        model.addAttribute("userRole", user.getUserRole().getDisplayName());
+        return "user/delete";
     }
 
-    @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.POST)
-    public String deleteEmployee(Model model, @PathVariable("employeeId") String employeeId) {
-        EmployeeLogic employeeLogic = new EmployeeLogic();
-        Notification notification = employeeLogic.deleteEmployee(employeeId);
+    @RequestMapping(value = "delete/{userId}", method = RequestMethod.POST)
+    public String deleteUser(Model model, @PathVariable("userId") String userId) {
+        UserLogic userLogic = new UserLogic();
+        Notification notification = userLogic.deleteUser(userId);
         switch (notification.getNotificationType()) {
             case DANGER:
                 model.addAttribute("message", notification.getMessage());
-                log.error("[" + className + "] deleteEmployee: error in deleting Employee");
+                log.error("[" + className + "] deleteUser: error in deleting User");
                 return "notify/danger";
             case SUCCESS:
                 model.addAttribute("message", notification.getMessage());
-                log.info("[" + className + "] deleteEmployee: deleted Employee successfully");
+                log.info("[" + className + "] deleteUser: deleted User successfully");
                 return "notify/success";
             default:
                 model.addAttribute("message", "Something went wrong. Please contact developer.");
-                log.error("[" + className + "] deleteEmployee: fatal error in deleting Employee");
+                log.error("[" + className + "] deleteUser: fatal error in deleting User");
                 return "notify/danger";
         }
     }
