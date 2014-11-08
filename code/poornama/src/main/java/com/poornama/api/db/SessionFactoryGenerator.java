@@ -11,12 +11,14 @@ public class SessionFactoryGenerator {
 
     /*
         This class returns singleton SessionFactory for
-        Hibernate sessions.
+        Hibernate sessions. Do not auto format this page.
+        Auto formatting move sessionFactory variable to
+        the top.
      */
 
-    private static final SessionFactory sessionFactory = buildSessionFactory();
     private static Logger log = GlobalLogger.getLogger();
     private static String className = SessionFactoryGenerator.class.getName();
+    private static final SessionFactory sessionFactory = buildSessionFactory();
     private static ServiceRegistry serviceRegistry;
 
     /*
@@ -36,7 +38,8 @@ public class SessionFactoryGenerator {
             serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 
             // Returns Session
-            return configuration.buildSessionFactory(serviceRegistry);
+            SessionFactory generatedSessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            return generatedSessionFactory;
         } catch (Throwable ex) {
             log.debug("[" + className + "] buildSessionFactory :Throwed an exception " + ex.getMessage());
             // Printing StackTrace and return null.

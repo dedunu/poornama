@@ -1,0 +1,22 @@
+================================================================================
+# Deployment Instructions
+================================================================================
+
+Software Requirements:
+  Ubuntu Server 14.10
+  Oracle JDK 1.8.0_20
+  MySQL 5.6.19
+  GlassFish 4.1
+
+1.  Install and configure above softwares with basic configurations.
+
+2.  Create database in MySQL with below details.
+      Database name   :   poornama
+      Username        :   root
+      Password        :   rootroot
+
+3.  Make sure /home/dedunu/code/poornama/code/poornama_home/logs/ is accessible
+    for GlassFish Application Server.
+
+4.  Deploy cdn.war and poornama.war to Glassfish. (Instead of that you can
+    deploy poornama.ear)

@@ -13,8 +13,14 @@ public class SessionGenerator {
     // Generates a session from SessionFactoryGenerator
     public Session getSession() {
         log.debug("[" + className + "] getSession()");
-        SessionFactory sessionFactory = SessionFactoryGenerator.getSessionFactory();
-        Session session = sessionFactory.openSession();
+        Session session;
+        try {
+            SessionFactory sessionFactory = SessionFactoryGenerator.getSessionFactory();
+            session = sessionFactory.openSession();
+        } catch (Exception e){
+            log.error("[" + className + "] getSession(): error " + e.getMessage());
+            return null;
+        }
         return session;
     }
 

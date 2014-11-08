@@ -1,0 +1,18 @@
+================================================================================
+# Developer Notes
+================================================================================
+
+Don't autoformat using IntelliJ IDEA.
+After reformatting there would be JSP errors due to references. Also
+SessionFactoryGenerator will fail to initialize. In any case, if you
+autoformatted the code please check below files.
+
+  src/main/java/com/poornama/api/db/SessionFactoryGenerator.java
+    Check the order of variables sessionFactory show mention after Logging
+    variables.
+    
+  src/main/webapp/WEB-INF/views/template/include.jsp
+    There should be below lines.
+    <%@ page import="com.poornama.api.security.RoleValidator" %>
+    <%@ page import="java.util.ArrayList" %>
+    <%@ page import="java.util.List" %>
