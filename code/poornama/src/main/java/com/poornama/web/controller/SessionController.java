@@ -6,7 +6,6 @@ import com.poornama.data.objects.User;
 import com.poornama.logic.session.Authentication;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +23,7 @@ public class SessionController {
     private static String className = SessionController.class.getName();
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(Model model, HttpSession session, @RequestParam("username") String userName, @RequestParam("password") String password) {
+    public String login(HttpSession session, @RequestParam("username") String userName, @RequestParam("password") String password) {
         log.debug("[" + className + "] login: login()");
 
         if (session.getAttribute("isLoggedIn").equals("true")) {
@@ -58,7 +57,7 @@ public class SessionController {
     }
 
     @RequestMapping(value = "denied", method = RequestMethod.GET)
-    public String accessDenied(Model model, HttpSession session) {
+    public String accessDenied(HttpSession session) {
         try {
             session.setAttribute("message", "Sorry, the page you just requested is not available to you due to security reasons.");
         } catch (Exception e) {
@@ -69,7 +68,7 @@ public class SessionController {
     }
 
     @RequestMapping(value = "logout", method = RequestMethod.GET)
-    public String logout(Model model, HttpSession session) {
+    public String logout(HttpSession session) {
         try {
             session.setAttribute("displayName", null);
             session.setAttribute("userId", null);

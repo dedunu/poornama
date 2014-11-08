@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -32,7 +31,7 @@ public class EmployeeController {
     private static String className = EmployeeController.class.getName();
 
     @RequestMapping(value = "create", method = RequestMethod.GET)
-    public String createForm(Model model, HttpSession session) {
+    public String createForm(Model model) {
         EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
         model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
         log.debug("[" + className + "] createForm()");
@@ -40,7 +39,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
-    public String createEmployee(Model model, HttpSession session, HttpServletRequest request) {
+    public String createEmployee(Model model, HttpServletRequest request) {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.createEmployee(request);
         model.addAttribute("message", notification.getMessage());
@@ -57,7 +56,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.GET)
-    public String editForm(Model model, @PathVariable("employeeId") String employeeId, HttpSession session) {
+    public String editForm(Model model, @PathVariable("employeeId") String employeeId) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee employee;
         try {
@@ -88,7 +87,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.POST)
-    public String editEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpSession session, HttpServletRequest request) {
+    public String editEmployee(Model model, @PathVariable("employeeId") String employeeId,HttpServletRequest request) {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.editEmployee(request, employeeId);
         log.debug("[" + className + "] editEmployee()");
@@ -106,7 +105,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.GET)
-    public String deleteForm(Model model, @PathVariable("employeeId") String employeeId, HttpSession session) {
+    public String deleteForm(Model model, @PathVariable("employeeId") String employeeId) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee employee;
         try {
@@ -134,7 +133,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.POST)
-    public String deleteEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpSession session) {
+    public String deleteEmployee(Model model, @PathVariable("employeeId") String employeeId) {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.deleteEmployee(employeeId);
         switch (notification.getNotificationType()) {
@@ -154,7 +153,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
-    public String searchForm(Model model, HttpServletResponse response) throws IOException {
+    public String searchForm(Model model) throws IOException {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         String table = employeeLogic.getEmployeeTable("");
         model.addAttribute("table", table);
@@ -163,7 +162,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "search/{name}", method = RequestMethod.POST)
-    public void searchAJAX(Model model, @PathVariable("name") String name, HttpServletResponse response) throws IOException {
+    public void searchAJAX(@PathVariable("name") String name, HttpServletResponse response) throws IOException {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         String table = employeeLogic.getEmployeeTable(name);
         response.getWriter().print(table);
@@ -171,8 +170,8 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "search", method = RequestMethod.POST)
-    public void searchAJAXAll(Model model, HttpServletResponse response) throws IOException {
-        searchAJAX(model, "", response);
+    public void searchAJAXAll(HttpServletResponse response) throws IOException {
+        searchAJAX("", response);
         log.debug("[" + className + "] searchAJAXAll()");
     }
 

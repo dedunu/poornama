@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -32,7 +30,7 @@ public class VehicleController {
     private static String className = EmployeeController.class.getName();
 
     @RequestMapping(value = "create", method = RequestMethod.GET)
-    public String createForm(Model model, HttpSession session) {
+    public String createForm(Model model) {
         VehicleTypeLogic vehicleTypeLogic = new VehicleTypeLogic();
         model.addAttribute("vehicleTypeList", vehicleTypeLogic.getVehicleTypeSelectList());
         log.debug("[" + className + "] createForm()");
@@ -40,7 +38,7 @@ public class VehicleController {
     }
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
-    public String createVehicle(Model model, HttpSession session, HttpServletRequest request) {
+    public String createVehicle(Model model, HttpServletRequest request) {
         VehicleLogic vehicleLogic = new VehicleLogic();
         Notification notification = vehicleLogic.createVehicle(request);
         model.addAttribute("message", notification.getMessage());
@@ -57,7 +55,7 @@ public class VehicleController {
     }
 
     @RequestMapping(value = "edit/{vehicleId}", method = RequestMethod.GET)
-    public String editForm(Model model, @PathVariable("vehicleId") String vehicleId, HttpSession session) {
+    public String editForm(Model model, @PathVariable("vehicleId") String vehicleId) {
         VehicleDAO vehicleDAO = new VehicleDAO();
         VehicleTypeLogic vehicleTypeLogic = new VehicleTypeLogic();
         Vehicle vehicle;
@@ -79,7 +77,7 @@ public class VehicleController {
     }
 
     @RequestMapping(value = "edit/{vehicleId}", method = RequestMethod.POST)
-    public String editVehicle(Model model, @PathVariable("vehicleId") String vehicleId, HttpSession session, HttpServletRequest request) {
+    public String editVehicle(Model model, @PathVariable("vehicleId") String vehicleId, HttpServletRequest request) {
         VehicleLogic vehicleLogic = new VehicleLogic();
         Notification notification = vehicleLogic.editVehicle(request, vehicleId);
         log.debug("[" + className + "] editVehicle()");
@@ -97,7 +95,7 @@ public class VehicleController {
     }
 
     @RequestMapping(value = "delete/{vehicleId}", method = RequestMethod.GET)
-    public String deleteForm(Model model, @PathVariable("vehicleId") String vehicleId, HttpSession session) {
+    public String deleteForm(Model model, @PathVariable("vehicleId") String vehicleId) {
         VehicleDAO vehicleDAO = new VehicleDAO();
         Vehicle vehicle;
 
@@ -119,7 +117,7 @@ public class VehicleController {
     }
 
     @RequestMapping(value = "delete/{vehicleId}", method = RequestMethod.POST)
-    public String deleteVehicle(Model model, @PathVariable("vehicleId") String vehicleId, HttpSession session) {
+    public String deleteVehicle(Model model, @PathVariable("vehicleId") String vehicleId) {
         VehicleLogic vehicleLogic = new VehicleLogic();
         Notification notification = vehicleLogic.deleteVehicle(vehicleId);
         switch (notification.getNotificationType()) {
@@ -139,7 +137,7 @@ public class VehicleController {
     }
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
-    public String searchForm(Model model, HttpServletResponse response) throws IOException {
+    public String searchForm(Model model) throws IOException {
         VehicleLogic vehicleLogic = new VehicleLogic();
         String table = vehicleLogic.getVehicleTable();
         model.addAttribute("table", table);

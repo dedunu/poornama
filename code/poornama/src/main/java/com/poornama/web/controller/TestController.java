@@ -7,8 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpSession;
-
 /**
  * Created by dedunu on 11/6/14.
  */
@@ -20,13 +18,18 @@ public class TestController {
     private static String className = TestController.class.getName();
 
     @RequestMapping(value = "test1", method = RequestMethod.GET)
-    public String test1(Model model, HttpSession session) {
+    public String test1(Model model) {
         model.addAttribute("message", "This is a notification. And we have created a patient on my system.");
         return "notify/success";
     }
 
     @RequestMapping(value = "test2", method = RequestMethod.GET)
-    public String test2(Model model, HttpSession session) {
+    public String test2() {
+        return "test/testSelect";
+    }
+
+    @RequestMapping(value = "test3", method = RequestMethod.GET)
+    public String test3() {
         return "test/testSelect";
     }
 }

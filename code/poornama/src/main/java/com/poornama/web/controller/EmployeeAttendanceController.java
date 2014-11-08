@@ -6,14 +6,12 @@ import com.poornama.api.presentation.NotificationType;
 import com.poornama.logic.object.EmployeeAttendanceLogic;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -26,13 +24,13 @@ public class EmployeeAttendanceController {
     private static String className = EmployeeAttendanceController.class.getName();
 
     @RequestMapping(method = RequestMethod.GET)
-    public String index(Model model, HttpSession session) {
+    public String index() {
         log.debug("[" + className + "] index: index()");
         return "employee/attendance/index";
     }
 
     @RequestMapping(value = "search/{startDate}", method = RequestMethod.POST)
-    public void searchAJAX(Model model, @PathVariable("startDate") String startDate, HttpServletResponse response) throws IOException {
+    public void searchAJAX(@PathVariable("startDate") String startDate, HttpServletResponse response) throws IOException {
         startDate = startDate.replace("_", "/");
         EmployeeAttendanceLogic employeeAttendanceLogic = new EmployeeAttendanceLogic();
         String table = employeeAttendanceLogic.getEmployeeAttendanceTable(startDate);
@@ -41,7 +39,7 @@ public class EmployeeAttendanceController {
     }
 
     @RequestMapping(value = "save", method = RequestMethod.POST)
-    public void saveAJAX(Model model, @RequestParam("data") String data, @RequestParam("date") String date, HttpServletResponse response) throws IOException {
+    public void saveAJAX(@RequestParam("data") String data, @RequestParam("date") String date, HttpServletResponse response) throws IOException {
         EmployeeAttendanceLogic employeeAttendanceLogic = new EmployeeAttendanceLogic();
         Notification notification = employeeAttendanceLogic.save(data, date);
         if (notification.getNotificationType() == NotificationType.SUCCESS) {

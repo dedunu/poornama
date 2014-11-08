@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -33,7 +31,7 @@ public class UserController {
     private static String className = UserController.class.getName();
 
     @RequestMapping(value = "create", method = RequestMethod.GET)
-    public String createForm(Model model, HttpSession session) {
+    public String createForm(Model model) {
         EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
         model.addAttribute("userRoleList", employeeTypeLogic.getEmployeeTypeSelectList());
         log.debug("[" + className + "] createForm()");
@@ -41,7 +39,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
-    public String createEmployee(Model model, HttpSession session, HttpServletRequest request) {
+    public String createEmployee(Model model, HttpServletRequest request) {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.createEmployee(request);
         model.addAttribute("message", notification.getMessage());
@@ -58,7 +56,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.GET)
-    public String editForm(Model model, @PathVariable("employeeId") String employeeId, HttpSession session) {
+    public String editForm(Model model, @PathVariable("employeeId") String employeeId) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee employee;
         try {
@@ -89,7 +87,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.POST)
-    public String editEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpSession session, HttpServletRequest request) {
+    public String editEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpServletRequest request) {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.editEmployee(request, employeeId);
         log.debug("[" + className + "] editEmployee()");
@@ -107,7 +105,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.GET)
-    public String deleteForm(Model model, @PathVariable("employeeId") String employeeId, HttpSession session) {
+    public String deleteForm(Model model, @PathVariable("employeeId") String employeeId) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee employee;
         try {
@@ -135,7 +133,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.POST)
-    public String deleteEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpSession session) {
+    public String deleteEmployee(Model model, @PathVariable("employeeId") String employeeId) {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.deleteEmployee(employeeId);
         switch (notification.getNotificationType()) {
@@ -155,13 +153,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "settings", method = RequestMethod.GET)
-    public String settingPage(Model model, HttpServletResponse response) throws IOException {
+    public String settingPage() throws IOException {
         log.debug("[" + className + "] settingPage()");
         return "user/settings";
     }
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
-    public String searchForm(Model model, HttpServletResponse response) throws IOException {
+    public String searchForm(Model model) throws IOException {
         UserLogic userLogic = new UserLogic();
         String table = userLogic.getUserTable();
         model.addAttribute("table", table);
