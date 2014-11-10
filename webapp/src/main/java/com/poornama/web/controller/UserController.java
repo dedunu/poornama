@@ -73,19 +73,19 @@ public class UserController {
         return "user/edit";
     }
 
-    @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.POST)
-    public String editEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpServletRequest request) {
-        EmployeeLogic employeeLogic = new EmployeeLogic();
-        Notification notification = employeeLogic.editEmployee(request, employeeId);
+    @RequestMapping(value = "edit/{userId}", method = RequestMethod.POST)
+    public String editUser(Model model, @PathVariable("userId") String userId, HttpServletRequest request) {
+        UserLogic userLogic = new UserLogic();
+        Notification notification = userLogic.editUser(request, userId);
         log.debug("[" + className + "] editEmployee()");
         model.addAttribute("message", notification.getMessage());
         model.addAttribute("pageTitle", "Poornama Transport Service - User");
         if (notification.getNotificationType() == NotificationType.DANGER) {
-            log.error("[" + className + "] editEmployee: failed");
+            log.error("[" + className + "] editUser: failed");
             return "notify/danger";
         }
         if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            log.info("[" + className + "] editEmployee: success");
+            log.info("[" + className + "] editUser: success");
             return "notify/success";
         }
         log.fatal("[" + className + "] editEmployee: cannot reach this phrase");

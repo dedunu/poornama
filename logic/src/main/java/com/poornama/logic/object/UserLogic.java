@@ -6,7 +6,6 @@ import com.poornama.api.objects.UserRole;
 import com.poornama.api.presentation.DataTableGenerator;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
-import com.poornama.api.security.PasswordHash;
 import com.poornama.data.dao.UserDAO;
 import com.poornama.data.dao.UserRoleDAO;
 import org.apache.log4j.Logger;
@@ -27,11 +26,8 @@ public class UserLogic {
         User user = new User();
         UserRole userRole;
         Notification notification = new Notification();
-        PasswordHash passwordHash = new PasswordHash();
         int userRoleId = 0;
-        String hashedPassword;
-        String userName;
-        String password;
+
 
         try {
             userRoleId = Integer.parseInt(request.getParameter("userRole"));
@@ -40,15 +36,14 @@ public class UserLogic {
         }
 
         userRole = userRoleDAO.getById(userRoleId);
-        userName = request.getParameter("userName");
-        password = request.getParameter("password");
-        hashedPassword = passwordHash.getHash(userName, password);
 
         user.setDisplayName(request.getParameter("displayName"));
-        user.setUserName(userName);
-        user.setPassword(hashedPassword);
+        user.setUserName(request.getParameter("userName"));
+        user.setPassword(request.getParameter("password"));
         user.setUserRole(userRole);
 
+        log.debug("[" + className + "] createUser: userName - " + request.getParameter("userName"));
+        log.debug("[" + className + "] createUser: password - " + request.getParameter("password"));
         try {
             userDAO.create(user);
             notification.setNotificationType(NotificationType.SUCCESS);
@@ -63,6 +58,62 @@ public class UserLogic {
         return notification;
     }
 
+    public Notification editUser(HttpServletRequest request, String userId) {
+        UserDAO userDAO = new UserDAO();
+        UserRoleDAO userRoleDAO = new UserRoleDAO();
+        User user;
+        UserRole userRole;
+        Notification notification = new Notification();
+        int userRoleId = 0;
+        int id = 0;
+        String password;
+
+        try {
+            password = request.getParameter("password");
+        } catch (Exception e) {
+            log.error("[" + className + "] editUser: password is empty");
+            password = "";
+        }
+
+        try {
+            userRoleId = Integer.parseInt(request.getParameter("userRole"));
+        } catch (Exception e) {
+            log.error("[" + className + "] editUser: Error in parsing userRoleId");
+        }
+
+        try {
+            id = Integer.parseInt(userId);
+        } catch (Exception e) {
+            log.error("[" + className + "] editUser: Error in parsing userId");
+        }
+
+        user = userDAO.getById(id);
+        userRole = userRoleDAO.getById(userRoleId);
+        user.setUserName(request.getParameter("userName"));
+        user.setDisplayName(request.getParameter("displayName"));
+        user.setUserRole(userRole);
+
+        log.debug("[" + className + "] createUser: userName - " + request.getParameter("userName"));
+        log.debug("[" + className + "] createUser: password - " + request.getParameter("password"));
+
+        if (password != null && !password.equals("")) {
+            user.setPassword(password);
+            log.debug("[" + className + "] editUser: changed password of User");
+        }
+
+        try {
+            userDAO.update(user);
+            notification.setNotificationType(NotificationType.SUCCESS);
+            notification.setMessage("User data updated successfully.");
+            log.info("[" + className + "] editUser: created User");
+        } catch (Exception e) {
+            notification.setNotificationType(NotificationType.DANGER);
+            notification.setMessage("Something went wrong with creating user. Please try again.");
+            log.error("[" + className + "] editUser: failed creating user");
+        }
+
+        return notification;
+    }
 
     public Notification deleteUser(String userId) {
         Notification notification = new Notification();
