@@ -1,4 +1,4 @@
-package com.poornama;
+package poornama;
 
 import com.poornama.api.logging.GlobalLogger;
 import org.apache.log4j.Logger;

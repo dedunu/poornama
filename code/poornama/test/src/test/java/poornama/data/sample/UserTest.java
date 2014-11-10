@@ -1,4 +1,4 @@
-package com.poornama.data.sample;
+package poornama.data.sample;
 
 import com.poornama.data.dao.UserDAO;
 import com.poornama.data.dao.UserRoleDAO;

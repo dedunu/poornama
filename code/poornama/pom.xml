@@ -16,6 +16,7 @@
         <module>api</module>
         <module>data</module>
         <module>logic</module>
+        <module>test</module>
     </modules>
 
 </project>

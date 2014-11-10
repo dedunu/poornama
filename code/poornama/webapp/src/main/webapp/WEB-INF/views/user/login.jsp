@@ -50,7 +50,5 @@
     $(document).ready(function () {
         $('#loginModal').modal('show');
     });
-
-
 </script>
 <%@ include file="../template/footer.jsp" %>

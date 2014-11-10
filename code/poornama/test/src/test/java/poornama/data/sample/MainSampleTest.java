@@ -1,4 +1,4 @@
-package com.poornama.data.sample;
+package poornama.data.sample;
 
 import org.junit.Ignore;
 

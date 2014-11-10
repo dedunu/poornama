@@ -1,4 +1,4 @@
-package com.poornama.api.presentation;
+package poornama.api.presentation;
 
 import org.junit.Ignore;
 import org.junit.Test;
