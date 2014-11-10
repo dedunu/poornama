@@ -10,11 +10,11 @@ import java.util.Random;
 /**
  * Created by dedunu on 10/23/14.
  */
-@Ignore
 public class UserRoleDAOTest {
 
     private UserRoleDAO userRoleDAO = new UserRoleDAO();
 
+    @Ignore
     @Test
     public void createUserRole() {
         UserRole userRole = new UserRole();
@@ -26,6 +26,13 @@ public class UserRoleDAOTest {
         Assert.assertTrue(true);
     }
 
+    @Test
+    public void getUserRoleByName() {
+        UserRole userRole = userRoleDAO.getByName("admin");
+        Assert.assertTrue(userRole != null);
+    }
+
+    @Ignore
     @Test
     public void deleteRole() {
         UserRole userRole = new UserRole();
