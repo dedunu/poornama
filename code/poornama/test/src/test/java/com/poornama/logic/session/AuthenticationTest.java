@@ -14,7 +14,7 @@ public class AuthenticationTest {
         boolean isSuccessful = authentication.doAuthenticate("dedunumax","rootroot");
         Assert.assertTrue(isSuccessful);
     }
-    
+
     @Test
     public void doUnsuccessfulAuthentication(){
         Authentication authentication = new Authentication();

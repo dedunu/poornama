@@ -1,12 +1,11 @@
 package com.poornama.data.dao;
 
 import com.poornama.api.objects.UserRole;
-import com.poornama.data.dao.UserRoleDAO;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Random;
-import org.junit.Ignore;
 
 /**
  * Created by dedunu on 10/23/14.
@@ -28,7 +27,7 @@ public class UserRoleDAOTest {
     }
 
     @Test
-    public void deleteUser() {
+    public void deleteRole() {
         UserRole userRole = new UserRole();
         Random random = new Random();
         int value = random.nextInt(10000);
