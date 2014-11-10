@@ -1,10 +1,9 @@
 package com.poornama.web.controller;
 
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.api.objects.Employee;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
-import com.poornama.data.dao.EmployeeDAO;
-import com.poornama.api.objects.Employee;
 import com.poornama.logic.object.EmployeeLogic;
 import com.poornama.logic.object.EmployeeTypeLogic;
 import org.apache.log4j.Logger;
@@ -57,16 +56,15 @@ public class EmployeeController {
 
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("employeeId") String employeeId) {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        Employee employee;
-        try {
-            employee = employeeDAO.getById(Integer.parseInt(employeeId));
-        } catch (Exception e) {
-            log.error("[" + className + "] editForm: error in retrieving Employee by Id");
-            model.addAttribute("message", "Something went wrong with Employee data. Please try again.");
-            return "notify/danger";
-        }
         EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
+        EmployeeLogic employeeLogic = new EmployeeLogic();
+        Employee employee;
+        employee = employeeLogic.getEmployee(employeeId);
+
+        if (employee == null) {
+            log.error("[" + className + "] editForm: retrieving Employee failed");
+        }
+
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date dateOfBirth = employee.getDateOfBirth();
         Date dateOfJoining = employee.getDateOfJoining();
@@ -87,7 +85,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.POST)
-    public String editEmployee(Model model, @PathVariable("employeeId") String employeeId,HttpServletRequest request) {
+    public String editEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpServletRequest request) {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.editEmployee(request, employeeId);
         log.debug("[" + className + "] editEmployee()");
@@ -106,15 +104,9 @@ public class EmployeeController {
 
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("employeeId") String employeeId) {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
+        EmployeeLogic employeeLogic = new EmployeeLogic();
         Employee employee;
-        try {
-            employee = employeeDAO.getById(Integer.parseInt(employeeId));
-        } catch (Exception e) {
-            log.error("[" + className + "] editForm: error in retrieving Employee by Id");
-            model.addAttribute("message", "Something went wrong with Employee data. Please try again.");
-            return "notify/danger";
-        }
+        employee = employeeLogic.getEmployee(employeeId);
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date dateOfBirth = employee.getDateOfBirth();
         Date dateOfJoining = employee.getDateOfJoining();

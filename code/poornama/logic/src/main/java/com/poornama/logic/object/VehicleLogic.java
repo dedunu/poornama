@@ -153,4 +153,18 @@ public class VehicleLogic {
         return list;
     }
 
+    public Vehicle getVehicleById(String vehicleId){
+        VehicleDAO vehicleDAO = new VehicleDAO();
+        Vehicle vehicle;
+        int id = 0;
+        try {
+            id = Integer.parseInt(vehicleId);
+        } catch (Exception e){
+            log.error("[" + className + "] getVehicleById() : error in parsing vechileId to integer");
+        }
+        vehicle = vehicleDAO.getById(id);
+        return vehicle;
+
+    }
+
 }

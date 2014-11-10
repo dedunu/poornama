@@ -1,10 +1,9 @@
 package com.poornama.web.controller;
 
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.api.objects.User;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
-import com.poornama.data.dao.UserDAO;
-import com.poornama.api.objects.User;
 import com.poornama.logic.object.EmployeeLogic;
 import com.poornama.logic.object.UserLogic;
 import com.poornama.logic.object.UserRoleLogic;
@@ -54,10 +53,10 @@ public class UserController {
 
     @RequestMapping(value = "edit/{userId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("userId") String userId) {
-        UserDAO userDAO = new UserDAO();
+        UserLogic userLogic = new UserLogic();
         User user;
         try {
-            user = userDAO.getById(Integer.parseInt(userId));
+            user = userLogic.getUserById(userId);
         } catch (Exception e) {
             log.error("[" + className + "] editForm: error in retrieving User by Id");
             model.addAttribute("message", "Something went wrong with User data. Please try again.");
@@ -91,10 +90,10 @@ public class UserController {
 
     @RequestMapping(value = "delete/{userId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("userId") String userId) {
-        UserDAO userDAO = new UserDAO();
+        UserLogic userLogic = new UserLogic();
         User user;
         try {
-            user = userDAO.getById(Integer.parseInt(userId));
+            user = userLogic.getUserById(userId);
         } catch (Exception e) {
             log.error("[" + className + "] deleteForm: error in retrieving User by Id");
             model.addAttribute("message", "Something went wrong with User data. Please try again.");

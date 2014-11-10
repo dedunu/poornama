@@ -1,8 +1,8 @@
 package com.poornama.web.controller;
 
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.data.dao.UserDAO;
 import com.poornama.api.objects.User;
+import com.poornama.logic.object.UserLogic;
 import com.poornama.logic.session.Authentication;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -33,8 +33,8 @@ public class SessionController {
             Authentication authentication = new Authentication();
             boolean isAuthenticated = authentication.doAuthenticate(userName, password);
             if (isAuthenticated) {
-                UserDAO userDAO = new UserDAO();
-                User user = userDAO.getByUserName(userName);
+                UserLogic userLogic = new UserLogic();
+                User user = userLogic.getUserById(userName);
                 session.setAttribute("displayName", user.getDisplayName());
                 session.setAttribute("userId", user.getId());
                 session.setAttribute("userName", userName);

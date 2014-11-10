@@ -65,4 +65,22 @@ public class UserLogic {
         log.debug("[" + className + "] getUserTable()");
         return table;
     }
+
+    public User getUserByUserName(String userName){
+        UserDAO userDAO = new UserDAO();
+        User user = userDAO.getByUserName(userName);
+        return user;
+    }
+
+    public User getUserById(String userId){
+        int id = 0;
+        try{
+            id = Integer.parseInt(userId);
+        } catch (Exception e){
+            log.error("[" + className + "] getUserById(): error in parsing userId to string");
+        }
+        UserDAO userDAO = new UserDAO();
+        User user = userDAO.getById(id);
+        return user;
+    }
 }

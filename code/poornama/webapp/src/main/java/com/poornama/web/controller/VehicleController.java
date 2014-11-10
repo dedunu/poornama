@@ -1,13 +1,10 @@
 package com.poornama.web.controller;
 
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.api.presentation.Notification;
-import com.poornama.api.presentation.NotificationType;
-import com.poornama.data.dao.EmployeeDAO;
-import com.poornama.data.dao.VehicleDAO;
-import com.poornama.api.objects.Employee;
 import com.poornama.api.objects.Vehicle;
 import com.poornama.api.objects.VehicleType;
+import com.poornama.api.presentation.Notification;
+import com.poornama.api.presentation.NotificationType;
 import com.poornama.logic.object.VehicleLogic;
 import com.poornama.logic.object.VehicleTypeLogic;
 import org.apache.log4j.Logger;
@@ -56,11 +53,11 @@ public class VehicleController {
 
     @RequestMapping(value = "edit/{vehicleId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("vehicleId") String vehicleId) {
-        VehicleDAO vehicleDAO = new VehicleDAO();
+        VehicleLogic vehicleLogic = new VehicleLogic();
         VehicleTypeLogic vehicleTypeLogic = new VehicleTypeLogic();
         Vehicle vehicle;
         try {
-            vehicle = vehicleDAO.getById(Integer.parseInt(vehicleId));
+            vehicle = vehicleLogic.getVehicleById(vehicleId);
         } catch (Exception e) {
             log.error("[" + className + "] editForm: error in retrieving Vehicle by Id");
             model.addAttribute("message", "Something went wrong with Vehicle data. Please try again.");
@@ -96,13 +93,10 @@ public class VehicleController {
 
     @RequestMapping(value = "delete/{vehicleId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("vehicleId") String vehicleId) {
-        VehicleDAO vehicleDAO = new VehicleDAO();
+        VehicleLogic vehicleLogic = new VehicleLogic();
         Vehicle vehicle;
-
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        Employee employee;
         try {
-            vehicle = vehicleDAO.getById(Integer.parseInt(vehicleId));
+            vehicle = vehicleLogic.getVehicleById(vehicleId);
         } catch (Exception e) {
             log.error("[" + className + "] deleteForm: error in retrieving Vehicle by Id");
             model.addAttribute("message", "Something went wrong with Vehicle data. Please try again.");
@@ -131,7 +125,7 @@ public class VehicleController {
                 return "notify/success";
             default:
                 model.addAttribute("message", "Something went wrong. Please contact developer.");
-                log.error("[" + className + "] deleteVehicle: fatal error in deleting Employee");
+                log.error("[" + className + "] deleteVehicle: fatal error in deleting Vehicle");
                 return "notify/danger";
         }
     }

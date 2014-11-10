@@ -205,6 +205,18 @@ public class EmployeeLogic {
         return table;
     }
 
+    public Employee getEmployee(String employeeId){
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        Employee employee;
+        try {
+            employee = employeeDAO.getById(Integer.parseInt(employeeId));
+        } catch (Exception e) {
+            log.error("[" + className + "] getEmployee: error in retrieving Employee by Id");
+            return null;
+        }
+        return employee;
+    }
+
     public String getEmployeeSelectList() {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         List<Employee> employeeList = employeeDAO.getAll();
