@@ -33,6 +33,7 @@ public class EmployeeController {
     public String createForm(Model model) {
         EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
         model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
+        model.addAttribute("pageTitle", "Poornama Transport Service - Create Employee");
         log.debug("[" + className + "] createForm()");
         return "employee/create";
     }
@@ -42,6 +43,7 @@ public class EmployeeController {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.createEmployee(request);
         model.addAttribute("message", notification.getMessage());
+        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
         if (notification.getNotificationType() == NotificationType.DANGER) {
             log.error("[" + className + "] createEmployee: failed");
             return "notify/danger";
@@ -81,6 +83,7 @@ public class EmployeeController {
         model.addAttribute("description", employee.getDescription());
         model.addAttribute("telephone", employee.getTelephoneNumber());
         model.addAttribute("emergencyContact", employee.getEmergencyContact());
+        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
         return "employee/edit";
     }
 
@@ -89,6 +92,7 @@ public class EmployeeController {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.editEmployee(request, employeeId);
         log.debug("[" + className + "] editEmployee()");
+        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
         model.addAttribute("message", notification.getMessage());
         if (notification.getNotificationType() == NotificationType.DANGER) {
             log.error("[" + className + "] editEmployee: failed");
@@ -121,6 +125,7 @@ public class EmployeeController {
         model.addAttribute("description", employee.getDescription());
         model.addAttribute("telephone", employee.getTelephoneNumber());
         model.addAttribute("emergencyContact", employee.getEmergencyContact());
+        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
         return "employee/delete";
     }
 
@@ -128,6 +133,7 @@ public class EmployeeController {
     public String deleteEmployee(Model model, @PathVariable("employeeId") String employeeId) {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.deleteEmployee(employeeId);
+        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
         switch (notification.getNotificationType()) {
             case DANGER:
                 model.addAttribute("message", notification.getMessage());
@@ -149,6 +155,7 @@ public class EmployeeController {
         EmployeeLogic employeeLogic = new EmployeeLogic();
         String table = employeeLogic.getEmployeeTable("");
         model.addAttribute("table", table);
+        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
         log.debug("[" + className + "] searchForm()");
         return "employee/search";
     }

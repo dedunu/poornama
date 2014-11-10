@@ -6,6 +6,7 @@ import com.poornama.api.presentation.NotificationType;
 import com.poornama.logic.object.EmployeeAttendanceLogic;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,8 +25,9 @@ public class EmployeeAttendanceController {
     private static String className = EmployeeAttendanceController.class.getName();
 
     @RequestMapping(method = RequestMethod.GET)
-    public String index() {
+    public String index(Model model) {
         log.debug("[" + className + "] index: index()");
+        model.addAttribute("pageTitle", "Poornama Transport Service - Attendance");
         return "employee/attendance/index";
     }
 
