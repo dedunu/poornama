@@ -1,9 +1,11 @@
 <%@ include file="../template/header.jsp" %>
 <style scoped>
-
+    .modal-dialog-center {
+        margin-top: 15%;
+    }
 </style>
 <form role="form" action="${pageContext.request.contextPath}/session/login" method="post">
-    <div class="modal fade " id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal"
+    <div class="modal fade modal-dialog-center" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal"
          aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">

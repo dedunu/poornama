@@ -6,8 +6,8 @@ import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.data.dao.VehicleDAO;
 import com.poornama.data.dao.VehicleTypeDAO;
-import com.poornama.data.objects.Vehicle;
-import com.poornama.data.objects.VehicleType;
+import com.poornama.api.objects.Vehicle;
+import com.poornama.api.objects.VehicleType;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;

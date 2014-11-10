@@ -6,8 +6,8 @@ import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.data.dao.EmployeeDAO;
 import com.poornama.data.dao.EmployeeTypeDAO;
-import com.poornama.data.objects.Employee;
-import com.poornama.data.objects.EmployeeType;
+import com.poornama.api.objects.Employee;
+import com.poornama.api.objects.EmployeeType;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;

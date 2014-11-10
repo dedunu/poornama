@@ -3,7 +3,7 @@ package com.poornama.logic.session;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.security.PasswordHash;
 import com.poornama.data.dao.UserDAO;
-import com.poornama.data.objects.User;
+import com.poornama.api.objects.User;
 import org.apache.log4j.Logger;
 
 /**

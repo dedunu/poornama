@@ -1,6 +1,7 @@
 package poornama.data.dao;
 
-import com.poornama.data.objects.UserRole;
+import com.poornama.api.objects.UserRole;
+import com.poornama.data.dao.UserRoleDAO;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -14,12 +14,12 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="connection.pool_size">100</property>
         <property name="current_session_context_class">thread</property>
-        <mapping class="com.poornama.data.objects.Employee"/>
-        <mapping class="com.poornama.data.objects.EmployeeAttendance"/>
-        <mapping class="com.poornama.data.objects.EmployeeType"/>
-        <mapping class="com.poornama.data.objects.User"/>
-        <mapping class="com.poornama.data.objects.UserRole"/>
-        <mapping class="com.poornama.data.objects.Vehicle"/>
-        <mapping class="com.poornama.data.objects.VehicleType"/>
+        <mapping class="com.poornama.api.objects.Employee"/>
+        <mapping class="com.poornama.api.objects.EmployeeAttendance"/>
+        <mapping class="com.poornama.api.objects.EmployeeType"/>
+        <mapping class="com.poornama.api.objects.User"/>
+        <mapping class="com.poornama.api.objects.UserRole"/>
+        <mapping class="com.poornama.api.objects.Vehicle"/>
+        <mapping class="com.poornama.api.objects.VehicleType"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,7 +1,7 @@
 package poornama.data.sample;
 
 import com.poornama.data.dao.VehicleTypeDAO;
-import com.poornama.data.objects.VehicleType;
+import com.poornama.api.objects.VehicleType;
 import org.junit.Ignore;
 import org.junit.Test;
 

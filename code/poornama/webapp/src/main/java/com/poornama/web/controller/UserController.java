@@ -4,7 +4,7 @@ import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.data.dao.UserDAO;
-import com.poornama.data.objects.User;
+import com.poornama.api.objects.User;
 import com.poornama.logic.object.EmployeeLogic;
 import com.poornama.logic.object.UserLogic;
 import com.poornama.logic.object.UserRoleLogic;

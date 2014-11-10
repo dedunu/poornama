@@ -2,7 +2,7 @@ package com.poornama.logic.object;
 
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.data.dao.VehicleTypeDAO;
-import com.poornama.data.objects.VehicleType;
+import com.poornama.api.objects.VehicleType;
 import org.apache.log4j.Logger;
 
 import java.util.List;

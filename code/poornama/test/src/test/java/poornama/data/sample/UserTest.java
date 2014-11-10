@@ -2,8 +2,8 @@ package poornama.data.sample;
 
 import com.poornama.data.dao.UserDAO;
 import com.poornama.data.dao.UserRoleDAO;
-import com.poornama.data.objects.User;
-import com.poornama.data.objects.UserRole;
+import com.poornama.api.objects.User;
+import com.poornama.api.objects.UserRole;
 import org.junit.Ignore;
 import org.junit.Test;
 

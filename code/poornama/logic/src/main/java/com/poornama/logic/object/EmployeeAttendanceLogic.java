@@ -6,8 +6,8 @@ import com.poornama.api.presentation.NotificationType;
 import com.poornama.api.presentation.PlainDataTableGenerator;
 import com.poornama.data.dao.EmployeeAttendanceDAO;
 import com.poornama.data.dao.EmployeeDAO;
-import com.poornama.data.objects.Employee;
-import com.poornama.data.objects.EmployeeAttendance;
+import com.poornama.api.objects.Employee;
+import com.poornama.api.objects.EmployeeAttendance;
 import org.apache.log4j.Logger;
 
 import java.text.ParseException;

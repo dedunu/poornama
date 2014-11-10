@@ -5,7 +5,7 @@ import com.poornama.api.presentation.DataTableGenerator;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.data.dao.UserDAO;
-import com.poornama.data.objects.User;
+import com.poornama.api.objects.User;
 import org.apache.log4j.Logger;
 
 import java.util.List;

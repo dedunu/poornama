@@ -4,7 +4,7 @@ import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.data.dao.EmployeeDAO;
-import com.poornama.data.objects.Employee;
+import com.poornama.api.objects.Employee;
 import com.poornama.logic.object.EmployeeLogic;
 import com.poornama.logic.object.EmployeeTypeLogic;
 import org.apache.log4j.Logger;

@@ -2,7 +2,7 @@ package com.poornama.web.controller;
 
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.data.dao.UserDAO;
-import com.poornama.data.objects.User;
+import com.poornama.api.objects.User;
 import com.poornama.logic.session.Authentication;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;

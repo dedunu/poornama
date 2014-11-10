@@ -2,7 +2,7 @@ package com.poornama.logic.object;
 
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.data.dao.UserRoleDAO;
-import com.poornama.data.objects.UserRole;
+import com.poornama.api.objects.UserRole;
 import org.apache.log4j.Logger;
 
 import java.util.List;
