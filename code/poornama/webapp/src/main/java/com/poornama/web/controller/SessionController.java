@@ -6,6 +6,7 @@ import com.poornama.logic.object.UserLogic;
 import com.poornama.logic.session.Authentication;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,13 +58,14 @@ public class SessionController {
     }
 
     @RequestMapping(value = "denied", method = RequestMethod.GET)
-    public String accessDenied(HttpSession session) {
+    public String accessDenied(Model model, HttpSession session) {
         try {
             session.setAttribute("message", "Sorry, the page you just requested is not available to you due to security reasons.");
         } catch (Exception e) {
             log.debug("[" + className + "] accessDenied: exception while setting sessionAttribute");
         }
         log.debug("[" + className + "] accessDenied: Success, reidrected to notify/danger");
+        model.addAttribute("pageTitle", "Poornama Transport Service - Access Denied");
         return "notify/danger";
     }
 

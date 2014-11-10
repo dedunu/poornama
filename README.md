@@ -1,3 +1,3 @@
 Poornama Transport Service
 
-To find more information about this please go to [Wiki](http://code.dedunu.info/poornama/wiki/Home)
+To find more information about this project please go to [Wiki](http://code.dedunu.info/poornama/wiki/Home)

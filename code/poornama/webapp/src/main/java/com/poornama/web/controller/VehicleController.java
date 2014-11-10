@@ -2,7 +2,6 @@ package com.poornama.web.controller;
 
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.Vehicle;
-import com.poornama.api.objects.VehicleType;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.logic.object.VehicleLogic;
@@ -30,6 +29,7 @@ public class VehicleController {
     public String createForm(Model model) {
         VehicleTypeLogic vehicleTypeLogic = new VehicleTypeLogic();
         model.addAttribute("vehicleTypeList", vehicleTypeLogic.getVehicleTypeSelectList());
+        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
         log.debug("[" + className + "] createForm()");
         return "vehicle/create";
     }
@@ -39,6 +39,7 @@ public class VehicleController {
         VehicleLogic vehicleLogic = new VehicleLogic();
         Notification notification = vehicleLogic.createVehicle(request);
         model.addAttribute("message", notification.getMessage());
+        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
         if (notification.getNotificationType() == NotificationType.DANGER) {
             log.error("[" + className + "] createVehicle: failed");
             return "notify/danger";
@@ -63,13 +64,12 @@ public class VehicleController {
             model.addAttribute("message", "Something went wrong with Vehicle data. Please try again.");
             return "notify/danger";
         }
-        VehicleType vehicleType = new VehicleType();
 
         model.addAttribute("vehicleId", vehicle.getId());
         model.addAttribute("vehicleNumber", vehicle.getVehicleNumber());
         model.addAttribute("vehicleType", vehicle.getVehicleType().getId());
         model.addAttribute("vehicleTypeList", vehicleTypeLogic.getVehicleTypeSelectList());
-
+        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
         return "vehicle/edit";
     }
 
@@ -78,6 +78,7 @@ public class VehicleController {
         VehicleLogic vehicleLogic = new VehicleLogic();
         Notification notification = vehicleLogic.editVehicle(request, vehicleId);
         log.debug("[" + className + "] editVehicle()");
+        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
         model.addAttribute("message", notification.getMessage());
         if (notification.getNotificationType() == NotificationType.DANGER) {
             log.error("[" + className + "] editVehicle: failed");
@@ -103,6 +104,7 @@ public class VehicleController {
             return "notify/danger";
         }
 
+        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
         model.addAttribute("vehicleId", vehicleId);
         model.addAttribute("vehicleNumber", vehicle.getVehicleNumber());
         model.addAttribute("vehicleType", vehicle.getVehicleType().getDisplayName());
@@ -114,6 +116,7 @@ public class VehicleController {
     public String deleteVehicle(Model model, @PathVariable("vehicleId") String vehicleId) {
         VehicleLogic vehicleLogic = new VehicleLogic();
         Notification notification = vehicleLogic.deleteVehicle(vehicleId);
+        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
         switch (notification.getNotificationType()) {
             case DANGER:
                 model.addAttribute("message", notification.getMessage());
@@ -135,6 +138,7 @@ public class VehicleController {
         VehicleLogic vehicleLogic = new VehicleLogic();
         String table = vehicleLogic.getVehicleTable();
         model.addAttribute("table", table);
+        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
         log.debug("[" + className + "] searchForm()");
         return "vehicle/search";
     }

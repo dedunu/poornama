@@ -30,6 +30,7 @@ public class UserController {
     public String createForm(Model model) {
         UserRoleLogic userRoleLogic = new UserRoleLogic();
         model.addAttribute("userRoleList", userRoleLogic.getUserRoleSelectList());
+        model.addAttribute("pageTitle", "Poornama Transport Service - User");
         log.debug("[" + className + "] createForm()");
         return "user/create";
     }
@@ -39,6 +40,7 @@ public class UserController {
        UserLogic userLogic = new UserLogic();
         Notification notification = userLogic.createUser(request);
         model.addAttribute("message", notification.getMessage());
+        model.addAttribute("pageTitle", "Poornama Transport Service - User");
         if (notification.getNotificationType() == NotificationType.DANGER) {
             log.error("[" + className + "] createUser: failed");
             return "notify/danger";
@@ -67,6 +69,7 @@ public class UserController {
         model.addAttribute("userName", user.getUserName());
         model.addAttribute("displayName", user.getDisplayName());
         model.addAttribute("userRole", user.getUserRole().getId());
+        model.addAttribute("pageTitle", "Poornama Transport Service - User");
         return "user/edit";
     }
 
@@ -76,6 +79,7 @@ public class UserController {
         Notification notification = employeeLogic.editEmployee(request, employeeId);
         log.debug("[" + className + "] editEmployee()");
         model.addAttribute("message", notification.getMessage());
+        model.addAttribute("pageTitle", "Poornama Transport Service - User");
         if (notification.getNotificationType() == NotificationType.DANGER) {
             log.error("[" + className + "] editEmployee: failed");
             return "notify/danger";
@@ -103,6 +107,7 @@ public class UserController {
         model.addAttribute("userName", user.getUserName());
         model.addAttribute("displayName", user.getDisplayName());
         model.addAttribute("userRole", user.getUserRole().getDisplayName());
+        model.addAttribute("pageTitle", "Poornama Transport Service - User");
         return "user/delete";
     }
 
@@ -110,6 +115,7 @@ public class UserController {
     public String deleteUser(Model model, @PathVariable("userId") String userId) {
         UserLogic userLogic = new UserLogic();
         Notification notification = userLogic.deleteUser(userId);
+        model.addAttribute("pageTitle", "Poornama Transport Service - User");
         switch (notification.getNotificationType()) {
             case DANGER:
                 model.addAttribute("message", notification.getMessage());
@@ -127,8 +133,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "settings", method = RequestMethod.GET)
-    public String settingPage() throws IOException {
+    public String settingPage(Model model) throws IOException {
         log.debug("[" + className + "] settingPage()");
+        model.addAttribute("pageTitle", "Poornama Transport Service - User");
         return "user/settings";
     }
 
@@ -137,6 +144,7 @@ public class UserController {
         UserLogic userLogic = new UserLogic();
         String table = userLogic.getUserTable();
         model.addAttribute("table", table);
+        model.addAttribute("pageTitle", "Poornama Transport Service - User");
         log.debug("[" + className + "] searchForm()");
         return "user/search";
     }

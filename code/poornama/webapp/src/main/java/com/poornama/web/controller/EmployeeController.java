@@ -33,7 +33,7 @@ public class EmployeeController {
     public String createForm(Model model) {
         EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
         model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
-        model.addAttribute("pageTitle", "Poornama Transport Service - Create Employee");
+        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
         log.debug("[" + className + "] createForm()");
         return "employee/create";
     }

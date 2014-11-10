@@ -49,6 +49,9 @@
 </form>
 
 <script>
+    $('body').css('background', '#000 url(/cdn/images/truck.jpg) no-repeat center center fixed');
+    $('body').css('background-size', 'cover');
+
     $(document).ready(function () {
         $('#loginModal').modal('show');
     });
