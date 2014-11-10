@@ -36,8 +36,8 @@ public class UserController {
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createUser(Model model, HttpServletRequest request) {
-        EmployeeLogic employeeLogic = new EmployeeLogic();
-        Notification notification = employeeLogic.createEmployee(request);
+       UserLogic userLogic = new UserLogic();
+        Notification notification = userLogic.createUser(request);
         model.addAttribute("message", notification.getMessage());
         if (notification.getNotificationType() == NotificationType.DANGER) {
             log.error("[" + className + "] createUser: failed");

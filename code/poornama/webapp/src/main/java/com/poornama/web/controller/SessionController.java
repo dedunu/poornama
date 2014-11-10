@@ -34,7 +34,7 @@ public class SessionController {
             boolean isAuthenticated = authentication.doAuthenticate(userName, password);
             if (isAuthenticated) {
                 UserLogic userLogic = new UserLogic();
-                User user = userLogic.getUserById(userName);
+                User user = userLogic.getUserByUserName(userName);
                 session.setAttribute("displayName", user.getDisplayName());
                 session.setAttribute("userId", user.getId());
                 session.setAttribute("userName", userName);

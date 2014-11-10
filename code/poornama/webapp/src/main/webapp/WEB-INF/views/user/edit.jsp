@@ -41,14 +41,14 @@
         <label for="password" class="col-sm-3 control-label">Password</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="password" name="password" placeholder="">
+            <input type="password" class="form-control" id="password" name="password" placeholder="">
         </div>
     </div>
     <div class="form-group">
         <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="">
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="">
         </div>
     </div>
     <div class="form-group">
