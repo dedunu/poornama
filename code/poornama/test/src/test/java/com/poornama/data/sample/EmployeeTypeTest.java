@@ -1,12 +1,14 @@
-package poornama.data.sample;
+package com.poornama.data.sample;
 
 import com.poornama.data.dao.EmployeeTypeDAO;
 import com.poornama.api.objects.EmployeeType;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * Created by dedunu on 11/6/14.
  */
+@Ignore
 public class EmployeeTypeTest {
     /*
      Owner

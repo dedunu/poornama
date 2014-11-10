@@ -1,4 +1,4 @@
-package poornama.data.sample;
+package com.poornama.data.sample;
 
 import com.poornama.data.dao.VehicleTypeDAO;
 import com.poornama.api.objects.VehicleType;

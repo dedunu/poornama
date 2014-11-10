@@ -1,4 +1,4 @@
-package poornama.api.presentation;
+package com.poornama.api.presentation;
 
 import com.poornama.api.presentation.DataTableGenerator;
 import org.junit.Ignore;
@@ -7,6 +7,7 @@ import org.junit.Test;
 /**
  * Created by dedunu on 11/8/14.
  */
+@Ignore
 public class DataTableGeneratorTest {
 
     @Ignore
