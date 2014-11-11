@@ -106,7 +106,7 @@
                         <goals>
                             <goal>redeploy</goal>
                         </goals>
-                        <phase>install</phase>
+                        <phase>package</phase>
                     </execution>
                 </executions>
                 <configuration>
