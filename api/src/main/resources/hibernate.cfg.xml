@@ -14,6 +14,7 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="connection.pool_size">100</property>
         <property name="current_session_context_class">thread</property>
+        <mapping class="com.poornama.api.objects.BankAccount"/>
         <mapping class="com.poornama.api.objects.BankAccountType"/>
         <mapping class="com.poornama.api.objects.Employee"/>
         <mapping class="com.poornama.api.objects.EmployeeAttendance"/>
