@@ -114,13 +114,9 @@
                     <user>admin</user>
                     <adminPassword>rootroot</adminPassword>
                     <domain>
-                        <host>10.0.0.2</host>
                         <name>domain1</name>
                         <httpPort>8080</httpPort>
                         <adminPort>4848</adminPort>
-                        <httpsPort>8443</httpsPort>
-                        <iiopPort>3700</iiopPort>
-                        <jmsPort>7676</jmsPort>
                     </domain>
                     <components>
                         <component>
