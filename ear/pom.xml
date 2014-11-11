@@ -102,28 +102,25 @@
                 <version>2.1</version>
                 <executions>
                     <execution>
-                        <id>gf-undeploy</id>
+                        <id>gf-redeploy</id>
                         <goals>
-                            <goal>undeploy</goal>
+                            <goal>redeploy</goal>
                         </goals>
-                        <phase>clean</phase>
-                    </execution>
-                    <execution>
-                        <id>gf-deploy</id>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                        <phase>package</phase>
+                        <phase>install</phase>
                     </execution>
                 </executions>
                 <configuration>
-                    <glassfishDirectory>/opt/glassfish4/glassfish</glassfishDirectory>
+                    <glassfishDirectory>/opt/glassfish/glassfish</glassfishDirectory>
                     <user>admin</user>
                     <adminPassword>rootroot</adminPassword>
                     <domain>
+                        <host>10.0.0.2</host>
                         <name>domain1</name>
                         <httpPort>8080</httpPort>
                         <adminPort>4848</adminPort>
+                        <httpsPort>8443</httpsPort>
+                        <iiopPort>3700</iiopPort>
+                        <jmsPort>7676</jmsPort>
                     </domain>
                     <components>
                         <component>

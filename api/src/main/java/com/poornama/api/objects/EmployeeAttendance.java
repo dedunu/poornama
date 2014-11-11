@@ -12,7 +12,6 @@ public class EmployeeAttendance {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "date")
     private Date date;
     private boolean attendance;
     @ManyToOne
