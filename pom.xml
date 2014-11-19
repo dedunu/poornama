@@ -10,13 +10,13 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>webapp</module>
-        <module>cdn</module>
-        <module>ear</module>
         <module>api</module>
+        <module>cdn</module>
         <module>data</module>
+        <module>ear</module>
         <module>logic</module>
         <module>test</module>
+        <module>webapp</module>
     </modules>
 
 </project>
