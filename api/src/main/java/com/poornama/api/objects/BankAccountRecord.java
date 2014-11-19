@@ -13,7 +13,15 @@ public class BankAccountRecord {
     private long id;
     private BankAccount bankAccount;
 
-    public long getId() {
+    public BankAccount getBankAccount() {
+		return bankAccount;
+	}
+
+	public void setBankAccount(BankAccount bankAccount) {
+		this.bankAccount = bankAccount;
+	}
+
+	public long getId() {
         return id;
     }
 

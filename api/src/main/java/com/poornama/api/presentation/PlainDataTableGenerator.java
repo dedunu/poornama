@@ -3,9 +3,48 @@ package com.poornama.api.presentation;
 /**
  * Created by dedunu on 11/8/14.
  */
-public class PlainDataTableGenerator extends DataTableGenerator {
+public class PlainDataTableGenerator{
 
-    @Override
+    public String getStartTable() {
+        String tableString;
+        tableString = "<div class=\"table-responsive\">\n";
+        tableString = tableString + "\t<table class=\"table table-hover\">\n";
+        return tableString;
+    }
+
+    protected String getStartTableHeader() {
+        String tableString;
+        tableString = "\t\t<thead>\n";
+        tableString = tableString + "\t\t\t<tr>\n";
+        return tableString;
+    }
+
+    protected String getEndTableHeader() {
+        String tableString;
+        tableString = "\t\t\t</tr>\n";
+        tableString = tableString + "\t\t</thead>\n";
+        return tableString;
+    }
+
+    public String getStartTableBody() {
+        String tableString;
+        tableString = "\t\t<tbody>\n";
+        return tableString;
+    }
+
+    public String getEndTableBody() {
+        String tableString;
+        tableString = "\t\t</tbody>\n";
+        return tableString;
+    }
+
+    public String getEndTable() {
+        String tableString;
+        tableString = "\t</table>\n";
+        tableString = tableString + "</div>\n";
+        return tableString;
+    }
+
     public String getTableHeader(String columnArray[]) {
         String tableString;
         tableString = getStartTableHeader();

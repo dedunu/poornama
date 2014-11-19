@@ -3,22 +3,7 @@ package com.poornama.api.presentation;
 /**
  * Created by dedunu on 11/6/14.
  */
-public class DataTableGenerator {
-
-    public String getStartTable() {
-        String tableString;
-        tableString = "<div class=\"table-responsive\">\n";
-        tableString = tableString + "\t<table class=\"table table-hover\">\n";
-        return tableString;
-    }
-
-    protected String getStartTableHeader() {
-        String tableString;
-        tableString = "\t\t<thead>\n";
-        tableString = tableString + "\t\t\t<tr>\n";
-        return tableString;
-    }
-
+public class DataTableGenerator extends PlainDataTableGenerator {
     public String getTableHeader(String columnArray[]) {
         String tableString;
         tableString = getStartTableHeader();
@@ -28,19 +13,6 @@ public class DataTableGenerator {
         tableString = tableString + "\t\t\t\t<th></th>\n";
         tableString = tableString + "\t\t\t\t<th></th>\n";
         tableString = tableString + getEndTableHeader();
-        return tableString;
-    }
-
-    protected String getEndTableHeader() {
-        String tableString;
-        tableString = "\t\t\t</tr>\n";
-        tableString = tableString + "\t\t</thead>\n";
-        return tableString;
-    }
-
-    public String getStartTableBody() {
-        String tableString;
-        tableString = "\t\t<tbody>\n";
         return tableString;
     }
 
@@ -56,19 +28,6 @@ public class DataTableGenerator {
         return tableString;
     }
 
-    public String getEndTableBody() {
-        String tableString;
-        tableString = "\t\t</tbody>\n";
-        return tableString;
-    }
-
-    public String getEndTable() {
-        String tableString;
-        tableString = "\t</table>\n";
-        tableString = tableString + "</div>\n";
-        return tableString;
-    }
-
     protected String getEditButton(String editUrl) {
         String tableString;
         tableString = "\t\t\t\t<td><a href=\"" + editUrl + "\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>\n";
@@ -80,4 +39,5 @@ public class DataTableGenerator {
         tableString = "\t\t\t\t<td><a href=\"" + deleteUrl + "\"><span class=\"glyphicon glyphicon-minus\" style=\"color:red\"></span></a></td>\n";
         return tableString;
     }
+
 }
