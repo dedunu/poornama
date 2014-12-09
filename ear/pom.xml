@@ -110,7 +110,7 @@
                     </execution>
                 </executions> -->
                 <configuration>
-                    <glassfishDirectory>/opt/glassfish/glassfish</glassfishDirectory>
+                    <glassfishDirectory>/Applications/glassfish4/glassfish</glassfishDirectory>
                     <user>admin</user>
                     <adminPassword>rootroot</adminPassword>
                     <domain>
