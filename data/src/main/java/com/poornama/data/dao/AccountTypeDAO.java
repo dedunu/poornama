@@ -6,63 +6,63 @@ import org.apache.log4j.Logger;
 
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.api.objects.BankAccount;
+import com.poornama.api.objects.AccountType;
 
-public class BankAccountDAO {
+public class AccountTypeDAO {
 	private static Logger log = GlobalLogger.getLogger();
-	private static String className = BankAccountDAO.class.getName();
+	private static String className = AccountTypeDAO.class.getName();
 
-	public BankAccountDAO() {
-		log.debug("[" + className + "] BankAccountDAO: constructor()");
+	public AccountTypeDAO() {
+		log.debug("[" + className + "] AccountTypeDAO: constructor()");
 	}
 
-	public void create(BankAccount bankAccount) {
+	public void create(AccountType accountType) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		databaseSession.save(bankAccount);
+		databaseSession.save(accountType);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] create()");
 	}
 
-	public void delete(BankAccount bankAccount) {
+	public void delete(AccountType accountType) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		databaseSession.delete(bankAccount);
+		databaseSession.delete(accountType);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] delete()");
 	}
 
-	public void update(BankAccount bankAccount) {
+	public void update(AccountType accountType) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		databaseSession.update(bankAccount);
+		databaseSession.update(accountType);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] update()");
 	}
 
-	public BankAccount getById(int id) {
+	public AccountType getById(int id) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		BankAccount bankAccount = (BankAccount) databaseSession.getById(
-				BankAccount.class, id);
+		AccountType accountType = (AccountType) databaseSession
+				.getById(AccountType.class, id);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] getById()");
-		return bankAccount;
+		return accountType;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<BankAccount> getAll() {
+	public List<AccountType> getAll() {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		List<BankAccount> bankAccountList = databaseSession
-				.getAll(BankAccount.class);
+		List<AccountType> accountTypeList = databaseSession
+				.getAll(AccountType.class);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] getAll()");
-		return bankAccountList;
+		return accountTypeList;
 	}
 }

@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table
-public class BankAccountType {
+public class AccountType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

@@ -3,25 +3,26 @@
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/poornama</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password">rootroot</property>
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="show_sql">true</property>
-        <property name="format_sql">true</property>
-        <property name="hbm2ddl.auto">update</property>
-        <property name="connection.pool_size">100</property>
-        <property name="current_session_context_class">thread</property>
-        <mapping class="com.poornama.api.objects.BankAccount"/>
-        <mapping class="com.poornama.api.objects.BankAccountType"/>
-        <mapping class="com.poornama.api.objects.Employee"/>
-        <mapping class="com.poornama.api.objects.EmployeeAttendance"/>
-        <mapping class="com.poornama.api.objects.EmployeeType"/>
-        <mapping class="com.poornama.api.objects.User"/>
-        <mapping class="com.poornama.api.objects.UserRole"/>
-        <mapping class="com.poornama.api.objects.Vehicle"/>
-        <mapping class="com.poornama.api.objects.VehicleType"/>
-    </session-factory>
+	<session-factory>
+		<property name="connection.url">jdbc:mysql://localhost:3306/poornama</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">rootroot</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+		<property name="connection.pool_size">100</property>
+		<property name="current_session_context_class">thread</property>
+		<mapping class="com.poornama.api.objects.Bank" />
+		<mapping class="com.poornama.api.objects.BankAccount" />
+		<mapping class="com.poornama.api.objects.BankAccountType" />
+		<mapping class="com.poornama.api.objects.Employee" />
+		<mapping class="com.poornama.api.objects.EmployeeAttendance" />
+		<mapping class="com.poornama.api.objects.EmployeeType" />
+		<mapping class="com.poornama.api.objects.User" />
+		<mapping class="com.poornama.api.objects.UserRole" />
+		<mapping class="com.poornama.api.objects.Vehicle" />
+		<mapping class="com.poornama.api.objects.VehicleType" />
+	</session-factory>
 </hibernate-configuration>

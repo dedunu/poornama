@@ -6,63 +6,63 @@ import org.apache.log4j.Logger;
 
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.api.objects.BankAccountRecord;
+import com.poornama.api.objects.Organization;
 
-public class BankAccountRecordDAO {
+public class OrganizationDAO {
 	private static Logger log = GlobalLogger.getLogger();
-	private static String className = BankAccountRecordDAO.class.getName();
+	private static String className = OrganizationDAO.class.getName();
 
-	public BankAccountRecordDAO() {
-		log.debug("[" + className + "] BankAccountRecordDAO: constructor()");
+	public OrganizationDAO() {
+		log.debug("[" + className + "] BankDAO: constructor()");
 	}
 
-	public void create(BankAccountRecord bankAccountRecord) {
+	public void create(Organization organization) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		databaseSession.save(bankAccountRecord);
+		databaseSession.save(organization);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] create()");
 	}
 
-	public void delete(BankAccountRecord bankAccountRecord) {
+	public void delete(Organization organization) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		databaseSession.delete(bankAccountRecord);
+		databaseSession.delete(organization);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] delete()");
 	}
 
-	public void update(BankAccountRecord bankAccountRecord) {
+	public void update(Organization organization) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		databaseSession.update(bankAccountRecord);
+		databaseSession.update(organization);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] update()");
 	}
 
-	public BankAccountRecord getById(int id) {
+	public Organization getById(int id) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		BankAccountRecord bankAccountRecord = (BankAccountRecord) databaseSession
-				.getById(BankAccountRecord.class, id);
+		Organization organization = (Organization) databaseSession.getById(
+				Organization.class, id);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] getById()");
-		return bankAccountRecord;
+		return organization;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<BankAccountRecord> getAll() {
+	public List<Organization> getAll() {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		List<BankAccountRecord> bankAccountRecordList = databaseSession
-				.getAll(BankAccountRecord.class);
+		List<Organization> organizationList = databaseSession
+				.getAll(Organization.class);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] getAll()");
-		return bankAccountRecordList;
+		return organizationList;
 	}
 }
