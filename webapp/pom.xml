@@ -13,6 +13,10 @@
 	<name>webapp</name>
 	<packaging>war</packaging>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<repositories>
 		<repository>
 			<id>io.spring.repo.maven.release</id>

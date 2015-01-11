@@ -31,7 +31,7 @@ public class SystemController {
 
     @RequestMapping(value = "logsAJAX", method = RequestMethod.GET)
     public void searchAJAX(HttpServletResponse response) throws IOException {
-        File file = new File("/opt/poornama/log/poornama.log");
+        File file = new File("/Users/dedunu/Documents/code/poornama/poornama.log");
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
