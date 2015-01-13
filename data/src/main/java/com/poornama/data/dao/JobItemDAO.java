@@ -6,63 +6,63 @@ import org.apache.log4j.Logger;
 
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.api.objects.Organization;
+import com.poornama.api.objects.JobItem;
 
-public class OrganizationDAO {
+public class JobItemDAO {
 	private static Logger log = GlobalLogger.getLogger();
-	private static String className = OrganizationDAO.class.getName();
+	private static String className = JobItemDAO.class.getName();
 
-	public OrganizationDAO() {
-		log.debug("[" + className + "] OrganizationDAO: constructor()");
+	public JobItemDAO() {
+		log.debug("[" + className + "] JobItemDAO: constructor()");
 	}
 
-	public void create(Organization organization) {
+	public void create(JobItem jobItem) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		databaseSession.save(organization);
+		databaseSession.save(jobItem);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] create()");
 	}
 
-	public void delete(Organization organization) {
+	public void delete(JobItem jobItem) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		databaseSession.delete(organization);
+		databaseSession.delete(jobItem);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] delete()");
 	}
 
-	public void update(Organization organization) {
+	public void update(JobItem jobItem) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		databaseSession.update(organization);
+		databaseSession.update(jobItem);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] update()");
 	}
 
-	public Organization getById(int id) {
+	public JobItem getById(int id) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		Organization organization = (Organization) databaseSession.getById(
-				Organization.class, id);
+		JobItem jobItem = (JobItem) databaseSession.getById(
+				JobItem.class, id);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] getById()");
-		return organization;
+		return jobItem;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Organization> getAll() {
+	public List<JobItem> getAll() {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		List<Organization> organizationList = databaseSession
-				.getAll(Organization.class);
+		List<JobItem> jobItemList = databaseSession
+				.getAll(JobItem.class);
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] getAll()");
-		return organizationList;
+		return jobItemList;
 	}
 }
