@@ -12,7 +12,7 @@ public class Organization {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String bankName;
+	private String organizationName;
 	private String address;
 	private String telephoneNumber;
 
@@ -24,12 +24,12 @@ public class Organization {
 		this.id = id;
 	}
 
-	public String getBankName() {
-		return bankName;
+	public String getOrganizationName() {
+		return organizationName;
 	}
 
-	public void setBankName(String bankName) {
-		this.bankName = bankName;
+	public void setOrganizationName(String organizationName) {
+		this.organizationName = organizationName;
 	}
 
 	public String getAddress() {
