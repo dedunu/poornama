@@ -3,7 +3,11 @@ package com.poornama.data.dao;
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.EmployeeType;
+
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
 
 import java.util.List;
 
@@ -52,6 +56,19 @@ public class EmployeeTypeDAO {
         databaseSession.commitTransaction();
         databaseSession.close();
         log.debug("[" + className + "] getById()");
+        return employeeType;
+    }
+    
+    public EmployeeType getByName(String name) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(EmployeeType.class);
+        SimpleExpression simpleExpression = Restrictions.eq("name", name);
+        EmployeeType employeeType = (EmployeeType) criteria.add(simpleExpression)
+                .uniqueResult();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        log.debug("[" + className + "] getByName()");
         return employeeType;
     }
 

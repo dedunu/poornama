@@ -17,7 +17,13 @@ public class MainSampleTest {
         VehicleTypeTest vehicleTypeTest = new VehicleTypeTest();
         vehicleTypeTest.runTest();
 
+        VehicleTest vehicleTest = new VehicleTest();
+        vehicleTest.runTest();
+        
         EmployeeTypeTest employeeTypeTest = new EmployeeTypeTest();
         employeeTypeTest.runTest();
+        
+        EmployeeTest employeeTest = new EmployeeTest();
+        employeeTest.runTest();
     }
 }
