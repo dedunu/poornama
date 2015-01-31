@@ -94,5 +94,27 @@
         window.location.href = "${pageContext.request.contextPath}/user/search";
     })
 </script>
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <i class="fa fa-tasks"></i> Job
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-success" id="create-job">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button type="button" class="btn btn-primary" id="search-job">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    $('#create-job').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/job/create";
+    })
+    $('#search-job').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/job/search";
+    })
+</script>
 <br/>
 <%@ include file="../template/footer.jsp" %>

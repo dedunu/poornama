@@ -10,7 +10,6 @@ import com.poornama.api.objects.EmployeeType;
 import com.poornama.data.dao.EmployeeDAO;
 import com.poornama.data.dao.EmployeeTypeDAO;
 
-@Ignore
 public class EmployeeTest {
 
 	@Test

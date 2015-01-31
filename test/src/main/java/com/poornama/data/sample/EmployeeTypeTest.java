@@ -8,7 +8,6 @@ import org.junit.Test;
 /**
  * Created by dedunu on 11/6/14.
  */
-@Ignore
 public class EmployeeTypeTest {
     /*
      Owner

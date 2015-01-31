@@ -12,32 +12,36 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/")
 public class MainController {
-    private static Logger log = GlobalLogger.getLogger();
-    private static String className = MainController.class.getName();
+	private static Logger log = GlobalLogger.getLogger();
+	private static String className = MainController.class.getName();
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String index(Model model, HttpSession session) {
-        log.debug("[" + className + "] index: index()");
+	@RequestMapping(method = RequestMethod.GET)
+	public String index(Model model, HttpSession session) {
+		log.debug("[" + className + "] index: index()");
 
-        String isLoggedIn = "false";
+		String isLoggedIn = "false";
 
-        try {
-            isLoggedIn = session.getAttribute("isLoggedIn").toString();
-        } catch (NullPointerException ex) {
-            session.setAttribute("isLoggedIn", "false");
-            session.setAttribute("userRole", null);
-            log.error("[" + className + "] index: NullPointerException");
-            isLoggedIn = "false";
-        }
+		try {
+			isLoggedIn = session.getAttribute("isLoggedIn").toString();
+		} catch (NullPointerException ex) {
+			session.setAttribute("isLoggedIn", "false");
+			session.setAttribute("userRole", null);
+			log.error("[" + className + "] index: NullPointerException");
+			isLoggedIn = "false";
+		}
 
-        if (isLoggedIn.equals("true")) {
-            model.addAttribute("pageTitle", "Poornama Transport Service - Dashboard");
-            log.debug("[" + className + "] index: isLoggedIn=true, redirecting to user/dashboard");
-            return "user/dashboard";
-        } else {
-            model.addAttribute("pageTitle", "Poornama Transport Service - Login");
-            log.debug("[" + className + "] index: isLoggedIn=false, redirecting to user/login");
-            return "user/login";
-        }
-    }
+		if (isLoggedIn.equals("true")) {
+			model.addAttribute("pageTitle",
+					"Poornama Transport Service - Dashboard");
+			log.debug("[" + className
+					+ "] index: isLoggedIn=true, redirecting to user/dashboard");
+			return "user/dashboard";
+		} else {
+			model.addAttribute("pageTitle",
+					"Poornama Transport Service - Login");
+			log.debug("[" + className
+					+ "] index: isLoggedIn=false, redirecting to user/login");
+			return "user/login";
+		}
+	}
 }

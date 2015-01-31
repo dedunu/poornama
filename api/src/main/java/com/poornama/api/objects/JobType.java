@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class JobItemType {
+public class JobType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;

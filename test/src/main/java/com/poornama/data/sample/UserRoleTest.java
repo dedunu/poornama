@@ -8,7 +8,6 @@ import org.junit.Test;
 /**
  * Created by dedunu on 10/23/14.
  */
-@Ignore
 public class UserRoleTest {
 
     @Test

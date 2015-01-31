@@ -12,37 +12,35 @@ import java.util.Random;
  */
 public class UserRoleDAOTest {
 
-    private UserRoleDAO userRoleDAO = new UserRoleDAO();
+	private UserRoleDAO userRoleDAO = new UserRoleDAO();
 
-    @Ignore
-    @Test
-    public void createUserRole() {
-        UserRole userRole = new UserRole();
-        Random random = new Random();
-        int value = random.nextInt(10000);
-        userRole.setName("test" + value);
-        userRole.setDisplayName("Temp" + value);
-        userRoleDAO.create(userRole);
-        Assert.assertTrue(true);
-    }
+	@Test
+	public void createUserRole() {
+		UserRole userRole = new UserRole();
+		Random random = new Random();
+		int value = random.nextInt(10000);
+		userRole.setName("test" + value);
+		userRole.setDisplayName("Temp" + value);
+		userRoleDAO.create(userRole);
+		Assert.assertTrue(true);
+	}
 
-    @Test
-    public void getUserRoleByName() {
-        UserRole userRole = userRoleDAO.getByName("admin");
-        Assert.assertTrue(userRole != null);
-    }
+	@Test
+	public void getUserRoleByName() {
+		UserRole userRole = userRoleDAO.getByName("admin");
+		Assert.assertTrue(userRole != null);
+	}
 
-    @Ignore
-    @Test
-    public void deleteRole() {
-        UserRole userRole = new UserRole();
-        Random random = new Random();
-        int value = random.nextInt(10000);
-        userRole.setName("test" + value);
-        userRole.setDisplayName("Temp" + value);
-        userRoleDAO.create(userRole);
-        userRoleDAO.delete(userRole);
-        Assert.assertTrue(true);
-    }
+	@Test
+	public void deleteRole() {
+		UserRole userRole = new UserRole();
+		Random random = new Random();
+		int value = random.nextInt(10000);
+		userRole.setName("test" + value);
+		userRole.setDisplayName("Temp" + value);
+		userRoleDAO.create(userRole);
+		userRoleDAO.delete(userRole);
+		Assert.assertTrue(true);
+	}
 
 }

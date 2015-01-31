@@ -8,7 +8,6 @@ import com.poornama.api.objects.VehicleType;
 import com.poornama.data.dao.VehicleDAO;
 import com.poornama.data.dao.VehicleTypeDAO;
 
-@Ignore
 public class VehicleTest {
 
 	@Test

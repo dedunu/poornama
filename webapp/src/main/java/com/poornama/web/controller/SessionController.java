@@ -45,7 +45,8 @@ public class SessionController {
                 log.debug("[" + className + "] login: Success, redirecting to home controller");
                 return "redirect:/";
             } else {
-                log.debug("[" + className + "] login: failed redirecting to login page with error");
+                log.warn("[" + className + "] login: failed redirecting to login page with error");
+                log.debug("[" + className + "] login: failed Username - " + userName);
                 session.setAttribute("displayName", null);
                 session.setAttribute("userId", null);
                 session.setAttribute("userName", null);
@@ -62,9 +63,9 @@ public class SessionController {
         try {
             session.setAttribute("message", "Sorry, the page you just requested is not available to you due to security reasons.");
         } catch (Exception e) {
-            log.debug("[" + className + "] accessDenied: exception while setting sessionAttribute");
+            log.error("[" + className + "] accessDenied: exception while setting sessionAttribute");
         }
-        log.debug("[" + className + "] accessDenied: Success, reidrected to notify/danger");
+        log.warn("[" + className + "] accessDenied: Success, reidrected to notify/danger");
         model.addAttribute("pageTitle", "Poornama Transport Service - Access Denied");
         return "notify/danger";
     }
