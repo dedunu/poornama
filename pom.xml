@@ -10,6 +10,30 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<jvm.source>1.8</jvm.source>
+		<jvm.target>1.8</jvm.target>
+
+		<dependency.com.poornama.version>1.0-SNAPSHOT</dependency.com.poornama.version>
+		<dependency.javaee.version>7.0</dependency.javaee.version>
+		<dependency.jstl.version>1.2</dependency.jstl.version>
+		<dependency.org.springframework.version>4.1.1.RELEASE</dependency.org.springframework.version>
+		<dependency.org.hibernate.version>4.3.6.Final</dependency.org.hibernate.version>
+		<dependency.org.hibernate.validator.version>5.1.2.Final</dependency.org.hibernate.validator.version>
+		<dependency.org.hibernate.common.version>4.0.1.Final</dependency.org.hibernate.common.version>
+		<dependency.org.hibernate.javax.persistence>1.0.1.Final</dependency.org.hibernate.javax.persistence>
+		<dependency.mysql.version>5.1.33</dependency.mysql.version>
+		<dependency.org.hsqldb.version>2.3.2</dependency.org.hsqldb.version>
+		<dependency.org.slf4j.version>1.6.4</dependency.org.slf4j.version>
+		<dependency.org.jboss.logging.version>3.1.0.CR2</dependency.org.jboss.logging.version>
+		<dependency.log4j.version>1.2.17</dependency.log4j.version>
+		<dependency.junit.version>4.12</dependency.junit.version>
+
+		<plugin.maven.war.version>2.6</plugin.maven.war.version>
+		<plugin.maven.compiler.version>3.2</plugin.maven.compiler.version>
+		<plugin.maven.ear.version>2.10</plugin.maven.ear.version>
+		<plugin.maven.resources.version>2.7</plugin.maven.resources.version>
+		<pligin.maven.glassfish.version>2.1</pligin.maven.glassfish.version>
 	</properties>
 
 	<modules>
