@@ -28,6 +28,8 @@ public class UserTest {
         user1.setUserRole(userRole);
         userDAO.create(user1);
 
+        userRole = userRoleDAO.getByName("manager");
+        
         User user2 = new User();
         user2.setDisplayName("Yohani Liyanage");
         user2.setUserName("yohanimax");
@@ -43,5 +45,14 @@ public class UserTest {
         user3.setPassword("rootroot");
         user3.setUserRole(userRole);
         userDAO.create(user3);
+        
+        userRole = userRoleDAO.getByName("clerk");
+
+        User user4 = new User();
+        user4.setDisplayName("Nuwan Madusankha");
+        user4.setUserName("nuwan");
+        user4.setPassword("rootroot");
+        user4.setUserRole(userRole);
+        userDAO.create(user4);
     }
 }

@@ -1,6 +1,8 @@
 package com.poornama.test;
 
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.data.sample.MainSampleTest;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -11,6 +13,6 @@ public class Main {
     private static String className = Main.class.getName();
 
     public static void main(String args[]) throws Exception {
-        //Test TeamCity
+        MainSampleTest.main(null);
     }
 }
