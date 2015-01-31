@@ -114,8 +114,15 @@
 				<groupId>org.glassfish.maven.plugin</groupId>
 				<artifactId>maven-glassfish-plugin</artifactId>
 				<version>2.1</version>
-				<executions> <execution> <id>gf-redeploy</id> <goals> <goal>redeploy</goal> 
-					</goals> <phase>install</phase> </execution> </executions>
+				<executions>
+					<execution>
+						<id>gf-redeploy</id>
+						<goals>
+							<goal>redeploy</goal>
+						</goals>
+						<phase>install</phase>
+					</execution>
+				</executions>
 				<configuration>
 					<glassfishDirectory>/Applications/glassfish4/glassfish</glassfishDirectory>
 					<user>admin</user>
