@@ -12,6 +12,7 @@ public class AccountType {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
+    private String displayName;
 
     public int getId() {
         return id;
@@ -29,4 +30,12 @@ public class AccountType {
         this.name = name;
     }
 
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+    
 }

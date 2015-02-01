@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class JobType {
+public class OrganizationType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;

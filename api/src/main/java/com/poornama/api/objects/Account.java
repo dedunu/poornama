@@ -15,7 +15,23 @@ public class Account {
 	@ManyToOne
 	@JoinColumn(name = "organizationId")
 	private Organization organization;
-	private String accountNumber;
+	private String accountName;
+	public String getAccountName() {
+		return accountName;
+	}
+
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
+	}
+
+	public AccountType getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(AccountType accountType) {
+		this.accountType = accountType;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "accountTypeId")
 	private AccountType accountType;
@@ -28,20 +44,12 @@ public class Account {
 		this.id = id;
 	}
 
-	public Organization getBank() {
+	public Organization getOrganization() {
 		return organization;
 	}
 
-	public void setBank(Organization organization) {
+	public void setOrganization(Organization organization) {
 		this.organization = organization;
-	}
-
-	public String getAccountNumber() {
-		return accountNumber;
-	}
-
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
 	}
 
 	public AccountType getBankAccountType() {
