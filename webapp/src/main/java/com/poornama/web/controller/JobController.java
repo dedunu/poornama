@@ -154,6 +154,6 @@ public class JobController {
 		model.addAttribute("table", table);
 		model.addAttribute("pageTitle", "Poornama Transport Service - User");
 		log.debug("[" + className + "] searchForm()");
-		return "user/search";
+		return "job/search";
 	}
 }
