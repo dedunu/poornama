@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "Account", uniqueConstraints = @UniqueConstraint(columnNames = {
-		"organizationId", "accountNumber" }))
+		"organizationId", "accountName" }))
 public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,6 +15,7 @@ public class Account {
 	@ManyToOne
 	@JoinColumn(name = "organizationId")
 	private Organization organization;
+    @Column(name = "accountName")
 	private String accountName;
 	public String getAccountName() {
 		return accountName;
