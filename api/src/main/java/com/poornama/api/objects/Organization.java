@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +17,11 @@ public class Organization {
 	private String organizationName;
 	private String address;
 	private String telephoneNumber;
-
+	private boolean client;
+    @ManyToOne
+    @JoinColumn(name = "organizationTypeId")
+    private OrganizationType organizationType;
+    
 	public int getId() {
 		return id;
 	}
@@ -47,4 +53,21 @@ public class Organization {
 	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
+
+	public OrganizationType getOrganizationType() {
+		return organizationType;
+	}
+
+	public void setOrganizationType(OrganizationType organizationType) {
+		this.organizationType = organizationType;
+	}
+
+	public boolean isClient() {
+		return client;
+	}
+
+	public void setClient(boolean client) {
+		this.client = client;
+	}
+	
 }

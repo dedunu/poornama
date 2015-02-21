@@ -1,7 +1,9 @@
 package com.poornama.test;
 
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.api.objects.OrganizationType;
 import com.poornama.data.sample.MainSampleTest;
+import com.poornama.data.sample.OrganizationTypeTest;
 
 import org.apache.log4j.Logger;
 

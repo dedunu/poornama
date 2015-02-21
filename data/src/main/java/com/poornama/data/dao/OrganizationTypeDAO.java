@@ -3,10 +3,14 @@ package com.poornama.data.dao;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
 
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.OrganizationType;
+import com.poornama.api.objects.UserRole;
 
 public class OrganizationTypeDAO {
 	private static Logger log = GlobalLogger.getLogger();
@@ -51,6 +55,19 @@ public class OrganizationTypeDAO {
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] getById()");
+		return organizationType;
+	}
+
+	public OrganizationType getByName(String name) {
+		DatabaseSession databaseSession = new DatabaseSession();
+		databaseSession.beginTransaction();
+		Criteria criteria = databaseSession
+				.createCriteria(OrganizationType.class);
+		SimpleExpression simpleExpression = Restrictions.eq("name", name);
+		OrganizationType organizationType = (OrganizationType) criteria.add(
+				simpleExpression).uniqueResult();
+		databaseSession.close();
+		log.debug("[" + className + "] getByName()");
 		return organizationType;
 	}
 

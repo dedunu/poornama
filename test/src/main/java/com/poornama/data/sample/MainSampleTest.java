@@ -2,28 +2,31 @@ package com.poornama.data.sample;
 
 import org.junit.Ignore;
 
-/**
- * Created by dedunu on 11/9/14.
- */
 @Ignore
 public class MainSampleTest {
     public static void main(String args[]){
         UserRoleTest userRoleTest = new UserRoleTest();
         userRoleTest.runTest();
-
-        UserTest userTest = new UserTest();
-        userTest.runTest();
-
+        
+    	OrganizationTypeTest organizationTypeTest = new OrganizationTypeTest();
+    	organizationTypeTest.runTest();
+    	
         VehicleTypeTest vehicleTypeTest = new VehicleTypeTest();
         vehicleTypeTest.runTest();
+        
+        EmployeeTypeTest employeeTypeTest = new EmployeeTypeTest();
+        employeeTypeTest.runTest();
+         
+        UserTest userTest = new UserTest();
+        userTest.runTest();
 
         VehicleTest vehicleTest = new VehicleTest();
         vehicleTest.runTest();
         
-        EmployeeTypeTest employeeTypeTest = new EmployeeTypeTest();
-        employeeTypeTest.runTest();
-        
         EmployeeTest employeeTest = new EmployeeTest();
         employeeTest.runTest();
+        
+        OrganizationTest organizationTest = new OrganizationTest();
+        organizationTest.runTest();
     }
 }

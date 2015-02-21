@@ -14,7 +14,7 @@ public class OrganizationType {
 	private int id;
     private String name;
     private String displayName;
-    
+
 	public int getId() {
 		return id;
 	}

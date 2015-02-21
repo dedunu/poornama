@@ -27,7 +27,7 @@ public class UserDAOTest {
 	public void createUser() {
 		User user1 = new User();
 		Random random = new Random();
-		int value = random.nextInt(10000);
+		int value = random.nextInt(1000000000);
 		user1.setDisplayName("Temp" + value);
 		user1.setUserName("Temp" + value);
 		user1.setPassword("Temp" + value);
@@ -51,7 +51,7 @@ public class UserDAOTest {
 	public void deleteUser() {
 		User user1 = new User();
 		Random random = new Random();
-		int value = random.nextInt(10000);
+		int value = random.nextInt(1000000000);
 		user1.setDisplayName("Temp" + value);
 		user1.setUserName("Temp" + value);
 		user1.setPassword("Temp" + value);
