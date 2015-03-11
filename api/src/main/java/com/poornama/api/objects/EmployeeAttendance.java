@@ -12,8 +12,11 @@ public class EmployeeAttendance {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    
     private Date date;
+    
     private boolean attendance;
+    
     @ManyToOne
     @JoinColumn(name = "employeeId")
     private Employee employee;

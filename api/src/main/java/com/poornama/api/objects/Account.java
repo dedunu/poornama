@@ -12,11 +12,18 @@ public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	@ManyToOne
 	@JoinColumn(name = "organizationId")
 	private Organization organization;
-    @Column(name = "accountName")
+    
+	@Column(name = "accountName")
 	private String accountName;
+	
+	@ManyToOne
+	@JoinColumn(name = "accountTypeId")
+	private AccountType accountType;
+	
 	public String getAccountName() {
 		return accountName;
 	}
@@ -32,10 +39,6 @@ public class Account {
 	public void setAccountType(AccountType accountType) {
 		this.accountType = accountType;
 	}
-
-	@ManyToOne
-	@JoinColumn(name = "accountTypeId")
-	private AccountType accountType;
 
 	public int getId() {
 		return id;

@@ -11,6 +11,7 @@ public class AccountRecord {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
 	@ManyToOne
 	@JoinColumn(name = "accountId")
 	private Account account;

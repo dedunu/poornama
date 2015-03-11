@@ -12,15 +12,25 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    
     private String firstName;
+    
     private String lastName;
+    
     private int nic;
+    
     private Date dateOfBirth;
+    
     private Date dateOfJoining;
+    
     private String description;
+    
     private String address;
+    
     private String telephoneNumber;
+    
     private String emergencyContact;
+    
     @ManyToOne
     @JoinColumn(name = "employeeTypeId")
     private EmployeeType employeeType;

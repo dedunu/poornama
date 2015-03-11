@@ -13,10 +13,14 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    
     @Column(name = "userName")
     private String userName;
+    
     private String displayName;
+    
     private String password;
+    
     @ManyToOne
     @JoinColumn(name = "userRoleId")
     private UserRole userRole;

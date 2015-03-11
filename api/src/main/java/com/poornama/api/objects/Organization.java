@@ -14,11 +14,16 @@ public class Organization {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	private String organizationName;
+	
 	private String address;
+	
 	private String telephoneNumber;
+	
 	private boolean client;
-    @ManyToOne
+    
+	ss@ManyToOne
     @JoinColumn(name = "organizationTypeId")
     private OrganizationType organizationType;
     

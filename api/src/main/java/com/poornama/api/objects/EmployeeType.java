@@ -11,8 +11,10 @@ public class EmployeeType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    
     @Column(name = "name")
     private String name;
+    
     private String displayName;
 
     public String getDisplayName() {

@@ -12,7 +12,9 @@ public class AccountRecordType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	private String name;
+	
 	private String displayName;
 	
 	public int getId() {
