@@ -1,5 +1,7 @@
 package com.poornama.api.objects;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +20,20 @@ public class Job {
 	@ManyToOne
 	@JoinColumn(name = "jobTemplateId")
 	private JobTemplate jobTemplate;
+	
+	@ManyToOne
+	@JoinColumn(name = "driverId")
+	private Employee driver;
+	
+	@ManyToOne
+	@JoinColumn(name = "cleanerId")
+	private Employee cleanerId;
+	
+	private Date date;
+	
+	private float surcharges;
+	
+	
 	
 	public int getId() {
 		return id;
