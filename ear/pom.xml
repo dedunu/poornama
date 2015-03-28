@@ -102,40 +102,49 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.glassfish.maven.plugin</groupId>
-				<artifactId>maven-glassfish-plugin</artifactId>
-				<version>${pligin.maven.glassfish.version}</version>
-				<executions>
-					<execution>
-						<id>gf-redeploy</id>
-						<goals>
-							<goal>redeploy</goal>
-						</goals>
-						<phase>install</phase>
-					</execution>
-				</executions>
-				<configuration>
-					<glassfishDirectory>/Applications/glassfish4/glassfish</glassfishDirectory>
-					<user>admin</user>
-					<adminPassword>rootroot</adminPassword>
-					<domain>
-						<name>domain1</name>
-						<httpPort>8080</httpPort>
-						<adminPort>4848</adminPort>
-					</domain>
-					<components>
-						<component>
-							<name>poornama</name>
-							<artifact>target/poornama.ear</artifact>
-						</component>
-					</components>
-					<debug>true</debug>
-					<terse>false</terse>
-					<echo>true</echo>
-				</configuration>
-			</plugin>
 		</plugins>
 		<finalName>poornama</finalName>
 	</build>
+	<profiles>
+		<profile>
+			<id>poornama-deploy</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.glassfish.maven.plugin</groupId>
+						<artifactId>maven-glassfish-plugin</artifactId>
+						<version>${pligin.maven.glassfish.version}</version>
+						<executions>
+							<execution>
+								<id>gf-redeploy</id>
+								<goals>
+									<goal>redeploy</goal>
+								</goals>
+								<phase>install</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<glassfishDirectory>/Applications/glassfish4/glassfish</glassfishDirectory>
+							<user>admin</user>
+							<adminPassword>rootroot</adminPassword>
+							<domain>
+								<name>domain1</name>
+								<httpPort>8080</httpPort>
+								<adminPort>4848</adminPort>
+							</domain>
+							<components>
+								<component>
+									<name>poornama</name>
+									<artifact>target/poornama.ear</artifact>
+								</component>
+							</components>
+							<debug>true</debug>
+							<terse>false</terse>
+							<echo>true</echo>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
