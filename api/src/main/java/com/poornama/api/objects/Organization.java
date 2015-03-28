@@ -23,7 +23,7 @@ public class Organization {
 	
 	private boolean client;
     
-	ss@ManyToOne
+	@ManyToOne
     @JoinColumn(name = "organizationTypeId")
     private OrganizationType organizationType;
     
