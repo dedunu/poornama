@@ -27,7 +27,11 @@ public class Job {
 	
 	@ManyToOne
 	@JoinColumn(name = "cleanerId")
-	private Employee cleanerId;
+	private Employee cleaner;
+	
+	@ManyToOne
+	@JoinColumn(name = "vehicleId")
+	private Vehicle vehicle;
 	
 	private Date date;
 	
