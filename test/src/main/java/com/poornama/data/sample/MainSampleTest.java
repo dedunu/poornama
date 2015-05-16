@@ -7,10 +7,7 @@ public class MainSampleTest {
     public static void main(String args[]){
         UserRoleTest userRoleTest = new UserRoleTest();
         userRoleTest.runTest();
-        
-    	OrganizationTypeTest organizationTypeTest = new OrganizationTypeTest();
-    	organizationTypeTest.runTest();
-    	
+
         VehicleTypeTest vehicleTypeTest = new VehicleTypeTest();
         vehicleTypeTest.runTest();
         

@@ -107,7 +107,7 @@
 	</build>
 	<profiles>
 		<profile>
-			<id>poornama-deploy</id>
+			<id>poornama-redeploy</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -124,7 +124,87 @@
 							</execution>
 						</executions>
 						<configuration>
-							<glassfishDirectory>/Applications/glassfish4/glassfish</glassfishDirectory>
+							<glassfishDirectory>/Users/ddhananjaya/bin/glassfish4/glassfish</glassfishDirectory>
+							<user>admin</user>
+							<adminPassword>rootroot</adminPassword>
+							<domain>
+								<name>domain1</name>
+								<httpPort>8080</httpPort>
+								<adminPort>4848</adminPort>
+							</domain>
+							<components>
+								<component>
+									<name>poornama</name>
+									<artifact>target/poornama.ear</artifact>
+								</component>
+							</components>
+							<debug>true</debug>
+							<terse>false</terse>
+							<echo>true</echo>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>poornama-deploy</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.glassfish.maven.plugin</groupId>
+						<artifactId>maven-glassfish-plugin</artifactId>
+						<version>${pligin.maven.glassfish.version}</version>
+						<executions>
+							<execution>
+								<id>gf-deploy</id>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+								<phase>install</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<glassfishDirectory>/Users/ddhananjaya/bin/glassfish4/glassfish</glassfishDirectory>
+							<user>admin</user>
+							<adminPassword>rootroot</adminPassword>
+							<domain>
+								<name>domain1</name>
+								<httpPort>8080</httpPort>
+								<adminPort>4848</adminPort>
+							</domain>
+							<components>
+								<component>
+									<name>poornama</name>
+									<artifact>target/poornama.ear</artifact>
+								</component>
+							</components>
+							<debug>true</debug>
+							<terse>false</terse>
+							<echo>true</echo>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>poornama-undeploy</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.glassfish.maven.plugin</groupId>
+						<artifactId>maven-glassfish-plugin</artifactId>
+						<version>${pligin.maven.glassfish.version}</version>
+						<executions>
+							<execution>
+								<id>gf-undeploy</id>
+								<goals>
+									<goal>undeploy</goal>
+								</goals>
+								<phase>install</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<glassfishDirectory>/Users/ddhananjaya/bin/glassfish4/glassfish</glassfishDirectory>
 							<user>admin</user>
 							<adminPassword>rootroot</adminPassword>
 							<domain>

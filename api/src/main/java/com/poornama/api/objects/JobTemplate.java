@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 @Entity
 @Table
@@ -20,11 +21,27 @@ public class JobTemplate {
 	private String from;
 	
 	private String to;
-	
+
+	private BigDecimal hireCharges;
+
+	private BigDecimal labourCharges;
+
+	private BigDecimal containerCharges;
+
+	private BigDecimal detentionCharges;
+
+	private BigDecimal dailyContainerCharges;
+
+	private int freeHours;
+
 	@ManyToOne
 	@JoinColumn(name = "jobTypeId")
 	private JobType jobType;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "clientId")
+	private Client client;
+
 	public int getId() {
 		return id;
 	}

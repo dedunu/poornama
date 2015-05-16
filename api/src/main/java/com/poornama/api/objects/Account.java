@@ -6,8 +6,15 @@ import javax.persistence.*;
  * Created by dedunu on 11/11/14.
  */
 @Entity
-@Table(name = "Account", uniqueConstraints = @UniqueConstraint(columnNames = {
-		"organizationId", "accountName" }))
+@Table(
+		name = "Account",
+		uniqueConstraints = @UniqueConstraint(
+				columnNames = {
+						"organizationId",
+						"accountName"
+				}
+		)
+)
 public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

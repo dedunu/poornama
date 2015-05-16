@@ -1,5 +1,6 @@
 package com.poornama.api.objects;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -33,12 +34,22 @@ public class Job {
 	@JoinColumn(name = "vehicleId")
 	private Vehicle vehicle;
 	
-	private Date date;
-	
-	private float surcharges;
-	
-	
-	
+	private Date startDate;
+
+	private Date endDate;
+
+	private BigDecimal hireCharges;
+
+	private BigDecimal labourCharges;
+
+	private BigDecimal containerCharges;
+
+	private BigDecimal detentionCharges;
+
+	private BigDecimal dailyContainerCharges;
+
+	private int freeHours;
+
 	public int getId() {
 		return id;
 	}

@@ -8,16 +8,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Client {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+public class Client extends Organization{
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 }

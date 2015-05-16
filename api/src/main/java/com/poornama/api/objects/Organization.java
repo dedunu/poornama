@@ -1,15 +1,10 @@
 package com.poornama.api.objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Organization {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,10 +17,6 @@ public class Organization {
 	private String telephoneNumber;
 	
 	private boolean client;
-    
-	@ManyToOne
-    @JoinColumn(name = "organizationTypeId")
-    private OrganizationType organizationType;
     
 	public int getId() {
 		return id;
@@ -57,14 +48,6 @@ public class Organization {
 
 	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
-	}
-
-	public OrganizationType getOrganizationType() {
-		return organizationType;
-	}
-
-	public void setOrganizationType(OrganizationType organizationType) {
-		this.organizationType = organizationType;
 	}
 
 	public boolean isClient() {
