@@ -1,7 +1,10 @@
 package com.poornama.web.controller;
 
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.test.Test;
+
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +17,27 @@ import javax.servlet.http.HttpSession;
 public class MainController {
 	private static Logger log = GlobalLogger.getLogger();
 	private static String className = MainController.class.getName();
-
+	
+	@Autowired
+	private Test test;
+	
+	public void setTest(Test test) {
+		this.test = test;
+	}
+	
+	public Test getTest() {
+		return test;
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model, HttpSession session) {
 		log.debug("[" + className + "] index: index()");
-
+		
+		if (test == null) {
+			log.fatal("NULL");
+		} else {
+			log.fatal("================================" + test.message);
+		}
 		String isLoggedIn = "false";
 
 		try {
