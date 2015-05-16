@@ -23,10 +23,8 @@
 		<mapping class="com.poornama.api.objects.EmployeeAttendance" />
 		<mapping class="com.poornama.api.objects.EmployeeType" />
 		<mapping class="com.poornama.api.objects.Job" />
-		<mapping class="com.poornama.api.objects.JobItem" />
 		<mapping class="com.poornama.api.objects.JobType" />
-		<mapping class="com.poornama.api.objects.JobTemplate" />		
-		<mapping class="com.poornama.api.objects.OrganizationType" />
+		<mapping class="com.poornama.api.objects.JobTemplate" />
 		<mapping class="com.poornama.api.objects.Organization" />
 		<mapping class="com.poornama.api.objects.Salary" />
 		<mapping class="com.poornama.api.objects.User" />

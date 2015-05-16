@@ -11,8 +11,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<jvm.source>1.8</jvm.source>
-		<jvm.target>1.8</jvm.target>
+		<jvm.source>1.7</jvm.source>
+		<jvm.target>1.7</jvm.target>
 
 		<dependency.com.poornama.version>1.0-SNAPSHOT</dependency.com.poornama.version>
 		<dependency.javaee.version>7.0</dependency.javaee.version>

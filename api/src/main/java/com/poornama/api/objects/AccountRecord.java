@@ -16,6 +16,11 @@ public class AccountRecord {
 	@JoinColumn(name = "accountId")
 	private Account account;
 
+
+	@ManyToOne
+	@JoinColumn(name = "accountRecordTypeId")
+	private AccountRecordType accountRecordType;
+
 	public Account getBankAccount() {
 		return account;
 	}
