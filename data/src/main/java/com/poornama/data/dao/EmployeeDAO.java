@@ -4,6 +4,7 @@ package com.poornama.data.dao;
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.Employee;
+import com.poornama.api.objects.EmployeeType;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
@@ -89,6 +90,18 @@ public class EmployeeDAO {
         databaseSession.close();
         log.debug("[" + className + "] getByfirstName()");
         return employee;
+    }
+
+    public List<Employee> getByEmployeeType(EmployeeType employeeType) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(Employee.class);
+        SimpleExpression simpleExpression = Restrictions.eq("employeeType", employeeType);
+        List<Employee> employeeList = criteria.add(simpleExpression).list();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        log.debug("[" + className + "] getByEmployeeType()");
+        return employeeList;
     }
 
     public List<Employee> searchByFirstName(String firstName) {

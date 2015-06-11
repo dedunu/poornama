@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.poornama.api.objects.Employee;
+import com.poornama.logic.object.EmployeeLogic;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,9 +28,11 @@ public class JobController {
 
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public String createForm(Model model) {
-		UserRoleLogic userRoleLogic = new UserRoleLogic();
-		model.addAttribute("userRoleList",
-				userRoleLogic.getUserRoleSelectList());
+		EmployeeLogic employeeLogic = new EmployeeLogic();
+		model.addAttribute("driverList",
+				employeeLogic.getDriverSelectList());
+		model.addAttribute("cleanerList",
+				employeeLogic.getCleanerSelectList());
 		model.addAttribute("pageTitle", "Poornama Transport Service - Job");
 		log.debug("[" + className + "] createForm()");
 		return "job/create";

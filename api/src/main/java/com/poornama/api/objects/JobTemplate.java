@@ -22,6 +22,64 @@ public class JobTemplate {
 	
 	private String to;
 
+	public BigDecimal getHireCharges() {
+		return hireCharges;
+	}
+
+	public void setHireCharges(BigDecimal hireCharges) {
+		this.hireCharges = hireCharges;
+	}
+
+	public BigDecimal getLabourCharges() {
+		return labourCharges;
+	}
+
+	public void setLabourCharges(BigDecimal labourCharges) {
+		this.labourCharges = labourCharges;
+	}
+
+	public BigDecimal getContainerCharges() {
+		return containerCharges;
+	}
+
+	public void setContainerCharges(BigDecimal containerCharges) {
+		this.containerCharges = containerCharges;
+	}
+
+	public BigDecimal getDetentionCharges() {
+		return detentionCharges;
+	}
+
+	public void setDetentionCharges(BigDecimal detentionCharges) {
+		this.detentionCharges = detentionCharges;
+	}
+
+	public BigDecimal getDailyContainerCharges() {
+		return dailyContainerCharges;
+	}
+
+	public void setDailyContainerCharges(BigDecimal dailyContainerCharges) {
+		this.dailyContainerCharges = dailyContainerCharges;
+	}
+
+	public int getFreeHours() {
+		return freeHours;
+	}
+
+	public void setFreeHours(int freeHours) {
+		this.freeHours = freeHours;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	private int size;
+
 	private BigDecimal hireCharges;
 
 	private BigDecimal labourCharges;
@@ -80,5 +138,13 @@ public class JobTemplate {
 	
 	public void setJobType(JobType jobType) {
 		this.jobType = jobType;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
 	}
 }

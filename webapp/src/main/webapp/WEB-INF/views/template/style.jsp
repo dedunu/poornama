@@ -7,6 +7,8 @@
       href="/cdn/jquery-ui/jquery-ui.min.css"/>
 <link rel="stylesheet"
       href="/cdn/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet"
+      href="/cdn/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"/>
 
 <style>
     body {

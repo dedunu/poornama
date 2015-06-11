@@ -227,4 +227,30 @@ public class EmployeeLogic {
         log.debug("[" + className + "] getEmployeeSelectList()");
         return list;
     }
+
+    public String getDriverSelectList() {
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();
+        EmployeeType employeeType = employeeTypeDAO.getByName("driver");
+        List<Employee> employeeList = employeeDAO.getByEmployeeType(employeeType);
+        String list = "";
+        for (Employee employee : employeeList) {
+            list = list + "\t\t<option value =\"" + employee.getId() + "\">" + employee.getFirstName() + " " + employee.getLastName() + "</option>\n";
+        }
+        log.debug("[" + className + "] getDriverSelectList()");
+        return list;
+    }
+
+    public String getCleanerSelectList() {
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();
+        EmployeeType employeeType = employeeTypeDAO.getByName("cleaner");
+        List<Employee> employeeList = employeeDAO.getByEmployeeType(employeeType);
+        String list = "";
+        for (Employee employee : employeeList) {
+            list = list + "\t\t<option value =\"" + employee.getId() + "\">" + employee.getFirstName() + " " + employee.getLastName() + "</option>\n";
+        }
+        log.debug("[" + className + "] getCleanerSelectList()");
+        return list;
+    }
 }
