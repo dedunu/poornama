@@ -13,7 +13,7 @@
 
 </style>
 
-<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/employee/create">
+<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/job/create">
     <div class="form-group">
         <label for="firstName" class="col-sm-3 control-label">First Name</label>
 
