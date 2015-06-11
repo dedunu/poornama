@@ -15,9 +15,7 @@ public class Organization {
 	private String address;
 	
 	private String telephoneNumber;
-	
-	private boolean client;
-    
+
 	public int getId() {
 		return id;
 	}
@@ -50,12 +48,4 @@ public class Organization {
 		this.telephoneNumber = telephoneNumber;
 	}
 
-	public boolean isClient() {
-		return client;
-	}
-
-	public void setClient(boolean client) {
-		this.client = client;
-	}
-	
 }

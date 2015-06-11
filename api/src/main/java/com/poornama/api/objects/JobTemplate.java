@@ -18,12 +18,82 @@ public class JobTemplate {
 	
 	private String displayName;
 	
-	private String from;
+	private String fromLocation;
 	
-	private String to;
+	private String toLocation;
+
+	private int containerSize;
+
+	private BigDecimal hireCharges;
+
+	private BigDecimal labourCharges;
+
+	private BigDecimal containerCharges;
+
+	private BigDecimal detentionCharges;
+
+	private BigDecimal dailyContainerCharges;
+
+	private int freeHours;
+
+	@ManyToOne
+	@JoinColumn(name = "jobTypeId")
+	private JobType jobType;
+
+	@ManyToOne
+	@JoinColumn(name = "clientId")
+	private Client client;
+
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getDisplayName() {
+		return displayName;
+	}
+	
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
+	public JobType getJobType() {
+		return jobType;
+	}
+	
+	public void setJobType(JobType jobType) {
+		this.jobType = jobType;
+	}
 
 	public BigDecimal getHireCharges() {
 		return hireCharges;
+	}
+
+	public String getFromLocation() {
+		return fromLocation;
+	}
+
+	public void setFromLocation(String fromLocation) {
+		this.fromLocation = fromLocation;
+	}
+
+	public String getToLocation() {
+		return toLocation;
+	}
+
+	public void setToLocation(String toLocation) {
+		this.toLocation = toLocation;
+	}
+
+	public int getContainerSize() {
+		return containerSize;
+	}
+
+	public void setContainerSize(int containerSize) {
+		this.containerSize = containerSize;
 	}
 
 	public void setHireCharges(BigDecimal hireCharges) {
@@ -76,75 +146,5 @@ public class JobTemplate {
 
 	public void setClient(Client client) {
 		this.client = client;
-	}
-
-	private int size;
-
-	private BigDecimal hireCharges;
-
-	private BigDecimal labourCharges;
-
-	private BigDecimal containerCharges;
-
-	private BigDecimal detentionCharges;
-
-	private BigDecimal dailyContainerCharges;
-
-	private int freeHours;
-
-	@ManyToOne
-	@JoinColumn(name = "jobTypeId")
-	private JobType jobType;
-
-	@ManyToOne
-	@JoinColumn(name = "clientId")
-	private Client client;
-
-	public int getId() {
-		return id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public String getDisplayName() {
-		return displayName;
-	}
-	
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
-	}
-	
-	public String getFrom() {
-		return from;
-	}
-	
-	public void setFrom(String from) {
-		this.from = from;
-	}
-	
-	public String getTo() {
-		return to;
-	}
-	
-	public void setTo(String to) {
-		this.to = to;
-	}
-	
-	public JobType getJobType() {
-		return jobType;
-	}
-	
-	public void setJobType(JobType jobType) {
-		this.jobType = jobType;
-	}
-
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
 	}
 }

@@ -1,5 +1,6 @@
 package com.poornama.data.sample;
 
+import com.poornama.api.objects.JobTemplate;
 import org.junit.Ignore;
 
 @Ignore
@@ -25,5 +26,14 @@ public class MainSampleTest {
         
         OrganizationTest organizationTest = new OrganizationTest();
         organizationTest.runTest();
+
+        ClientTest clientTest = new ClientTest();
+        clientTest.runTest();
+
+        JobTypeTest jobTypeTest = new JobTypeTest();
+        jobTypeTest.runTest();
+
+        JobTemplateTest jobTemplateTest = new JobTemplateTest();
+        jobTemplateTest.runTest();
     }
 }

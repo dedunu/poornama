@@ -17,11 +17,11 @@ public class OrganizationTest {
 		organization1.setAddress("22 Delgoda, Colombo.");
 		organizationDAO.create(organization1);
 		
-		Organization organization2 = new Organization();
-		organization2.setOrganizationName("MAS Active");
-		organization2.setTelephoneNumber("0112977777");
-		organization2.setAddress("287 Meegahawatta, Colombo.");
-		organizationDAO.create(organization2);
+		//Organization organization2 = new Organization();
+		//organization2.setOrganizationName("MAS Active");
+		//organization2.setTelephoneNumber("0112977777");
+		//organization2.setAddress("287 Meegahawatta, Colombo.");
+		//organizationDAO.create(organization2);
 
 		Organization organization3 = new Organization();
 		organization3.setOrganizationName("Donald Transport");
