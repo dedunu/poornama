@@ -18,7 +18,7 @@
         <label for="jobTemplate" class="col-sm-3 control-label"><spring:message code="web.job.job_template" /></label>
 
         <div class="col-sm-3">
-            <select class="form-control" id="jobTemplate" name="jobTemplate">
+            <select class="form-control" id="jobTemplate" name="jobTemplate" onchange="getJobTemplateDetails()">
                 ${jobTemplateList}
             </select>
         </div>
@@ -159,6 +159,22 @@
             $('#startDate').data("DateTimePicker").maxDate(e.date);
         });
     });
+
+
+    function getJobTemplateDetails() {
+        $.ajax({
+            type: 'POST',
+            url: '${pageContext.request.contextPath}/job/details/' + document.getElementById('jobTemplate').value,
+            success: function (result) {
+                console.log(result);
+                document.getElementById("labourCharges").value = result.labourCharges;
+                document.getElementById("hireCharges").value = result.hireCharges;
+                document.getElementById("detentionCharges").value = result.detentionCharges;
+                document.getElementById("dailyContainerCharges").value = result.dailyContainerCharges;
+                document.getElementById("freeHours").value = result.freeHours;
+            }
+        });
+    }
 </script>
 
 <%@ include file="../template/footer.jsp" %>

@@ -46,8 +46,6 @@ public class Job {
 
 	private BigDecimal detentionCharges;
 
-	private BigDecimal dailyContainerCharges;
-
 	private int freeHours;
 
 	public int getId() {
@@ -124,14 +122,6 @@ public class Job {
 
 	public void setDetentionCharges(BigDecimal detentionCharges) {
 		this.detentionCharges = detentionCharges;
-	}
-
-	public BigDecimal getDailyContainerCharges() {
-		return dailyContainerCharges;
-	}
-
-	public void setDailyContainerCharges(BigDecimal dailyContainerCharges) {
-		this.dailyContainerCharges = dailyContainerCharges;
 	}
 
 	public int getFreeHours() {

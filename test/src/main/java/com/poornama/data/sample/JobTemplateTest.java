@@ -30,7 +30,6 @@ public class JobTemplateTest {
         jobTemplate1.setJobType(jobType);
         jobTemplate1.setHireCharges(new BigDecimal(16500));
         jobTemplate1.setLabourCharges(new BigDecimal(3000));
-        jobTemplate1.setContainerCharges(new BigDecimal(1500));
         jobTemplate1.setDailyContainerCharges(new BigDecimal(1250));
         jobTemplate1.setDetentionCharges(new BigDecimal(100));
         jobTemplate1.setFreeHours(24);
@@ -47,7 +46,6 @@ public class JobTemplateTest {
         jobTemplate2.setJobType(jobType);
         jobTemplate2.setHireCharges(new BigDecimal(13500));
         jobTemplate2.setLabourCharges(new BigDecimal(2500));
-        jobTemplate2.setContainerCharges(new BigDecimal(1500));
         jobTemplate2.setDailyContainerCharges(new BigDecimal(1250));
         jobTemplate2.setDetentionCharges(new BigDecimal(100));
         jobTemplate2.setFreeHours(24);
@@ -66,7 +64,6 @@ public class JobTemplateTest {
         jobTemplate3.setJobType(jobType);
         jobTemplate3.setHireCharges(new BigDecimal(13500));
         jobTemplate3.setLabourCharges(new BigDecimal(2500));
-        jobTemplate3.setContainerCharges(new BigDecimal(1500));
         jobTemplate3.setDailyContainerCharges(new BigDecimal(1250));
         jobTemplate3.setDetentionCharges(new BigDecimal(100));
         jobTemplate3.setFreeHours(24);
