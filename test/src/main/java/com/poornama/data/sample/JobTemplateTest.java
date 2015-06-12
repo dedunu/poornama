@@ -22,7 +22,7 @@ public class JobTemplateTest {
 
         JobType jobType = jobTypeDAO.getById(1);
 
-        Client client = clientDAO.getById(1);
+        Client client = clientDAO.getByOrganizationName("MAS Active");
 
         JobTemplate jobTemplate1 = new JobTemplate();
         jobTemplate1.setDisplayName("40ft. Colombo to Mawathagama (MAS)");
@@ -54,7 +54,7 @@ public class JobTemplateTest {
         jobTemplate2.setContainerSize(20);
         jobTemplateDAO.create(jobTemplate2);
 
-        client = clientDAO.getById(2);
+        client = clientDAO.getByOrganizationName("Universal Freighters");
 
         jobType = jobTypeDAO.getById(3);
 

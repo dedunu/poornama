@@ -9,7 +9,9 @@ import javax.json.JsonObject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.poornama.api.objects.Client;
 import com.poornama.api.objects.Job;
+import com.poornama.api.objects.JobTemplate;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.logic.object.*;
@@ -163,6 +165,31 @@ public class JobController {
 
 		model.addAttribute("pageTitle", "Poornama Transport Service - Job");
 		return "job/delete";
+	}
+
+	@RequestMapping(value = "print/{jobId}", method = RequestMethod.GET)
+	public String printForm(Model model, @PathVariable("jobId") String jobId) {
+		JobLogic jobLogic = new JobLogic();
+		Job job = jobLogic.getJob(jobId);
+		JobTemplate jobTemplate = job.getJobTemplate();
+		if (job == null) {
+			log.error("[" + className + "] printForm: retrieving Job failed");
+		}
+
+		DateFormat invoiceDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		Client client = jobTemplate.getClient();
+
+		String clientString =client.getOrganizationName() + "<br/>";
+		clientString = clientString + client.getAddress();
+
+		model.addAttribute("jobId", job.getId());
+		model.addAttribute("date", invoiceDateFormat.format(new Date()));
+		model.addAttribute("client", clientString);
+		model.addAttribute("jobTemplate", job.getJobTemplate().getId());
+		model.addAttribute("table", jobLogic.getInvoiceTable(jobId));
+
+		model.addAttribute("pageTitle", "Poornama Transport Service - Job");
+		return "job/print";
 	}
 
 	@RequestMapping(value = "delete/{jobId}", method = RequestMethod.POST)

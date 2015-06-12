@@ -236,8 +236,12 @@
     function onHourlyDetentionChargesChange() {
         var totalHours = calculateHours();
         var freeHours = parseInt(document.getElementById("freeHours").value);
-        var hourlyDetentionCharges =  parseInt(document.getElementById("hourlyDetentionCharges").value)
-        document.getElementById("detentionCharges").value = (totalHours - freeHours) * hourlyDetentionCharges;
+        var hourlyDetentionCharges =  parseInt(document.getElementById("hourlyDetentionCharges").value);
+        if (totalHours >= freeHours) {
+            document.getElementById("detentionCharges").value = (totalHours - freeHours) * hourlyDetentionCharges;
+        } else {
+            document.getElementById("detentionCharges").value = 0;
+        }
     }
 </script>
 

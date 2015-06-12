@@ -7,6 +7,9 @@ import org.apache.log4j.Logger;
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.Client;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
 
 public class ClientDAO {
 	private static Logger log = GlobalLogger.getLogger();
@@ -51,6 +54,19 @@ public class ClientDAO {
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] getById()");
+		return client;
+	}
+
+	public Client getByOrganizationName(String organizationName) {
+		DatabaseSession databaseSession = new DatabaseSession();
+		databaseSession.beginTransaction();
+		Criteria criteria = databaseSession.createCriteria(Client.class);
+		SimpleExpression simpleExpression = Restrictions.eq("organizationName", organizationName);
+		Client client = (Client) criteria.add(simpleExpression)
+				.uniqueResult();
+		databaseSession.commitTransaction();
+		databaseSession.close();
+		log.debug("[" + className + "] getByOrganizationName()");
 		return client;
 	}
 

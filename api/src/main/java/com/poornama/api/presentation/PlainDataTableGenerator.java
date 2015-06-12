@@ -4,11 +4,20 @@ package com.poornama.api.presentation;
  * Created by dedunu on 11/8/14.
  */
 public class PlainDataTableGenerator{
+    private String tableType = "table-hover";
+
+    public String getTableType() {
+        return tableType;
+    }
+
+    public void setTableType(String tableType) {
+        this.tableType = tableType;
+    }
 
     public String getStartTable() {
         String tableString;
         tableString = "<div class=\"table-responsive\">\n";
-        tableString = tableString + "\t<table class=\"table table-hover\">\n";
+        tableString = tableString + "\t<table class=\"table " + getTableType()+ "\">\n";
         return tableString;
     }
 

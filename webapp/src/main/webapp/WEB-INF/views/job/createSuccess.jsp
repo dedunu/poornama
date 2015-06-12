@@ -12,7 +12,7 @@
 
 </style>
 <div class="alert alert-success" role="alert">${message}</div>
-<a href="${pageContext.request.contextPath}/job/print/${jobId}">
+<a href="${pageContext.request.contextPath}/job/print/${jobId}" target="_blank">
     <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-print"></span> <spring:message code="web.button.print" /></button>
 </a>
 <a href="${pageContext.request.contextPath}">

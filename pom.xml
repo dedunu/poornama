@@ -34,6 +34,8 @@
 		<plugin.maven.ear.version>2.10</plugin.maven.ear.version>
 		<plugin.maven.resources.version>2.7</plugin.maven.resources.version>
 		<pligin.maven.glassfish.version>2.1</pligin.maven.glassfish.version>
+
+		<glassfish.directory>/Users/dedunu/bin/glassfish</glassfish.directory>
 	</properties>
 
 	<modules>

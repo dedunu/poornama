@@ -124,7 +124,7 @@
 							</execution>
 						</executions>
 						<configuration>
-							<glassfishDirectory>/Users/ddhananjaya/bin/glassfish4/glassfish</glassfishDirectory>
+							<glassfishDirectory>${glassfish.directory}</glassfishDirectory>
 							<user>admin</user>
 							<adminPassword>rootroot</adminPassword>
 							<domain>
@@ -164,7 +164,7 @@
 							</execution>
 						</executions>
 						<configuration>
-							<glassfishDirectory>/Users/ddhananjaya/bin/glassfish4/glassfish</glassfishDirectory>
+							<glassfishDirectory>${glassfish.directory}</glassfishDirectory>
 							<user>admin</user>
 							<adminPassword>rootroot</adminPassword>
 							<domain>
@@ -204,7 +204,7 @@
 							</execution>
 						</executions>
 						<configuration>
-							<glassfishDirectory>/Users/ddhananjaya/bin/glassfish4/glassfish</glassfishDirectory>
+							<glassfishDirectory>${glassfish.directory}</glassfishDirectory>
 							<user>admin</user>
 							<adminPassword>rootroot</adminPassword>
 							<domain>
