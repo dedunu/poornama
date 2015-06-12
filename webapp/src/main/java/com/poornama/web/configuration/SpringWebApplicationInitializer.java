@@ -13,7 +13,7 @@ import javax.servlet.ServletRegistration.Dynamic;
 public class SpringWebApplicationInitializer implements WebApplicationInitializer {
 
     private static Logger log = GlobalLogger.getLogger();
-    private static String className = SpringConfiguration.class.getName();
+    private static String className = SpringWebApplicationInitializer.class.getName();
 
     public void onStartup(ServletContext servletContext) throws ServletException {
         log.debug("[" + className + "] onStartup()");

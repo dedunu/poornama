@@ -9,6 +9,7 @@ import com.poornama.data.dao.VehicleTypeDAO;
 import com.poornama.api.objects.Vehicle;
 import com.poornama.api.objects.VehicleType;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 /**
  * Created by dedunu on 11/8/14.
  */
+@Service
 public class VehicleLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = VehicleLogic.class.getName();

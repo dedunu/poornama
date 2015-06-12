@@ -4,6 +4,7 @@ import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.JobTemplate;
 import com.poornama.data.dao.JobTemplateDAO;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import javax.json.*;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 /**
  * Created by ddhananjaya on 6/11/15.
  */
+@Service
 public class JobTemplateLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = JobTemplateLogic.class.getName();

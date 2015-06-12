@@ -5,6 +5,8 @@ import com.poornama.api.objects.User;
 import com.poornama.logic.object.UserLogic;
 import com.poornama.logic.session.Authentication;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,12 @@ public class SessionController {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = SessionController.class.getName();
 
+    @Autowired
+    private Authentication authentication;
+
+    @Autowired
+    private MessageSource messageSource;
+
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(HttpSession session, @RequestParam("username") String userName, @RequestParam("password") String password) {
         log.debug("[" + className + "] login: login()");
@@ -31,7 +39,6 @@ public class SessionController {
             log.debug("[" + className + "] login: redirecting to home controller");
             return "redirect:/";
         } else {
-            Authentication authentication = new Authentication();
             boolean isAuthenticated = authentication.doAuthenticate(userName, password);
             if (isAuthenticated) {
                 UserLogic userLogic = new UserLogic();
@@ -61,12 +68,12 @@ public class SessionController {
     @RequestMapping(value = "denied", method = RequestMethod.GET)
     public String accessDenied(Model model, HttpSession session) {
         try {
-            session.setAttribute("message", "Sorry, the page you just requested is not available to you due to security reasons.");
+            session.setAttribute("message", messageSource.getMessage("web.session.denied.message", null,null));
         } catch (Exception e) {
             log.error("[" + className + "] accessDenied: exception while setting sessionAttribute");
         }
         log.warn("[" + className + "] accessDenied: Success, reidrected to notify/danger");
-        model.addAttribute("pageTitle", "Poornama Transport Service - Access Denied");
+        model.addAttribute("pageTitle", messageSource.getMessage("web.session.denied.title", null,null));
         return "notify/danger";
     }
 

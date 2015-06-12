@@ -9,6 +9,7 @@ import com.poornama.data.dao.EmployeeDAO;
 import com.poornama.api.objects.Employee;
 import com.poornama.api.objects.EmployeeAttendance;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,6 +21,7 @@ import java.util.List;
 /**
  * Created by dedunu on 11/8/14.
  */
+@Service
 public class EmployeeAttendanceLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = EmployeeAttendanceLogic.class.getName();
@@ -102,7 +104,6 @@ public class EmployeeAttendanceLogic {
         table = table + plainDataTableGenerator.getStartTableBody();
 
         for (Employee employee : employeeList) {
-            int employeeCount = 0;
             dataArray[0] = employee.getFirstName() + " " + employee.getLastName();
             calendar.setTime(date);
             for (int i = 1; i < 8; i++) {
@@ -116,8 +117,6 @@ public class EmployeeAttendanceLogic {
 
                 calendar.add(Calendar.DATE, 1);
             }
-
-            employeeCount++;
             table = table + plainDataTableGenerator.getTableBodyRow(dataArray);
         }
 

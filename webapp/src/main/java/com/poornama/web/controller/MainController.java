@@ -2,6 +2,8 @@ package com.poornama.web.controller;
 
 import com.poornama.api.logging.GlobalLogger;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,9 @@ import javax.servlet.http.HttpSession;
 public class MainController {
 	private static Logger log = GlobalLogger.getLogger();
 	private static String className = MainController.class.getName();
+
+	@Autowired
+	private MessageSource messageSource;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model, HttpSession session) {
@@ -32,7 +37,7 @@ public class MainController {
 
 		if (isLoggedIn.equals("true")) {
 			model.addAttribute("pageTitle",
-					"Poornama Transport Service - Dashboard");
+					messageSource.getMessage("web.user.dashboard.title", null, null));
 			log.debug("[" + className
 					+ "] index: isLoggedIn=true, redirecting to user/dashboard");
 			return "user/dashboard";

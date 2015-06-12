@@ -9,6 +9,7 @@ import com.poornama.data.dao.EmployeeTypeDAO;
 import com.poornama.api.objects.Employee;
 import com.poornama.api.objects.EmployeeType;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
@@ -19,6 +20,7 @@ import java.util.List;
 /**
  * Created by dedunu on 11/7/14.
  */
+@Service
 public class EmployeeLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = EmployeeLogic.class.getName();

@@ -5,10 +5,12 @@ import com.poornama.api.security.PasswordHash;
 import com.poornama.data.dao.UserDAO;
 import com.poornama.api.objects.User;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by dedunu on 10/23/14.
  */
+@Service
 public class Authentication {
 
     private static Logger log = GlobalLogger.getLogger();

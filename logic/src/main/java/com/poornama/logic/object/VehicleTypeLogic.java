@@ -4,12 +4,14 @@ import com.poornama.api.logging.GlobalLogger;
 import com.poornama.data.dao.VehicleTypeDAO;
 import com.poornama.api.objects.VehicleType;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by dedunu on 11/8/14.
  */
+@Service
 public class VehicleTypeLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = VehicleTypeLogic.class.getName();

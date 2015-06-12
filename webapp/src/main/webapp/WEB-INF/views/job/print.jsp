@@ -16,14 +16,14 @@
 <h1><spring:message code="web.company.name" /></h1>
 <div class="row">
     <div class="col-md-6">
-        <p>Address :<spring:message code="web.company.address" /><br/>
-        Telephone : +94-112-488201<br/>
-        Mobile : +94-777-313289<br/>
-        Email: poornamatransportservice@gmail.com
+        <p><spring:message code="web.general.address" /> : <spring:message code="web.company.address" /><br/>
+            <spring:message code="web.general.telephone" /> : <spring:message code="web.company.telephone" /><br/>
+            <spring:message code="web.general.mobile" /> : <spring:message code="web.company.mobile" /><br/>
+            <spring:message code="web.general.email" />: <spring:message code="web.company.email" />
         </p>
     </div>
     <div class="col-md-6">
-        <p>Date : ${date}<br/>
+        <p><spring:message code="web.general.date" /> : ${date}<br/>
             <b>Invoice Number : ${jobId}</b><br/>
             <b>Invoice To:</b><br/>
         ${client}</p>

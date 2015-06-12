@@ -8,11 +8,7 @@ import com.poornama.api.objects.Vehicle;
 import com.poornama.api.presentation.*;
 import com.poornama.data.dao.*;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.MessageSource;
-import org.springframework.context.MessageSourceAware;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
@@ -25,7 +21,7 @@ import java.util.List;
 /**
  * Created by ddhananjaya on 6/11/15.
  */
-@Component
+@Service
 public class JobLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = JobLogic.class.getName();
@@ -45,7 +41,7 @@ public class JobLogic {
         Vehicle vehicle = new Vehicle();
         JobTemplate jobTemplate = new JobTemplate();
 
-        BigDecimal hireCharges = null;
+        BigDecimal hireCharges;
         BigDecimal labourCharges;
         BigDecimal containerCharges;
         BigDecimal detentionCharges;
@@ -137,7 +133,7 @@ public class JobLogic {
         JobTemplateDAO jobTemplateDAO = new JobTemplateDAO();
         VehicleDAO vehicleDAO = new VehicleDAO();
         EmployeeDAO employeeDAO = new EmployeeDAO();
-        Job job = new Job();
+        Job job;
         Notification notification = new Notification();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy h:mm a");
         Date startDate = new Date();
@@ -147,7 +143,7 @@ public class JobLogic {
         Vehicle vehicle = new Vehicle();
         JobTemplate jobTemplate = new JobTemplate();
 
-        BigDecimal hireCharges = null;
+        BigDecimal hireCharges;
         BigDecimal labourCharges;
         BigDecimal containerCharges;
         BigDecimal detentionCharges;
@@ -277,8 +273,6 @@ public class JobLogic {
         JobDAO jobDAO = new JobDAO();
         PrintDataTableGenerator printDataTableGenerator = new PrintDataTableGenerator();
         String table;
-
-
 
         table = printDataTableGenerator.getStartTable();
         String dataArray[] = new String[7];

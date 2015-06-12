@@ -4,12 +4,14 @@ import com.poornama.api.logging.GlobalLogger;
 import com.poornama.data.dao.UserRoleDAO;
 import com.poornama.api.objects.UserRole;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by dedunu on 11/8/14.
  */
+@Service
 public class UserRoleLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = UserRoleLogic.class.getName();

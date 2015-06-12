@@ -16,6 +16,7 @@ import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.logic.object.*;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,9 +32,20 @@ public class JobController {
 	private static Logger log = GlobalLogger.getLogger();
 	private static String className = JobController.class.getName();
 
+	@Autowired
+	JobTemplateLogic jobTemplateLogic;
+
+	@Autowired
+	JobLogic jobLogic;
+
+	@Autowired
+	VehicleLogic vehicleLogic;
+
+	@Autowired
+	EmployeeLogic employeeLogic;
+
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public String createForm(Model model) {
-		JobTemplateLogic jobTemplateLogic = new JobTemplateLogic();
 		model.addAttribute("jobTemplateList",
 				jobTemplateLogic.getJobTemplateSelectList());
 		VehicleLogic vehicleLogic = new VehicleLogic();
@@ -53,7 +65,6 @@ public class JobController {
 
 	@RequestMapping(value = "create", method = RequestMethod.POST)
 	public String createJob(Model model, HttpServletRequest request) {
-		JobLogic jobLogic = new JobLogic();
 		Notification notification = jobLogic.createJob(request);
 		model.addAttribute("message", notification.getMessage());
 		model.addAttribute("pageTitle", "Poornama Transport Service - Job");
@@ -72,7 +83,6 @@ public class JobController {
 
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public String searchForm(Model model) throws IOException {
-		JobLogic jobLogic = new JobLogic();
 		String table = jobLogic.getJobTable("");
 		model.addAttribute("table", table);
 		model.addAttribute("pageTitle", "Poornama Transport Service - Job");
@@ -82,7 +92,6 @@ public class JobController {
 
 	@RequestMapping(value = "search/{id}", method = RequestMethod.POST)
 	public void searchAJAX(@PathVariable("id") String id, HttpServletResponse response) throws IOException {
-		JobLogic jobLogic = new JobLogic();
 		String table = jobLogic.getJobTable(id);
 		response.getWriter().print(table);
 		log.debug("[" + className + "] searchAJAX()");
@@ -96,10 +105,6 @@ public class JobController {
 
 	@RequestMapping(value = "edit/{jobId}", method = RequestMethod.GET)
 	public String editForm(Model model, @PathVariable("jobId") String jobId) {
-		JobLogic jobLogic = new JobLogic();
-		JobTemplateLogic jobTemplateLogic = new JobTemplateLogic();
-		VehicleLogic vehicleLogic = new VehicleLogic();
-		EmployeeLogic employeeLogic = new EmployeeLogic();
 		Job job = jobLogic.getJob(jobId);
 
 		if (job == null) {
@@ -140,7 +145,6 @@ public class JobController {
 
 	@RequestMapping(value = "delete/{jobId}", method = RequestMethod.GET)
 	public String deleteForm(Model model, @PathVariable("jobId") String jobId) {
-		JobLogic jobLogic = new JobLogic();
 		Job job;
 		job = jobLogic.getJob(jobId);
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy h:mm a");
@@ -169,7 +173,6 @@ public class JobController {
 
 	@RequestMapping(value = "print/{jobId}", method = RequestMethod.GET)
 	public String printForm(Model model, @PathVariable("jobId") String jobId) {
-		JobLogic jobLogic = new JobLogic();
 		Job job = jobLogic.getJob(jobId);
 		JobTemplate jobTemplate = job.getJobTemplate();
 		if (job == null) {
@@ -194,7 +197,6 @@ public class JobController {
 
 	@RequestMapping(value = "delete/{jobId}", method = RequestMethod.POST)
 	public String deleteJob(Model model, @PathVariable("jobId") String jobId) {
-		JobLogic jobLogic = new JobLogic();
 		Notification notification = jobLogic.deleteJob(jobId);
 		model.addAttribute("pageTitle", "Poornama Transport Service - Job");
 		switch (notification.getNotificationType()) {
@@ -216,7 +218,6 @@ public class JobController {
 
 	@RequestMapping(value = "edit/{jobId}", method = RequestMethod.POST)
 	public String editJob(Model model, @PathVariable("jobId") String jobId, HttpServletRequest request) {
-		JobLogic jobLogic = new JobLogic();
 		Notification notification = jobLogic.editJob(request, jobId);
 		log.debug("[" + className + "] editJob()");
 		model.addAttribute("pageTitle", "Poornama Transport Service - Job");
@@ -236,7 +237,6 @@ public class JobController {
 	@RequestMapping(value = "details/{jobTemplateId}", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public JsonObject getJobTemplateDetailsAJAX(@PathVariable("jobTemplateId") String jobTemplateId) throws IOException {
-		JobTemplateLogic jobTemplateLogic = new JobTemplateLogic();
 		log.debug("[" + className + "] getJobTemplateDetailsAJAX()");
 		return jobTemplateLogic.getJobTemplateDetails(jobTemplateId);
 	}
