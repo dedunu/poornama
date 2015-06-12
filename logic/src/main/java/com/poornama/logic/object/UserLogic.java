@@ -8,9 +8,11 @@ import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.data.dao.UserDAO;
 import com.poornama.data.dao.UserRoleDAO;
+import com.poornama.logic.session.Authentication;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -180,5 +182,38 @@ public class UserLogic {
         UserDAO userDAO = new UserDAO();
         User user = userDAO.getById(id);
         return user;
+    }
+
+    public Notification changePassword(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String userId = session.getAttribute("userId").toString();
+
+        UserDAO userDAO = new UserDAO();
+        User user;
+
+        Notification notification = new Notification();
+        user = userDAO.getById(userId);
+
+        Authentication authentication = new Authentication();
+
+        if (authentication.doAuthenticate(user.getUserName(), request.getParameter("oldPassword"))) {
+            try {
+                user.setPassword(request.getParameter("newPassword"));
+                userDAO.update(user);
+                notification.setNotificationType(NotificationType.SUCCESS);
+                notification.setMessage("Password changed successfully.");
+                log.info("[" + className + "] changePassword: changed Password");
+            } catch (Exception e) {
+                notification.setNotificationType(NotificationType.DANGER);
+                notification.setMessage("Password didn't change. Please try again.");
+                log.error("[" + className + "] changePassword: failed changing password");
+            }
+        } else {
+            notification.setNotificationType(NotificationType.DANGER);
+            notification.setMessage("Current password is incorrect. Please try again.");
+            log.debug("[" + className + "] changePassword: incorrect password");
+        }
+
+        return notification;
     }
 }

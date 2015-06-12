@@ -117,21 +117,5 @@
     })
 </script>
 
-<div class="panel panel-primary">
-    <div class="panel-body">
-        <i class="fa fa-university"></i> Account
-        <div class="btn-group pull-right">
-            <button type="button" class="btn btn-primary" id="list-account">
-                <span class="glyphicon glyphicon-pencil"></span>
-            </button>
-        </div>
-    </div>
-</div>
-<script>
-    $('#list-account').on('click', function (e) {
-        window.location.href = "${pageContext.request.contextPath}/account/list";
-    });
-</script>
-
 <br/>
 <%@ include file="../template/footer.jsp" %>

@@ -58,6 +58,17 @@ public class UserDAO {
         return user;
     }
 
+    public User getById(String id) {
+        int userId = 0;
+
+        try {
+            userId = Integer.parseInt(id);
+        } catch (NumberFormatException ex) {
+            return null;
+        }
+        return getById(userId);
+    }
+
     public User getByUserName(String userName) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();

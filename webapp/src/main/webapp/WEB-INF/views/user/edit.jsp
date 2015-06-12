@@ -13,7 +13,12 @@
 
 </style>
 
-<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/user/edit/${userId}">
+<div id="validateNotMatching" class="hidden">
+    <div class="alert alert-danger" role="alert">Please check your password.</div>
+</div>
+
+
+<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/user/edit/${userId}" onsubmit="return validatePassword();">
     <div class="form-group">
         <label for="userName" class="col-sm-3 control-label">Username</label>
 
@@ -63,5 +68,26 @@
 
 <script>
     $("#userRole").val("${userRole}");
+
+    function validatePassword() {
+        $("#validateNotMatching").addClass("hidden");
+
+        if (document.getElementById("password").value == "") {
+            $("#validateNotMatching").removeClass("hidden");
+            return false;
+        }
+
+        if (document.getElementById("confirmPassword").value == "") {
+            $("#validateNotMatching").removeClass("hidden");
+            return false;
+        }
+
+        if (document.getElementById("password").value != document.getElementById("confirmPassword").value) {
+            $("#validateNotMatching").removeClass("hidden");
+            return false;
+        } else {
+            return true;
+        }
+    }
 </script>
 <%@ include file="../template/footer.jsp" %>

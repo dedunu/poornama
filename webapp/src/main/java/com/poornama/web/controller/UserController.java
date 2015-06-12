@@ -77,7 +77,7 @@ public class UserController {
     public String editUser(Model model, @PathVariable("userId") String userId, HttpServletRequest request) {
         UserLogic userLogic = new UserLogic();
         Notification notification = userLogic.editUser(request, userId);
-        log.debug("[" + className + "] editEmployee()");
+        log.debug("[" + className + "] editUser()");
         model.addAttribute("message", notification.getMessage());
         model.addAttribute("pageTitle", "Poornama Transport Service - User");
         if (notification.getNotificationType() == NotificationType.DANGER) {
@@ -88,7 +88,7 @@ public class UserController {
             log.info("[" + className + "] editUser: success");
             return "notify/success";
         }
-        log.fatal("[" + className + "] editEmployee: cannot reach this phrase");
+        log.fatal("[" + className + "] editUser: cannot reach this phrase");
         return "redirect:/";
     }
 
@@ -138,6 +138,26 @@ public class UserController {
         model.addAttribute("pageTitle", "Poornama Transport Service - User");
         return "user/settings";
     }
+
+    @RequestMapping(value = "changePassword", method = RequestMethod.POST)
+    public String changePassword(Model model, HttpServletRequest request) {
+        UserLogic userLogic = new UserLogic();
+        Notification notification = userLogic.changePassword(request);
+        log.debug("[" + className + "] changePassword()");
+        model.addAttribute("message", notification.getMessage());
+        model.addAttribute("pageTitle", "Poornama Transport Service - User");
+        if (notification.getNotificationType() == NotificationType.DANGER) {
+            log.error("[" + className + "] changePassword: failed");
+            return "notify/danger";
+        }
+        if (notification.getNotificationType() == NotificationType.SUCCESS) {
+            log.info("[" + className + "] changePassword: success");
+            return "notify/success";
+        }
+        log.fatal("[" + className + "] changePassword: cannot reach this phrase");
+        return "redirect:/";
+    }
+
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
