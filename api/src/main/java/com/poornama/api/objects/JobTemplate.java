@@ -28,7 +28,7 @@ public class JobTemplate {
 
 	private BigDecimal labourCharges;
 
-	private BigDecimal detentionCharges;
+	private BigDecimal hourlyDetentionCharges;
 
 	private BigDecimal dailyContainerCharges;
 
@@ -106,12 +106,12 @@ public class JobTemplate {
 		this.labourCharges = labourCharges;
 	}
 
-	public BigDecimal getDetentionCharges() {
-		return detentionCharges;
+	public BigDecimal getHourlyDetentionCharges() {
+		return hourlyDetentionCharges;
 	}
 
-	public void setDetentionCharges(BigDecimal detentionCharges) {
-		this.detentionCharges = detentionCharges;
+	public void setHourlyDetentionCharges(BigDecimal hourlyDetentionCharges) {
+		this.hourlyDetentionCharges = hourlyDetentionCharges;
 	}
 
 	public BigDecimal getDailyContainerCharges() {

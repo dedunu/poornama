@@ -10,7 +10,8 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames">
             <list>
-                <value>com.poornama.web.resources.labels</value>
+                <value>com.poornama.resources.labels</value>
+                <value>com.poornama.resources.messages</value>
             </list>
         </property>
     </bean>

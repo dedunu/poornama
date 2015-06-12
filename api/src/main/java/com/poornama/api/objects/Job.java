@@ -46,6 +46,10 @@ public class Job {
 
 	private BigDecimal detentionCharges;
 
+	private BigDecimal hourlyDetentionCharges;
+
+	private BigDecimal dailyContainerCharges;
+
 	private int freeHours;
 
 	public int getId() {
@@ -144,4 +148,19 @@ public class Job {
 		this.jobTemplate = jobTemplate;
 	}
 
+	public BigDecimal getHourlyDetentionCharges() {
+		return hourlyDetentionCharges;
+	}
+
+	public void setHourlyDetentionCharges(BigDecimal hourlyDetentionCharges) {
+		this.hourlyDetentionCharges = hourlyDetentionCharges;
+	}
+
+	public BigDecimal getDailyContainerCharges() {
+		return dailyContainerCharges;
+	}
+
+	public void setDailyContainerCharges(BigDecimal dailyContainerCharges) {
+		this.dailyContainerCharges = dailyContainerCharges;
+	}
 }

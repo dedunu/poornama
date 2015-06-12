@@ -6,6 +6,15 @@ package com.poornama.api.presentation;
 public class Notification {
     private NotificationType notificationType;
     private String message;
+    private int integer;
+
+    public int getInteger() {
+        return integer;
+    }
+
+    public void setInteger(int integer) {
+        this.integer = integer;
+    }
 
     public NotificationType getNotificationType() {
         return notificationType;

@@ -153,6 +153,19 @@ public class VehicleLogic {
         return list;
     }
 
+    public String getPrimeMoverVehicleSelectList() {
+        VehicleDAO vehicleDAO = new VehicleDAO();
+        VehicleTypeDAO vehicleTypeDAO = new VehicleTypeDAO();
+        VehicleType vehicleType = vehicleTypeDAO.getByName("prime_mover");
+        List<Vehicle> vehicleList = vehicleDAO.getByVehicleType(vehicleType);
+        String list = "";
+        for (Vehicle vehicle : vehicleList) {
+            list = list + "\t\t<option value =\"" + vehicle.getId() + "\">" + vehicle.getVehicleNumber() + "</option>\n";
+        }
+        log.debug("[" + className + "] getPrimeMoverVehicleSelectList()");
+        return list;
+    }
+
     public Vehicle getVehicleById(String vehicleId){
         VehicleDAO vehicleDAO = new VehicleDAO();
         Vehicle vehicle;

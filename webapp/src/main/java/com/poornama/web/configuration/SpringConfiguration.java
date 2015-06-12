@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
 @ImportResource("classpath:poornama-context.xml")
-@ComponentScan("com.poornama.web")
+@ComponentScan("com.poornama")
 @EnableWebMvc
 public class SpringConfiguration {
 

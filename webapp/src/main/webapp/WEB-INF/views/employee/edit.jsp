@@ -96,9 +96,9 @@
     </div>
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-10">
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary"><spring:message code="web.button.save" /></button>
             <a href="${pageContext.request.contextPath}/employee/search">
-                <button type="button" class="btn btn-default">Cancel</button>
+                <button type="button" class="btn btn-default"><spring:message code="web.button.cancel" /></button>
             </a>
         </div>
     </div>

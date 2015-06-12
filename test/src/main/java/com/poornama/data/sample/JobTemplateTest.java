@@ -31,7 +31,7 @@ public class JobTemplateTest {
         jobTemplate1.setHireCharges(new BigDecimal(16500));
         jobTemplate1.setLabourCharges(new BigDecimal(3000));
         jobTemplate1.setDailyContainerCharges(new BigDecimal(1250));
-        jobTemplate1.setDetentionCharges(new BigDecimal(100));
+        jobTemplate1.setHourlyDetentionCharges(new BigDecimal(100));
         jobTemplate1.setFreeHours(24);
         jobTemplate1.setFromLocation("Colombo");
         jobTemplate1.setToLocation("Mawathagama");
@@ -47,7 +47,7 @@ public class JobTemplateTest {
         jobTemplate2.setHireCharges(new BigDecimal(13500));
         jobTemplate2.setLabourCharges(new BigDecimal(2500));
         jobTemplate2.setDailyContainerCharges(new BigDecimal(1250));
-        jobTemplate2.setDetentionCharges(new BigDecimal(100));
+        jobTemplate2.setHourlyDetentionCharges(new BigDecimal(100));
         jobTemplate2.setFreeHours(24);
         jobTemplate2.setFromLocation("Colombo");
         jobTemplate2.setToLocation("Mawathagama");
@@ -65,7 +65,7 @@ public class JobTemplateTest {
         jobTemplate3.setHireCharges(new BigDecimal(13500));
         jobTemplate3.setLabourCharges(new BigDecimal(2500));
         jobTemplate3.setDailyContainerCharges(new BigDecimal(1250));
-        jobTemplate3.setDetentionCharges(new BigDecimal(100));
+        jobTemplate3.setHourlyDetentionCharges(new BigDecimal(100));
         jobTemplate3.setFreeHours(24);
         jobTemplate3.setFromLocation("Colombo");
         jobTemplate3.setToLocation("Koggala");

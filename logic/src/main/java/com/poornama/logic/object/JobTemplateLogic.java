@@ -5,6 +5,7 @@ import com.poornama.api.objects.JobTemplate;
 import com.poornama.data.dao.JobTemplateDAO;
 import org.apache.log4j.Logger;
 
+import javax.json.*;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public class JobTemplateLogic {
         return list;
     }
 
-    public String getJobTemplateDetails(String jobTemplateId) {
+    public JsonObject getJobTemplateDetails(String jobTemplateId) {
         JobTemplateDAO jobTemplateDAO = new JobTemplateDAO();
         int parsedJobTemplateId = 0;
 
@@ -34,19 +35,27 @@ public class JobTemplateLogic {
             parsedJobTemplateId = Integer.parseInt(jobTemplateId);
         } catch (Exception ex) {
             log.error("[" + className + "] getJobTemplateDetails() : parsing jobTemplateId to int failed.");
-            return null;
+
+            JsonObject nullObject = Json.createObjectBuilder()
+                    .add("labourCharges",0)
+                    .add("hireCharges",0)
+                    .add("hourlyDetentionCharges", 0)
+                    .add("dailyContainerCharges", 0)
+                    .add("freeHours", 0)
+                    .build();
+            return nullObject;
         }
 
         JobTemplate jobTemplate = jobTemplateDAO.getById(parsedJobTemplateId);
 
-        String result = "{ \n";
-        result = result + "'labourCharges' : " + jobTemplate.getLabourCharges().toBigInteger() + ", \n";
-        result = result + "'hireCharges' : " + jobTemplate.getHireCharges().toBigInteger() + ", \n";
-        result = result + "'detentionCharges' : " + jobTemplate.getDetentionCharges().toBigInteger() + ", \n";
-        result = result + "'dailyContainerCharges' : " + jobTemplate.getDailyContainerCharges().toBigInteger() + ", \n";
-        result = result + "'freeHours' : " + jobTemplate.getFreeHours() + " \n";
-        result = result + "}";
+        JsonObject jsonObject = Json.createObjectBuilder()
+                .add("labourCharges", jobTemplate.getLabourCharges().toBigInteger().toString())
+                .add("hireCharges", jobTemplate.getHireCharges().toBigInteger().toString())
+                .add("hourlyDetentionCharges", jobTemplate.getHourlyDetentionCharges().toBigInteger().toString())
+                .add("dailyContainerCharges", jobTemplate.getDailyContainerCharges().toBigInteger().toString())
+                .add("freeHours", Integer.toString(jobTemplate.getFreeHours()))
+                .build();
 
-        return result;
+        return jsonObject;
     }
 }
