@@ -23,9 +23,6 @@ public class MainSampleTest {
         
         EmployeeTest employeeTest = new EmployeeTest();
         employeeTest.runTest();
-        
-        OrganizationTest organizationTest = new OrganizationTest();
-        organizationTest.runTest();
 
         ClientTest clientTest = new ClientTest();
         clientTest.runTest();
@@ -35,5 +32,7 @@ public class MainSampleTest {
 
         JobTemplateTest jobTemplateTest = new JobTemplateTest();
         jobTemplateTest.runTest();
+
+        System.exit(0);
     }
 }

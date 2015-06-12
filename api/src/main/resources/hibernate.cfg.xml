@@ -14,10 +14,6 @@
 		<property name="hbm2ddl.auto">update</property>
 		<property name="connection.pool_size">100</property>
 		<property name="current_session_context_class">thread</property>
-		<mapping class="com.poornama.api.objects.Account" />
-		<mapping class="com.poornama.api.objects.AccountRecord" />
-		<mapping class="com.poornama.api.objects.AccountRecordType" />
-		<mapping class="com.poornama.api.objects.AccountType" />
 		<mapping class="com.poornama.api.objects.Client" />
 		<mapping class="com.poornama.api.objects.Employee" />
 		<mapping class="com.poornama.api.objects.EmployeeAttendance" />
@@ -25,7 +21,6 @@
 		<mapping class="com.poornama.api.objects.Job" />
 		<mapping class="com.poornama.api.objects.JobType" />
 		<mapping class="com.poornama.api.objects.JobTemplate" />
-		<mapping class="com.poornama.api.objects.Organization" />
 		<mapping class="com.poornama.api.objects.Salary" />
 		<mapping class="com.poornama.api.objects.User" />
 		<mapping class="com.poornama.api.objects.UserRole" />
