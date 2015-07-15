@@ -68,6 +68,7 @@ public class JobDAO {
 		}
 		return getById(jobId);
 	}
+
 	@SuppressWarnings("unchecked")
 	public List<Job> getAll() {
 		DatabaseSession databaseSession = new DatabaseSession();

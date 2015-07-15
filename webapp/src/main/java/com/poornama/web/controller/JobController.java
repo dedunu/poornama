@@ -182,7 +182,7 @@ public class JobController {
 		DateFormat invoiceDateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		Client client = jobTemplate.getClient();
 
-		String clientString =client.getOrganizationName() + "<br/>";
+		String clientString = client.getOrganizationName() + "<br/>";
 		clientString = clientString + client.getAddress();
 
 		model.addAttribute("jobId", job.getId());
