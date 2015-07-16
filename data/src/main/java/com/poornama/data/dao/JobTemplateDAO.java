@@ -1,6 +1,5 @@
 package com.poornama.data.dao;
 
-import java.text.ParseException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
