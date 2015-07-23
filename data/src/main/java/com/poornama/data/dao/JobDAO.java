@@ -1,7 +1,9 @@
 package com.poornama.data.dao;
 
+import java.util.Date;
 import java.util.List;
 
+import com.poornama.api.objects.Employee;
 import com.poornama.api.objects.JobTemplate;
 import org.apache.log4j.Logger;
 
@@ -9,9 +11,7 @@ import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.Job;
 import org.hibernate.Criteria;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.criterion.SimpleExpression;
+import org.hibernate.criterion.*;
 
 public class JobDAO {
 	private static Logger log = GlobalLogger.getLogger();
@@ -67,6 +67,36 @@ public class JobDAO {
 			return null;
 		}
 		return getById(jobId);
+	}
+
+	public List<Job> getByDriverDate(Employee employee, Date date) {
+		DatabaseSession databaseSession = new DatabaseSession();
+		databaseSession.beginTransaction();
+		Criteria criteria = databaseSession.createCriteria(Job.class);
+		Criterion employeeIdCriterion = Restrictions.eq("driver", employee);
+		Criterion dateCriterion = Restrictions.eq("date", date);
+		LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, dateCriterion);
+		criteria.add(logicalExpression);
+		List<Job> jobList = criteria.list();
+		databaseSession.commitTransaction();
+		databaseSession.close();
+		log.debug("[" + className + "] getByDriverDate()");
+		return jobList;
+	}
+
+	public List<Job> getByCleanerDate(Employee employee, Date date) {
+		DatabaseSession databaseSession = new DatabaseSession();
+		databaseSession.beginTransaction();
+		Criteria criteria = databaseSession.createCriteria(Job.class);
+		Criterion employeeIdCriterion = Restrictions.eq("cleaner", employee);
+		Criterion dateCriterion = Restrictions.eq("date", date);
+		LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, dateCriterion);
+		criteria.add(logicalExpression);
+		List<Job> jobList = criteria.list();
+		databaseSession.commitTransaction();
+		databaseSession.close();
+		log.debug("[" + className + "] getByDriverDate()");
+		return jobList;
 	}
 
 	@SuppressWarnings("unchecked")

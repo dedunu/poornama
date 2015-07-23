@@ -6,6 +6,9 @@ import org.junit.Ignore;
 @Ignore
 public class MainSampleTest {
     public static void main(String args[]){
+        ConfigurationTest configurationTest = new ConfigurationTest();
+        configurationTest.runTest();
+
         UserRoleTest userRoleTest = new UserRoleTest();
         userRoleTest.runTest();
 

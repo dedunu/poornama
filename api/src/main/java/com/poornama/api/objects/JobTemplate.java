@@ -34,6 +34,8 @@ public class JobTemplate {
 
 	private int freeHours;
 
+	private int distance;
+
 	@ManyToOne
 	@JoinColumn(name = "jobTypeId")
 	private JobType jobType;
@@ -136,5 +138,13 @@ public class JobTemplate {
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+	public int getDistance() {
+		return distance;
+	}
+
+	public void setDistance(int distance) {
+		this.distance = distance;
 	}
 }
