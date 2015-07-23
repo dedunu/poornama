@@ -31,6 +31,14 @@ public class Salary {
 		this.id = id;
 	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	public Employee getEmployee() {
 		return employee;
 	}

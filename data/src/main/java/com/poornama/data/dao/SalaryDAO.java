@@ -1,12 +1,18 @@
 package com.poornama.data.dao;
 
+import java.util.Date;
 import java.util.List;
 
+import com.poornama.api.objects.Employee;
 import org.apache.log4j.Logger;
 
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.Salary;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
+import org.hibernate.criterion.Restrictions;
 
 public class SalaryDAO {
 	private static Logger log = GlobalLogger.getLogger();
@@ -51,6 +57,21 @@ public class SalaryDAO {
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] getById()");
+		return salary;
+	}
+
+	public Salary getByEmployeeDate(Employee employee, Date date) {
+		DatabaseSession databaseSession = new DatabaseSession();
+		databaseSession.beginTransaction();
+		Criteria criteria = databaseSession.createCriteria(Salary.class);
+		Criterion employeeIdCriterion = Restrictions.eq("employee", employee);
+		Criterion dateCriterion = Restrictions.eq("date", date);
+		LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, dateCriterion);
+		criteria.add(logicalExpression);
+		Salary salary = (Salary) criteria.uniqueResult();
+		databaseSession.commitTransaction();
+		databaseSession.close();
+		log.debug("[" + className + "] getByEmployeeDate()");
 		return salary;
 	}
 
