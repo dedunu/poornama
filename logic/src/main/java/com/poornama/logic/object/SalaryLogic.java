@@ -23,6 +23,8 @@ public class SalaryLogic {
 
         int driverBasicSalary = 0;
         int cleanerBasicSalary = 0;
+        int managerBasicSalary = 0;
+        int technicianBasicSalary = 0;
 
         ConfigurationDAO configurationDAO = new ConfigurationDAO();
         EmployeeDAO employeeDAO = new EmployeeDAO();
@@ -34,14 +36,18 @@ public class SalaryLogic {
         Configuration cleanerCommissionConfiguration = configurationDAO.getByName("cleanerCommission");
         Configuration driverBasicSalaryConfiguration = configurationDAO.getByName("driverBasicSalary");
         Configuration cleanerBasicSalaryConfiguration = configurationDAO.getByName("cleanerBasicSalary");
+        Configuration managerBasicSalaryConfiguration = configurationDAO.getByName("managerBasicSalary");
+        Configuration technicianBasicSalaryConfiguration = configurationDAO.getByName("technicianBasicSalary");
 
         try {
             driverCommission = Integer.parseInt(driverCommissionConfiguration.getValue());
             cleanerCommission = Integer.parseInt(cleanerCommissionConfiguration.getValue());
             driverBasicSalary = Integer.parseInt(driverBasicSalaryConfiguration.getValue());
             cleanerBasicSalary = Integer.parseInt(cleanerBasicSalaryConfiguration.getValue());
+            managerBasicSalary = Integer.parseInt(managerBasicSalaryConfiguration.getValue());
+            technicianBasicSalary = Integer.parseInt(technicianBasicSalaryConfiguration.getValue());
         } catch (NumberFormatException e) {
-            log.error("[" + className + "] calculateSalary : error in configuration driver/cleaner commission/salary");
+            log.error("[" + className + "] calculateSalary : error in configuration commission/salary");
         }
 
         List<Employee> employeeList = employeeDAO.getAll();
@@ -62,10 +68,6 @@ public class SalaryLogic {
             int commission = 0;
             int labourCharges = 0;
             int workingDays = 0;
-
-            if (!employee.getEmployeeType().getName().equals("driver") || !employee.getEmployeeType().getName().equals("driver")) {
-                continue;
-            }
 
             Date tempDate = firstDay;
 
@@ -111,6 +113,14 @@ public class SalaryLogic {
             if (employee.getEmployeeType().getName().equals("cleaner") ) {
                 basicSalary = cleanerBasicSalary / workingDays * attendedDays;
                 commission = totalHireAmount * cleanerCommission;
+            }
+
+            if (employee.getEmployeeType().getName().equals("manager") ) {
+                basicSalary = managerBasicSalary / workingDays * attendedDays;
+            }
+
+            if (employee.getEmployeeType().getName().equals("technician") ) {
+                basicSalary = technicianBasicSalary / workingDays * attendedDays;
             }
 
             Salary salary = new Salary();
