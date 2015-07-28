@@ -170,6 +170,7 @@ public class SalaryLogic {
         List<Employee> employeeList = employeeDAO.getAll();
 
         table = plainDataTableGenerator.getStartTable();
+
         dataArray[0] = "Employee ID";
         dataArray[1] = "Name";
         dataArray[2] = "Basic Salary";
@@ -180,7 +181,6 @@ public class SalaryLogic {
         dataArray[7] = "Company ETF";
         dataArray[8] = "Net Salary";
         dataArray[9] = "Balance Amount";
-
 
         table = table + plainDataTableGenerator.getTableHeader(dataArray);
         table = table + plainDataTableGenerator.getStartTableBody();
