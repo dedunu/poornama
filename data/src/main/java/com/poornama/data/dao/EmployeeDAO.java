@@ -79,7 +79,7 @@ public class EmployeeDAO {
         return employee;
     }
 
-    public Employee getByfirstName(String firstName) {
+    public Employee getByFirstName(String firstName) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
         Criteria criteria = databaseSession.createCriteria(Employee.class);
@@ -88,7 +88,7 @@ public class EmployeeDAO {
                 .uniqueResult();
         databaseSession.commitTransaction();
         databaseSession.close();
-        log.debug("[" + className + "] getByfirstName()");
+        log.debug("[" + className + "] getByFirstName()");
         return employee;
     }
 
