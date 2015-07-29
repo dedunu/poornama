@@ -19,10 +19,12 @@
 		<mapping class="com.poornama.api.objects.Employee" />
 		<mapping class="com.poornama.api.objects.EmployeeAttendance" />
 		<mapping class="com.poornama.api.objects.EmployeeType" />
+		<mapping class="com.poornama.api.objects.Expense" />
 		<mapping class="com.poornama.api.objects.Job" />
-		<mapping class="com.poornama.api.objects.JobType" />
 		<mapping class="com.poornama.api.objects.JobTemplate" />
+		<mapping class="com.poornama.api.objects.JobType" />
 		<mapping class="com.poornama.api.objects.Salary" />
+		<mapping class="com.poornama.api.objects.Tag" />
 		<mapping class="com.poornama.api.objects.User" />
 		<mapping class="com.poornama.api.objects.UserRole" />
 		<mapping class="com.poornama.api.objects.Vehicle" />

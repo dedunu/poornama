@@ -1,6 +1,8 @@
 package com.poornama.api.objects;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by dedunu on 7/28/15.
@@ -15,6 +17,9 @@ public class Tag {
     private String name;
 
     private String displayName;
+
+    @ManyToMany(mappedBy = "tags")
+    private List<Expense> expenses;
 
     public int getId() {
         return id;
@@ -38,5 +43,13 @@ public class Tag {
 
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
+    }
+
+    public List<Expense> getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(List<Expense> expenses) {
+        this.expenses = expenses;
     }
 }
