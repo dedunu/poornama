@@ -28,10 +28,10 @@
 <script>
     $('#create-employee').on('click', function (e) {
         window.location.href = "${pageContext.request.contextPath}/employee/create";
-    })
+    });
     $('#search-employee').on('click', function (e) {
         window.location.href = "${pageContext.request.contextPath}/employee/search";
-    })
+    });
 </script>
 
 
@@ -48,7 +48,7 @@
 <script>
     $('#attendance').on('click', function (e) {
         window.location.href = "${pageContext.request.contextPath}/attendance";
-    })
+    });
 </script>
 
 <div class="panel panel-primary">
@@ -67,10 +67,10 @@
 <script>
     $('#create-vehicle').on('click', function (e) {
         window.location.href = "${pageContext.request.contextPath}/vehicle/create";
-    })
+    });
     $('#search-vehicle').on('click', function (e) {
         window.location.href = "${pageContext.request.contextPath}/vehicle/search";
-    })
+    });
 </script>
 
 <div class="panel panel-primary">
@@ -89,10 +89,10 @@
 <script>
     $('#create-user').on('click', function (e) {
         window.location.href = "${pageContext.request.contextPath}/user/create";
-    })
+    });
     $('#search-user').on('click', function (e) {
         window.location.href = "${pageContext.request.contextPath}/user/search";
-    })
+    });
 </script>
 
 <div class="panel panel-primary">
@@ -111,10 +111,26 @@
 <script>
     $('#create-job').on('click', function (e) {
         window.location.href = "${pageContext.request.contextPath}/job/create";
-    })
+    });
     $('#search-job').on('click', function (e) {
         window.location.href = "${pageContext.request.contextPath}/job/search";
-    })
+    });
+</script>
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <span class="glyphicon glyphicon-usd"></span> Salary
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary" id="salary-calculate">
+                <i class="fa fa-calculator"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    $('#salary-calculate').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/salary/calculate";
+    });
 </script>
 
 <br/>

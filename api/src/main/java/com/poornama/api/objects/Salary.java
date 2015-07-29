@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table
+@Table(name = "Salary", uniqueConstraints = @UniqueConstraint(columnNames = {"employeeId", "date"}))
 public class Salary {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

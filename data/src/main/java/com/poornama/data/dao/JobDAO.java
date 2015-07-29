@@ -69,14 +69,16 @@ public class JobDAO {
 		return getById(jobId);
 	}
 
-	public List<Job> getByDriverDate(Employee employee, Date date) {
+	public List<Job> getByDriverDate(Employee employee, Date fromDate, Date toDate) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
 		Criteria criteria = databaseSession.createCriteria(Job.class);
 		Criterion employeeIdCriterion = Restrictions.eq("driver", employee);
-		Criterion dateCriterion = Restrictions.eq("date", date);
-		LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, dateCriterion);
-		criteria.add(logicalExpression);
+		Criterion startDateCriterion = Restrictions.ge("startDate", fromDate);
+		Criterion endDateCriterion = Restrictions.le("startDate", toDate);
+		LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, startDateCriterion);
+		LogicalExpression logicalExpression1 = Restrictions.and(logicalExpression, endDateCriterion);
+		criteria.add(logicalExpression1);
 		List<Job> jobList = criteria.list();
 		databaseSession.commitTransaction();
 		databaseSession.close();
@@ -84,14 +86,16 @@ public class JobDAO {
 		return jobList;
 	}
 
-	public List<Job> getByCleanerDate(Employee employee, Date date) {
+	public List<Job> getByCleanerDate(Employee employee, Date fromDate, Date toDate) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
 		Criteria criteria = databaseSession.createCriteria(Job.class);
 		Criterion employeeIdCriterion = Restrictions.eq("cleaner", employee);
-		Criterion dateCriterion = Restrictions.eq("date", date);
-		LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, dateCriterion);
-		criteria.add(logicalExpression);
+		Criterion startDateCriterion = Restrictions.ge("startDate", fromDate);
+		Criterion endDateCriterion = Restrictions.le("startDate", toDate);
+		LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, startDateCriterion);
+		LogicalExpression logicalExpression1 = Restrictions.and(logicalExpression, endDateCriterion);
+		criteria.add(logicalExpression1);
 		List<Job> jobList = criteria.list();
 		databaseSession.commitTransaction();
 		databaseSession.close();

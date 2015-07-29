@@ -48,10 +48,8 @@ public class JobController {
 	public String createForm(Model model) {
 		model.addAttribute("jobTemplateList",
 				jobTemplateLogic.getJobTemplateSelectList());
-		VehicleLogic vehicleLogic = new VehicleLogic();
 		model.addAttribute("vehicleList",
 				vehicleLogic.getPrimeMoverVehicleSelectList());
-		EmployeeLogic employeeLogic = new EmployeeLogic();
 		model.addAttribute("driverList",
 				employeeLogic.getDriverSelectList());
 		model.addAttribute("cleanerList",

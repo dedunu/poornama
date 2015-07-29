@@ -40,6 +40,15 @@ public class SalaryDAO {
 		log.debug("[" + className + "] delete()");
 	}
 
+	public void saveOrUpdate(Salary salary) {
+		DatabaseSession databaseSession = new DatabaseSession();
+		databaseSession.beginTransaction();
+		databaseSession.saveOrUpdate(salary);
+		databaseSession.commitTransaction();
+		databaseSession.close();
+		log.debug("[" + className + "] saveOrUpdate()");
+	}
+
 	public void update(Salary salary) {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();

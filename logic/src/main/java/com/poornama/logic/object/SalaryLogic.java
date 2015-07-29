@@ -5,19 +5,36 @@ import com.poornama.api.objects.*;
 import com.poornama.api.presentation.PlainDataTableGenerator;
 import com.poornama.data.dao.*;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.DoubleSummaryStatistics;
 import java.util.List;
 
 /**
  * Created by ddhananjaya on 7/14/15.
  */
+@Service
 public class SalaryLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = SalaryLogic.class.getName();
+
+    public void calculateSalary(HttpServletRequest request) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/yyyy");
+        Date date = new Date();
+
+        try {
+            date = simpleDateFormat.parse(request.getParameter("salaryMonth"));
+        } catch (ParseException e) {
+            log.error("[" + className + "] calculateSalary: Error in parsing salaryMonth");
+        }
+
+        calculateSalary(date);
+    }
 
     public void calculateSalary(Date date) {
         double driverCommission = 0;
@@ -79,7 +96,7 @@ public class SalaryLogic {
 
                 EmployeeAttendance employeeAttendance = employeeAttendanceDAO.getByIdDate(employee, tempDate);
 
-                if (employeeAttendance.isAttendance()) {
+                if (employeeAttendance != null && employeeAttendance.isAttendance()) {
                     attendedDays++;
                 }
 
@@ -87,24 +104,26 @@ public class SalaryLogic {
                     workingDays++;
                 }
 
-                List<Job> jobList = null;
+                tempCalendar.setTime(tempDate);
+                tempCalendar.add(Calendar.DATE, 1);
+                tempDate = tempCalendar.getTime();
+            }
 
-                if (employee.getEmployeeType().getName().equals("driver") ) {
-                    jobList = jobDAO.getByDriverDate(employee, tempDate);
-                }
+            List<Job> jobList = null;
 
-                if (employee.getEmployeeType().getName().equals("cleaner") ) {
-                    jobList = jobDAO.getByCleanerDate(employee, tempDate);
-                }
+            if (employee.getEmployeeType().getName().equals("driver") ) {
+                jobList = jobDAO.getByDriverDate(employee, firstDay, lastDay);
+            }
 
+            if (employee.getEmployeeType().getName().equals("cleaner") ) {
+                jobList = jobDAO.getByCleanerDate(employee, firstDay, lastDay);
+            }
+
+            if (jobList != null) {
                 for (Job job : jobList) {
                     totalHireAmount = totalHireAmount + job.getHireCharges().doubleValue();
                     labourCharges = labourCharges + (job.getLabourCharges().doubleValue() / 2);
                 }
-
-                tempCalendar.setTime(tempDate);
-                tempCalendar.add(Calendar.DATE, 1);
-                tempDate = tempCalendar.getTime();
             }
 
             if (employee.getEmployeeType().getName().equals("driver") ) {
@@ -125,7 +144,11 @@ public class SalaryLogic {
                 basicSalary = technicianBasicSalary / workingDays * attendedDays;
             }
 
-            Salary salary = new Salary();
+            Salary salary = salaryDAO.getByEmployeeDate(employee, firstDay);
+
+            if (salary == null) {
+                salary = new Salary();
+            }
 
             salary.setDate(firstDay);
             salary.setEmployee(employee);
@@ -133,8 +156,22 @@ public class SalaryLogic {
             salary.setCommissionComponent(new BigDecimal(commission));
             salary.setOtherAllowances(new BigDecimal(labourCharges));
 
-            salaryDAO.create(salary);
+            salaryDAO.saveOrUpdate(salary);
         }
+    }
+
+
+    public String getSalaryTable(HttpServletRequest request) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/yyyy");
+        Date date = new Date();
+
+        try {
+            date = simpleDateFormat.parse(request.getParameter("salaryMonth"));
+        } catch (ParseException e) {
+            log.error("[" + className + "] getSalaryTable: Error in parsing salaryMonth");
+        }
+
+        return getSalaryTable(date);
     }
 
     public String getSalaryTable(Date date) {
@@ -198,6 +235,11 @@ public class SalaryLogic {
             netSalary = netSalary.add(salary.getOtherAllowances());
 
             BigDecimal balanceAmount = netSalary.subtract(employeeEPFAmount);
+
+            employeeEPFAmount = employeeEPFAmount.setScale(2, BigDecimal.ROUND_HALF_EVEN);
+            companyEPFAmount = companyEPFAmount.setScale(2, BigDecimal.ROUND_HALF_EVEN);
+            companyETFAmount = companyETFAmount.setScale(2, BigDecimal.ROUND_HALF_EVEN);
+            balanceAmount = balanceAmount.setScale(2, BigDecimal.ROUND_HALF_EVEN);
 
             dataArray[0] = Integer.toString(employee.getId());
             dataArray[1] = employee.getFirstName() + " " + employee.getLastName();

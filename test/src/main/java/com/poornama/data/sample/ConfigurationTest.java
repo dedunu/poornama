@@ -46,5 +46,15 @@ public class ConfigurationTest {
         configuration7.setName("companyETF");
         configuration7.setValue("0.03");
         configurationDAO.create(configuration7);
+
+        Configuration configuration8 = new Configuration();
+        configuration8.setName("managerBasicSalary");
+        configuration8.setValue("50000");
+        configurationDAO.create(configuration8);
+
+        Configuration configuration9 = new Configuration();
+        configuration9.setName("technicianBasicSalary");
+        configuration9.setValue("35000");
+        configurationDAO.create(configuration9);
     }
 }
