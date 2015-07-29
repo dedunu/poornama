@@ -133,5 +133,65 @@
     });
 </script>
 
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <i class="fa fa-money"></i> Expenses
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-success" id="create-expense">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button type="button" class="btn btn-primary" id="search-expense">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    $('#create-expense').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/expense/create";
+    });
+    $('#search-expense').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/expense/search";
+    });
+</script>
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <i class="fa fa-cog"></i> Job Template
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-success" id="create-jobTemplate">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button type="button" class="btn btn-primary" id="search-jobTemplate">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    $('#create-jobTemplate').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/jobTemplate/create";
+    });
+    $('#search-jobTemplate').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/jobTemplate/search";
+    });
+</script>
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <i class="fa fa-file-text"></i> Report
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary" id="report">
+                <span class="glyphicon glyphicon-list-alt"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    $('#salary-calculate').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/report/index";
+    });
+</script>
+
 <br/>
 <%@ include file="../template/footer.jsp" %>

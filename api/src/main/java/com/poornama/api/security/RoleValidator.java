@@ -17,16 +17,36 @@ public class RoleValidator {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = RoleValidator.class.getName();
 
+    /**
+     *
+     * Validates a session for given role using HttpSession, if validation fails redirects to error page.
+     *
+     * @param session
+     * @param request
+     * @param response
+     * @param role
+     * @throws IOException
+     */
     public void validate(HttpSession session, HttpServletRequest request, HttpServletResponse response, String role) throws IOException {
-        List<String> roles = new ArrayList<String>();
-        roles.add(role);
-        validate(session, request, response, roles);
+        List<String> roleList = new ArrayList<String>();
+        roleList.add(role);
+        validate(session, request, response, roleList);
     }
 
-    public void validate(HttpSession session, HttpServletRequest request, HttpServletResponse response, List<String> roles)
+    /**
+     *
+     * Validates a session for given role list using HttpSession, if validation fails redirects to error page.
+     *
+     * @param session
+     * @param request
+     * @param response
+     * @param roleList
+     * @throws IOException
+     */
+    public void validate(HttpSession session, HttpServletRequest request, HttpServletResponse response, List<String> roleList)
             throws IOException {
         String sessionRole = (String) session.getAttribute("userRole");
-        if (!roles.contains(sessionRole)) {
+        if (!roleList.contains(sessionRole)) {
             log.warn("[" + className + "] validate: role validation failed");
 
             response.sendRedirect(request.getContextPath() + "/session/denied");

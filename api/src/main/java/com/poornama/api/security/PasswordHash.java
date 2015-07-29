@@ -15,6 +15,13 @@ public class PasswordHash {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = PasswordHash.class.getName();
 
+    /**
+     * Returned the hash value for the given username and password
+     *
+     * @param userName
+     * @param password
+     * @return
+     */
     public String getHash(String userName, String password) {
         String result = null;
         String plainText = userName + password;

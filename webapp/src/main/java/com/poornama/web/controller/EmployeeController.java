@@ -7,6 +7,7 @@ import com.poornama.api.presentation.NotificationType;
 import com.poornama.logic.object.EmployeeLogic;
 import com.poornama.logic.object.EmployeeTypeLogic;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,9 +30,14 @@ public class EmployeeController {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = EmployeeController.class.getName();
 
+    @Autowired
+    EmployeeLogic employeeLogic;
+
+    @Autowired
+    EmployeeTypeLogic employeeTypeLogic;
+
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
-        EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
         model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
         model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
         log.debug("[" + className + "] createForm()");
@@ -40,7 +46,6 @@ public class EmployeeController {
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createEmployee(Model model, HttpServletRequest request) {
-        EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.createEmployee(request);
         model.addAttribute("message", notification.getMessage());
         model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
@@ -58,8 +63,6 @@ public class EmployeeController {
 
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("employeeId") String employeeId) {
-        EmployeeTypeLogic employeeTypeLogic = new EmployeeTypeLogic();
-        EmployeeLogic employeeLogic = new EmployeeLogic();
         Employee employee;
         employee = employeeLogic.getEmployee(employeeId);
 
@@ -89,7 +92,6 @@ public class EmployeeController {
 
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.POST)
     public String editEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpServletRequest request) {
-        EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.editEmployee(request, employeeId);
         log.debug("[" + className + "] editEmployee()");
         model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
@@ -108,7 +110,6 @@ public class EmployeeController {
 
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("employeeId") String employeeId) {
-        EmployeeLogic employeeLogic = new EmployeeLogic();
         Employee employee;
         employee = employeeLogic.getEmployee(employeeId);
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
@@ -131,7 +132,6 @@ public class EmployeeController {
 
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.POST)
     public String deleteEmployee(Model model, @PathVariable("employeeId") String employeeId) {
-        EmployeeLogic employeeLogic = new EmployeeLogic();
         Notification notification = employeeLogic.deleteEmployee(employeeId);
         model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
         switch (notification.getNotificationType()) {
@@ -152,7 +152,6 @@ public class EmployeeController {
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
-        EmployeeLogic employeeLogic = new EmployeeLogic();
         String table = employeeLogic.getEmployeeTable("");
         model.addAttribute("table", table);
         model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
@@ -162,7 +161,6 @@ public class EmployeeController {
 
     @RequestMapping(value = "search/{name}", method = RequestMethod.POST)
     public void searchAJAX(@PathVariable("name") String name, HttpServletResponse response) throws IOException {
-        EmployeeLogic employeeLogic = new EmployeeLogic();
         String table = employeeLogic.getEmployeeTable(name);
         response.getWriter().print(table);
         log.debug("[" + className + "] searchAJAX()");
