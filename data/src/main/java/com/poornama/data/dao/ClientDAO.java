@@ -8,6 +8,7 @@ import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.Client;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 
@@ -74,8 +75,9 @@ public class ClientDAO {
 	public List<Client> getAll() {
 		DatabaseSession databaseSession = new DatabaseSession();
 		databaseSession.beginTransaction();
-		List<Client> clientList = databaseSession
-				.getAll(Client.class);
+		Criteria criteria = databaseSession.createCriteria(Client.class);
+		criteria.addOrder(Order.asc("organizationName"));
+		List<Client> clientList = criteria.list();
 		databaseSession.commitTransaction();
 		databaseSession.close();
 		log.debug("[" + className + "] getAll()");

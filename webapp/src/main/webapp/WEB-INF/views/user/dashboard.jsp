@@ -193,5 +193,27 @@
     });
 </script>
 
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <i class="fa fa-cog"></i> Client
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-success" id="create-client">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button type="button" class="btn btn-primary" id="search-client">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    $('#create-client').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/client/create";
+    });
+    $('#search-client').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/client/search";
+    });
+</script>
+
 <br/>
 <%@ include file="../template/footer.jsp" %>
