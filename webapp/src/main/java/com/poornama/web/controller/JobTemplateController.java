@@ -74,7 +74,7 @@ public class JobTemplateController {
         model.addAttribute("jobTypeList", jobTypeLogic.getJobTypeSelectList());
         model.addAttribute("clientList", clientLogic.getClientSelectList());
         model.addAttribute("jobTemplateId", jobTemplate.getId());
-        model.addAttribute("client", jobTemplate.getId());
+        model.addAttribute("client", jobTemplate.getClient().getId());
         model.addAttribute("jobType", jobTemplate.getJobType().getId());
         model.addAttribute("displayName", jobTemplate.getDisplayName());
         model.addAttribute("fromLocation", jobTemplate.getFromLocation());
