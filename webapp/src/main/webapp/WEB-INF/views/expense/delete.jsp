@@ -18,7 +18,14 @@
 </div>
 
 <form class="form-horizontal" role="form" method="post"
-      action="${pageContext.request.contextPath}/employee/delete/${employeeId}">
+      action="${pageContext.request.contextPath}/expense/delete/${expenseId}">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Transaction ID</label>
+
+        <div class="col-sm-6 data-div">
+            ${expenseId}
+        </div>
+    </div>
     <div class="form-group">
         <label class="col-sm-3 control-label">Date</label>
 
@@ -31,6 +38,13 @@
 
         <div class="col-sm-3 data-div">
             ${tagValue}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Description</label>
+
+        <div class="col-sm-9 data-div">
+            ${description}
         </div>
     </div>
     <div class="form-group">

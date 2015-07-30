@@ -13,25 +13,28 @@
 
 </style>
 
-<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/expense/edit">
+<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/expense/edit/${expenseId}">
     <div class="form-group">
         <label for="expenseDate" class="col-sm-3 control-label">Date</label>
 
         <div class="col-sm-3">
-            <div class='input-group date' id='expenseDateGroup'>
-                <input type='text' class="form-control" id="expenseDate" name="expenseDate" value="${expenseDate}"/>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar">
-                    </span>
-                </span>
-            </div>
+            <input type="text" class="form-control" id="expenseDate" name="expenseDate" placeholder="" value="${expenseDate}" />
         </div>
     </div>
     <div class="form-group">
-        <label for="tags" class="col-sm-3 control-label">Tags</label>
+        <label for="tagList" class="col-sm-3 control-label">Tags</label>
 
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="tags" value="${tagValue}"/>
+            <input type="text" class="form-control" id="tagList" name="tagList" value="${tagValue}"/>
+            <input type="hidden" id="tagString" name="tagString" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description" class="col-sm-3 control-label">Description</label>
+
+        <div class="col-sm-9">
+            <textarea class="form-control" id="description" name="description" rows="3"
+                      placeholder="">${description}</textarea>
         </div>
     </div>
     <div class="form-group">
@@ -58,19 +61,23 @@
 <script>
 
     $(function () {
-        $("#expenseDateGroup").datepicker({
+        $("#expenseDate").datepicker({
             changeMonth: true,
             changeYear: true
         });
     });
 
-    $('#tags').tokenfield({
+    $('#tagList').tokenfield({
         autocomplete: {
             source: [${tagValueJS}],
             delay: 100
         },
         showAutocompleteOnFocus: true
-    })
+    });
+
+    $( "#expenseCreateForm" ).submit(function( event ) {
+        document.getElementById('tagString').value = $('#tagList').tokenfield('getTokensList', ',');
+    });
 
 </script>
 <%@ include file="../template/footer.jsp" %>

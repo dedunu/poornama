@@ -17,10 +17,12 @@ public class Expense {
 
     private Date date;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     private Set<Tag> tags;
 
     private BigDecimal amount;
+
+    private String description;
 
     public int getId() {
         return id;
@@ -52,5 +54,13 @@ public class Expense {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

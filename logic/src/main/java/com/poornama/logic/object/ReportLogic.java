@@ -1,5 +1,7 @@
 package com.poornama.logic.object;
 
+import com.poornama.api.logging.GlobalLogger;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 /**
@@ -7,4 +9,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ReportLogic {
+    private static Logger log = GlobalLogger.getLogger();
+    private static String className = ReportLogic.class.getName();
 }

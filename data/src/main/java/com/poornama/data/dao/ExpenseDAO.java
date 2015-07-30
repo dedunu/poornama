@@ -4,6 +4,8 @@ import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.Expense;
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 
 import java.util.List;
 
@@ -68,7 +70,9 @@ public class ExpenseDAO {
     public List<Expense> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
-        List<Expense> expenseList = databaseSession.getAll(Expense.class);
+        Criteria criteria = databaseSession.createCriteria(Expense.class);
+        criteria.addOrder(Order.asc("id"));
+        List<Expense> expenseList = criteria.list();
         databaseSession.commitTransaction();
         databaseSession.close();
         log.debug("[" + className + "] getAll()");

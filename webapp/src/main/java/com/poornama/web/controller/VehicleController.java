@@ -23,7 +23,7 @@ import java.io.IOException;
 @RequestMapping("/vehicle/")
 public class VehicleController {
     private static Logger log = GlobalLogger.getLogger();
-    private static String className = EmployeeController.class.getName();
+    private static String className = VehicleController.class.getName();
 
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {

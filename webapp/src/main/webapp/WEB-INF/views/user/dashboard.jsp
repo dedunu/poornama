@@ -188,7 +188,7 @@
     </div>
 </div>
 <script>
-    $('#salary-calculate').on('click', function (e) {
+    $('#report').on('click', function (e) {
         window.location.href = "${pageContext.request.contextPath}/report/index";
     });
 </script>

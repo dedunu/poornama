@@ -149,8 +149,8 @@ public class EmployeeLogic {
             log.info("[" + className + "] editEmployee: created Employee");
         } catch (Exception e) {
             notification.setNotificationType(NotificationType.DANGER);
-            notification.setMessage("Something went wrong with creating employee. Please try again.");
-            log.error("[" + className + "] editEmployee: failed creating employee");
+            notification.setMessage("Something went wrong with updating employee. Please try again.");
+            log.error("[" + className + "] editEmployee: failed updating employee");
         }
 
         return notification;

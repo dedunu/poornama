@@ -9,6 +9,10 @@
       href="/cdn/font-awesome/css/font-awesome.min.css"/>
 <link rel="stylesheet"
       href="/cdn/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"/>
+<link rel="stylesheet"
+      href="/cdn/bootstrap-taginput/css/bootstrap-tokenfield.min.css"/>
+<link rel="stylesheet"
+      href="/cdn/bootstrap-taginput/css/tokenfield-typeahead.min.css"/>
 
 <style>
     body {
