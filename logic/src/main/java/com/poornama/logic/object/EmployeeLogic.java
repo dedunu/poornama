@@ -1,13 +1,13 @@
 package com.poornama.logic.object;
 
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.api.objects.Employee;
+import com.poornama.api.objects.EmployeeType;
 import com.poornama.api.presentation.DataTableGenerator;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.data.dao.EmployeeDAO;
 import com.poornama.data.dao.EmployeeTypeDAO;
-import com.poornama.api.objects.Employee;
-import com.poornama.api.objects.EmployeeType;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
@@ -207,7 +207,7 @@ public class EmployeeLogic {
         return table;
     }
 
-    public Employee getEmployee(String employeeId){
+    public Employee getEmployee(String employeeId) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee employee;
         try {

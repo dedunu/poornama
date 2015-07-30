@@ -1,13 +1,13 @@
 package com.poornama.logic.object;
 
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.api.objects.Vehicle;
+import com.poornama.api.objects.VehicleType;
 import com.poornama.api.presentation.DataTableGenerator;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
 import com.poornama.data.dao.VehicleDAO;
 import com.poornama.data.dao.VehicleTypeDAO;
-import com.poornama.api.objects.Vehicle;
-import com.poornama.api.objects.VehicleType;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
@@ -168,13 +168,13 @@ public class VehicleLogic {
         return list;
     }
 
-    public Vehicle getVehicleById(String vehicleId){
+    public Vehicle getVehicleById(String vehicleId) {
         VehicleDAO vehicleDAO = new VehicleDAO();
         Vehicle vehicle;
         int id = 0;
         try {
             id = Integer.parseInt(vehicleId);
-        } catch (Exception e){
+        } catch (Exception e) {
             log.error("[" + className + "] getVehicleById() : error in parsing vechileId to integer");
         }
         vehicle = vehicleDAO.getById(id);

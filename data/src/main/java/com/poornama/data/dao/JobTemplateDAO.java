@@ -1,12 +1,11 @@
 package com.poornama.data.dao;
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
-
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.JobTemplate;
+import org.apache.log4j.Logger;
+
+import java.util.List;
 
 public class JobTemplateDAO {
     private static Logger log = GlobalLogger.getLogger();

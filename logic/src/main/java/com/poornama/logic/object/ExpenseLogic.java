@@ -1,13 +1,11 @@
 package com.poornama.logic.object;
 
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.api.objects.Employee;
 import com.poornama.api.objects.Expense;
 import com.poornama.api.objects.Tag;
 import com.poornama.api.presentation.DataTableGenerator;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
-import com.poornama.data.dao.EmployeeDAO;
 import com.poornama.data.dao.ExpenseDAO;
 import com.poornama.data.dao.TagDAO;
 import org.apache.log4j.Logger;
@@ -177,7 +175,7 @@ public class ExpenseLogic {
         return notification;
     }
 
-    public Expense getExpense(String expenseId){
+    public Expense getExpense(String expenseId) {
         ExpenseDAO expenseDAO = new ExpenseDAO();
         Expense expense;
         try {
@@ -202,7 +200,7 @@ public class ExpenseLogic {
         if (searchCriteria.equals("")) {
             tempExpenseList = expenseDAO.getAll();
 
-            for (Expense expense : tempExpenseList){
+            for (Expense expense : tempExpenseList) {
                 uniqueIdList.add(expense.getId());
             }
 
@@ -213,7 +211,7 @@ public class ExpenseLogic {
 
         } else {
             expenseList = new ArrayList<Expense>();
-            if(expenseDAO.getById(searchCriteria) != null) {
+            if (expenseDAO.getById(searchCriteria) != null) {
                 expenseList.add(expenseDAO.getById(searchCriteria));
             }
         }

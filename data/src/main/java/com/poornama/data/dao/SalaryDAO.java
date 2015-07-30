@@ -1,18 +1,17 @@
 package com.poornama.data.dao;
 
-import java.util.Date;
-import java.util.List;
-
-import com.poornama.api.objects.Employee;
-import org.apache.log4j.Logger;
-
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.api.objects.Employee;
 import com.poornama.api.objects.Salary;
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
+
+import java.util.Date;
+import java.util.List;
 
 public class SalaryDAO {
 	private static Logger log = GlobalLogger.getLogger();

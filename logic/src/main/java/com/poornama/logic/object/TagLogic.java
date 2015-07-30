@@ -28,8 +28,8 @@ public class TagLogic {
             result = result + " \'" + tag.getDisplayName() + "\',";
         }
 
-        if (result.length() > 0 && result.charAt(result.length()-1)==',') {
-            result = result.substring(0, result.length()-1);
+        if (result.length() > 0 && result.charAt(result.length() - 1) == ',') {
+            result = result.substring(0, result.length() - 1);
         }
 
         return result;
@@ -42,8 +42,8 @@ public class TagLogic {
             result = result + tag.getDisplayName() + ",";
         }
 
-        if (result.length() > 0 && result.charAt(result.length()-1)==',') {
-            result = result.substring(0, result.length()-1);
+        if (result.length() > 0 && result.charAt(result.length() - 1) == ',') {
+            result = result.substring(0, result.length() - 1);
         }
 
         return result;
@@ -56,8 +56,8 @@ public class TagLogic {
             result = result + tag.getDisplayName() + ",";
         }
 
-        if (result.length() > 0 && result.charAt(result.length()-1)==',') {
-            result = result.substring(0, result.length()-1);
+        if (result.length() > 0 && result.charAt(result.length() - 1) == ',') {
+            result = result.substring(0, result.length() - 1);
         }
 
         return result;

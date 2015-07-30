@@ -157,7 +157,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-body">
-        <i class="fa fa-cog"></i> Job Template
+        <span class="glyphicon glyphicon-inbox"></span> Job Template
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-success" id="create-jobTemplate">
                 <span class="glyphicon glyphicon-plus"></span>
@@ -195,7 +195,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-body">
-        <i class="fa fa-cog"></i> Client
+        <span class="glyphicon glyphicon-briefcase"></span> Client
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-success" id="create-client">
                 <span class="glyphicon glyphicon-plus"></span>

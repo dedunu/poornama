@@ -1,8 +1,8 @@
 package com.poornama.logic.object;
 
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.data.dao.VehicleTypeDAO;
 import com.poornama.api.objects.VehicleType;
+import com.poornama.data.dao.VehicleTypeDAO;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 

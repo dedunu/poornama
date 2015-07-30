@@ -6,7 +6,6 @@ import com.poornama.api.objects.UserRole;
 import com.poornama.api.presentation.DataTableGenerator;
 import com.poornama.api.presentation.Notification;
 import com.poornama.api.presentation.NotificationType;
-import com.poornama.api.security.PasswordHash;
 import com.poornama.data.dao.UserDAO;
 import com.poornama.data.dao.UserRoleDAO;
 import com.poornama.logic.session.Authentication;

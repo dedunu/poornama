@@ -1,16 +1,15 @@
 package com.poornama.data.dao;
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
-
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.Client;
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
+
+import java.util.List;
 
 public class ClientDAO {
 	private static Logger log = GlobalLogger.getLogger();

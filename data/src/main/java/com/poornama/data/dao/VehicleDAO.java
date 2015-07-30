@@ -2,7 +2,6 @@ package com.poornama.data.dao;
 
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.api.objects.JobTemplate;
 import com.poornama.api.objects.Vehicle;
 import com.poornama.api.objects.VehicleType;
 import org.apache.log4j.Logger;

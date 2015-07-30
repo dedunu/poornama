@@ -108,6 +108,18 @@ public class ClientLogic {
         return client;
     }
 
+    public String getClientSelectList() {
+        ClientDAO clientDAO = new ClientDAO();
+        List<Client> clientList = clientDAO.getAll();
+
+        String list = "";
+        for (Client client : clientList) {
+            list = list + "\t\t<option value =\"" + client.getId() + "\">" + client.getOrganizationName() + "</option>\n";
+        }
+        log.debug("[" + className + "] getClientSelectList()");
+        return list;
+    }
+
     public String getClientTable() {
         List<Client> clientList;
         ClientDAO clientDAO = new ClientDAO();

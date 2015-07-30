@@ -1,9 +1,17 @@
 package com.poornama.logic.object;
 
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.api.objects.*;
+import com.poornama.api.objects.Configuration;
+import com.poornama.api.objects.Employee;
+import com.poornama.api.objects.EmployeeAttendance;
+import com.poornama.api.objects.Job;
+import com.poornama.api.objects.Salary;
 import com.poornama.api.presentation.PlainDataTableGenerator;
-import com.poornama.data.dao.*;
+import com.poornama.data.dao.ConfigurationDAO;
+import com.poornama.data.dao.EmployeeAttendanceDAO;
+import com.poornama.data.dao.EmployeeDAO;
+import com.poornama.data.dao.JobDAO;
+import com.poornama.data.dao.SalaryDAO;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
@@ -111,11 +119,11 @@ public class SalaryLogic {
 
             List<Job> jobList = null;
 
-            if (employee.getEmployeeType().getName().equals("driver") ) {
+            if (employee.getEmployeeType().getName().equals("driver")) {
                 jobList = jobDAO.getByDriverDate(employee, firstDay, lastDay);
             }
 
-            if (employee.getEmployeeType().getName().equals("cleaner") ) {
+            if (employee.getEmployeeType().getName().equals("cleaner")) {
                 jobList = jobDAO.getByCleanerDate(employee, firstDay, lastDay);
             }
 
@@ -126,21 +134,21 @@ public class SalaryLogic {
                 }
             }
 
-            if (employee.getEmployeeType().getName().equals("driver") ) {
+            if (employee.getEmployeeType().getName().equals("driver")) {
                 basicSalary = driverBasicSalary / workingDays * attendedDays;
                 commission = totalHireAmount * driverCommission;
             }
 
-            if (employee.getEmployeeType().getName().equals("cleaner") ) {
+            if (employee.getEmployeeType().getName().equals("cleaner")) {
                 basicSalary = cleanerBasicSalary / workingDays * attendedDays;
                 commission = totalHireAmount * cleanerCommission;
             }
 
-            if (employee.getEmployeeType().getName().equals("manager") ) {
+            if (employee.getEmployeeType().getName().equals("manager")) {
                 basicSalary = managerBasicSalary / workingDays * attendedDays;
             }
 
-            if (employee.getEmployeeType().getName().equals("technician") ) {
+            if (employee.getEmployeeType().getName().equals("technician")) {
                 basicSalary = technicianBasicSalary / workingDays * attendedDays;
             }
 

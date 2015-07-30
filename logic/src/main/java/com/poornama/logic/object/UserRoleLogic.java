@@ -1,8 +1,8 @@
 package com.poornama.logic.object;
 
 import com.poornama.api.logging.GlobalLogger;
-import com.poornama.data.dao.UserRoleDAO;
 import com.poornama.api.objects.UserRole;
+import com.poornama.data.dao.UserRoleDAO;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
