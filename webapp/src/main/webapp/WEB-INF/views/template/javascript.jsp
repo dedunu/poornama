@@ -9,3 +9,4 @@
 <script src="/cdn/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="/cdn/bootstrap-taginput/bootstrap-tokenfield.min.js"></script>
 <script src="/cdn/date/date.js"></script>
+<script src="/cdn/d3/d3.min.js"></script>

@@ -179,7 +179,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-body">
-        <i class="fa fa-file-text"></i> Report
+        <i class="fa fa-file-text"></i> Reports
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-primary" id="report">
                 <span class="glyphicon glyphicon-list-alt"></span>
