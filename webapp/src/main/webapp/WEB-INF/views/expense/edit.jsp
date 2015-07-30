@@ -13,12 +13,14 @@
 
 </style>
 
-<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/expense/edit/${expenseId}">
+<form id="expenseEditForm" class="form-horizontal" role="form" method="post"
+      action="${pageContext.request.contextPath}/expense/edit/${expenseId}">
     <div class="form-group">
         <label for="expenseDate" class="col-sm-3 control-label">Date</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="expenseDate" name="expenseDate" placeholder="" value="${expenseDate}" />
+            <input type="text" class="form-control" id="expenseDate" name="expenseDate" placeholder=""
+                   value="${expenseDate}"/>
         </div>
     </div>
     <div class="form-group">
@@ -26,7 +28,7 @@
 
         <div class="col-sm-6">
             <input type="text" class="form-control" id="tagList" name="tagList" value="${tagValue}"/>
-            <input type="hidden" id="tagString" name="tagString" />
+            <input type="hidden" id="tagString" name="tagString"/>
         </div>
     </div>
     <div class="form-group">
@@ -75,7 +77,7 @@
         showAutocompleteOnFocus: true
     });
 
-    $( "#expenseCreateForm" ).submit(function( event ) {
+    $("#expenseEditForm").submit(function (event) {
         document.getElementById('tagString').value = $('#tagList').tokenfield('getTokensList', ',');
     });
 
