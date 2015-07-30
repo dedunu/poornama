@@ -190,7 +190,9 @@ public class ExpenseLogic {
     }
 
     public String getExpenseTable(String searchCriteria) {
-        List<Expense> expenseList;
+        List<Expense> expenseList = new ArrayList<Expense>();
+        List<Expense> tempExpenseList;
+        HashSet<Integer> uniqueIdList = new HashSet<Integer>();
         ExpenseDAO expenseDAO = new ExpenseDAO();
         TagLogic tagLogic = new TagLogic();
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
@@ -198,7 +200,17 @@ public class ExpenseLogic {
         String table;
 
         if (searchCriteria.equals("")) {
-            expenseList = expenseDAO.getAll();
+            tempExpenseList = expenseDAO.getAll();
+
+            for (Expense expense : tempExpenseList){
+                uniqueIdList.add(expense.getId());
+            }
+
+            for (Integer expenseId : uniqueIdList) {
+                Expense expense = expenseDAO.getById(expenseId);
+                expenseList.add(expense);
+            }
+
         } else {
             expenseList = new ArrayList<Expense>();
             if(expenseDAO.getById(searchCriteria) != null) {
