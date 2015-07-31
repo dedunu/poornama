@@ -10,3 +10,4 @@
 <script src="/cdn/bootstrap-taginput/bootstrap-tokenfield.min.js"></script>
 <script src="/cdn/date/date.js"></script>
 <script src="/cdn/d3/d3.min.js"></script>
+<script src="/cdn/c3/c3.min.js"></script>

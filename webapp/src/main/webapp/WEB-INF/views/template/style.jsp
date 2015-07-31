@@ -13,6 +13,8 @@
       href="/cdn/bootstrap-taginput/css/bootstrap-tokenfield.min.css"/>
 <link rel="stylesheet"
       href="/cdn/bootstrap-taginput/css/tokenfield-typeahead.min.css"/>
+<link rel="stylesheet"
+      href="/cdn/c3/c3.min.css"/>
 
 <style>
     body {
