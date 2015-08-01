@@ -51,7 +51,7 @@ public class DateHelper {
         calendar.setTime(date);
 
         calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE));
-        calendar.set(Calendar.MONTH, calendar.getActualMinimum(Calendar.MONTH));
+        calendar.set(Calendar.MONTH, calendar.getActualMaximum(Calendar.MONTH));
         return calendar.getTime();
     }
 }

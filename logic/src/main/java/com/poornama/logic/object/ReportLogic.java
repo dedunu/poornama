@@ -64,10 +64,10 @@ public class ReportLogic {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date tempDate = startDate;
         Calendar tempCalendar = Calendar.getInstance();
+        tempCalendar.setTime(tempDate);
 
         while (tempDate.before(endDate)) {
-            stringList.add(simpleDateFormat.format(startDate));
-            tempCalendar.setTime(tempDate);
+            stringList.add(simpleDateFormat.format(tempCalendar.getTime()));
             tempCalendar.add(calendarField, 1);
             tempDate = tempCalendar.getTime();
         }
@@ -100,6 +100,14 @@ public class ReportLogic {
                     setDoubleTable(reportDAO.getAnnualEmployeeSalaryReport(startAnnuallyDate, endAnnuallyDate));
                 }
                 break;
+            case 3:
+                if (calendarField == Calendar.MONTH) {
+                    setDoubleTable(reportDAO.getMonthlyEmployeeRevenueReport(startMonthlyDate, endMonthlyDate));
+                }
+                if (calendarField == Calendar.YEAR) {
+                    setDoubleTable(reportDAO.getAnualEmployeeRevenueReport(startAnnuallyDate, endAnnuallyDate));
+                }
+                break;
             default:
                 break;
         }
@@ -125,6 +133,14 @@ public class ReportLogic {
                 }
                 return null;
             case 2:
+                if (calendarField == Calendar.MONTH) {
+                    return doubleTableHelper.getChartColumns(getDoubleTable(),startMonthlyDate,endMonthlyDate, getLabels(EMPLOYEE_TYPE),Calendar.MONTH);
+                }
+                if (calendarField == Calendar.YEAR) {
+                    return doubleTableHelper.getChartColumns(getDoubleTable(),startAnnuallyDate,endAnnuallyDate, getLabels(EMPLOYEE_TYPE),Calendar.YEAR);
+                }
+                return null;
+            case 3:
                 if (calendarField == Calendar.MONTH) {
                     return doubleTableHelper.getChartColumns(getDoubleTable(),startMonthlyDate,endMonthlyDate, getLabels(EMPLOYEE_TYPE),Calendar.MONTH);
                 }
@@ -161,7 +177,15 @@ public class ReportLogic {
                     return doubleTableHelper.getTable(getDoubleTable(), getLabels(EMPLOYEE_TYPE), getAxisList(startMonthlyDate, endMonthlyDate, Calendar.MONTH));
                 }
                 if (calendarField == Calendar.YEAR) {
-                    return doubleTableHelper.getTable(getDoubleTable(), getLabels(EMPLOYEE_TYPE),getAxisList(startAnnuallyDate, endAnnuallyDate,Calendar.YEAR));
+                    return doubleTableHelper.getTable(getDoubleTable(), getLabels(EMPLOYEE_TYPE), getAxisList(startAnnuallyDate, endAnnuallyDate, Calendar.YEAR));
+                }
+                return null;
+            case 3:
+                if (calendarField == Calendar.MONTH) {
+                    return doubleTableHelper.getTable(getDoubleTable(), getLabels(EMPLOYEE_TYPE), getAxisList(startMonthlyDate, endMonthlyDate, Calendar.MONTH));
+                }
+                if (calendarField == Calendar.YEAR) {
+                    return doubleTableHelper.getTable(getDoubleTable(), getLabels(EMPLOYEE_TYPE), getAxisList(startAnnuallyDate, endAnnuallyDate, Calendar.YEAR));
                 }
                 return null;
             default:

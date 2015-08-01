@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="frequency" class="col-sm-3 control-label">Frequence</label>
+        <label for="frequency" class="col-sm-3 control-label">Frequency</label>
 
         <div class="col-sm-6">
             <div class="input-group">

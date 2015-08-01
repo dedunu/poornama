@@ -6,27 +6,22 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 
 public class TempMain {
 
 	public static void main(String[] args) throws Exception{
 		// For Temporary Test.
-		DateFormat format = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
-		Date startDate = format.parse("01-01-2014");
-		Date endDate = format.parse("01-31-2016");
+		System.out.println(String.format("%02d", 11));
 
-		Date tempDate = startDate;
-		Calendar tempCalendar = Calendar.getInstance();
+		HashMap<String, Integer> tempHashMap = new HashMap<String, Integer>();
 
-		while (tempDate.before(endDate)) {
 
-			System.out.println("tempDate = " + tempDate);
+		tempHashMap.put("2015-01-01", 10);
 
-			tempCalendar.setTime(tempDate);
-			tempCalendar.add(Calendar.YEAR, 1);
-			tempDate = tempCalendar.getTime();
-		}
+		String str = "2015-01-01";
+		System.out.println(tempHashMap.get(str));
 	}
 
 }

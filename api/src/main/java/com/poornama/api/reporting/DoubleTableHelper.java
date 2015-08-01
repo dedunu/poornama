@@ -17,23 +17,24 @@ public class DoubleTableHelper {
 
     public String getChartColumns(HashMap<Integer, HashMap<String, Double>> dataTable, Date startDate, Date endDate, Map<Integer, String> labelMap, int calendarField) {
         String result = "";
-        result = getAxis(startDate,endDate,calendarField);
+        result = getAxis(startDate, endDate, calendarField);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         for (Map.Entry<Integer, String> mapEntry : labelMap.entrySet()) {
             result = result + "[ ";
 
-            HashMap<String, Double> tempHashMap = new HashMap<String, Double>();
+            HashMap<String, Double> tempHashMap;
 
             result = result + "\'" + mapEntry.getValue() + "\',";
             tempHashMap = dataTable.get(mapEntry.getKey());
 
             Date tempDate = startDate;
             Calendar tempCalendar = Calendar.getInstance();
+            tempCalendar.setTime(tempDate);
 
             while (tempDate.before(endDate)) {
 
-                if (tempHashMap.get(simpleDateFormat.format(startDate)) != null) {
-                    result = result + tempHashMap.get(simpleDateFormat.format(startDate)) + ",";
+                if (tempHashMap.get(simpleDateFormat.format(tempDate)) != null) {
+                    result = result + tempHashMap.get(simpleDateFormat.format(tempDate)) + ",";
                 } else {
                     result = result + "0,";
                 }
@@ -58,7 +59,6 @@ public class DoubleTableHelper {
         return result;
     }
 
-
     public String getTable(HashMap<Integer, HashMap<String, Double>> dataTable, Map<Integer, String> labelMap, List<String> axisList) {
         String result;
         PlainDataTableGenerator plainDataTableGenerator = new PlainDataTableGenerator();
@@ -67,7 +67,7 @@ public class DoubleTableHelper {
 
         String dataArray[] = new String[axisList.size() + 1];
         int i = 1;
-
+        dataArray[0] = "";
         for (String cellString : axisList) {
             dataArray[i] = cellString;
             i++;
@@ -77,16 +77,21 @@ public class DoubleTableHelper {
         result = result + plainDataTableGenerator.getStartTableBody();
 
         for (Map.Entry<Integer, String> mapEntry : labelMap.entrySet()) {
-            HashMap<String, Double> tempHashMap = new HashMap<String, Double>();
+            HashMap<String, Double> tempHashMap;
             i = 1;
 
             tempHashMap = dataTable.get(mapEntry.getKey());
             dataArray[0] = mapEntry.getValue();
 
             for (String cellString : axisList) {
-                dataArray[i] = String.valueOf(tempHashMap.get(cellString));
+                if (tempHashMap.get(cellString) == null) {
+                    dataArray[i] = "0.00";
+                } else {
+                    dataArray[i] = String.valueOf(tempHashMap.get(cellString));
+                }
                 i++;
             }
+
             result = result + plainDataTableGenerator.getTableBodyRow(dataArray);
         }
 
@@ -117,15 +122,16 @@ public class DoubleTableHelper {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date tempDate = startDate;
         Calendar tempCalendar = Calendar.getInstance();
+        tempCalendar.setTime(tempDate);
 
         while (tempDate.before(endDate)) {
-            stringList.add(simpleDateFormat.format(startDate));
-            tempCalendar.setTime(tempDate);
+            stringList.add(simpleDateFormat.format(tempDate));
             tempCalendar.add(calendarField, 1);
             tempDate = tempCalendar.getTime();
         }
 
         return stringList;
     }
+
 
 }

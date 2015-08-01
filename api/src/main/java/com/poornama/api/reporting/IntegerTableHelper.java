@@ -1,9 +1,5 @@
 package com.poornama.api.reporting;
 
-import com.poornama.api.objects.Client;
-import com.poornama.api.objects.Employee;
-import com.poornama.api.objects.Tag;
-import com.poornama.api.objects.Vehicle;
 import com.poornama.api.presentation.PlainDataTableGenerator;
 
 import java.text.SimpleDateFormat;
@@ -21,7 +17,7 @@ public class IntegerTableHelper {
 
     public String getChartColumns(HashMap<Integer, HashMap<String, Integer>> dataTable, Date startDate, Date endDate, Map<Integer, String> labelMap, int calendarField) {
         String result = "";
-        result = getAxis(startDate,endDate,calendarField);
+        result = getAxis(startDate, endDate, calendarField);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         for (Map.Entry<Integer, String> mapEntry : labelMap.entrySet()) {
             result = result + "[ ";
@@ -33,11 +29,12 @@ public class IntegerTableHelper {
 
             Date tempDate = startDate;
             Calendar tempCalendar = Calendar.getInstance();
+            tempCalendar.setTime(tempDate);
 
             while (tempDate.before(endDate)) {
 
-                if (tempHashMap.get(simpleDateFormat.format(startDate)) != null) {
-                    result = result + tempHashMap.get(simpleDateFormat.format(startDate)) + ",";
+                if (tempHashMap.get(simpleDateFormat.format(tempDate)) != null) {
+                    result = result + tempHashMap.get(simpleDateFormat.format(tempDate)) + ",";
                 } else {
                     result = result + "0,";
                 }
@@ -62,7 +59,7 @@ public class IntegerTableHelper {
         return result;
     }
 
-    public String getTable(HashMap<Integer, HashMap<String, Integer>> dataTable,  Map<Integer, String> labelMap, List<String> axisList) {
+    public String getTable(HashMap<Integer, HashMap<String, Integer>> dataTable, Map<Integer, String> labelMap, List<String> axisList) {
         String result;
         PlainDataTableGenerator plainDataTableGenerator = new PlainDataTableGenerator();
         result = plainDataTableGenerator.getStartTable();
@@ -70,7 +67,7 @@ public class IntegerTableHelper {
 
         String dataArray[] = new String[axisList.size() + 1];
         int i = 1;
-
+        dataArray[0] = "";
         for (String cellString : axisList) {
             dataArray[i] = cellString;
             i++;
@@ -87,9 +84,14 @@ public class IntegerTableHelper {
             dataArray[0] = mapEntry.getValue();
 
             for (String cellString : axisList) {
-                dataArray[i] = String.valueOf(tempHashMap.get(cellString));
+                if (tempHashMap.get(cellString) == null) {
+                    dataArray[i] = "0";
+                } else {
+                    dataArray[i] = String.valueOf(tempHashMap.get(cellString));
+                }
                 i++;
             }
+
             result = result + plainDataTableGenerator.getTableBodyRow(dataArray);
         }
 
@@ -120,10 +122,10 @@ public class IntegerTableHelper {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date tempDate = startDate;
         Calendar tempCalendar = Calendar.getInstance();
+        tempCalendar.setTime(tempDate);
 
         while (tempDate.before(endDate)) {
-            stringList.add(simpleDateFormat.format(startDate));
-            tempCalendar.setTime(tempDate);
+            stringList.add(simpleDateFormat.format(tempDate));
             tempCalendar.add(calendarField, 1);
             tempDate = tempCalendar.getTime();
         }

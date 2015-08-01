@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="frequency" class="col-sm-3 control-label">Frequence</label>
+        <label for="frequency" class="col-sm-3 control-label">Frequency</label>
 
         <div class="col-sm-6">
             <div class="input-group">
@@ -77,26 +77,25 @@
 </form>
 
 <br/>
-<br/>
 <h1>${displayName}</h1>
-<br/>
 <br/>
 <div class="row" id="chart">
 
 </div>
 
 <br/>
-<br/>
 
 <div class="row">
     <div id="tableContainer">
-        ${table}
+        ${tableText}
     </div>
 </div>
 
 <script>
 
     $("#report").val("${report}");
+
+    $("#frequency").val("${frequency}");
 
     $(function () {
         $('#startDateInputGroup').datetimepicker({
@@ -123,10 +122,7 @@
         data: {
             x: 'x',
             columns: [
-                ['x', '2013-01-01', '2013-02-01', '2013-03-01', '2013-04-01', '2013-05-01', '2013-06-01'],
-                ['data1', 30, 200, 100, 400, 150, 250],
-                ['data2', 130, 340, 200, 500, 250, 350],
-                ['data3', 400, 500, 450, 700, 600, 500]
+                ${chartText}
             ]
         },
         axis: {

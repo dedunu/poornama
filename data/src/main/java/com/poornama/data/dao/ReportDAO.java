@@ -56,9 +56,8 @@ public class ReportDAO {
 
                         String queryString = "SELECT employeeId, YEAR(date), MONTH(date), SUM(attendance) ";
                         queryString = queryString + "FROM EmployeeAttendance ";
-                        queryString = queryString + "WHERE date > \'" + simpleDateFormat.format(startDate) + "\' AND date < \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "WHERE date >= \'" + simpleDateFormat.format(startDate) + "\' AND date <= \'" + simpleDateFormat.format(endDate) + "\' ";
                         queryString = queryString + "GROUP BY employeeId, YEAR(date), MONTH(date) ";
-                        queryString = queryString + "ORDER BY 4 DESC";
 
                         log.debug("[" + className + "] getMonthlyEmployeeAttendanceReport() :" + queryString);
                         ResultSet resultSet = statement.executeQuery(queryString);
@@ -66,9 +65,14 @@ public class ReportDAO {
                         HashMap<Integer, HashMap<String, Integer>> dataTable = new HashMap<Integer, HashMap<String, Integer>>();
 
                         while (resultSet.next()) {
-                            HashMap tempHashMap = new HashMap<String, Integer>();
-                            tempHashMap.put(resultSet.getString(1) + "-" + resultSet.getString(2) + "-01", resultSet.getInt(3));
-                            dataTable.put(resultSet.getInt(0), tempHashMap);
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null){
+                                tempHashMap = new HashMap<String, Integer>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-" + String.format("%02d", resultSet.getInt(3)) + "-01", resultSet.getInt(4));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
                         }
 
                         setIntegerTable(dataTable);
@@ -89,9 +93,8 @@ public class ReportDAO {
 
                         String queryString = "SELECT employeeId, YEAR(date), SUM(attendance) ";
                         queryString = queryString + "FROM EmployeeAttendance ";
-                        queryString = queryString + "WHERE date > \'" + simpleDateFormat.format(startDate) + "\' AND date < \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "WHERE date >= \'" + simpleDateFormat.format(startDate) + "\' AND date <= \'" + simpleDateFormat.format(endDate) + "\' ";
                         queryString = queryString + "GROUP BY employeeId, YEAR(date) ";
-                        queryString = queryString + "ORDER BY 4 DESC";
 
                         log.debug("[" + className + "] getAnnualEmployeeAttendanceReport() :" + queryString);
 
@@ -100,9 +103,14 @@ public class ReportDAO {
                         HashMap<Integer, HashMap<String, Integer>> dataTable = new HashMap<Integer, HashMap<String, Integer>>();
 
                         while (resultSet.next()) {
-                            HashMap tempHashMap = new HashMap<String, Integer>();
-                            tempHashMap.put(resultSet.getString(1) + "-01-01", resultSet.getInt(2));
-                            dataTable.put(resultSet.getInt(0), tempHashMap);
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null){
+                                tempHashMap = new HashMap<String, Integer>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-01-01", resultSet.getInt(3));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
                         }
 
                         setIntegerTable(dataTable);
@@ -111,7 +119,6 @@ public class ReportDAO {
         );
         return getIntegerTable();
     }
-
 
     public HashMap<Integer, HashMap<String, Double>> getMonthlyEmployeeSalaryReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
@@ -124,9 +131,8 @@ public class ReportDAO {
 
                         String queryString = "SELECT employeeId, YEAR(date), MONTH(date), SUM(netSalary) ";
                         queryString = queryString + "FROM Salary ";
-                        queryString = queryString + "WHERE date > \'" + simpleDateFormat.format(startDate) + "\' AND date < \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "WHERE date >= \'" + simpleDateFormat.format(startDate) + "\' AND date <= \'" + simpleDateFormat.format(endDate) + "\' ";
                         queryString = queryString + "GROUP BY employeeId, YEAR(date), MONTH(date) ";
-                        queryString = queryString + "ORDER BY 4 DESC";
 
                         log.debug("[" + className + "] getMonthlyEmployeeSalaryReport() :" + queryString);
 
@@ -135,9 +141,14 @@ public class ReportDAO {
                         HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
 
                         while (resultSet.next()) {
-                            HashMap tempHashMap = new HashMap<String, Double>();
-                            tempHashMap.put(resultSet.getString(1) + "-" + resultSet.getString(2) + "-01", resultSet.getDouble(3));
-                            dataTable.put(resultSet.getInt(0), tempHashMap);
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null){
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-" + String.format("%02d", resultSet.getInt(3)) + "-01", resultSet.getDouble(4));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
                         }
 
                         setDoubleTable(dataTable);
@@ -158,20 +169,194 @@ public class ReportDAO {
 
                         String queryString = "SELECT employeeId, YEAR(date), SUM(netSalary) ";
                         queryString = queryString + "FROM Salary ";
-                        queryString = queryString + "WHERE date > \'" + simpleDateFormat.format(startDate) + "\' AND date < \'" + simpleDateFormat.format(endDate) + "\' ";
-                        queryString = queryString + "GROUP BY employeeId, YEAR(date), ";
-                        queryString = queryString + "ORDER BY 4 DESC";
+                        queryString = queryString + "WHERE date >= \'" + simpleDateFormat.format(startDate) + "\' AND date <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY employeeId, YEAR(date) ";
 
-                        log.debug("[" + className + "] getMonthlyEmployeeSalaryReport() :" + queryString);
+                        log.debug("[" + className + "] getAnnualEmployeeSalaryReport() :" + queryString);
 
                         ResultSet resultSet = statement.executeQuery(queryString);
 
                         HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
 
                         while (resultSet.next()) {
-                            HashMap tempHashMap = new HashMap<String, Double>();
-                            tempHashMap.put(resultSet.getString(1) + "-01-01", resultSet.getDouble(2));
-                            dataTable.put(resultSet.getInt(0), tempHashMap);
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null){
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-01-01", resultSet.getDouble(3));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
+                        }
+
+                        setDoubleTable(dataTable);
+                    }
+                }
+        );
+        return getDoubleTable();
+    }
+
+    public HashMap<Integer, HashMap<String, Double>> getMonthlyEmployeeRevenueReport(final Date startDate, final Date endDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        Session session = databaseSession.getSession();
+        session.doWork(
+                new Work() {
+                    public void execute(Connection connection) throws SQLException {
+                        Statement statement = connection.createStatement();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                        String queryString = "(SELECT e.id as id, YEAR(j.startDate), MONTH(j.startDate), SUM(j.hireCharges) ";
+                        queryString = queryString + "FROM Job AS j  ";
+                        queryString = queryString + "INNER JOIN Employee AS e ON e.id = j.driverId ";
+                        queryString = queryString + "WHERE j.startDate >= \'" + simpleDateFormat.format(startDate) + "\' AND j.startDate <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY e.id, YEAR(j.startDate), MONTH(j.startDate)) ";
+                        queryString = queryString + "UNION ";
+                        queryString = queryString + "(SELECT e.id as id, YEAR(j.startDate), MONTH(j.startDate), SUM(j.hireCharges) ";
+                        queryString = queryString + "FROM Job AS j  ";
+                        queryString = queryString + "INNER JOIN Employee AS e ON e.id = j.cleanerId ";
+                        queryString = queryString + "WHERE j.startDate >= \'" + simpleDateFormat.format(startDate) + "\' AND j.startDate <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY e.id, YEAR(j.startDate), MONTH(j.startDate)) ";
+
+                        log.debug("[" + className + "] getMonthlyEmployeeRevenueReport() :" + queryString);
+
+                        ResultSet resultSet = statement.executeQuery(queryString);
+
+                        HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
+
+                        while (resultSet.next()) {
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null){
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-" + String.format("%02d", resultSet.getInt(3)) + "-01", resultSet.getDouble(3));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
+                        }
+
+                        setDoubleTable(dataTable);
+                    }
+                }
+        );
+        return getDoubleTable();
+    }
+
+    public HashMap<Integer, HashMap<String, Double>> getAnualEmployeeRevenueReport(final Date startDate, final Date endDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        Session session = databaseSession.getSession();
+        session.doWork(
+                new Work() {
+                    public void execute(Connection connection) throws SQLException {
+                        Statement statement = connection.createStatement();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                        String queryString = "(SELECT e.id as id, YEAR(j.startDate), SUM(j.hireCharges) ";
+                        queryString = queryString + "FROM Job AS j  ";
+                        queryString = queryString + "INNER JOIN Employee AS e ON e.id = j.driverId ";
+                        queryString = queryString + "WHERE j.startDate >= \'" + simpleDateFormat.format(startDate) + "\' AND j.startDate <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY e.id, YEAR(j.startDate)) ";
+                        queryString = queryString + "UNION ";
+                        queryString = queryString + "(SELECT e.id as id, YEAR(j.startDate), SUM(j.hireCharges) ";
+                        queryString = queryString + "FROM Job AS j  ";
+                        queryString = queryString + "INNER JOIN Employee AS e ON e.id = j.cleanerId ";
+                        queryString = queryString + "WHERE j.startDate >= \'" + simpleDateFormat.format(startDate) + "\' AND j.startDate <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY e.id, YEAR(j.startDate)) ";
+
+                        log.debug("[" + className + "] getAnualEmployeeRevenueReport() :" + queryString);
+
+                        ResultSet resultSet = statement.executeQuery(queryString);
+
+                        HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
+
+                        while (resultSet.next()) {
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null){
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-01-01", resultSet.getDouble(3));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
+                        }
+
+                        setDoubleTable(dataTable);
+                    }
+                }
+        );
+        return getDoubleTable();
+    }
+
+    public HashMap<Integer, HashMap<String, Double>> getMonthlyClientRevenueReport(final Date startDate, final Date endDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        Session session = databaseSession.getSession();
+        session.doWork(
+                new Work() {
+                    public void execute(Connection connection) throws SQLException {
+                        Statement statement = connection.createStatement();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                        String queryString = "SELECT c.id, YEAR(j.date), MONTH(j.date), SUM(j.containerCharges + j.detentionCharges + j.hireCharges + j.labourCharges) ";
+                        queryString = queryString + "FROM Job AS j INNER JOIN JobTemplate AS jt ON j.jobTemplateId = jt.id ";
+                        queryString = queryString + "INNER JOIN Client AS c ON jt.clientId = c.id ";
+                        queryString = queryString + "WHERE j.date >= \'" + simpleDateFormat.format(startDate) + "\' AND j.date <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY c.id, YEAR(j.date), MONTH(j.date) ";
+                        queryString = queryString + "ORDER BY 1";
+
+                        log.debug("[" + className + "] getMonthlyClientRevenueReport() :" + queryString);
+
+                        ResultSet resultSet = statement.executeQuery(queryString);
+
+                        HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
+
+                        while (resultSet.next()) {
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null){
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-" + String.format("%02d", resultSet.getInt(3)) + "-01", resultSet.getDouble(3));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
+                        }
+
+                        setDoubleTable(dataTable);
+                    }
+                }
+        );
+        return getDoubleTable();
+    }
+
+    public HashMap<Integer, HashMap<String, Double>> getAnnualClientRevenueReport(final Date startDate, final Date endDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        Session session = databaseSession.getSession();
+        session.doWork(
+                new Work() {
+                    public void execute(Connection connection) throws SQLException {
+                        Statement statement = connection.createStatement();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                        String queryString = "SELECT c.id, YEAR(j.date),SUM(j.containerCharges + j.detentionCharges + j.hireCharges + j.labourCharges) ";
+                        queryString = queryString + "FROM Job AS j INNER JOIN JobTemplate AS jt ON j.jobTemplateId = jt.id ";
+                        queryString = queryString + "INNER JOIN Client AS c ON jt.clientId = c.id ";
+                        queryString = queryString + "WHERE j.date >= \'" + simpleDateFormat.format(startDate) + "\' AND j.date <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY c.id, YEAR(j.date), ";
+                        queryString = queryString + "ORDER BY 1";
+
+                        log.debug("[" + className + "] getAnnualClientRevenueReport() :" + queryString);
+
+                        ResultSet resultSet = statement.executeQuery(queryString);
+
+                        HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
+
+                        while (resultSet.next()) {
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null){
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-01-01", resultSet.getDouble(3));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
                         }
 
                         setDoubleTable(dataTable);
