@@ -1,6 +1,8 @@
 package com.poornama.api.reporting;
 
+import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.presentation.PlainDataTableGenerator;
+import org.apache.log4j.Logger;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,8 +16,11 @@ import java.util.Map;
  * Created by dedunu on 8/2/15.
  */
 public class IntegerTableHelper {
+    private static Logger log = GlobalLogger.getLogger();
+    private static String className = IntegerTableHelper.class.getName();
 
     public String getChartColumns(HashMap<Integer, HashMap<String, Integer>> dataTable, Date startDate, Date endDate, Map<Integer, String> labelMap, int calendarField) {
+        log.debug("[" + className + "] getChartColumns() : started");
         String result = "";
         result = getAxis(startDate, endDate, calendarField);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -33,8 +38,12 @@ public class IntegerTableHelper {
 
             while (tempDate.before(endDate)) {
 
-                if (tempHashMap.get(simpleDateFormat.format(tempDate)) != null) {
-                    result = result + tempHashMap.get(simpleDateFormat.format(tempDate)) + ",";
+                if (tempHashMap != null) {
+                    if (tempHashMap.get(simpleDateFormat.format(tempDate)) != null) {
+                        result = result + tempHashMap.get(simpleDateFormat.format(tempDate)) + ",";
+                    } else {
+                        result = result + "0,";
+                    }
                 } else {
                     result = result + "0,";
                 }
@@ -60,6 +69,7 @@ public class IntegerTableHelper {
     }
 
     public String getTable(HashMap<Integer, HashMap<String, Integer>> dataTable, Map<Integer, String> labelMap, List<String> axisList) {
+        log.debug("[" + className + "] getTable() : started");
         String result;
         PlainDataTableGenerator plainDataTableGenerator = new PlainDataTableGenerator();
         result = plainDataTableGenerator.getStartTable();
@@ -84,10 +94,14 @@ public class IntegerTableHelper {
             dataArray[0] = mapEntry.getValue();
 
             for (String cellString : axisList) {
-                if (tempHashMap.get(cellString) == null) {
+                if (tempHashMap == null) {
                     dataArray[i] = "0";
                 } else {
-                    dataArray[i] = String.valueOf(tempHashMap.get(cellString));
+                    if (tempHashMap.get(cellString) == null) {
+                        dataArray[i] = "0";
+                    } else {
+                        dataArray[i] = String.valueOf(tempHashMap.get(cellString));
+                    }
                 }
                 i++;
             }

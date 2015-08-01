@@ -15,7 +15,6 @@ import com.poornama.data.dao.TagDAO;
 import com.poornama.data.dao.VehicleDAO;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
-import sun.util.cldr.CLDRLocaleDataMetaInfo;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -60,6 +59,7 @@ public class ReportLogic {
     }
 
     private List<String> getAxisList(Date startDate, Date endDate, int calendarField) {
+        log.debug("[" + className + "] getAxisList() : started");
         List<String> stringList = new ArrayList<String>();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date tempDate = startDate;
@@ -76,6 +76,7 @@ public class ReportLogic {
     }
 
     public void generateReport(int reportId, int calendarField, String startDateString, String endDateString) {
+        log.debug("[" + className + "] generateReport() : started");
         DateHelper dateHelper = new DateHelper();
         Date startMonthlyDate = dateHelper.getStartDateMonthy(dateHelper.getDate(startDateString));
         Date startAnnuallyDate = dateHelper.getStartDateAnually(dateHelper.getDate(startDateString));
@@ -105,7 +106,7 @@ public class ReportLogic {
                     setDoubleTable(reportDAO.getMonthlyEmployeeRevenueReport(startMonthlyDate, endMonthlyDate));
                 }
                 if (calendarField == Calendar.YEAR) {
-                    setDoubleTable(reportDAO.getAnualEmployeeRevenueReport(startAnnuallyDate, endAnnuallyDate));
+                    setDoubleTable(reportDAO.getAnnualEmployeeRevenueReport(startAnnuallyDate, endAnnuallyDate));
                 }
                 break;
             default:
@@ -115,6 +116,7 @@ public class ReportLogic {
     }
 
     public String getChartString(int reportId, int calendarField, String startDateString, String endDateString) {
+        log.debug("[" + className + "] getChartString() : started");
         DateHelper dateHelper = new DateHelper();
         Date startMonthlyDate = dateHelper.getStartDateMonthy(dateHelper.getDate(startDateString));
         Date startAnnuallyDate = dateHelper.getStartDateAnually(dateHelper.getDate(startDateString));
@@ -126,26 +128,27 @@ public class ReportLogic {
         switch (reportId) {
             case 1:
                 if (calendarField == Calendar.MONTH) {
-                    return integerTableHelper.getChartColumns(getIntegerTable(),startMonthlyDate,endMonthlyDate, getLabels(EMPLOYEE_TYPE),Calendar.MONTH);
+                    return integerTableHelper.getChartColumns(getIntegerTable(), startMonthlyDate, endMonthlyDate, getLabels(EMPLOYEE_TYPE), Calendar.MONTH);
                 }
                 if (calendarField == Calendar.YEAR) {
-                    return integerTableHelper.getChartColumns(getIntegerTable(),startAnnuallyDate,endAnnuallyDate, getLabels(EMPLOYEE_TYPE),Calendar.YEAR);
+                    return integerTableHelper.getChartColumns(getIntegerTable(), startAnnuallyDate, endAnnuallyDate, getLabels(EMPLOYEE_TYPE), Calendar.YEAR);
                 }
                 return null;
             case 2:
                 if (calendarField == Calendar.MONTH) {
-                    return doubleTableHelper.getChartColumns(getDoubleTable(),startMonthlyDate,endMonthlyDate, getLabels(EMPLOYEE_TYPE),Calendar.MONTH);
+                    if (getDoubleTable() == null)
+                    return doubleTableHelper.getChartColumns(getDoubleTable(), startMonthlyDate, endMonthlyDate, getLabels(EMPLOYEE_TYPE), Calendar.MONTH);
                 }
                 if (calendarField == Calendar.YEAR) {
-                    return doubleTableHelper.getChartColumns(getDoubleTable(),startAnnuallyDate,endAnnuallyDate, getLabels(EMPLOYEE_TYPE),Calendar.YEAR);
+                    return doubleTableHelper.getChartColumns(getDoubleTable(), startAnnuallyDate, endAnnuallyDate, getLabels(EMPLOYEE_TYPE), Calendar.YEAR);
                 }
                 return null;
             case 3:
                 if (calendarField == Calendar.MONTH) {
-                    return doubleTableHelper.getChartColumns(getDoubleTable(),startMonthlyDate,endMonthlyDate, getLabels(EMPLOYEE_TYPE),Calendar.MONTH);
+                    return doubleTableHelper.getChartColumns(getDoubleTable(), startMonthlyDate, endMonthlyDate, getLabels(EMPLOYEE_TYPE), Calendar.MONTH);
                 }
                 if (calendarField == Calendar.YEAR) {
-                    return doubleTableHelper.getChartColumns(getDoubleTable(),startAnnuallyDate,endAnnuallyDate, getLabels(EMPLOYEE_TYPE),Calendar.YEAR);
+                    return doubleTableHelper.getChartColumns(getDoubleTable(), startAnnuallyDate, endAnnuallyDate, getLabels(EMPLOYEE_TYPE), Calendar.YEAR);
                 }
                 return null;
             default:
@@ -155,6 +158,7 @@ public class ReportLogic {
     }
 
     public String getTableString(int reportId, int calendarField, String startDateString, String endDateString) {
+        log.debug("[" + className + "] getTableString() : started");
         DateHelper dateHelper = new DateHelper();
         Date startMonthlyDate = dateHelper.getStartDateMonthy(dateHelper.getDate(startDateString));
         Date startAnnuallyDate = dateHelper.getStartDateAnually(dateHelper.getDate(startDateString));
@@ -169,7 +173,7 @@ public class ReportLogic {
                     return integerTableHelper.getTable(getIntegerTable(), getLabels(EMPLOYEE_TYPE), getAxisList(startMonthlyDate, endMonthlyDate, Calendar.MONTH));
                 }
                 if (calendarField == Calendar.YEAR) {
-                    return integerTableHelper.getTable(getIntegerTable(), getLabels(EMPLOYEE_TYPE),getAxisList(startAnnuallyDate, endAnnuallyDate, Calendar.YEAR));
+                    return integerTableHelper.getTable(getIntegerTable(), getLabels(EMPLOYEE_TYPE), getAxisList(startAnnuallyDate, endAnnuallyDate, Calendar.YEAR));
                 }
                 return null;
             case 2:
@@ -192,8 +196,11 @@ public class ReportLogic {
                 return null;
         }
 
+
     }
+
     public Map<Integer, String> getLabels(int entityNumber) {
+        log.debug("[" + className + "] getLabels() : started");
         LinkedHashMap<Integer, String> result = new LinkedHashMap<Integer, String>();
         //employee client vehicle tag
         switch (entityNumber) {
@@ -210,21 +217,27 @@ public class ReportLogic {
                 for (Client client : clientList) {
                     result.put(client.getId(), client.getOrganizationName());
                 }
+                break;
             case 3:
                 VehicleDAO vehicleDAO = new VehicleDAO();
                 List<Vehicle> vehicleList = vehicleDAO.getAll();
                 for (Vehicle vehicle : vehicleList) {
                     result.put(vehicle.getId(), vehicle.getVehicleNumber());
                 }
+                break;
             case 4:
                 TagDAO tagDAO = new TagDAO();
                 List<Tag> tagList = tagDAO.getAll();
                 for (Tag tag : tagList) {
-                    result.put(tag.getId(),tag.getDisplayName());
+                    result.put(tag.getId(), tag.getDisplayName());
                 }
+                break;
+            default:
+                break;
 
 
         }
+        log.debug("[" + className + "] getLabels() : finished");
         return result;
     }
 
