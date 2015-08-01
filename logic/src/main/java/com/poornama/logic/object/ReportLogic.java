@@ -5,15 +5,26 @@ import com.poornama.api.objects.Client;
 import com.poornama.api.objects.Employee;
 import com.poornama.api.objects.Tag;
 import com.poornama.api.objects.Vehicle;
+import com.poornama.api.reporting.DateHelper;
+import com.poornama.api.reporting.DoubleTableHelper;
+import com.poornama.api.reporting.IntegerTableHelper;
+import com.poornama.data.dao.ClientDAO;
+import com.poornama.data.dao.EmployeeDAO;
+import com.poornama.data.dao.ReportDAO;
+import com.poornama.data.dao.TagDAO;
+import com.poornama.data.dao.VehicleDAO;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
+import sun.util.cldr.CLDRLocaleDataMetaInfo;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by dedunu on 7/29/15.
@@ -23,128 +34,174 @@ public class ReportLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = ReportLogic.class.getName();
 
-    private String getChartColumns(HashMap<Integer, HashMap<String, Integer>> dataTable, Date startDate, Date endDate, List<Object> objectList, int calendarField) {
-        String result = "";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        for (Object object : objectList) {
-            result = result + "[ ";
+    private int EMPLOYEE_TYPE = 1;
+    private int CLIENT_TYPE = 2;
+    private int VEHICLE_TYPE = 3;
+    private int TAG_TYPE = 4;
 
-            HashMap<String, Integer> tempHashMap = new HashMap<String, Integer>();
+    private HashMap<Integer, HashMap<String, Integer>> integerTable = new HashMap<Integer, HashMap<String, Integer>>();
 
-            if (object instanceof Employee) {
-                int id = ((Employee) object).getId();
-                tempHashMap = dataTable.get(id);
-                result = result + "\'" + ((Employee) object).getFirstName() + " " + ((Employee) object).getLastName() + "\',";
-            }
+    private HashMap<Integer, HashMap<String, Double>> doubleTable = new HashMap<Integer, HashMap<String, Double>>();
 
-            if (object instanceof Client) {
-                int id = ((Client) object).getId();
-                tempHashMap = dataTable.get(id);
-                result = result + "\'" +  ((Client) object).getOrganizationName() + "\',";
-            }
-
-            if (object instanceof Vehicle) {
-                int id = ((Vehicle) object).getId();
-                tempHashMap = dataTable.get(id);
-                result = result + "\'" +  ((Vehicle) object).getVehicleNumber() + "\',";
-            }
-
-            if (object instanceof Tag) {
-                int id = ((Tag) object).getId();
-                tempHashMap = dataTable.get(id);
-                result = result + "\'" +  ((Tag) object).getDisplayName() + "\',";
-            }
-
-            Date tempDate = startDate;
-            Calendar tempCalendar = Calendar.getInstance();
-
-            while (tempDate.before(endDate)) {
-
-                if (tempHashMap.get(simpleDateFormat.format(startDate)) != null) {
-                    result = result + tempHashMap.get(simpleDateFormat.format(startDate)) + ",";
-                } else {
-                    result = result + "0,";
-                }
-
-                tempCalendar.setTime(tempDate);
-                tempCalendar.add(calendarField, 1);
-                tempDate = tempCalendar.getTime();
-            }
-
-            if (result.length() > 0 && result.charAt(result.length() - 1) == ',') {
-                result = result.substring(0, result.length() - 1);
-            }
-
-            result = result + " ],";
-
-        }
-
-        if (result.length() > 0 && result.charAt(result.length() - 1) == ',') {
-            result = result.substring(0, result.length() - 1);
-        }
-
-        return result;
+    public HashMap<Integer, HashMap<String, Integer>> getIntegerTable() {
+        return integerTable;
     }
 
-    private String getAxis(Date startDate, Date endDate, int calendarField) {
-        String result = "[ \'x\',";
+    public void setIntegerTable(HashMap<Integer, HashMap<String, Integer>> integerTable) {
+        this.integerTable = integerTable;
+    }
+
+    public HashMap<Integer, HashMap<String, Double>> getDoubleTable() {
+        return doubleTable;
+    }
+
+    public void setDoubleTable(HashMap<Integer, HashMap<String, Double>> doubleTable) {
+        this.doubleTable = doubleTable;
+    }
+
+    private List<String> getAxisList(Date startDate, Date endDate, int calendarField) {
+        List<String> stringList = new ArrayList<String>();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date tempDate = startDate;
         Calendar tempCalendar = Calendar.getInstance();
 
         while (tempDate.before(endDate)) {
-            result = result + " \'" + simpleDateFormat.format(startDate) + "\' ,";
+            stringList.add(simpleDateFormat.format(startDate));
             tempCalendar.setTime(tempDate);
             tempCalendar.add(calendarField, 1);
             tempDate = tempCalendar.getTime();
         }
 
-        if (result.length() > 0 && result.charAt(result.length() - 1) == ',') {
-            result = result.substring(0, result.length() - 1);
+        return stringList;
+    }
+
+    public void generateReport(int reportId, int calendarField, String startDateString, String endDateString) {
+        DateHelper dateHelper = new DateHelper();
+        Date startMonthlyDate = dateHelper.getStartDateMonthy(dateHelper.getDate(startDateString));
+        Date startAnnuallyDate = dateHelper.getStartDateAnually(dateHelper.getDate(startDateString));
+        Date endMonthlyDate = dateHelper.getEndDateMonthy(dateHelper.getDate(endDateString));
+        Date endAnnuallyDate = dateHelper.getEndDateAnually(dateHelper.getDate(endDateString));
+        ReportDAO reportDAO = new ReportDAO();
+
+        switch (reportId) {
+            case 1:
+                if (calendarField == Calendar.MONTH) {
+                    setIntegerTable(reportDAO.getMonthlyEmployeeAttendanceReport(startMonthlyDate, endMonthlyDate));
+                }
+                if (calendarField == Calendar.YEAR) {
+                    setIntegerTable(reportDAO.getAnnualEmployeeAttendanceReport(startAnnuallyDate, endAnnuallyDate));
+                }
+                break;
+            case 2:
+                if (calendarField == Calendar.MONTH) {
+                    setDoubleTable(reportDAO.getMonthlyEmployeeSalaryReport(startMonthlyDate, endMonthlyDate));
+                }
+                if (calendarField == Calendar.YEAR) {
+                    setDoubleTable(reportDAO.getAnnualEmployeeSalaryReport(startAnnuallyDate, endAnnuallyDate));
+                }
+                break;
+            default:
+                break;
         }
 
-        result = result + " ],";
+    }
+
+    public String getChartString(int reportId, int calendarField, String startDateString, String endDateString) {
+        DateHelper dateHelper = new DateHelper();
+        Date startMonthlyDate = dateHelper.getStartDateMonthy(dateHelper.getDate(startDateString));
+        Date startAnnuallyDate = dateHelper.getStartDateAnually(dateHelper.getDate(startDateString));
+        Date endMonthlyDate = dateHelper.getEndDateMonthy(dateHelper.getDate(endDateString));
+        Date endAnnuallyDate = dateHelper.getEndDateAnually(dateHelper.getDate(endDateString));
+        DoubleTableHelper doubleTableHelper = new DoubleTableHelper();
+        IntegerTableHelper integerTableHelper = new IntegerTableHelper();
+
+        switch (reportId) {
+            case 1:
+                if (calendarField == Calendar.MONTH) {
+                    return integerTableHelper.getChartColumns(getIntegerTable(),startMonthlyDate,endMonthlyDate, getLabels(EMPLOYEE_TYPE),Calendar.MONTH);
+                }
+                if (calendarField == Calendar.YEAR) {
+                    return integerTableHelper.getChartColumns(getIntegerTable(),startAnnuallyDate,endAnnuallyDate, getLabels(EMPLOYEE_TYPE),Calendar.YEAR);
+                }
+                return null;
+            case 2:
+                if (calendarField == Calendar.MONTH) {
+                    return doubleTableHelper.getChartColumns(getDoubleTable(),startMonthlyDate,endMonthlyDate, getLabels(EMPLOYEE_TYPE),Calendar.MONTH);
+                }
+                if (calendarField == Calendar.YEAR) {
+                    return doubleTableHelper.getChartColumns(getDoubleTable(),startAnnuallyDate,endAnnuallyDate, getLabels(EMPLOYEE_TYPE),Calendar.YEAR);
+                }
+                return null;
+            default:
+                return null;
+        }
+
+    }
+
+    public String getTableString(int reportId, int calendarField, String startDateString, String endDateString) {
+        DateHelper dateHelper = new DateHelper();
+        Date startMonthlyDate = dateHelper.getStartDateMonthy(dateHelper.getDate(startDateString));
+        Date startAnnuallyDate = dateHelper.getStartDateAnually(dateHelper.getDate(startDateString));
+        Date endMonthlyDate = dateHelper.getEndDateMonthy(dateHelper.getDate(endDateString));
+        Date endAnnuallyDate = dateHelper.getEndDateAnually(dateHelper.getDate(endDateString));
+        DoubleTableHelper doubleTableHelper = new DoubleTableHelper();
+        IntegerTableHelper integerTableHelper = new IntegerTableHelper();
+
+        switch (reportId) {
+            case 1:
+                if (calendarField == Calendar.MONTH) {
+                    return integerTableHelper.getTable(getIntegerTable(), getLabels(EMPLOYEE_TYPE), getAxisList(startMonthlyDate, endMonthlyDate, Calendar.MONTH));
+                }
+                if (calendarField == Calendar.YEAR) {
+                    return integerTableHelper.getTable(getIntegerTable(), getLabels(EMPLOYEE_TYPE),getAxisList(startAnnuallyDate, endAnnuallyDate, Calendar.YEAR));
+                }
+                return null;
+            case 2:
+                if (calendarField == Calendar.MONTH) {
+                    return doubleTableHelper.getTable(getDoubleTable(), getLabels(EMPLOYEE_TYPE), getAxisList(startMonthlyDate, endMonthlyDate, Calendar.MONTH));
+                }
+                if (calendarField == Calendar.YEAR) {
+                    return doubleTableHelper.getTable(getDoubleTable(), getLabels(EMPLOYEE_TYPE),getAxisList(startAnnuallyDate, endAnnuallyDate,Calendar.YEAR));
+                }
+                return null;
+            default:
+                return null;
+        }
+
+    }
+    public Map<Integer, String> getLabels(int entityNumber) {
+        LinkedHashMap<Integer, String> result = new LinkedHashMap<Integer, String>();
+        //employee client vehicle tag
+        switch (entityNumber) {
+            case 1:
+                EmployeeDAO employeeDAO = new EmployeeDAO();
+                List<Employee> employeeList = employeeDAO.getAll();
+                for (Employee employee : employeeList) {
+                    result.put(employee.getId(), employee.getFirstName() + " " + employee.getLastName());
+                }
+                break;
+            case 2:
+                ClientDAO clientDAO = new ClientDAO();
+                List<Client> clientList = clientDAO.getAll();
+                for (Client client : clientList) {
+                    result.put(client.getId(), client.getOrganizationName());
+                }
+            case 3:
+                VehicleDAO vehicleDAO = new VehicleDAO();
+                List<Vehicle> vehicleList = vehicleDAO.getAll();
+                for (Vehicle vehicle : vehicleList) {
+                    result.put(vehicle.getId(), vehicle.getVehicleNumber());
+                }
+            case 4:
+                TagDAO tagDAO = new TagDAO();
+                List<Tag> tagList = tagDAO.getAll();
+                for (Tag tag : tagList) {
+                    result.put(tag.getId(),tag.getDisplayName());
+                }
+
+
+        }
         return result;
     }
-
-    public Date getDate(String dateString) throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/yyyy");
-        return simpleDateFormat.parse(dateString);
-    }
-
-    public Date getStartDateMonthy(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-
-        calendar.set(Calendar.DATE, calendar.getActualMinimum(Calendar.DATE));
-        return calendar.getTime();
-    }
-
-    public Date getEndDateMonthy(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-
-        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE));
-        return calendar.getTime();
-    }
-
-    public Date getStartDateAnually(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-
-        calendar.set(Calendar.DATE, calendar.getActualMinimum(Calendar.DATE));
-        calendar.set(Calendar.MONTH, calendar.getActualMinimum(Calendar.MONTH));
-        return calendar.getTime();
-    }
-
-    public Date getEndDateAnually(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-
-        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE));
-        calendar.set(Calendar.MONTH, calendar.getActualMinimum(Calendar.MONTH));
-        return calendar.getTime();
-    }
-
 
 }

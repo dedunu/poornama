@@ -25,24 +25,24 @@ public class ReportDAO {
         log.debug("[" + className + "] ReportDAO: constructor()");
     }
 
-    private HashMap<Integer, HashMap<String, Integer>> employeeAttendanceTable = new HashMap<Integer, HashMap<String, Integer>>();
+    private HashMap<Integer, HashMap<String, Integer>> integerTable = new HashMap<Integer, HashMap<String, Integer>>();
 
-    private HashMap<Integer, HashMap<String, Double>> employeeSalaryTable = new HashMap<Integer, HashMap<String, Double>>();
+    private HashMap<Integer, HashMap<String, Double>> doubleTable = new HashMap<Integer, HashMap<String, Double>>();
 
-    protected HashMap<Integer, HashMap<String, Integer>> getEmployeeAttendanceTable() {
-        return employeeAttendanceTable;
+    public HashMap<Integer, HashMap<String, Integer>> getIntegerTable() {
+        return integerTable;
     }
 
-    protected void setEmployeeAttendanceTable(HashMap<Integer, HashMap<String, Integer>> employeeAttendanceTable) {
-        this.employeeAttendanceTable = employeeAttendanceTable;
+    public void setIntegerTable(HashMap<Integer, HashMap<String, Integer>> integerTable) {
+        this.integerTable = integerTable;
     }
 
-    protected void setEmployeeSalaryTable(HashMap<Integer, HashMap<String, Double>> employeeSalaryTable) {
-        this.employeeSalaryTable = employeeSalaryTable;
+    public HashMap<Integer, HashMap<String, Double>> getDoubleTable() {
+        return doubleTable;
     }
 
-    protected HashMap<Integer, HashMap<String, Double>> getEmployeeSalaryTable() {
-        return employeeSalaryTable;
+    public void setDoubleTable(HashMap<Integer, HashMap<String, Double>> doubleTable) {
+        this.doubleTable = doubleTable;
     }
 
     public HashMap<Integer, HashMap<String, Integer>> getMonthlyEmployeeAttendanceReport(final Date startDate, final Date endDate) {
@@ -71,11 +71,11 @@ public class ReportDAO {
                             dataTable.put(resultSet.getInt(0), tempHashMap);
                         }
 
-                        setEmployeeAttendanceTable(dataTable);
+                        setIntegerTable(dataTable);
                     }
                 }
         );
-        return getEmployeeAttendanceTable();
+        return getIntegerTable();
     }
 
     public HashMap<Integer, HashMap<String, Integer>> getAnnualEmployeeAttendanceReport(final Date startDate, final Date endDate) {
@@ -105,11 +105,11 @@ public class ReportDAO {
                             dataTable.put(resultSet.getInt(0), tempHashMap);
                         }
 
-                        setEmployeeAttendanceTable(dataTable);
+                        setIntegerTable(dataTable);
                     }
                 }
         );
-        return getEmployeeAttendanceTable();
+        return getIntegerTable();
     }
 
 
@@ -140,11 +140,11 @@ public class ReportDAO {
                             dataTable.put(resultSet.getInt(0), tempHashMap);
                         }
 
-                        setEmployeeSalaryTable(dataTable);
+                        setDoubleTable(dataTable);
                     }
                 }
         );
-        return getEmployeeSalaryTable();
+        return getDoubleTable();
     }
 
     public HashMap<Integer, HashMap<String, Double>> getAnnualEmployeeSalaryReport(final Date startDate, final Date endDate) {
@@ -174,11 +174,11 @@ public class ReportDAO {
                             dataTable.put(resultSet.getInt(0), tempHashMap);
                         }
 
-                        setEmployeeSalaryTable(dataTable);
+                        setDoubleTable(dataTable);
                     }
                 }
         );
-        return getEmployeeSalaryTable();
+        return getDoubleTable();
     }
 
 }

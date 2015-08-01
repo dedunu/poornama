@@ -182,7 +182,6 @@ public class SalaryLogic {
         }
     }
 
-
     public String getSalaryTable(HttpServletRequest request) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/yyyy");
         Date date = new Date();
