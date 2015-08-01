@@ -1,39 +1,31 @@
 package com.poornama.test;
 
+import com.poornama.api.objects.Expense;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class TempMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		// For Temporary Test.
+		DateFormat format = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+		Date startDate = format.parse("01-01-2014");
+		Date endDate = format.parse("01-31-2016");
 
-		Date date = new Date();
+		Date tempDate = startDate;
+		Calendar tempCalendar = Calendar.getInstance();
 
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
+		while (tempDate.before(endDate)) {
 
-		calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE));
-		Date lastDay = calendar.getTime();
+			System.out.println("tempDate = " + tempDate);
 
-		calendar.set(Calendar.DATE, calendar.getActualMinimum(Calendar.DATE));
-		Date firstDay = calendar.getTime();
-
-		System.out.println("date = " + date);
-		System.out.println("firstDay = " + firstDay);
-		System.out.println("lastDay = " + lastDay);
-
-		for (int i = 0; i < 10; i++) {
-
-			Date tempDate = firstDay;
-			Calendar tempCalendar = Calendar.getInstance();
-
-			while (tempDate.compareTo(lastDay) != 0) {
-				System.out.println("tempDate = " + tempDate);
-				tempCalendar.setTime(tempDate);
-				tempCalendar.add(Calendar.DATE, 1);
-				tempDate = tempCalendar.getTime();
-			}
+			tempCalendar.setTime(tempDate);
+			tempCalendar.add(Calendar.YEAR, 1);
+			tempDate = tempCalendar.getTime();
 		}
 	}
 

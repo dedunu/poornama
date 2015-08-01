@@ -27,8 +27,11 @@ public class PasswordHash {
         String plainText = userName + password;
 
         try {
+            // Initialize MessageDigest object with MD5 Algorithm
             MessageDigest digest = MessageDigest.getInstance("MD5");
+            // Generated the hash
             digest.update(plainText.getBytes(), 0, plainText.length());
+            // Convert it to a big integer
             result = new BigInteger(1, digest.digest()).toString(16);
         } catch (NoSuchAlgorithmException e) {
             log.error("[" + className + "] getHash: NoSuchAlgorithmException");
@@ -36,6 +39,7 @@ public class PasswordHash {
 
         log.debug("[" + className + "] getHash");
 
+        // Return the hashed text
         return result;
     }
 }

@@ -21,10 +21,23 @@
                 <select class="form-control" id="report" name="report">
                     <option value="1">Employee Attendance Report</option>
                     <option value="2">Employee Salary Report</option>
-                    <option value="3">Client Revenue Report</option>
-                    <option value="4">Job Type wise Revenue Report</option>
-                    <option value="5">Vehicle Mileage Report</option>
-                    <option value="6">Expense Report</option>
+                    <option value="3">Employee wise Revenue Report</option>
+                    <option value="4">Client wise Revenue Report</option>
+                    <option value="5">Vehicle wise Revenue Report</option>
+                    <option value="6">Vehicle Mileage Report</option>
+                    <option value="7">Expense Report</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="frequency" class="col-sm-3 control-label">Frequence</label>
+
+        <div class="col-sm-6">
+            <div class="input-group">
+                <select class="form-control" id="frequency" name="frequency">
+                    <option value="1">Annually</option>
+                    <option value="2">Monthly</option>
                 </select>
             </div>
         </div>

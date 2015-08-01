@@ -53,12 +53,15 @@ public class SalaryLogic {
         double managerBasicSalary = 0;
         double technicianBasicSalary = 0;
 
+        double employeeEPF = 0;
+
         ConfigurationDAO configurationDAO = new ConfigurationDAO();
         EmployeeDAO employeeDAO = new EmployeeDAO();
         EmployeeAttendanceDAO employeeAttendanceDAO = new EmployeeAttendanceDAO();
         JobDAO jobDAO = new JobDAO();
         SalaryDAO salaryDAO = new SalaryDAO();
 
+        Configuration employeeEPFConfiguration = configurationDAO.getByName("employeeEPF");
         Configuration driverCommissionConfiguration = configurationDAO.getByName("driverCommission");
         Configuration cleanerCommissionConfiguration = configurationDAO.getByName("cleanerCommission");
         Configuration driverBasicSalaryConfiguration = configurationDAO.getByName("driverBasicSalary");
@@ -73,6 +76,7 @@ public class SalaryLogic {
             cleanerBasicSalary = Double.parseDouble(cleanerBasicSalaryConfiguration.getValue());
             managerBasicSalary = Double.parseDouble(managerBasicSalaryConfiguration.getValue());
             technicianBasicSalary = Double.parseDouble(technicianBasicSalaryConfiguration.getValue());
+            employeeEPF = Double.parseDouble(employeeEPFConfiguration.getValue());
         } catch (NumberFormatException e) {
             log.error("[" + className + "] calculateSalary : error in configuration commission/salary");
         }
@@ -152,6 +156,14 @@ public class SalaryLogic {
                 basicSalary = technicianBasicSalary / workingDays * attendedDays;
             }
 
+            BigDecimal employeeEPFAmount = new BigDecimal(basicSalary * employeeEPF);
+
+            BigDecimal netSalary = new BigDecimal(basicSalary);
+            netSalary = netSalary.add(new BigDecimal(commission));
+            netSalary = netSalary.add(new BigDecimal(labourCharges));
+
+            BigDecimal grossSalary = netSalary.subtract(employeeEPFAmount);
+
             Salary salary = salaryDAO.getByEmployeeDate(employee, firstDay);
 
             if (salary == null) {
@@ -163,6 +175,8 @@ public class SalaryLogic {
             salary.setBasicComponent(new BigDecimal(basicSalary));
             salary.setCommissionComponent(new BigDecimal(commission));
             salary.setOtherAllowances(new BigDecimal(labourCharges));
+            salary.setNetSalary(netSalary);
+            salary.setGrossSalary(grossSalary);
 
             salaryDAO.saveOrUpdate(salary);
         }
@@ -238,7 +252,6 @@ public class SalaryLogic {
             BigDecimal companyETFAmount = new BigDecimal(salary.getBasicComponent().doubleValue() * companyETF);
 
             BigDecimal netSalary = salary.getBasicComponent();
-            netSalary = netSalary.add(salary.getBasicComponent());
             netSalary = netSalary.add(salary.getCommissionComponent());
             netSalary = netSalary.add(salary.getOtherAllowances());
 

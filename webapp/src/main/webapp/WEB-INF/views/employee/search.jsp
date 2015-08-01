@@ -45,8 +45,10 @@
     function searchEmployee() {
         $.ajax({
             type: 'POST',
+            // Calling the server with the search text
             url: '${pageContext.request.contextPath}/employee/search/' + document.getElementById('searchText').value,
             success: function (result) {
+                // Set the tableContainer contents from the result server returned
                 document.getElementById("tableContainer").innerHTML = result;
             }
         });

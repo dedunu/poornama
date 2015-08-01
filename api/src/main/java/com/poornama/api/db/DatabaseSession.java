@@ -23,6 +23,14 @@ public class DatabaseSession {
         session = sessionGenerator.getSession();
     }
 
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    public Session getSession() {
+        return session;
+    }
+
     public void beginTransaction() {
         log.debug("[" + className + "] beginTransaction()");
         this.session.getTransaction().begin();

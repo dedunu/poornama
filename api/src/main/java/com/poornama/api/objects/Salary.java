@@ -30,6 +30,10 @@ public class Salary {
 
 	private BigDecimal otherAllowances;
 
+	private BigDecimal grossSalary;
+
+	private BigDecimal netSalary;
+
 	public int getId() {
 		return id;
 	}
@@ -76,6 +80,22 @@ public class Salary {
 
 	public void setOtherAllowances(BigDecimal otherAllowances) {
 		this.otherAllowances = otherAllowances;
+	}
+
+	public BigDecimal getNetSalary() {
+		return netSalary;
+	}
+
+	public void setNetSalary(BigDecimal netSalary) {
+		this.netSalary = netSalary;
+	}
+
+	public BigDecimal getGrossSalary() {
+		return grossSalary;
+	}
+
+	public void setGrossSalary(BigDecimal grossSalary) {
+		this.grossSalary = grossSalary;
 	}
 }
 

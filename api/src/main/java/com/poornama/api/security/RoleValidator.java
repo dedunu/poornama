@@ -18,7 +18,6 @@ public class RoleValidator {
     private static String className = RoleValidator.class.getName();
 
     /**
-     *
      * Validates a session for given role using HttpSession, if validation fails redirects to error page.
      *
      * @param session
@@ -30,11 +29,11 @@ public class RoleValidator {
     public void validate(HttpSession session, HttpServletRequest request, HttpServletResponse response, String role) throws IOException {
         List<String> roleList = new ArrayList<String>();
         roleList.add(role);
+        // Calls the same method with different signature in RoleValidator class
         validate(session, request, response, roleList);
     }
 
     /**
-     *
      * Validates a session for given role list using HttpSession, if validation fails redirects to error page.
      *
      * @param session
@@ -45,12 +44,15 @@ public class RoleValidator {
      */
     public void validate(HttpSession session, HttpServletRequest request, HttpServletResponse response, List<String> roleList)
             throws IOException {
+        // Retrieves role from Session
         String sessionRole = (String) session.getAttribute("userRole");
+        // Evaluvates whether role is uncluded in roleList
         if (!roleList.contains(sessionRole)) {
             log.warn("[" + className + "] validate: role validation failed");
-
+            // Redirects to the access denied page if validation fails
             response.sendRedirect(request.getContextPath() + "/session/denied");
         }
+        // Does nothing if validations is passed
         log.debug("[" + className + "] validate: " + sessionRole);
     }
 }

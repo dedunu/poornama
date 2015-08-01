@@ -1,11 +1,11 @@
 <%@ include file="../template/headerWithNav.jsp" %>
 <%
+    // Creates RoleValidator object
     RoleValidator roleValidator = new RoleValidator();
     List<String> roles = new ArrayList<String>();
-    roles.add("admin");
+    // Adds the manager to allowed role list
     roles.add("manager");
-    //roles.add("accountant");
-    //roles.add("clerk");
+    // Calls validation method
     roleValidator.validate(session, request, response, roles);
 %>
 <style scoped>

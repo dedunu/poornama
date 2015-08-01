@@ -9,21 +9,22 @@ import org.hibernate.service.ServiceRegistry;
 
 public class SessionFactoryGenerator {
 
-    /*
-        This class returns singleton SessionFactory for
-        Hibernate sessions. Do not auto format this page.
-        Auto formatting move sessionFactory variable to
-        the top.
+    /**
+     * This class returns singleton SessionFactory for
+     * Hibernate sessions. Do not auto format this page.
+     * Auto formatting move sessionFactory variable to
+     * the top.
      */
 
     private static Logger log = GlobalLogger.getLogger();
     private static String className = SessionFactoryGenerator.class.getName();
+    // Creates a singeton Session factory object
     private static final SessionFactory sessionFactory = buildSessionFactory();
     private static ServiceRegistry serviceRegistry;
 
-    /*
-        This class cannot be instantiated. Constructor
-        has been restricted.
+    /**
+     * This class cannot be instantiated. Constructor
+     * has been restricted.
      */
     private SessionFactoryGenerator() {
         log.debug("[" + className + "] constructor()");
@@ -55,6 +56,7 @@ public class SessionFactoryGenerator {
 
     public static void shutdown() {
         log.debug("[" + className + "] shutdown()");
+        // Close the session factory
         getSessionFactory().close();
     }
 }

@@ -24,14 +24,6 @@ public class EmployeeDAO {
         log.debug("[" + className + "] EmployeeDAO: constructor()");
     }
 
-    public void create(Employee employee) {
-        DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
-        databaseSession.save(employee);
-        databaseSession.commitTransaction();
-        databaseSession.close();
-        log.debug("[" + className + "] create()");
-    }
 
     public void delete(Employee employee) {
         DatabaseSession databaseSession = new DatabaseSession();
@@ -79,16 +71,36 @@ public class EmployeeDAO {
         return employee;
     }
 
-    public Employee getByFirstName(String firstName) {
+    public void create(Employee employee) {
+        // Initialize Database session
         DatabaseSession databaseSession = new DatabaseSession();
+        // Start transactions
         databaseSession.beginTransaction();
+        // Save the employee object in database using database session
+        databaseSession.save(employee);
+        // Commit the transaction and close the database session
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        log.debug("[" + className + "] create()");
+    }
+
+    public Employee getByFirstName(String firstName) {
+        // Initialize Database session
+        DatabaseSession databaseSession = new DatabaseSession();
+        // Start transactions
+        databaseSession.beginTransaction();
+        // Creates a criteria for the Employee Class
         Criteria criteria = databaseSession.createCriteria(Employee.class);
+        // Creates the condition as an expression for firstName
         SimpleExpression simpleExpression = Restrictions.eq("firstName", firstName);
+        // Grabs the unique result
         Employee employee = (Employee) criteria.add(simpleExpression)
                 .uniqueResult();
+        // Commit the transaction and close the database session
         databaseSession.commitTransaction();
         databaseSession.close();
         log.debug("[" + className + "] getByFirstName()");
+        //Returns employee object
         return employee;
     }
 
