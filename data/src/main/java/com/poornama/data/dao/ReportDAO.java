@@ -481,7 +481,7 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
-    public HashMap<Integer, HashMap<String, Double>> getAnnualVehicleMilageReport(final Date startDate, final Date endDate) {
+    public HashMap<Integer, HashMap<String, Double>> getAnnualVehicleMileageReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
         session.doWork(
@@ -520,4 +520,80 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
+    public HashMap<Integer, HashMap<String, Double>> getMonthlyExpenseReport(final Date startDate, final Date endDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        Session session = databaseSession.getSession();
+        session.doWork(
+                new Work() {
+                    public void execute(Connection connection) throws SQLException {
+                        Statement statement = connection.createStatement();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                        String queryString = "SELECT t.id, YEAR(e.date), MONTH(e.date), SUM(e.amount) ";
+                        queryString = queryString + "FROM Expense AS e INNER JOIN Expense_Tag AS et ON e.id = et.expenses_id ";
+                        queryString = queryString + "INNER JOIN Tag AS t ON et.tags_id = t.id ";
+                        queryString = queryString + "WHERE e.date >= \'" + simpleDateFormat.format(startDate) + "\' AND e.date <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY t.id, YEAR(e.date), MONTH(e.date) ";
+                        log.debug("[" + className + "] getMonthlyExpenseReport() :" + queryString);
+
+                        ResultSet resultSet = statement.executeQuery(queryString);
+
+                        HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
+
+                        while (resultSet.next()) {
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null) {
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-" + String.format("%02d", resultSet.getInt(3)) + "-01", resultSet.getDouble(4));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
+                        }
+
+                        setDoubleTable(dataTable);
+                    }
+                }
+        );
+        return getDoubleTable();
+    }
+
+    public HashMap<Integer, HashMap<String, Double>> getAnnualExpenseReport(final Date startDate, final Date endDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        Session session = databaseSession.getSession();
+        session.doWork(
+                new Work() {
+                    public void execute(Connection connection) throws SQLException {
+                        Statement statement = connection.createStatement();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                        String queryString = "SELECT t.id, YEAR(e.date), SUM(e.amount) ";
+                        queryString = queryString + "FROM Expense AS e INNER JOIN Expense_Tag AS et ON e.id = et.expenses_id ";
+                        queryString = queryString + "INNER JOIN Tag AS t ON et.tags_id = t.id ";
+                        queryString = queryString + "WHERE e.date >= \'" + simpleDateFormat.format(startDate) + "\' AND e.date <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY t.id, YEAR(e.date) ";
+
+                        log.debug("[" + className + "] getAnnualExpenseReport() :" + queryString);
+
+                        ResultSet resultSet = statement.executeQuery(queryString);
+
+                        HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
+
+                        while (resultSet.next()) {
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null) {
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-01-01", resultSet.getDouble(3));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
+                        }
+
+                        setDoubleTable(dataTable);
+                    }
+                }
+        );
+        return getDoubleTable();
+    }
 }

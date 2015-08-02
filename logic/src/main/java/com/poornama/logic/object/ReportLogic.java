@@ -130,7 +130,15 @@ public class ReportLogic {
                     setDoubleTable(reportDAO.getMonthlyVehicleMilageReport(startMonthlyDate, endMonthlyDate));
                 }
                 if (calendarField == Calendar.YEAR) {
-                    setDoubleTable(reportDAO.getAnnualVehicleMilageReport(startAnnuallyDate, endAnnuallyDate));
+                    setDoubleTable(reportDAO.getAnnualVehicleMileageReport(startAnnuallyDate, endAnnuallyDate));
+                }
+                break;
+            case 7:
+                if (calendarField == Calendar.MONTH) {
+                    setDoubleTable(reportDAO.getMonthlyExpenseReport(startMonthlyDate, endMonthlyDate));
+                }
+                if (calendarField == Calendar.YEAR) {
+                    setDoubleTable(reportDAO.getAnnualExpenseReport(startAnnuallyDate, endAnnuallyDate));
                 }
                 break;
             default:
@@ -199,6 +207,14 @@ public class ReportLogic {
                     return doubleTableHelper.getChartColumns(getDoubleTable(), startAnnuallyDate, endAnnuallyDate, getLabels(VEHICLE_TYPE), Calendar.YEAR);
                 }
                 return null;
+            case 7:
+                if (calendarField == Calendar.MONTH) {
+                    return doubleTableHelper.getChartColumns(getDoubleTable(), startMonthlyDate, endMonthlyDate, getLabels(TAG_TYPE), Calendar.MONTH);
+                }
+                if (calendarField == Calendar.YEAR) {
+                    return doubleTableHelper.getChartColumns(getDoubleTable(), startAnnuallyDate, endAnnuallyDate, getLabels(TAG_TYPE), Calendar.YEAR);
+                }
+                return null;
             default:
                 return null;
         }
@@ -262,6 +278,14 @@ public class ReportLogic {
                 }
                 if (calendarField == Calendar.YEAR) {
                     return doubleTableHelper.getTable(getDoubleTable(), getLabels(VEHICLE_TYPE), getAxisList(startAnnuallyDate, endAnnuallyDate, Calendar.YEAR));
+                }
+                return null;
+            case 7:
+                if (calendarField == Calendar.MONTH) {
+                    return doubleTableHelper.getTable(getDoubleTable(), getLabels(TAG_TYPE), getAxisList(startMonthlyDate, endMonthlyDate, Calendar.MONTH));
+                }
+                if (calendarField == Calendar.YEAR) {
+                    return doubleTableHelper.getTable(getDoubleTable(), getLabels(TAG_TYPE), getAxisList(startAnnuallyDate, endAnnuallyDate, Calendar.YEAR));
                 }
                 return null;
             default:
