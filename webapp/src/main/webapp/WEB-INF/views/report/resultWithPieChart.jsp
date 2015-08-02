@@ -81,6 +81,11 @@
 <h1>${displayName}</h1>
 <br/>
 
+<div class="row" id="pieChart">
+
+</div>
+
+<br/>
 <div class="row" id="chart">
 
 </div>
@@ -134,6 +139,19 @@
                     format: '%Y-%m-%d'
                 }
             }
+        }
+    });
+
+    var chart = c3.generate({
+        bindto: '#pieChart',
+        data: {
+            columns: [
+                ${pieChartText}
+            ],
+            type : 'pie',
+            onclick: function (d, i) { console.log("onclick", d, i); },
+            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
         }
     });
 

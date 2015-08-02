@@ -168,7 +168,6 @@ public class ReportLogic {
                 return null;
             case 2:
                 if (calendarField == Calendar.MONTH) {
-                    if (getDoubleTable() == null)
                     return doubleTableHelper.getChartColumns(getDoubleTable(), startMonthlyDate, endMonthlyDate, getLabels(EMPLOYEE_TYPE), Calendar.MONTH);
                 }
                 if (calendarField == Calendar.YEAR) {
@@ -213,6 +212,46 @@ public class ReportLogic {
                 }
                 if (calendarField == Calendar.YEAR) {
                     return doubleTableHelper.getChartColumns(getDoubleTable(), startAnnuallyDate, endAnnuallyDate, getLabels(TAG_TYPE), Calendar.YEAR);
+                }
+                return null;
+            default:
+                return null;
+        }
+
+    }
+
+    public String getPieChartString(int reportId, int calendarField, String startDateString, String endDateString) {
+        log.debug("[" + className + "] getChartString() : started");
+        DateHelper dateHelper = new DateHelper();
+        Date startMonthlyDate = dateHelper.getStartDateMonthy(dateHelper.getDate(startDateString));
+        Date startAnnuallyDate = dateHelper.getStartDateAnually(dateHelper.getDate(startDateString));
+        Date endMonthlyDate = dateHelper.getEndDateMonthy(dateHelper.getDate(endDateString));
+        Date endAnnuallyDate = dateHelper.getEndDateAnually(dateHelper.getDate(endDateString));
+        DoubleTableHelper doubleTableHelper = new DoubleTableHelper();
+
+        switch (reportId) {
+            case 4:
+                if (calendarField == Calendar.MONTH) {
+                    return doubleTableHelper.getPieChartColumns(getDoubleTable(), startMonthlyDate, endMonthlyDate, getLabels(CLIENT_TYPE), Calendar.MONTH);
+                }
+                if (calendarField == Calendar.YEAR) {
+                    return doubleTableHelper.getPieChartColumns(getDoubleTable(), startAnnuallyDate, endAnnuallyDate, getLabels(CLIENT_TYPE), Calendar.YEAR);
+                }
+                return null;
+            case 5:
+                if (calendarField == Calendar.MONTH) {
+                    return doubleTableHelper.getPieChartColumns(getDoubleTable(), startMonthlyDate, endMonthlyDate, getLabels(VEHICLE_TYPE), Calendar.MONTH);
+                }
+                if (calendarField == Calendar.YEAR) {
+                    return doubleTableHelper.getPieChartColumns(getDoubleTable(), startAnnuallyDate, endAnnuallyDate, getLabels(VEHICLE_TYPE), Calendar.YEAR);
+                }
+                return null;
+            case 7:
+                if (calendarField == Calendar.MONTH) {
+                    return doubleTableHelper.getPieChartColumns(getDoubleTable(), startMonthlyDate, endMonthlyDate, getLabels(TAG_TYPE), Calendar.MONTH);
+                }
+                if (calendarField == Calendar.YEAR) {
+                    return doubleTableHelper.getPieChartColumns(getDoubleTable(), startAnnuallyDate, endAnnuallyDate, getLabels(TAG_TYPE), Calendar.YEAR);
                 }
                 return null;
             default:

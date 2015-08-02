@@ -67,6 +67,54 @@ public class DoubleTableHelper {
         return result;
     }
 
+
+    public String getPieChartColumns(HashMap<Integer, HashMap<String, Double>> dataTable, Date startDate, Date endDate, Map<Integer, String> labelMap, int calendarField) {
+        log.debug("[" + className + "] getChartColumns() : started");
+        String result = "";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        for (Map.Entry<Integer, String> mapEntry : labelMap.entrySet()) {
+            result = result + "[ ";
+
+            HashMap<String, Double> tempHashMap;
+
+            result = result + "\'" + mapEntry.getValue() + "\',";
+            tempHashMap = dataTable.get(mapEntry.getKey());
+
+            Date tempDate = startDate;
+            Calendar tempCalendar = Calendar.getInstance();
+            tempCalendar.setTime(tempDate);
+
+            while (tempDate.before(endDate)) {
+                if (tempHashMap != null) {
+                    if (tempHashMap.get(simpleDateFormat.format(tempDate)) != null) {
+                        result = result + tempHashMap.get(simpleDateFormat.format(tempDate)) + ",";
+                    } else {
+                        result = result + "0,";
+                    }
+                } else {
+                    result = result + "0,";
+                }
+
+                tempCalendar.setTime(tempDate);
+                tempCalendar.add(calendarField, 1);
+                tempDate = tempCalendar.getTime();
+            }
+
+            if (result.length() > 0 && result.charAt(result.length() - 1) == ',') {
+                result = result.substring(0, result.length() - 1);
+            }
+
+            result = result + " ],";
+
+        }
+
+        if (result.length() > 0 && result.charAt(result.length() - 1) == ',') {
+            result = result.substring(0, result.length() - 1);
+        }
+
+        return result;
+    }
+
     public String getTable(HashMap<Integer, HashMap<String, Double>> dataTable, Map<Integer, String> labelMap, List<String> axisList) {
         log.debug("[" + className + "] getTable() : started");
         String result;

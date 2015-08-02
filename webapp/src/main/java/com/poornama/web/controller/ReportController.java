@@ -76,6 +76,7 @@ public class ReportController {
         if (reportId.equals("4")) {
             reportLogic.generateReport(4, frequency, request.getParameter("startDate"), request.getParameter("endDate"));
             model.addAttribute("chartText", reportLogic.getChartString(4, frequency, request.getParameter("startDate"), request.getParameter("endDate")));
+            model.addAttribute("pieChartText", reportLogic.getPieChartString(4, frequency, request.getParameter("startDate"), request.getParameter("endDate")));
             model.addAttribute("tableText", reportLogic.getTableString(4, frequency, request.getParameter("startDate"), request.getParameter("endDate")));
             model.addAttribute("displayName", "Client wise Revenue Report");
 
@@ -85,6 +86,7 @@ public class ReportController {
         if (reportId.equals("5")) {
             reportLogic.generateReport(5, frequency, request.getParameter("startDate"), request.getParameter("endDate"));
             model.addAttribute("chartText", reportLogic.getChartString(5, frequency, request.getParameter("startDate"), request.getParameter("endDate")));
+            model.addAttribute("pieChartText", reportLogic.getPieChartString(5, frequency, request.getParameter("startDate"), request.getParameter("endDate")));
             model.addAttribute("tableText", reportLogic.getTableString(5, frequency, request.getParameter("startDate"), request.getParameter("endDate")));
             model.addAttribute("displayName", "Vehicle wise Revenue Report");
 
@@ -103,6 +105,7 @@ public class ReportController {
         if (reportId.equals("7")) {
             reportLogic.generateReport(7, frequency, request.getParameter("startDate"), request.getParameter("endDate"));
             model.addAttribute("chartText", reportLogic.getChartString(7, frequency, request.getParameter("startDate"), request.getParameter("endDate")));
+            model.addAttribute("pieChartText", reportLogic.getPieChartString(7, frequency, request.getParameter("startDate"), request.getParameter("endDate")));
             model.addAttribute("tableText", reportLogic.getTableString(7, frequency, request.getParameter("startDate"), request.getParameter("endDate")));
             model.addAttribute("displayName", "Expense Report");
 
