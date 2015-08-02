@@ -297,11 +297,11 @@ public class ReportDAO {
                         Statement statement = connection.createStatement();
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-                        String queryString = "SELECT c.id, YEAR(j.date), MONTH(j.date), SUM(j.containerCharges + j.detentionCharges + j.hireCharges + j.labourCharges) ";
+                        String queryString = "SELECT c.id, YEAR(j.startDate), MONTH(j.startDate), SUM(j.containerCharges + j.detentionCharges + j.hireCharges + j.labourCharges) ";
                         queryString = queryString + "FROM Job AS j INNER JOIN JobTemplate AS jt ON j.jobTemplateId = jt.id ";
                         queryString = queryString + "INNER JOIN Client AS c ON jt.clientId = c.id ";
-                        queryString = queryString + "WHERE j.date >= \'" + simpleDateFormat.format(startDate) + "\' AND j.date <= \'" + simpleDateFormat.format(endDate) + "\' ";
-                        queryString = queryString + "GROUP BY c.id, YEAR(j.date), MONTH(j.date) ";
+                        queryString = queryString + "WHERE j.startDate >= \'" + simpleDateFormat.format(startDate) + "\' AND j.startDate <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY c.id, YEAR(j.startDate), MONTH(j.startDate) ";
                         log.debug("[" + className + "] getMonthlyClientRevenueReport() :" + queryString);
 
                         ResultSet resultSet = statement.executeQuery(queryString);
@@ -315,7 +315,7 @@ public class ReportDAO {
                             } else {
                                 tempHashMap = dataTable.get(resultSet.getInt(1));
                             }
-                            tempHashMap.put(resultSet.getString(2) + "-" + String.format("%02d", resultSet.getInt(3)) + "-01", resultSet.getDouble(3));
+                            tempHashMap.put(resultSet.getString(2) + "-" + String.format("%02d", resultSet.getInt(3)) + "-01", resultSet.getDouble(4));
                             dataTable.put(resultSet.getInt(1), tempHashMap);
                         }
 
@@ -335,13 +335,168 @@ public class ReportDAO {
                         Statement statement = connection.createStatement();
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-                        String queryString = "SELECT c.id, YEAR(j.date), SUM(j.containerCharges + j.detentionCharges + j.hireCharges + j.labourCharges) ";
+                        String queryString = "SELECT c.id, YEAR(j.startDate), SUM(j.containerCharges + j.detentionCharges + j.hireCharges + j.labourCharges) ";
                         queryString = queryString + "FROM Job AS j INNER JOIN JobTemplate AS jt ON j.jobTemplateId = jt.id ";
                         queryString = queryString + "INNER JOIN Client AS c ON jt.clientId = c.id ";
-                        queryString = queryString + "WHERE j.date >= \'" + simpleDateFormat.format(startDate) + "\' AND j.date <= \'" + simpleDateFormat.format(endDate) + "\' ";
-                        queryString = queryString + "GROUP BY c.id, YEAR(j.date) ";
+                        queryString = queryString + "WHERE j.startDate >= \'" + simpleDateFormat.format(startDate) + "\' AND j.startDate <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY c.id, YEAR(j.startDate) ";
 
                         log.debug("[" + className + "] getAnnualClientRevenueReport() :" + queryString);
+
+                        ResultSet resultSet = statement.executeQuery(queryString);
+
+                        HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
+
+                        while (resultSet.next()) {
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null) {
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-01-01", resultSet.getDouble(3));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
+                        }
+
+                        setDoubleTable(dataTable);
+                    }
+                }
+        );
+        return getDoubleTable();
+    }
+
+    public HashMap<Integer, HashMap<String, Double>> getMonthlyVehicleRevenueReport(final Date startDate, final Date endDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        Session session = databaseSession.getSession();
+        session.doWork(
+                new Work() {
+                    public void execute(Connection connection) throws SQLException {
+                        Statement statement = connection.createStatement();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                        String queryString = "SELECT v.id, YEAR(j.startDate), MONTH(j.startDate), SUM(j.containerCharges + j.detentionCharges + j.hireCharges + j.labourCharges) ";
+                        queryString = queryString + "FROM Job AS j INNER JOIN Vehicle AS v ON j.vehicleId = v.id ";
+                        queryString = queryString + "WHERE j.startDate >= \'" + simpleDateFormat.format(startDate) + "\' AND j.startDate <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY v.id, YEAR(j.startDate), MONTH(j.startDate) ";
+
+                        log.debug("[" + className + "] getMonthlyVehicleRevenueReport() :" + queryString);
+
+                        ResultSet resultSet = statement.executeQuery(queryString);
+
+                        HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
+
+                        while (resultSet.next()) {
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null) {
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-" + String.format("%02d", resultSet.getInt(3)) + "-01", resultSet.getDouble(4));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
+                        }
+
+                        setDoubleTable(dataTable);
+                    }
+                }
+        );
+        return getDoubleTable();
+    }
+
+
+    public HashMap<Integer, HashMap<String, Double>> getAnnualVehicleRevenueReport(final Date startDate, final Date endDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        Session session = databaseSession.getSession();
+        session.doWork(
+                new Work() {
+                    public void execute(Connection connection) throws SQLException {
+                        Statement statement = connection.createStatement();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                        String queryString = "SELECT v.id, YEAR(j.startDate), SUM(j.containerCharges + j.detentionCharges + j.hireCharges + j.labourCharges) ";
+                        queryString = queryString + "FROM Job AS j INNER JOIN Vehicle AS v ON j.vehicleId = v.id ";
+                        queryString = queryString + "WHERE j.startDate >= \'" + simpleDateFormat.format(startDate) + "\' AND j.startDate <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY v.id, YEAR(j.startDate) ";
+
+
+                        log.debug("[" + className + "] getAnnualVehicleRevenueReport() :" + queryString);
+
+                        ResultSet resultSet = statement.executeQuery(queryString);
+
+                        HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
+
+                        while (resultSet.next()) {
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null) {
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-01-01", resultSet.getDouble(3));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
+                        }
+
+                        setDoubleTable(dataTable);
+                    }
+                }
+        );
+        return getDoubleTable();
+    }
+
+    public HashMap<Integer, HashMap<String, Double>> getMonthlyVehicleMilageReport(final Date startDate, final Date endDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        Session session = databaseSession.getSession();
+        session.doWork(
+                new Work() {
+                    public void execute(Connection connection) throws SQLException {
+                        Statement statement = connection.createStatement();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                        String queryString = "SELECT v.id, YEAR(j.startDate), MONTH(j.startDate), SUM(jt.distance) ";
+                        queryString = queryString + "FROM Job AS j INNER JOIN JobTemplate AS jt ON j.jobTemplateId = jt.id ";
+                        queryString = queryString + "INNER JOIN Vehicle AS v ON j.vehicleId = v.id ";
+                        queryString = queryString + "WHERE j.startDate >= \'" + simpleDateFormat.format(startDate) + "\' AND j.startDate <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY v.id, YEAR(j.startDate), MONTH(j.startDate) ";
+                        log.debug("[" + className + "] getMonthlyVehicleMilageReport() :" + queryString);
+
+                        ResultSet resultSet = statement.executeQuery(queryString);
+
+                        HashMap<Integer, HashMap<String, Double>> dataTable = new HashMap<Integer, HashMap<String, Double>>();
+
+                        while (resultSet.next()) {
+                            HashMap tempHashMap;
+                            if (dataTable.get(resultSet.getInt(1)) == null) {
+                                tempHashMap = new HashMap<String, Double>();
+                            } else {
+                                tempHashMap = dataTable.get(resultSet.getInt(1));
+                            }
+                            tempHashMap.put(resultSet.getString(2) + "-" + String.format("%02d", resultSet.getInt(3)) + "-01", resultSet.getDouble(4));
+                            dataTable.put(resultSet.getInt(1), tempHashMap);
+                        }
+
+                        setDoubleTable(dataTable);
+                    }
+                }
+        );
+        return getDoubleTable();
+    }
+
+    public HashMap<Integer, HashMap<String, Double>> getAnnualVehicleMilageReport(final Date startDate, final Date endDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        Session session = databaseSession.getSession();
+        session.doWork(
+                new Work() {
+                    public void execute(Connection connection) throws SQLException {
+                        Statement statement = connection.createStatement();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                        String queryString = "SELECT v.id, YEAR(j.startDate), SUM(jt.distance) ";
+                        queryString = queryString + "FROM Job AS j INNER JOIN JobTemplate AS jt ON j.jobTemplateId = jt.id ";
+                        queryString = queryString + "INNER JOIN Vehicle AS v ON j.vehicleId = v.id ";
+                        queryString = queryString + "WHERE j.startDate >= \'" + simpleDateFormat.format(startDate) + "\' AND j.startDate <= \'" + simpleDateFormat.format(endDate) + "\' ";
+                        queryString = queryString + "GROUP BY v.id, YEAR(j.startDate) ";
+
+                        log.debug("[" + className + "] getAnnualVehicleRevenueReport() :" + queryString);
 
                         ResultSet resultSet = statement.executeQuery(queryString);
 

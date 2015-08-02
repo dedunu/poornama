@@ -74,6 +74,33 @@ public class ReportController {
             return "report/result";
         }
 
+        if (reportId.equals("4")) {
+            reportLogic.generateReport(4, frequency, request.getParameter("startDate"), request.getParameter("endDate"));
+            model.addAttribute("chartText", reportLogic.getChartString(4,frequency, request.getParameter("startDate"), request.getParameter("endDate")));
+            model.addAttribute("tableText", reportLogic.getTableString(4,frequency, request.getParameter("startDate"), request.getParameter("endDate")));
+            model.addAttribute("displayName", "Client wise Revenue Report");
+
+            return "report/resultWithPieChart";
+        }
+
+        if (reportId.equals("5")) {
+            reportLogic.generateReport(5, frequency, request.getParameter("startDate"), request.getParameter("endDate"));
+            model.addAttribute("chartText", reportLogic.getChartString(5,frequency, request.getParameter("startDate"), request.getParameter("endDate")));
+            model.addAttribute("tableText", reportLogic.getTableString(5,frequency, request.getParameter("startDate"), request.getParameter("endDate")));
+            model.addAttribute("displayName", "Vehicle wise Revenue Report");
+
+            return "report/resultWithPieChart";
+        }
+
+        if (reportId.equals("6")) {
+            reportLogic.generateReport(6, frequency, request.getParameter("startDate"), request.getParameter("endDate"));
+            model.addAttribute("chartText", reportLogic.getChartString(6,frequency, request.getParameter("startDate"), request.getParameter("endDate")));
+            model.addAttribute("tableText", reportLogic.getTableString(6,frequency, request.getParameter("startDate"), request.getParameter("endDate")));
+            model.addAttribute("displayName", "Vehicle Mileage Report");
+
+            return "report/result";
+        }
+
         log.debug("[" + className + "] reportHub()");
         return "report/index";
     }

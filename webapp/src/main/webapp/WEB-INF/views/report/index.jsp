@@ -47,7 +47,7 @@
 
         <div class="col-sm-3">
             <div class='input-group date' id="startDateInputGroup">
-                <input type='text' class="form-control" id="startDate" name="startDate" />
+                <input type='text' class="form-control" id="startDate" name="startDate"/>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -59,7 +59,7 @@
 
         <div class="col-sm-3">
             <div class='input-group date' id="endDateInputGroup">
-                <input type='text' class="form-control" id="endDate" name="endDate" />
+                <input type='text' class="form-control" id="endDate" name="endDate"/>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
