@@ -11,6 +11,16 @@ import java.util.Locale;
 
 public class TempMain {
 
+	private int size;
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
 	public static void main(String[] args) throws Exception{
 		// For Temporary Test.
 		System.out.println(String.format("%02d", 11));
