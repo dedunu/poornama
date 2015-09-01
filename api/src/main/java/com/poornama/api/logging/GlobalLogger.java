@@ -11,6 +11,11 @@ public class GlobalLogger {
 
     }
 
+    /**
+     * Returns logger object for the invoker
+     *
+     * @return Logger object
+     */
     public static Logger getLogger() {
         logger.debug("[" + className + "] getLogger()");
         return logger;

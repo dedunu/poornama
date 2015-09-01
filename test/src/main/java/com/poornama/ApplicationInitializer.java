@@ -1,11 +1,18 @@
 package com.poornama;
 
-import com.poornama.api.objects.*;
-import com.poornama.data.dao.*;
+import com.poornama.api.objects.Configuration;
+import com.poornama.api.objects.EmployeeType;
+import com.poornama.api.objects.JobType;
+import com.poornama.api.objects.User;
+import com.poornama.api.objects.UserRole;
+import com.poornama.api.objects.VehicleType;
+import com.poornama.data.dao.ConfigurationDAO;
+import com.poornama.data.dao.EmployeeTypeDAO;
+import com.poornama.data.dao.JobTypeDAO;
+import com.poornama.data.dao.UserDAO;
+import com.poornama.data.dao.UserRoleDAO;
+import com.poornama.data.dao.VehicleTypeDAO;
 
-/**
- * Created by dedunu on 8/4/15.
- */
 public class ApplicationInitializer {
 
     public void initialize() {
@@ -58,11 +65,6 @@ public class ApplicationInitializer {
 
         EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();
 
-        EmployeeType employeeType1 = new EmployeeType();
-        employeeType1.setDisplayName("Owner");
-        employeeType1.setName("owner");
-        employeeTypeDAO.create(employeeType1);
-
         EmployeeType employeeType2 = new EmployeeType();
         employeeType2.setDisplayName("Manager");
         employeeType2.setName("manager");
@@ -113,8 +115,8 @@ public class ApplicationInitializer {
         userRoleDAO.create(userRole2);
 
         UserRole userRole3 = new UserRole();
-        userRole3.setName("accountant");
-        userRole3.setDisplayName("Accountant");
+        userRole3.setName("owner");
+        userRole3.setDisplayName("Owner");
         userRoleDAO.create(userRole3);
 
         UserRole userRole4 = new UserRole();

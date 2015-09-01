@@ -4,8 +4,7 @@
     List<String> roles = new ArrayList<String>();
     roles.add("admin");
     roles.add("manager");
-    //roles.add("accountant");
-    //roles.add("clerk");
+    roles.add("owner");
     roleValidator.validate(session, request, response, roles);
 %>
 <style scoped>

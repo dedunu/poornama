@@ -5,14 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * Created by dedunu on 8/2/15.
- */
 public class DateHelper {
 
     public Date getDate(String dateString) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/yyyy");
-        Date result = new Date();
+        Date result;
         try {
             result = simpleDateFormat.parse(dateString);
         } catch (ParseException e){
@@ -21,7 +18,7 @@ public class DateHelper {
         return result;
     }
 
-    public Date getStartDateMonthy(Date date) {
+    public Date getStartDateMonthly(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
 
@@ -29,7 +26,7 @@ public class DateHelper {
         return calendar.getTime();
     }
 
-    public Date getEndDateMonthy(Date date) {
+    public Date getEndDateMonthly(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
 
@@ -37,7 +34,7 @@ public class DateHelper {
         return calendar.getTime();
     }
 
-    public Date getStartDateAnually(Date date) {
+    public Date getStartDateAnnually(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
 
@@ -46,7 +43,7 @@ public class DateHelper {
         return calendar.getTime();
     }
 
-    public Date getEndDateAnually(Date date) {
+    public Date getEndDateAnnually(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
 

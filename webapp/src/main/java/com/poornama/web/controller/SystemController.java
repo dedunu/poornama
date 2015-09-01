@@ -2,6 +2,8 @@ package com.poornama.web.controller;
 
 import com.poornama.api.logging.GlobalLogger;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +15,15 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-/**
- * Created by dedunu on 11/11/14.
- */
 @Controller
 @RequestMapping("/system/")
 public class SystemController {
 
     private static Logger log = GlobalLogger.getLogger();
     private static String className = SystemController.class.getName();
+
+    @Autowired
+    private MessageSource messageSource;
 
     @RequestMapping(value = "logs", method = RequestMethod.GET)
     public String login(Model model) {
@@ -40,5 +42,13 @@ public class SystemController {
         }
         bufferedReader.close();
         fileReader.close();
+    }
+
+    @RequestMapping(value = "error", method = RequestMethod.GET)
+    public String error(Model model) {
+        log.error("[" + className + "] accessDenied: Success, redirected to notify/danger");
+        model.addAttribute("message", "Oops. Something went wrong. Please contact administrator.");
+        model.addAttribute("pageTitle", "Poornama Transport Service - Error");
+        return "notify/danger";
     }
 }

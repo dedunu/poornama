@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * Created by dedunu on 8/2/15.
  */
-public class DoubleTableHelper {
+public class DoubleTableHelper extends TableHelper {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = DoubleTableHelper.class.getName();
 
@@ -160,38 +160,6 @@ public class DoubleTableHelper {
         result = result + plainDataTableGenerator.getEndTable();
 
         return result;
-    }
-
-    private String getAxis(Date startDate, Date endDate, int calendarField) {
-        String result = "[ \'x\',";
-
-        List<String> stringList = getAxisList(startDate, endDate, calendarField);
-        for (String dateString : stringList) {
-            result = result + " \'" + dateString + "\' ,";
-        }
-
-        if (result.length() > 0 && result.charAt(result.length() - 1) == ',') {
-            result = result.substring(0, result.length() - 1);
-        }
-
-        result = result + " ],";
-        return result;
-    }
-
-    private List<String> getAxisList(Date startDate, Date endDate, int calendarField) {
-        List<String> stringList = new ArrayList<String>();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date tempDate = startDate;
-        Calendar tempCalendar = Calendar.getInstance();
-        tempCalendar.setTime(tempDate);
-
-        while (tempDate.before(endDate)) {
-            stringList.add(simpleDateFormat.format(tempDate));
-            tempCalendar.add(calendarField, 1);
-            tempDate = tempCalendar.getTime();
-        }
-
-        return stringList;
     }
 
 

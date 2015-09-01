@@ -7,9 +7,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-/**
- * Created by dedunu on 10/23/14.
- */
 public class PasswordHash {
 
     private static Logger log = GlobalLogger.getLogger();
@@ -18,9 +15,9 @@ public class PasswordHash {
     /**
      * Returned the hash value for the given username and password
      *
-     * @param userName
-     * @param password
-     * @return
+     * @param userName String
+     * @param password String
+     * @return Hashed password as a String
      */
     public String getHash(String userName, String password) {
         String result = null;

@@ -20,10 +20,10 @@ public class RoleValidator {
     /**
      * Validates a session for given role using HttpSession, if validation fails redirects to error page.
      *
-     * @param session
-     * @param request
-     * @param response
-     * @param role
+     * @param session HttpSession
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @param role String
      * @throws IOException
      */
     public void validate(HttpSession session, HttpServletRequest request, HttpServletResponse response, String role) throws IOException {
@@ -36,23 +36,60 @@ public class RoleValidator {
     /**
      * Validates a session for given role list using HttpSession, if validation fails redirects to error page.
      *
-     * @param session
-     * @param request
-     * @param response
-     * @param roleList
+     * @param session HttpSession
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @param roleList List<String>
      * @throws IOException
      */
     public void validate(HttpSession session, HttpServletRequest request, HttpServletResponse response, List<String> roleList)
             throws IOException {
-        // Retrieves role from Session
-        String sessionRole = (String) session.getAttribute("userRole");
-        // Evaluvates whether role is uncluded in roleList
-        if (!roleList.contains(sessionRole)) {
-            log.warn("[" + className + "] validate: role validation failed");
-            // Redirects to the access denied page if validation fails
-            response.sendRedirect(request.getContextPath() + "/session/denied");
+        try {
+            // Retrieves role from Session
+            String sessionRole = (String) session.getAttribute("userRole");
+            // Evaluates whether role is included in roleList
+            if (!roleList.contains(sessionRole)) {
+                log.warn("[" + className + "] validate: role validation failed");
+                // Redirects to the access denied page if validation fails
+                response.sendRedirect(request.getContextPath() + "/session/denied");
+            }
+            // Does nothing if validations is passed
+            log.debug("[" + className + "] validate: " + sessionRole);
+        } catch (Exception e) {
+            log.error("[" + className + "] validate: Error ");
+            response.sendRedirect(request.getContextPath() + "/system/error");
         }
-        // Does nothing if validations is passed
-        log.debug("[" + className + "] validate: " + sessionRole);
     }
+
+    /**
+     * Returns true if current user's role contains in roleList
+     *
+     * @param session HttpSession
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @param roleList List<String>
+     * @return true if current user's role contains in roleList
+     * @throws IOException
+     */
+    public boolean isVisible(HttpSession session, HttpServletRequest request, HttpServletResponse response, List<String> roleList)
+            throws IOException {
+        try {
+            // Retrieves role from Session
+            String sessionRole = (String) session.getAttribute("userRole");
+            // Evaluates whether role is included in roleList
+            if (!roleList.contains(sessionRole)) {
+                log.warn("[" + className + "] isVisible: role validation failed");
+                // Redirects to the access denied page if validation fails
+                return true;
+            }
+            log.debug("[" + className + "] isVisible: " + sessionRole);
+        } catch (Exception e) {
+            log.error("[" + className + "] isVisible: Error " + e.getMessage());
+            response.sendRedirect(request.getContextPath() + "/system/error");
+        } finally {
+            return false;
+        }
+    }
+
+
 }

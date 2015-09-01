@@ -78,10 +78,10 @@ public class ReportLogic {
     public void generateReport(int reportId, int calendarField, String startDateString, String endDateString) {
         log.debug("[" + className + "] generateReport() : started");
         DateHelper dateHelper = new DateHelper();
-        Date startMonthlyDate = dateHelper.getStartDateMonthy(dateHelper.getDate(startDateString));
-        Date startAnnuallyDate = dateHelper.getStartDateAnually(dateHelper.getDate(startDateString));
-        Date endMonthlyDate = dateHelper.getEndDateMonthy(dateHelper.getDate(endDateString));
-        Date endAnnuallyDate = dateHelper.getEndDateAnually(dateHelper.getDate(endDateString));
+        Date startMonthlyDate = dateHelper.getStartDateMonthly(dateHelper.getDate(startDateString));
+        Date startAnnuallyDate = dateHelper.getStartDateAnnually(dateHelper.getDate(startDateString));
+        Date endMonthlyDate = dateHelper.getEndDateMonthly(dateHelper.getDate(endDateString));
+        Date endAnnuallyDate = dateHelper.getEndDateAnnually(dateHelper.getDate(endDateString));
         ReportDAO reportDAO = new ReportDAO();
 
         switch (reportId) {
@@ -150,10 +150,10 @@ public class ReportLogic {
     public String getChartString(int reportId, int calendarField, String startDateString, String endDateString) {
         log.debug("[" + className + "] getChartString() : started");
         DateHelper dateHelper = new DateHelper();
-        Date startMonthlyDate = dateHelper.getStartDateMonthy(dateHelper.getDate(startDateString));
-        Date startAnnuallyDate = dateHelper.getStartDateAnually(dateHelper.getDate(startDateString));
-        Date endMonthlyDate = dateHelper.getEndDateMonthy(dateHelper.getDate(endDateString));
-        Date endAnnuallyDate = dateHelper.getEndDateAnually(dateHelper.getDate(endDateString));
+        Date startMonthlyDate = dateHelper.getStartDateMonthly(dateHelper.getDate(startDateString));
+        Date startAnnuallyDate = dateHelper.getStartDateAnnually(dateHelper.getDate(startDateString));
+        Date endMonthlyDate = dateHelper.getEndDateMonthly(dateHelper.getDate(endDateString));
+        Date endAnnuallyDate = dateHelper.getEndDateAnnually(dateHelper.getDate(endDateString));
         DoubleTableHelper doubleTableHelper = new DoubleTableHelper();
         IntegerTableHelper integerTableHelper = new IntegerTableHelper();
 
@@ -223,10 +223,10 @@ public class ReportLogic {
     public String getPieChartString(int reportId, int calendarField, String startDateString, String endDateString) {
         log.debug("[" + className + "] getChartString() : started");
         DateHelper dateHelper = new DateHelper();
-        Date startMonthlyDate = dateHelper.getStartDateMonthy(dateHelper.getDate(startDateString));
-        Date startAnnuallyDate = dateHelper.getStartDateAnually(dateHelper.getDate(startDateString));
-        Date endMonthlyDate = dateHelper.getEndDateMonthy(dateHelper.getDate(endDateString));
-        Date endAnnuallyDate = dateHelper.getEndDateAnually(dateHelper.getDate(endDateString));
+        Date startMonthlyDate = dateHelper.getStartDateMonthly(dateHelper.getDate(startDateString));
+        Date startAnnuallyDate = dateHelper.getStartDateAnnually(dateHelper.getDate(startDateString));
+        Date endMonthlyDate = dateHelper.getEndDateMonthly(dateHelper.getDate(endDateString));
+        Date endAnnuallyDate = dateHelper.getEndDateAnnually(dateHelper.getDate(endDateString));
         DoubleTableHelper doubleTableHelper = new DoubleTableHelper();
 
         switch (reportId) {
@@ -263,10 +263,10 @@ public class ReportLogic {
     public String getTableString(int reportId, int calendarField, String startDateString, String endDateString) {
         log.debug("[" + className + "] getTableString() : started");
         DateHelper dateHelper = new DateHelper();
-        Date startMonthlyDate = dateHelper.getStartDateMonthy(dateHelper.getDate(startDateString));
-        Date startAnnuallyDate = dateHelper.getStartDateAnually(dateHelper.getDate(startDateString));
-        Date endMonthlyDate = dateHelper.getEndDateMonthy(dateHelper.getDate(endDateString));
-        Date endAnnuallyDate = dateHelper.getEndDateAnually(dateHelper.getDate(endDateString));
+        Date startMonthlyDate = dateHelper.getStartDateMonthly(dateHelper.getDate(startDateString));
+        Date startAnnuallyDate = dateHelper.getStartDateAnnually(dateHelper.getDate(startDateString));
+        Date endMonthlyDate = dateHelper.getEndDateMonthly(dateHelper.getDate(endDateString));
+        Date endAnnuallyDate = dateHelper.getEndDateAnnually(dateHelper.getDate(endDateString));
         DoubleTableHelper doubleTableHelper = new DoubleTableHelper();
         IntegerTableHelper integerTableHelper = new IntegerTableHelper();
 

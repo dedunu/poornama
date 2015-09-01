@@ -19,6 +19,11 @@ public class SpringConfiguration {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = SpringConfiguration.class.getName();
 
+    /**
+     * Setup view resolver for the spring application. returns a UrlBasedViewResolver with configurations
+     *
+     * @return UrlBasedViewResolver
+     */
     @Bean
     public UrlBasedViewResolver setupViewResolver() {
         log.debug("[" + className + "] setupViewResolver()");

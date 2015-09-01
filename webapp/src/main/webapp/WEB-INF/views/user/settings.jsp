@@ -3,8 +3,8 @@
     RoleValidator roleValidator = new RoleValidator();
     List<String> roles = new ArrayList<String>();
     roles.add("admin");
+    roles.add("owner");
     roles.add("manager");
-    roles.add("accountant");
     roles.add("clerk");
     roleValidator.validate(session, request, response, roles);
 %>
@@ -24,21 +24,21 @@
         <label for="oldPassword" class="col-sm-3 control-label">Old Password</label>
 
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="oldPassword" name="oldPassword" placeholder="">
+            <input type="password" class="form-control" id="oldPassword" name="oldPassword" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
         <label for="newPassword" class="col-sm-3 control-label">New Password</label>
 
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="">
+            <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
         <label for="confirmPassword" class="col-sm-3 control-label">Confirm New Password</label>
 
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="">
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="" required>
         </div>
     </div>
     <div class="form-group">

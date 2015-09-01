@@ -1,8 +1,5 @@
 package com.poornama.api.presentation;
 
-/**
- * Created by dedunu on 11/7/14.
- */
 public class Notification {
     private NotificationType notificationType;
     private String message;

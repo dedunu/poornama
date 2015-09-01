@@ -15,6 +15,12 @@ public class SpringWebApplicationInitializer implements WebApplicationInitialize
     private static Logger log = GlobalLogger.getLogger();
     private static String className = SpringWebApplicationInitializer.class.getName();
 
+    /**
+     * Called by Application server on application startup
+     *
+     * @param servletContext servletContext
+     * @throws ServletException
+     */
     public void onStartup(ServletContext servletContext) throws ServletException {
         log.debug("[" + className + "] onStartup()");
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();

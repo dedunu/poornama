@@ -24,7 +24,7 @@ public class SessionGenerator {
             session = sessionFactory.openSession();
         } catch (Exception e){
             log.error("[" + className + "] getSession(): error " + e.getMessage());
-            // Returns null if error occured
+            // Returns null if error occurred
             return null;
         }
         return session;
