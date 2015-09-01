@@ -8,8 +8,8 @@
     RoleManager roleManager = new RoleManager();
     List<String> roles = new ArrayList<String>();
     roles.add("admin");
+    roles.add("owner");
     roles.add("manager");
-    roles.add("accountant");
     roles.add("clerk");
     roleManager.validate(request, response, roles);
 

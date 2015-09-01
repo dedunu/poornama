@@ -2,10 +2,7 @@
 <%
     RoleValidator roleValidator = new RoleValidator();
     List<String> roles = new ArrayList<String>();
-    roles.add("admin");
     roles.add("manager");
-    roles.add("accountant");
-    roles.add("clerk");
     roleValidator.validate(session, request, response, roles);
 %>
 

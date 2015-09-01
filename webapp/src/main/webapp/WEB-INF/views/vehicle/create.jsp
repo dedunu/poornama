@@ -4,7 +4,7 @@
     RoleValidator roleValidator = new RoleValidator();
     List<String> roles = new ArrayList<String>();
     // Adds the manager to allowed role list
-    roles.add("admin");
+    roles.add("clerk");
     roles.add("manager");
     // Calls validation method
     roleValidator.validate(session, request, response, roles);
