@@ -403,7 +403,6 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
-
     public HashMap<Integer, HashMap<String, Double>> getAnnualVehicleRevenueReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();

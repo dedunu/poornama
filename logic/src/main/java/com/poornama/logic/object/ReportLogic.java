@@ -337,7 +337,6 @@ public class ReportLogic {
     public Map<Integer, String> getLabels(int entityNumber) {
         log.debug("[" + className + "] getLabels() : started");
         LinkedHashMap<Integer, String> result = new LinkedHashMap<Integer, String>();
-        //employee client vehicle tag
         switch (entityNumber) {
             case 1:
                 EmployeeDAO employeeDAO = new EmployeeDAO();

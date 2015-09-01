@@ -20,17 +20,16 @@
 
     List<String> employeeCreateRoleList = new ArrayList<String>();
     employeeCreateRoleList.add("manager");
-    if (roleValidator.isVisible(session, request, response, employeeSectionRoleList))
-    {
+    if (roleValidator.isVisible(session, request, response, employeeSectionRoleList)) {
 %>
 <div class="panel panel-primary">
     <div class="panel-body">
         <i class="fa fa-users"></i> Employee
         <div class="btn-group pull-right">
             <% if (roleValidator.isVisible(session, request, response, employeeCreateRoleList)) { %>
-                <button type="button" class="btn btn-success" id="create-employee">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </button>
+            <button type="button" class="btn btn-success" id="create-employee">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
             <% } %>
             <button type="button" class="btn btn-primary" id="search-employee">
                 <span class="glyphicon glyphicon-pencil"></span>
@@ -40,9 +39,9 @@
 </div>
 <script>
     <% if (roleValidator.isVisible(session, request, response, employeeCreateRoleList)) { %>
-        $('#create-employee').on('click', function (e) {
-            window.location.href = "${pageContext.request.contextPath}/employee/create";
-        });
+    $('#create-employee').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/employee/create";
+    });
     <% } %>
 
     $('#search-employee').on('click', function (e) {
@@ -56,8 +55,7 @@
     employeeAttendanceSectionRoleList.add("owner");
     employeeAttendanceSectionRoleList.add("manager");
 
-    if (roleValidator.isVisible(session, request, response, employeeAttendanceSectionRoleList))
-    {
+    if (roleValidator.isVisible(session, request, response, employeeAttendanceSectionRoleList)) {
 %>
 <div class="panel panel-primary">
     <div class="panel-body">
@@ -84,8 +82,7 @@
 
     List<String> vehicleCreateRoleList = new ArrayList<String>();
     vehicleCreateRoleList.add("manager");
-    if (roleValidator.isVisible(session, request, response, vehicleSectionRoleList))
-    {
+    if (roleValidator.isVisible(session, request, response, vehicleSectionRoleList)) {
 %>
 <div class="panel panel-primary">
     <div class="panel-body">
@@ -104,9 +101,9 @@
 </div>
 <script>
     <% if (roleValidator.isVisible(session, request, response, vehicleCreateRoleList)) { %>
-        $('#create-vehicle').on('click', function (e) {
-            window.location.href = "${pageContext.request.contextPath}/vehicle/create";
-        });
+    $('#create-vehicle').on('click', function (e) {
+        window.location.href = "${pageContext.request.contextPath}/vehicle/create";
+    });
     <% } %>
 
     $('#search-vehicle').on('click', function (e) {
@@ -123,8 +120,7 @@
 
     List<String> userCreateRoleList = new ArrayList<String>();
     userCreateRoleList.add("admin");
-    if (roleValidator.isVisible(session, request, response, userSectionRoleList))
-    {
+    if (roleValidator.isVisible(session, request, response, userSectionRoleList)) {
 %>
 <div class="panel panel-primary">
     <div class="panel-body">
@@ -162,8 +158,7 @@
     List<String> jobCreateRoleList = new ArrayList<String>();
     jobCreateRoleList.add("manager");
     jobCreateRoleList.add("clerk");
-    if (roleValidator.isVisible(session, request, response, jobSectionRoleList))
-    {
+    if (roleValidator.isVisible(session, request, response, jobSectionRoleList)) {
 %>
 <div class="panel panel-primary">
     <div class="panel-body">
@@ -196,8 +191,7 @@
     List<String> salarySectionRoleList = new ArrayList<String>();
     salarySectionRoleList.add("manager");
 
-    if (roleValidator.isVisible(session, request, response, salarySectionRoleList))
-    {
+    if (roleValidator.isVisible(session, request, response, salarySectionRoleList)) {
 %>
 <div class="panel panel-primary">
     <div class="panel-body">
@@ -225,8 +219,7 @@
     List<String> expenseCreateRoleList = new ArrayList<String>();
     expenseCreateRoleList.add("manager");
     expenseCreateRoleList.add("clerk");
-    if (roleValidator.isVisible(session, request, response, expenseSectionRoleList))
-    {
+    if (roleValidator.isVisible(session, request, response, expenseSectionRoleList)) {
 %>
 <div class="panel panel-primary">
     <div class="panel-body">
@@ -264,8 +257,7 @@
     List<String> jobTemplateCreateRoleList = new ArrayList<String>();
     jobTemplateCreateRoleList.add("manager");
     jobTemplateCreateRoleList.add("owner");
-    if (roleValidator.isVisible(session, request, response, jobTemplateSectionRoleList))
-    {
+    if (roleValidator.isVisible(session, request, response, jobTemplateSectionRoleList)) {
 %>
 <div class="panel panel-primary">
     <div class="panel-body">
@@ -299,8 +291,7 @@
     reportSectionRoleList.add("owner");
     reportSectionRoleList.add("manager");
 
-    if (roleValidator.isVisible(session, request, response, reportSectionRoleList))
-    {
+    if (roleValidator.isVisible(session, request, response, reportSectionRoleList)) {
 %>
 <div class="panel panel-primary">
     <div class="panel-body">
@@ -329,8 +320,7 @@
     List<String> clientCreateRoleList = new ArrayList<String>();
     clientCreateRoleList.add("manager");
     clientCreateRoleList.add("owner");
-    if (roleValidator.isVisible(session, request, response, clientSectionRoleList))
-    {
+    if (roleValidator.isVisible(session, request, response, clientSectionRoleList)) {
 %>
 <div class="panel panel-primary">
     <div class="panel-body">

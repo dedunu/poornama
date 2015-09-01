@@ -8,9 +8,6 @@ import org.hibernate.Session;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by dedunu on 10/22/14.
- */
 public class DatabaseSession {
 
     private static Logger log = GlobalLogger.getLogger();

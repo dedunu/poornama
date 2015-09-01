@@ -20,10 +20,10 @@ public class RoleValidator {
     /**
      * Validates a session for given role using HttpSession, if validation fails redirects to error page.
      *
-     * @param session HttpSession
-     * @param request HttpServletRequest
+     * @param session  HttpSession
+     * @param request  HttpServletRequest
      * @param response HttpServletResponse
-     * @param role String
+     * @param role     String
      * @throws IOException
      */
     public void validate(HttpSession session, HttpServletRequest request, HttpServletResponse response, String role) throws IOException {
@@ -36,8 +36,8 @@ public class RoleValidator {
     /**
      * Validates a session for given role list using HttpSession, if validation fails redirects to error page.
      *
-     * @param session HttpSession
-     * @param request HttpServletRequest
+     * @param session  HttpSession
+     * @param request  HttpServletRequest
      * @param response HttpServletResponse
      * @param roleList List<String>
      * @throws IOException
@@ -64,8 +64,8 @@ public class RoleValidator {
     /**
      * Returns true if current user's role contains in roleList
      *
-     * @param session HttpSession
-     * @param request HttpServletRequest
+     * @param session  HttpSession
+     * @param request  HttpServletRequest
      * @param response HttpServletResponse
      * @param roleList List<String>
      * @return true if current user's role contains in roleList
@@ -73,22 +73,23 @@ public class RoleValidator {
      */
     public boolean isVisible(HttpSession session, HttpServletRequest request, HttpServletResponse response, List<String> roleList)
             throws IOException {
+        boolean result = false;
+
         try {
             // Retrieves role from Session
             String sessionRole = (String) session.getAttribute("userRole");
             // Evaluates whether role is included in roleList
-            if (!roleList.contains(sessionRole)) {
-                log.warn("[" + className + "] isVisible: role validation failed");
+            if (roleList.contains(sessionRole)) {
+                log.debug("[" + className + "] isVisible: role validation passed");
                 // Redirects to the access denied page if validation fails
-                return true;
+                result = true;
             }
-            log.debug("[" + className + "] isVisible: " + sessionRole);
         } catch (Exception e) {
             log.error("[" + className + "] isVisible: Error " + e.getMessage());
             response.sendRedirect(request.getContextPath() + "/system/error");
-        } finally {
-            return false;
         }
+
+        return result;
     }
 
 
