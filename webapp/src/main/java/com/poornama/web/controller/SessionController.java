@@ -41,35 +41,40 @@ public class SessionController {
      */
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(HttpSession session, @RequestParam("username") String userName, @RequestParam("password") String password) {
-        log.debug("[" + className + "] login: login()");
+        try {
+            log.debug("[" + className + "] login: login()");
 
-        if (session.getAttribute("isLoggedIn").equals("true")) {
-            log.debug("[" + className + "] login: redirecting to home controller");
-            return "redirect:/";
-        } else {
-            boolean isAuthenticated = authentication.doAuthenticate(userName, password);
-            if (isAuthenticated) {
-                UserLogic userLogic = new UserLogic();
-                User user = userLogic.getUserByUserName(userName);
-                session.setAttribute("displayName", user.getDisplayName());
-                session.setAttribute("userId", user.getId());
-                session.setAttribute("userName", userName);
-                session.setAttribute("userRole", user.getUserRole().getName());
-                session.setAttribute("isLoggedIn", "true");
-                session.setAttribute("isLoginFailed", "false");
-                log.debug("[" + className + "] login: Success, redirecting to home controller");
+            if (session.getAttribute("isLoggedIn").equals("true")) {
+                log.debug("[" + className + "] login: redirecting to home controller");
                 return "redirect:/";
             } else {
-                log.warn("[" + className + "] login: failed redirecting to login page with error");
-                log.debug("[" + className + "] login: failed Username - " + userName);
-                session.setAttribute("displayName", null);
-                session.setAttribute("userId", null);
-                session.setAttribute("userName", null);
-                session.setAttribute("userRole", null);
-                session.setAttribute("isLoggedIn", "false");
-                session.setAttribute("isLoginFailed", "true");
-                return "redirect:/";
+                boolean isAuthenticated = authentication.doAuthenticate(userName, password);
+                if (isAuthenticated) {
+                    UserLogic userLogic = new UserLogic();
+                    User user = userLogic.getUserByUserName(userName);
+                    session.setAttribute("displayName", user.getDisplayName());
+                    session.setAttribute("userId", user.getId());
+                    session.setAttribute("userName", userName);
+                    session.setAttribute("userRole", user.getUserRole().getName());
+                    session.setAttribute("isLoggedIn", "true");
+                    session.setAttribute("isLoginFailed", "false");
+                    log.debug("[" + className + "] login: Success, redirecting to home controller");
+                    return "redirect:/";
+                } else {
+                    log.warn("[" + className + "] login: failed redirecting to login page with error");
+                    log.debug("[" + className + "] login: failed Username - " + userName);
+                    session.setAttribute("displayName", null);
+                    session.setAttribute("userId", null);
+                    session.setAttribute("userName", null);
+                    session.setAttribute("userRole", null);
+                    session.setAttribute("isLoggedIn", "false");
+                    session.setAttribute("isLoginFailed", "true");
+                    return "redirect:/";
+                }
             }
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
     }
 
@@ -83,13 +88,18 @@ public class SessionController {
     @RequestMapping(value = "denied", method = RequestMethod.GET)
     public String accessDenied(Model model, HttpSession session) {
         try {
-            session.setAttribute("message", messageSource.getMessage("web.session.denied.message", null, null));
+            try {
+                session.setAttribute("message", messageSource.getMessage("web.session.denied.message", null, null));
+            } catch (Exception e) {
+                log.error("[" + className + "] accessDenied: exception while setting sessionAttribute");
+            }
+            log.warn("[" + className + "] accessDenied: Success, reidrected to notify/danger");
+            model.addAttribute("pageTitle", messageSource.getMessage("web.session.denied.title", null, null));
+            return "notify/danger";
         } catch (Exception e) {
-            log.error("[" + className + "] accessDenied: exception while setting sessionAttribute");
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        log.warn("[" + className + "] accessDenied: Success, reidrected to notify/danger");
-        model.addAttribute("pageTitle", messageSource.getMessage("web.session.denied.title", null, null));
-        return "notify/danger";
     }
 
     /**
@@ -101,16 +111,21 @@ public class SessionController {
     @RequestMapping(value = "logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
         try {
-            session.setAttribute("displayName", null);
-            session.setAttribute("userId", null);
-            session.setAttribute("userName", null);
-            session.setAttribute("userRole", null);
-            session.setAttribute("isLoggedIn", "false");
-            session.setAttribute("isLoginFailed", "false");
+            try {
+                session.setAttribute("displayName", null);
+                session.setAttribute("userId", null);
+                session.setAttribute("userName", null);
+                session.setAttribute("userRole", null);
+                session.setAttribute("isLoggedIn", "false");
+                session.setAttribute("isLoginFailed", "false");
+            } catch (Exception e) {
+                log.debug("[" + className + "] logout: throw an error while logging out.");
+            }
+            log.debug("[" + className + "] logout: Success, redirecting to user/logic");
+            return "redirect:/";
         } catch (Exception e) {
-            log.debug("[" + className + "] logout: throw an error while logging out.");
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        log.debug("[" + className + "] logout: Success, redirecting to user/logic");
-        return "redirect:/";
     }
 }

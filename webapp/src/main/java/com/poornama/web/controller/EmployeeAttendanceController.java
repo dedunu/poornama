@@ -40,9 +40,14 @@ public class EmployeeAttendanceController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
-        log.debug("[" + className + "] index: index()");
-        model.addAttribute("pageTitle", messageSource.getMessage("web.attendance.title", null, null));
-        return "employee/attendance/index";
+        try {
+            log.debug("[" + className + "] index: index()");
+            model.addAttribute("pageTitle", messageSource.getMessage("web.attendance.title", null, null));
+            return "employee/attendance/index";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -54,10 +59,14 @@ public class EmployeeAttendanceController {
      */
     @RequestMapping(value = "search/{startDate}", method = RequestMethod.POST)
     public void searchAJAX(@PathVariable("startDate") String startDate, HttpServletResponse response) throws IOException {
-        startDate = startDate.replace("_", "/");
-        String table = employeeAttendanceLogic.getEmployeeAttendanceTable(startDate);
-        response.getWriter().print(table);
-        log.debug("[" + className + "] searchAJAX()");
+        try {
+            startDate = startDate.replace("_", "/");
+            String table = employeeAttendanceLogic.getEmployeeAttendanceTable(startDate);
+            response.getWriter().print(table);
+            log.debug("[" + className + "] searchAJAX()");
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+        }
     }
 
     /**
@@ -70,12 +79,16 @@ public class EmployeeAttendanceController {
      */
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public void saveAJAX(@RequestParam("data") String data, @RequestParam("date") String date, HttpServletResponse response) throws IOException {
-        Notification notification = employeeAttendanceLogic.save(data, date);
-        if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            response.getWriter().print("success");
-        } else {
-            response.getWriter().print("fail");
+        try {
+            Notification notification = employeeAttendanceLogic.save(data, date);
+            if (notification.getNotificationType() == NotificationType.SUCCESS) {
+                response.getWriter().print("success");
+            } else {
+                response.getWriter().print("fail");
+            }
+            log.debug("[" + className + "] searchAJAX()");
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
         }
-        log.debug("[" + className + "] searchAJAX()");
     }
 }

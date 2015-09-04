@@ -33,11 +33,16 @@ public class VehicleController {
      */
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
-        VehicleTypeLogic vehicleTypeLogic = new VehicleTypeLogic();
-        model.addAttribute("vehicleTypeList", vehicleTypeLogic.getVehicleTypeSelectList());
-        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
-        log.debug("[" + className + "] createForm()");
-        return "vehicle/create";
+        try {
+            VehicleTypeLogic vehicleTypeLogic = new VehicleTypeLogic();
+            model.addAttribute("vehicleTypeList", vehicleTypeLogic.getVehicleTypeSelectList());
+            model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
+            log.debug("[" + className + "] createForm()");
+            return "vehicle/create";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -49,20 +54,25 @@ public class VehicleController {
      */
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createVehicle(Model model, HttpServletRequest request) {
-        VehicleLogic vehicleLogic = new VehicleLogic();
-        Notification notification = vehicleLogic.createVehicle(request);
-        model.addAttribute("message", notification.getMessage());
-        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
-        if (notification.getNotificationType() == NotificationType.DANGER) {
-            log.error("[" + className + "] createVehicle: failed");
-            return "notify/danger";
+        try {
+            VehicleLogic vehicleLogic = new VehicleLogic();
+            Notification notification = vehicleLogic.createVehicle(request);
+            model.addAttribute("message", notification.getMessage());
+            model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
+            if (notification.getNotificationType() == NotificationType.DANGER) {
+                log.error("[" + className + "] createVehicle: failed");
+                return "notify/danger";
+            }
+            if (notification.getNotificationType() == NotificationType.SUCCESS) {
+                log.info("[" + className + "] createVehicle: success");
+                return "notify/success";
+            }
+            log.fatal("[" + className + "] createVehicle: cannot reach this phrase");
+            return "redirect:/";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            log.info("[" + className + "] createVehicle: success");
-            return "notify/success";
-        }
-        log.fatal("[" + className + "] createVehicle: cannot reach this phrase");
-        return "redirect:/";
     }
 
     /**
@@ -74,23 +84,28 @@ public class VehicleController {
      */
     @RequestMapping(value = "edit/{vehicleId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("vehicleId") String vehicleId) {
-        VehicleLogic vehicleLogic = new VehicleLogic();
-        VehicleTypeLogic vehicleTypeLogic = new VehicleTypeLogic();
-        Vehicle vehicle;
         try {
-            vehicle = vehicleLogic.getVehicleById(vehicleId);
-        } catch (Exception e) {
-            log.error("[" + className + "] editForm: error in retrieving Vehicle by Id");
-            model.addAttribute("message", "Something went wrong with Vehicle data. Please try again.");
-            return "notify/danger";
-        }
+            VehicleLogic vehicleLogic = new VehicleLogic();
+            VehicleTypeLogic vehicleTypeLogic = new VehicleTypeLogic();
+            Vehicle vehicle;
+            try {
+                vehicle = vehicleLogic.getVehicleById(vehicleId);
+            } catch (Exception e) {
+                log.error("[" + className + "] editForm: error in retrieving Vehicle by Id");
+                model.addAttribute("message", "Something went wrong with Vehicle data. Please try again.");
+                return "notify/danger";
+            }
 
-        model.addAttribute("vehicleId", vehicle.getId());
-        model.addAttribute("vehicleNumber", vehicle.getVehicleNumber());
-        model.addAttribute("vehicleType", vehicle.getVehicleType().getId());
-        model.addAttribute("vehicleTypeList", vehicleTypeLogic.getVehicleTypeSelectList());
-        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
-        return "vehicle/edit";
+            model.addAttribute("vehicleId", vehicle.getId());
+            model.addAttribute("vehicleNumber", vehicle.getVehicleNumber());
+            model.addAttribute("vehicleType", vehicle.getVehicleType().getId());
+            model.addAttribute("vehicleTypeList", vehicleTypeLogic.getVehicleTypeSelectList());
+            model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
+            return "vehicle/edit";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -103,21 +118,26 @@ public class VehicleController {
      */
     @RequestMapping(value = "edit/{vehicleId}", method = RequestMethod.POST)
     public String editVehicle(Model model, @PathVariable("vehicleId") String vehicleId, HttpServletRequest request) {
-        VehicleLogic vehicleLogic = new VehicleLogic();
-        Notification notification = vehicleLogic.editVehicle(request, vehicleId);
-        log.debug("[" + className + "] editVehicle()");
-        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
-        model.addAttribute("message", notification.getMessage());
-        if (notification.getNotificationType() == NotificationType.DANGER) {
-            log.error("[" + className + "] editVehicle: failed");
-            return "notify/danger";
+        try {
+            VehicleLogic vehicleLogic = new VehicleLogic();
+            Notification notification = vehicleLogic.editVehicle(request, vehicleId);
+            log.debug("[" + className + "] editVehicle()");
+            model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
+            model.addAttribute("message", notification.getMessage());
+            if (notification.getNotificationType() == NotificationType.DANGER) {
+                log.error("[" + className + "] editVehicle: failed");
+                return "notify/danger";
+            }
+            if (notification.getNotificationType() == NotificationType.SUCCESS) {
+                log.info("[" + className + "] editVehicle: success");
+                return "notify/success";
+            }
+            log.fatal("[" + className + "] editVehicle: cannot reach this phrase");
+            return "redirect:/";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            log.info("[" + className + "] editVehicle: success");
-            return "notify/success";
-        }
-        log.fatal("[" + className + "] editVehicle: cannot reach this phrase");
-        return "redirect:/";
     }
 
     /**
@@ -129,22 +149,27 @@ public class VehicleController {
      */
     @RequestMapping(value = "delete/{vehicleId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("vehicleId") String vehicleId) {
-        VehicleLogic vehicleLogic = new VehicleLogic();
-        Vehicle vehicle;
         try {
-            vehicle = vehicleLogic.getVehicleById(vehicleId);
+            VehicleLogic vehicleLogic = new VehicleLogic();
+            Vehicle vehicle;
+            try {
+                vehicle = vehicleLogic.getVehicleById(vehicleId);
+            } catch (Exception e) {
+                log.error("[" + className + "] deleteForm: error in retrieving Vehicle by Id");
+                model.addAttribute("message", "Something went wrong with Vehicle data. Please try again.");
+                return "notify/danger";
+            }
+
+            model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
+            model.addAttribute("vehicleId", vehicleId);
+            model.addAttribute("vehicleNumber", vehicle.getVehicleNumber());
+            model.addAttribute("vehicleType", vehicle.getVehicleType().getDisplayName());
+
+            return "vehicle/delete";
         } catch (Exception e) {
-            log.error("[" + className + "] deleteForm: error in retrieving Vehicle by Id");
-            model.addAttribute("message", "Something went wrong with Vehicle data. Please try again.");
-            return "notify/danger";
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-
-        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
-        model.addAttribute("vehicleId", vehicleId);
-        model.addAttribute("vehicleNumber", vehicle.getVehicleNumber());
-        model.addAttribute("vehicleType", vehicle.getVehicleType().getDisplayName());
-
-        return "vehicle/delete";
     }
 
     /**
@@ -156,22 +181,27 @@ public class VehicleController {
      */
     @RequestMapping(value = "delete/{vehicleId}", method = RequestMethod.POST)
     public String deleteVehicle(Model model, @PathVariable("vehicleId") String vehicleId) {
-        VehicleLogic vehicleLogic = new VehicleLogic();
-        Notification notification = vehicleLogic.deleteVehicle(vehicleId);
-        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
-        switch (notification.getNotificationType()) {
-            case DANGER:
-                model.addAttribute("message", notification.getMessage());
-                log.error("[" + className + "] deleteVehicle: error in deleting Vehicle");
-                return "notify/danger";
-            case SUCCESS:
-                model.addAttribute("message", notification.getMessage());
-                log.info("[" + className + "] deleteVehicle: deleted Vehicle successfully");
-                return "notify/success";
-            default:
-                model.addAttribute("message", "Something went wrong. Please contact developer.");
-                log.error("[" + className + "] deleteVehicle: fatal error in deleting Vehicle");
-                return "notify/danger";
+        try {
+            VehicleLogic vehicleLogic = new VehicleLogic();
+            Notification notification = vehicleLogic.deleteVehicle(vehicleId);
+            model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
+            switch (notification.getNotificationType()) {
+                case DANGER:
+                    model.addAttribute("message", notification.getMessage());
+                    log.error("[" + className + "] deleteVehicle: error in deleting Vehicle");
+                    return "notify/danger";
+                case SUCCESS:
+                    model.addAttribute("message", notification.getMessage());
+                    log.info("[" + className + "] deleteVehicle: deleted Vehicle successfully");
+                    return "notify/success";
+                default:
+                    model.addAttribute("message", "Something went wrong. Please contact developer.");
+                    log.error("[" + className + "] deleteVehicle: fatal error in deleting Vehicle");
+                    return "notify/danger";
+            }
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
     }
 
@@ -184,11 +214,16 @@ public class VehicleController {
      */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
-        VehicleLogic vehicleLogic = new VehicleLogic();
-        String table = vehicleLogic.getVehicleTable();
-        model.addAttribute("table", table);
-        model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
-        log.debug("[" + className + "] searchForm()");
-        return "vehicle/search";
+        try {
+            VehicleLogic vehicleLogic = new VehicleLogic();
+            String table = vehicleLogic.getVehicleTable();
+            model.addAttribute("table", table);
+            model.addAttribute("pageTitle", "Poornama Transport Service - Vehicle");
+            log.debug("[" + className + "] searchForm()");
+            return "vehicle/search";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 }

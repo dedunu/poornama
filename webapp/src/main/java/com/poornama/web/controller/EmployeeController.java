@@ -44,10 +44,15 @@ public class EmployeeController {
      */
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
-        model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
-        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
-        log.debug("[" + className + "] createForm()");
-        return "employee/create";
+        try {
+            model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
+            model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
+            log.debug("[" + className + "] createForm()");
+            return "employee/create";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -59,19 +64,24 @@ public class EmployeeController {
      */
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createEmployee(Model model, HttpServletRequest request) {
-        Notification notification = employeeLogic.createEmployee(request);
-        model.addAttribute("message", notification.getMessage());
-        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
-        if (notification.getNotificationType() == NotificationType.DANGER) {
-            log.error("[" + className + "] createEmployee: failed");
-            return "notify/danger";
+        try {
+            Notification notification = employeeLogic.createEmployee(request);
+            model.addAttribute("message", notification.getMessage());
+            model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
+            if (notification.getNotificationType() == NotificationType.DANGER) {
+                log.error("[" + className + "] createEmployee: failed");
+                return "notify/danger";
+            }
+            if (notification.getNotificationType() == NotificationType.SUCCESS) {
+                log.info("[" + className + "] createEmployee: success");
+                return "notify/success";
+            }
+            log.fatal("[" + className + "] createEmployee: cannot reach this phrase");
+            return "redirect:/";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            log.info("[" + className + "] createEmployee: success");
-            return "notify/success";
-        }
-        log.fatal("[" + className + "] createEmployee: cannot reach this phrase");
-        return "redirect:/";
     }
 
     /**
@@ -83,31 +93,36 @@ public class EmployeeController {
      */
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("employeeId") String employeeId) {
-        Employee employee;
-        employee = employeeLogic.getEmployee(employeeId);
+        try {
+            Employee employee;
+            employee = employeeLogic.getEmployee(employeeId);
 
-        if (employee == null) {
-            log.error("[" + className + "] editForm: retrieving Employee failed");
+            if (employee == null) {
+                log.error("[" + className + "] editForm: retrieving Employee failed");
+            }
+
+            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            Date dateOfBirth = employee.getDateOfBirth();
+            Date dateOfJoining = employee.getDateOfJoining();
+
+            model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
+            model.addAttribute("employeeId", employeeId);
+            model.addAttribute("firstName", employee.getFirstName());
+            model.addAttribute("lastName", employee.getLastName());
+            model.addAttribute("employeeType", employee.getEmployeeType().getId());
+            model.addAttribute("nic", employee.getNic());
+            model.addAttribute("address", employee.getAddress());
+            model.addAttribute("dateOfBirth", dateFormat.format(dateOfBirth));
+            model.addAttribute("dateOfJoining", dateFormat.format(dateOfJoining));
+            model.addAttribute("description", employee.getDescription());
+            model.addAttribute("telephone", employee.getTelephoneNumber());
+            model.addAttribute("emergencyContact", employee.getEmergencyContact());
+            model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
+            return "employee/edit";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date dateOfBirth = employee.getDateOfBirth();
-        Date dateOfJoining = employee.getDateOfJoining();
-
-        model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
-        model.addAttribute("employeeId", employeeId);
-        model.addAttribute("firstName", employee.getFirstName());
-        model.addAttribute("lastName", employee.getLastName());
-        model.addAttribute("employeeType", employee.getEmployeeType().getId());
-        model.addAttribute("nic", employee.getNic());
-        model.addAttribute("address", employee.getAddress());
-        model.addAttribute("dateOfBirth", dateFormat.format(dateOfBirth));
-        model.addAttribute("dateOfJoining", dateFormat.format(dateOfJoining));
-        model.addAttribute("description", employee.getDescription());
-        model.addAttribute("telephone", employee.getTelephoneNumber());
-        model.addAttribute("emergencyContact", employee.getEmergencyContact());
-        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
-        return "employee/edit";
     }
 
     /**
@@ -120,20 +135,25 @@ public class EmployeeController {
      */
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.POST)
     public String editEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpServletRequest request) {
-        Notification notification = employeeLogic.editEmployee(request, employeeId);
-        log.debug("[" + className + "] editEmployee()");
-        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
-        model.addAttribute("message", notification.getMessage());
-        if (notification.getNotificationType() == NotificationType.DANGER) {
-            log.error("[" + className + "] editEmployee: failed");
-            return "notify/danger";
+        try {
+            Notification notification = employeeLogic.editEmployee(request, employeeId);
+            log.debug("[" + className + "] editEmployee()");
+            model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
+            model.addAttribute("message", notification.getMessage());
+            if (notification.getNotificationType() == NotificationType.DANGER) {
+                log.error("[" + className + "] editEmployee: failed");
+                return "notify/danger";
+            }
+            if (notification.getNotificationType() == NotificationType.SUCCESS) {
+                log.info("[" + className + "] editEmployee: success");
+                return "notify/success";
+            }
+            log.fatal("[" + className + "] editEmployee: cannot reach this phrase");
+            return "redirect:/";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            log.info("[" + className + "] editEmployee: success");
-            return "notify/success";
-        }
-        log.fatal("[" + className + "] editEmployee: cannot reach this phrase");
-        return "redirect:/";
     }
 
     /**
@@ -145,24 +165,29 @@ public class EmployeeController {
      */
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("employeeId") String employeeId) {
-        Employee employee;
-        employee = employeeLogic.getEmployee(employeeId);
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date dateOfBirth = employee.getDateOfBirth();
-        Date dateOfJoining = employee.getDateOfJoining();
-        model.addAttribute("employeeId", employeeId);
-        model.addAttribute("firstName", employee.getFirstName());
-        model.addAttribute("lastName", employee.getLastName());
-        model.addAttribute("employeeType", employee.getEmployeeType().getDisplayName());
-        model.addAttribute("nic", employee.getNic());
-        model.addAttribute("address", employee.getAddress());
-        model.addAttribute("dateOfBirth", dateFormat.format(dateOfBirth));
-        model.addAttribute("dateOfJoining", dateFormat.format(dateOfJoining));
-        model.addAttribute("description", employee.getDescription());
-        model.addAttribute("telephone", employee.getTelephoneNumber());
-        model.addAttribute("emergencyContact", employee.getEmergencyContact());
-        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
-        return "employee/delete";
+        try {
+            Employee employee;
+            employee = employeeLogic.getEmployee(employeeId);
+            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            Date dateOfBirth = employee.getDateOfBirth();
+            Date dateOfJoining = employee.getDateOfJoining();
+            model.addAttribute("employeeId", employeeId);
+            model.addAttribute("firstName", employee.getFirstName());
+            model.addAttribute("lastName", employee.getLastName());
+            model.addAttribute("employeeType", employee.getEmployeeType().getDisplayName());
+            model.addAttribute("nic", employee.getNic());
+            model.addAttribute("address", employee.getAddress());
+            model.addAttribute("dateOfBirth", dateFormat.format(dateOfBirth));
+            model.addAttribute("dateOfJoining", dateFormat.format(dateOfJoining));
+            model.addAttribute("description", employee.getDescription());
+            model.addAttribute("telephone", employee.getTelephoneNumber());
+            model.addAttribute("emergencyContact", employee.getEmergencyContact());
+            model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
+            return "employee/delete";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -174,21 +199,26 @@ public class EmployeeController {
      */
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.POST)
     public String deleteEmployee(Model model, @PathVariable("employeeId") String employeeId) {
-        Notification notification = employeeLogic.deleteEmployee(employeeId);
-        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
-        switch (notification.getNotificationType()) {
-            case DANGER:
-                model.addAttribute("message", notification.getMessage());
-                log.error("[" + className + "] deleteEmployee: error in deleting Employee");
-                return "notify/danger";
-            case SUCCESS:
-                model.addAttribute("message", notification.getMessage());
-                log.info("[" + className + "] deleteEmployee: deleted Employee successfully");
-                return "notify/success";
-            default:
-                model.addAttribute("message", "Something went wrong. Please contact developer.");
-                log.error("[" + className + "] deleteEmployee: fatal error in deleting Employee");
-                return "notify/danger";
+        try {
+            Notification notification = employeeLogic.deleteEmployee(employeeId);
+            model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
+            switch (notification.getNotificationType()) {
+                case DANGER:
+                    model.addAttribute("message", notification.getMessage());
+                    log.error("[" + className + "] deleteEmployee: error in deleting Employee");
+                    return "notify/danger";
+                case SUCCESS:
+                    model.addAttribute("message", notification.getMessage());
+                    log.info("[" + className + "] deleteEmployee: deleted Employee successfully");
+                    return "notify/success";
+                default:
+                    model.addAttribute("message", "Something went wrong. Please contact developer.");
+                    log.error("[" + className + "] deleteEmployee: fatal error in deleting Employee");
+                    return "notify/danger";
+            }
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
     }
 
@@ -201,11 +231,16 @@ public class EmployeeController {
      */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
-        String table = employeeLogic.getEmployeeTable("");
-        model.addAttribute("table", table);
-        model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
-        log.debug("[" + className + "] searchForm()");
-        return "employee/search";
+        try {
+            String table = employeeLogic.getEmployeeTable("");
+            model.addAttribute("table", table);
+            model.addAttribute("pageTitle", "Poornama Transport Service - Employee");
+            log.debug("[" + className + "] searchForm()");
+            return "employee/search";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -217,9 +252,13 @@ public class EmployeeController {
      */
     @RequestMapping(value = "search/{name}", method = RequestMethod.POST)
     public void searchAJAX(@PathVariable("name") String name, HttpServletResponse response) throws IOException {
-        String table = employeeLogic.getEmployeeTable(name);
-        response.getWriter().print(table);
-        log.debug("[" + className + "] searchAJAX()");
+        try {
+            String table = employeeLogic.getEmployeeTable(name);
+            response.getWriter().print(table);
+            log.debug("[" + className + "] searchAJAX()");
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+        }
     }
 
     /**
@@ -230,8 +269,12 @@ public class EmployeeController {
      */
     @RequestMapping(value = "search", method = RequestMethod.POST)
     public void searchAJAXAll(HttpServletResponse response) throws IOException {
-        searchAJAX("", response);
-        log.debug("[" + className + "] searchAJAXAll()");
+        try {
+            searchAJAX("", response);
+            log.debug("[" + className + "] searchAJAXAll()");
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+        }
     }
 
 }

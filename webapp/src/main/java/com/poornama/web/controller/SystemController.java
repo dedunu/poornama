@@ -25,9 +25,6 @@ public class SystemController {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = SystemController.class.getName();
 
-    @Autowired
-    private MessageSource messageSource;
-
     /**
      * Returns internal log page
      *
@@ -36,8 +33,13 @@ public class SystemController {
      */
     @RequestMapping(value = "logs", method = RequestMethod.GET)
     public String getLogs(Model model) {
-        model.addAttribute("pageTitle", "Poornama Transport Service - Log");
-        return "system/logs";
+        try {
+            model.addAttribute("pageTitle", "Poornama Transport Service - Log");
+            return "system/logs";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -48,15 +50,19 @@ public class SystemController {
      */
     @RequestMapping(value = "logsAJAX", method = RequestMethod.GET)
     public void searchAJAX(HttpServletResponse response) throws IOException {
-        File file = new File(System.getProperty("user.home") + "/poornama.log");
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String line;
-        while ((line = bufferedReader.readLine()) != null) {
-            response.getWriter().println(line);
+        try {
+            File file = new File(System.getProperty("user.home") + "/poornama.log");
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                response.getWriter().println(line);
+            }
+            bufferedReader.close();
+            fileReader.close();
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
         }
-        bufferedReader.close();
-        fileReader.close();
     }
 
     /**
@@ -67,9 +73,14 @@ public class SystemController {
      */
     @RequestMapping(value = "error", method = RequestMethod.GET)
     public String error(Model model) {
-        log.error("[" + className + "] accessDenied: Success, redirected to notify/danger");
-        model.addAttribute("message", "Oops. Something went wrong. Please contact administrator.");
-        model.addAttribute("pageTitle", "Poornama Transport Service - Error");
-        return "notify/danger";
+        try {
+            log.error("[" + className + "] accessDenied: Success, redirected to notify/danger");
+            model.addAttribute("message", "Oops. Something went wrong. Please contact administrator.");
+            model.addAttribute("pageTitle", "Poornama Transport Service - Error");
+            return "notify/danger";
+        } catch (Exception e) {
+            log.fatal("Error page generation failed");
+            return "notify/danger";
+        }
     }
 }

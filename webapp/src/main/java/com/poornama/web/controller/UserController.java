@@ -33,11 +33,16 @@ public class UserController {
      */
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
-        UserRoleLogic userRoleLogic = new UserRoleLogic();
-        model.addAttribute("userRoleList", userRoleLogic.getUserRoleSelectList());
-        model.addAttribute("pageTitle", "Poornama Transport Service - User");
-        log.debug("[" + className + "] createForm()");
-        return "user/create";
+        try {
+            UserRoleLogic userRoleLogic = new UserRoleLogic();
+            model.addAttribute("userRoleList", userRoleLogic.getUserRoleSelectList());
+            model.addAttribute("pageTitle", "Poornama Transport Service - User");
+            log.debug("[" + className + "] createForm()");
+            return "user/create";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -49,20 +54,25 @@ public class UserController {
      */
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createUser(Model model, HttpServletRequest request) {
-        UserLogic userLogic = new UserLogic();
-        Notification notification = userLogic.createUser(request);
-        model.addAttribute("message", notification.getMessage());
-        model.addAttribute("pageTitle", "Poornama Transport Service - User");
-        if (notification.getNotificationType() == NotificationType.DANGER) {
-            log.error("[" + className + "] createUser: failed");
-            return "notify/danger";
+        try {
+            UserLogic userLogic = new UserLogic();
+            Notification notification = userLogic.createUser(request);
+            model.addAttribute("message", notification.getMessage());
+            model.addAttribute("pageTitle", "Poornama Transport Service - User");
+            if (notification.getNotificationType() == NotificationType.DANGER) {
+                log.error("[" + className + "] createUser: failed");
+                return "notify/danger";
+            }
+            if (notification.getNotificationType() == NotificationType.SUCCESS) {
+                log.info("[" + className + "] createUser: success");
+                return "notify/success";
+            }
+            log.fatal("[" + className + "] createUser: cannot reach this phrase");
+            return "redirect:/";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            log.info("[" + className + "] createUser: success");
-            return "notify/success";
-        }
-        log.fatal("[" + className + "] createUser: cannot reach this phrase");
-        return "redirect:/";
     }
 
     /**
@@ -74,22 +84,27 @@ public class UserController {
      */
     @RequestMapping(value = "edit/{userId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("userId") String userId) {
-        UserLogic userLogic = new UserLogic();
-        User user;
         try {
-            user = userLogic.getUserById(userId);
+            UserLogic userLogic = new UserLogic();
+            User user;
+            try {
+                user = userLogic.getUserById(userId);
+            } catch (Exception e) {
+                log.error("[" + className + "] editForm: error in retrieving User by Id");
+                model.addAttribute("message", "Something went wrong with User data. Please try again.");
+                return "notify/danger";
+            }
+            UserRoleLogic userRoleLogic = new UserRoleLogic();
+            model.addAttribute("userRoleList", userRoleLogic.getUserRoleSelectList());
+            model.addAttribute("userName", user.getUserName());
+            model.addAttribute("displayName", user.getDisplayName());
+            model.addAttribute("userRole", user.getUserRole().getId());
+            model.addAttribute("pageTitle", "Poornama Transport Service - User");
+            return "user/edit";
         } catch (Exception e) {
-            log.error("[" + className + "] editForm: error in retrieving User by Id");
-            model.addAttribute("message", "Something went wrong with User data. Please try again.");
-            return "notify/danger";
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        UserRoleLogic userRoleLogic = new UserRoleLogic();
-        model.addAttribute("userRoleList", userRoleLogic.getUserRoleSelectList());
-        model.addAttribute("userName", user.getUserName());
-        model.addAttribute("displayName", user.getDisplayName());
-        model.addAttribute("userRole", user.getUserRole().getId());
-        model.addAttribute("pageTitle", "Poornama Transport Service - User");
-        return "user/edit";
     }
 
     /**
@@ -102,21 +117,26 @@ public class UserController {
      */
     @RequestMapping(value = "edit/{userId}", method = RequestMethod.POST)
     public String editUser(Model model, @PathVariable("userId") String userId, HttpServletRequest request) {
-        UserLogic userLogic = new UserLogic();
-        Notification notification = userLogic.editUser(request, userId);
-        log.debug("[" + className + "] editUser()");
-        model.addAttribute("message", notification.getMessage());
-        model.addAttribute("pageTitle", "Poornama Transport Service - User");
-        if (notification.getNotificationType() == NotificationType.DANGER) {
-            log.error("[" + className + "] editUser: failed");
-            return "notify/danger";
+        try {
+            UserLogic userLogic = new UserLogic();
+            Notification notification = userLogic.editUser(request, userId);
+            log.debug("[" + className + "] editUser()");
+            model.addAttribute("message", notification.getMessage());
+            model.addAttribute("pageTitle", "Poornama Transport Service - User");
+            if (notification.getNotificationType() == NotificationType.DANGER) {
+                log.error("[" + className + "] editUser: failed");
+                return "notify/danger";
+            }
+            if (notification.getNotificationType() == NotificationType.SUCCESS) {
+                log.info("[" + className + "] editUser: success");
+                return "notify/success";
+            }
+            log.fatal("[" + className + "] editUser: cannot reach this phrase");
+            return "redirect:/";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            log.info("[" + className + "] editUser: success");
-            return "notify/success";
-        }
-        log.fatal("[" + className + "] editUser: cannot reach this phrase");
-        return "redirect:/";
     }
 
     /**
@@ -128,21 +148,26 @@ public class UserController {
      */
     @RequestMapping(value = "delete/{userId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("userId") String userId) {
-        UserLogic userLogic = new UserLogic();
-        User user;
         try {
-            user = userLogic.getUserById(userId);
+            UserLogic userLogic = new UserLogic();
+            User user;
+            try {
+                user = userLogic.getUserById(userId);
+            } catch (Exception e) {
+                log.error("[" + className + "] deleteForm: error in retrieving User by Id");
+                model.addAttribute("message", "Something went wrong with User data. Please try again.");
+                return "notify/danger";
+            }
+            model.addAttribute("userId", userId);
+            model.addAttribute("userName", user.getUserName());
+            model.addAttribute("displayName", user.getDisplayName());
+            model.addAttribute("userRole", user.getUserRole().getDisplayName());
+            model.addAttribute("pageTitle", "Poornama Transport Service - User");
+            return "user/delete";
         } catch (Exception e) {
-            log.error("[" + className + "] deleteForm: error in retrieving User by Id");
-            model.addAttribute("message", "Something went wrong with User data. Please try again.");
-            return "notify/danger";
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        model.addAttribute("userId", userId);
-        model.addAttribute("userName", user.getUserName());
-        model.addAttribute("displayName", user.getDisplayName());
-        model.addAttribute("userRole", user.getUserRole().getDisplayName());
-        model.addAttribute("pageTitle", "Poornama Transport Service - User");
-        return "user/delete";
     }
 
     /**
@@ -154,22 +179,27 @@ public class UserController {
      */
     @RequestMapping(value = "delete/{userId}", method = RequestMethod.POST)
     public String deleteUser(Model model, @PathVariable("userId") String userId) {
-        UserLogic userLogic = new UserLogic();
-        Notification notification = userLogic.deleteUser(userId);
-        model.addAttribute("pageTitle", "Poornama Transport Service - User");
-        switch (notification.getNotificationType()) {
-            case DANGER:
-                model.addAttribute("message", notification.getMessage());
-                log.error("[" + className + "] deleteUser: error in deleting User");
-                return "notify/danger";
-            case SUCCESS:
-                model.addAttribute("message", notification.getMessage());
-                log.info("[" + className + "] deleteUser: deleted User successfully");
-                return "notify/success";
-            default:
-                model.addAttribute("message", "Something went wrong. Please contact developer.");
-                log.error("[" + className + "] deleteUser: fatal error in deleting User");
-                return "notify/danger";
+        try {
+            UserLogic userLogic = new UserLogic();
+            Notification notification = userLogic.deleteUser(userId);
+            model.addAttribute("pageTitle", "Poornama Transport Service - User");
+            switch (notification.getNotificationType()) {
+                case DANGER:
+                    model.addAttribute("message", notification.getMessage());
+                    log.error("[" + className + "] deleteUser: error in deleting User");
+                    return "notify/danger";
+                case SUCCESS:
+                    model.addAttribute("message", notification.getMessage());
+                    log.info("[" + className + "] deleteUser: deleted User successfully");
+                    return "notify/success";
+                default:
+                    model.addAttribute("message", "Something went wrong. Please contact developer.");
+                    log.error("[" + className + "] deleteUser: fatal error in deleting User");
+                    return "notify/danger";
+            }
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
     }
 
@@ -182,9 +212,14 @@ public class UserController {
      */
     @RequestMapping(value = "settings", method = RequestMethod.GET)
     public String settingPage(Model model) throws IOException {
-        log.debug("[" + className + "] settingPage()");
-        model.addAttribute("pageTitle", "Poornama Transport Service - User");
-        return "user/settings";
+        try {
+            log.debug("[" + className + "] settingPage()");
+            model.addAttribute("pageTitle", "Poornama Transport Service - User");
+            return "user/settings";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -196,21 +231,26 @@ public class UserController {
      */
     @RequestMapping(value = "changePassword", method = RequestMethod.POST)
     public String changePassword(Model model, HttpServletRequest request) {
-        UserLogic userLogic = new UserLogic();
-        Notification notification = userLogic.changePassword(request);
-        log.debug("[" + className + "] changePassword()");
-        model.addAttribute("message", notification.getMessage());
-        model.addAttribute("pageTitle", "Poornama Transport Service - User");
-        if (notification.getNotificationType() == NotificationType.DANGER) {
-            log.error("[" + className + "] changePassword: failed");
-            return "notify/danger";
+        try {
+            UserLogic userLogic = new UserLogic();
+            Notification notification = userLogic.changePassword(request);
+            log.debug("[" + className + "] changePassword()");
+            model.addAttribute("message", notification.getMessage());
+            model.addAttribute("pageTitle", "Poornama Transport Service - User");
+            if (notification.getNotificationType() == NotificationType.DANGER) {
+                log.error("[" + className + "] changePassword: failed");
+                return "notify/danger";
+            }
+            if (notification.getNotificationType() == NotificationType.SUCCESS) {
+                log.info("[" + className + "] changePassword: success");
+                return "notify/success";
+            }
+            log.fatal("[" + className + "] changePassword: cannot reach this phrase");
+            return "redirect:/";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            log.info("[" + className + "] changePassword: success");
-            return "notify/success";
-        }
-        log.fatal("[" + className + "] changePassword: cannot reach this phrase");
-        return "redirect:/";
     }
 
     /**
@@ -222,11 +262,16 @@ public class UserController {
      */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
-        UserLogic userLogic = new UserLogic();
-        String table = userLogic.getUserTable();
-        model.addAttribute("table", table);
-        model.addAttribute("pageTitle", "Poornama Transport Service - User");
-        log.debug("[" + className + "] searchForm()");
-        return "user/search";
+        try {
+            UserLogic userLogic = new UserLogic();
+            String table = userLogic.getUserTable();
+            model.addAttribute("table", table);
+            model.addAttribute("pageTitle", "Poornama Transport Service - User");
+            log.debug("[" + className + "] searchForm()");
+            return "user/search";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 }

@@ -36,9 +36,14 @@ public class ClientController {
      */
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
-        model.addAttribute("pageTitle", "Poornama Transport Service - Client");
-        log.debug("[" + className + "] createForm()");
-        return "client/create";
+        try {
+            model.addAttribute("pageTitle", "Poornama Transport Service - Client");
+            log.debug("[" + className + "] createForm()");
+            return "client/create";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -50,19 +55,24 @@ public class ClientController {
      */
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createClient(Model model, HttpServletRequest request) {
-        Notification notification = clientLogic.createClient(request);
-        model.addAttribute("message", notification.getMessage());
-        model.addAttribute("pageTitle", "Poornama Transport Service - Client");
-        if (notification.getNotificationType() == NotificationType.DANGER) {
-            log.error("[" + className + "] createClient: failed");
-            return "notify/danger";
+        try {
+            Notification notification = clientLogic.createClient(request);
+            model.addAttribute("message", notification.getMessage());
+            model.addAttribute("pageTitle", "Poornama Transport Service - Client");
+            if (notification.getNotificationType() == NotificationType.DANGER) {
+                log.error("[" + className + "] createClient: failed");
+                return "notify/danger";
+            }
+            if (notification.getNotificationType() == NotificationType.SUCCESS) {
+                log.info("[" + className + "] createClient: success");
+                return "notify/success";
+            }
+            log.fatal("[" + className + "] createClient: cannot reach this phrase");
+            return "redirect:/";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            log.info("[" + className + "] createClient: success");
-            return "notify/success";
-        }
-        log.fatal("[" + className + "] createClient: cannot reach this phrase");
-        return "redirect:/";
     }
 
     /**
@@ -74,19 +84,24 @@ public class ClientController {
      */
     @RequestMapping(value = "edit/{clientId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("clientId") String clientId) {
-        Client client;
-        client = clientLogic.getClient(clientId);
+        try {
+            Client client;
+            client = clientLogic.getClient(clientId);
 
-        if (client == null) {
-            log.error("[" + className + "] editForm: retrieving Client failed");
+            if (client == null) {
+                log.error("[" + className + "] editForm: retrieving Client failed");
+            }
+
+            model.addAttribute("clientId", client.getId());
+            model.addAttribute("organizationName", client.getOrganizationName());
+            model.addAttribute("address", client.getAddress());
+            model.addAttribute("telephone", client.getTelephoneNumber());
+            model.addAttribute("pageTitle", "Poornama Transport Service - Expense");
+            return "client/edit";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-
-        model.addAttribute("clientId", client.getId());
-        model.addAttribute("organizationName", client.getOrganizationName());
-        model.addAttribute("address", client.getAddress());
-        model.addAttribute("telephone", client.getTelephoneNumber());
-        model.addAttribute("pageTitle", "Poornama Transport Service - Expense");
-        return "client/edit";
     }
 
     /**
@@ -99,20 +114,25 @@ public class ClientController {
      */
     @RequestMapping(value = "edit/{clientId}", method = RequestMethod.POST)
     public String editEmployee(Model model, @PathVariable("clientId") String clientId, HttpServletRequest request) {
-        Notification notification = clientLogic.editClient(request, clientId);
-        log.debug("[" + className + "] editEmployee()");
-        model.addAttribute("pageTitle", "Poornama Transport Service - Client");
-        model.addAttribute("message", notification.getMessage());
-        if (notification.getNotificationType() == NotificationType.DANGER) {
-            log.error("[" + className + "] editEmployee: failed");
-            return "notify/danger";
+        try {
+            Notification notification = clientLogic.editClient(request, clientId);
+            log.debug("[" + className + "] editEmployee()");
+            model.addAttribute("pageTitle", "Poornama Transport Service - Client");
+            model.addAttribute("message", notification.getMessage());
+            if (notification.getNotificationType() == NotificationType.DANGER) {
+                log.error("[" + className + "] editEmployee: failed");
+                return "notify/danger";
+            }
+            if (notification.getNotificationType() == NotificationType.SUCCESS) {
+                log.info("[" + className + "] editEmployee: success");
+                return "notify/success";
+            }
+            log.fatal("[" + className + "] editEmployee: cannot reach this phrase");
+            return "redirect:/";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
-        if (notification.getNotificationType() == NotificationType.SUCCESS) {
-            log.info("[" + className + "] editEmployee: success");
-            return "notify/success";
-        }
-        log.fatal("[" + className + "] editEmployee: cannot reach this phrase");
-        return "redirect:/";
     }
 
     /**
@@ -124,15 +144,20 @@ public class ClientController {
      */
     @RequestMapping(value = "delete/{clientId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("clientId") String clientId) {
-        Client client;
-        client = clientLogic.getClient(clientId);
+        try {
+            Client client;
+            client = clientLogic.getClient(clientId);
 
-        model.addAttribute("clientId", client.getId());
-        model.addAttribute("organizationName", client.getOrganizationName());
-        model.addAttribute("address", client.getAddress());
-        model.addAttribute("telephone", client.getTelephoneNumber());
-        model.addAttribute("pageTitle", "Poornama Transport Service - Client");
-        return "client/delete";
+            model.addAttribute("clientId", client.getId());
+            model.addAttribute("organizationName", client.getOrganizationName());
+            model.addAttribute("address", client.getAddress());
+            model.addAttribute("telephone", client.getTelephoneNumber());
+            model.addAttribute("pageTitle", "Poornama Transport Service - Client");
+            return "client/delete";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -144,21 +169,26 @@ public class ClientController {
      */
     @RequestMapping(value = "delete/{clientId}", method = RequestMethod.POST)
     public String deleteClient(Model model, @PathVariable("clientId") String clientId) {
-        Notification notification = clientLogic.deleteClient(clientId);
-        model.addAttribute("pageTitle", "Poornama Transport Service - Client");
-        switch (notification.getNotificationType()) {
-            case DANGER:
-                model.addAttribute("message", notification.getMessage());
-                log.error("[" + className + "] deleteEmployee: error in deleting Client");
-                return "notify/danger";
-            case SUCCESS:
-                model.addAttribute("message", notification.getMessage());
-                log.info("[" + className + "] deleteEmployee: deleted Client successfully");
-                return "notify/success";
-            default:
-                model.addAttribute("message", "Something went wrong. Please contact developer.");
-                log.error("[" + className + "] deleteEmployee: fatal error in deleting Client");
-                return "notify/danger";
+        try {
+            Notification notification = clientLogic.deleteClient(clientId);
+            model.addAttribute("pageTitle", "Poornama Transport Service - Client");
+            switch (notification.getNotificationType()) {
+                case DANGER:
+                    model.addAttribute("message", notification.getMessage());
+                    log.error("[" + className + "] deleteEmployee: error in deleting Client");
+                    return "notify/danger";
+                case SUCCESS:
+                    model.addAttribute("message", notification.getMessage());
+                    log.info("[" + className + "] deleteEmployee: deleted Client successfully");
+                    return "notify/success";
+                default:
+                    model.addAttribute("message", "Something went wrong. Please contact developer.");
+                    log.error("[" + className + "] deleteEmployee: fatal error in deleting Client");
+                    return "notify/danger";
+            }
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
     }
 
@@ -171,11 +201,16 @@ public class ClientController {
      */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
-        String table = clientLogic.getClientTable();
-        model.addAttribute("table", table);
-        model.addAttribute("pageTitle", "Poornama Transport Service - Client");
-        log.debug("[" + className + "] searchForm()");
-        return "client/search";
+        try {
+            String table = clientLogic.getClientTable();
+            model.addAttribute("table", table);
+            model.addAttribute("pageTitle", "Poornama Transport Service - Client");
+            log.debug("[" + className + "] searchForm()");
+            return "client/search";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 }
 

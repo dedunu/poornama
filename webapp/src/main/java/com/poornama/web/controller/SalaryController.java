@@ -36,11 +36,16 @@ public class SalaryController {
      */
     @RequestMapping(value = "calculate", method = RequestMethod.GET)
     public String calculateForm(Model model) {
-        // Set the html page titple
-        model.addAttribute("pageTitle", "Poornama Transport Service - Salary");
-        log.debug("[" + className + "] calculateForm()");
-        // Return the calculate form
-        return "salary/calculate";
+        try {
+            // Set the html page titple
+            model.addAttribute("pageTitle", "Poornama Transport Service - Salary");
+            log.debug("[" + className + "] calculateForm()");
+            // Return the calculate form
+            return "salary/calculate";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 
     /**
@@ -52,13 +57,18 @@ public class SalaryController {
      */
     @RequestMapping(value = "calculate", method = RequestMethod.POST)
     public String calculateSalary(Model model, HttpServletRequest request) {
-        // Call the business logic class to calculate the salary
-        salaryLogic.calculateSalary(request);
-        // Set the salary table for the front-end
-        model.addAttribute("salaryTable", salaryLogic.getSalaryTable(request));
-        // Set the html page titple
-        model.addAttribute("pageTitle", "Poornama Transport Service - Salary");
-        // Return the report view
-        return "salary/result";
+        try {
+            // Call the business logic class to calculate the salary
+            salaryLogic.calculateSalary(request);
+            // Set the salary table for the front-end
+            model.addAttribute("salaryTable", salaryLogic.getSalaryTable(request));
+            // Set the html page titple
+            model.addAttribute("pageTitle", "Poornama Transport Service - Salary");
+            // Return the report view
+            return "salary/result";
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
+        }
     }
 }

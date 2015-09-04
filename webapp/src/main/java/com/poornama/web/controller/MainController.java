@@ -32,31 +32,36 @@ public class MainController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model, HttpSession session) {
-        log.debug("[" + className + "] index: index()");
-
-        String isLoggedIn = "false";
-
         try {
-            isLoggedIn = session.getAttribute("isLoggedIn").toString();
-        } catch (NullPointerException ex) {
-            session.setAttribute("isLoggedIn", "false");
-            session.setAttribute("userRole", null);
-            log.error("[" + className + "] index: NullPointerException");
-            isLoggedIn = "false";
-        }
+            log.debug("[" + className + "] index: index()");
 
-        if (isLoggedIn.equals("true")) {
-            model.addAttribute("pageTitle",
-                    messageSource.getMessage("web.user.dashboard.title", null, null));
-            log.debug("[" + className
-                    + "] index: isLoggedIn=true, redirecting to user/dashboard");
-            return "user/dashboard";
-        } else {
-            model.addAttribute("pageTitle",
-                    "Poornama Transport Service - Login");
-            log.debug("[" + className
-                    + "] index: isLoggedIn=false, redirecting to user/login");
-            return "user/login";
+            String isLoggedIn = "false";
+
+            try {
+                isLoggedIn = session.getAttribute("isLoggedIn").toString();
+            } catch (NullPointerException ex) {
+                session.setAttribute("isLoggedIn", "false");
+                session.setAttribute("userRole", null);
+                log.error("[" + className + "] index: NullPointerException");
+                isLoggedIn = "false";
+            }
+
+            if (isLoggedIn.equals("true")) {
+                model.addAttribute("pageTitle",
+                        messageSource.getMessage("web.user.dashboard.title", null, null));
+                log.debug("[" + className
+                        + "] index: isLoggedIn=true, redirecting to user/dashboard");
+                return "user/dashboard";
+            } else {
+                model.addAttribute("pageTitle",
+                        "Poornama Transport Service - Login");
+                log.debug("[" + className
+                        + "] index: isLoggedIn=false, redirecting to user/login");
+                return "user/login";
+            }
+        } catch (Exception e) {
+            log.error("[" + className + "]" + e.getMessage());
+            return "redirect:/system/error";
         }
     }
 }
