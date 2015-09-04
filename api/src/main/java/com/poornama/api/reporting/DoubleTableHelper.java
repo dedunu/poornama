@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by dedunu on 8/2/15.
+ * @author dedunu
  */
 public class DoubleTableHelper extends TableHelper {
     private static Logger log = GlobalLogger.getLogger();

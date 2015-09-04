@@ -1,5 +1,8 @@
 package com.poornama.api.presentation;
 
+/**
+ * @author dedunu
+ */
 public class DataTableGenerator extends PlainDataTableGenerator {
     public String getTableHeader(String columnArray[]) {
         String tableString;

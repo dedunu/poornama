@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 /**
- * Created by dedunu on 8/1/15.
+ * @author dedunu
  */
 public class ReportDAO {
     private static Logger log = GlobalLogger.getLogger();

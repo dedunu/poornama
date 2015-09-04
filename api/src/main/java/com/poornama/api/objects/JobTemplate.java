@@ -9,6 +9,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
+/**
+ * @author dedunu
+ */
 @Entity
 @Table
 public class JobTemplate {

@@ -11,6 +11,9 @@ import javax.persistence.UniqueConstraint;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * @author dedunu
+ */
 @Entity
 @Table(name = "Salary", uniqueConstraints = @UniqueConstraint(columnNames = {"employeeId", "date"}))
 public class Salary {

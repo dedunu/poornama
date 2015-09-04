@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * Created by dedunu on 10/21/14.
+ * @author dedunu
  */
 @Entity
 @Table

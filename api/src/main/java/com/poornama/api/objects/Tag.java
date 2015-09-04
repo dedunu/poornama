@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import java.util.List;
 
 /**
- * Created by dedunu on 7/28/15.
+ * @author dedunu
  */
 @Entity
 @Table

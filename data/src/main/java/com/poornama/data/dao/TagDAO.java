@@ -12,7 +12,7 @@ import org.hibernate.criterion.SimpleExpression;
 import java.util.List;
 
 /**
- * Created by dedunu on 7/28/15.
+ * @author dedunu
  */
 public class TagDAO {
     private static Logger log = GlobalLogger.getLogger();

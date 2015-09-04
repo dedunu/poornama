@@ -7,6 +7,9 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * @author dedunu
+ */
 public class PasswordHash {
 
     private static Logger log = GlobalLogger.getLogger();

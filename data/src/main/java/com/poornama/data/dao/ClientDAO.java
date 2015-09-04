@@ -11,6 +11,9 @@ import org.hibernate.criterion.SimpleExpression;
 
 import java.util.List;
 
+/**
+ * @author dedunu
+ */
 public class ClientDAO {
 	private static Logger log = GlobalLogger.getLogger();
 	private static String className = ClientDAO.class.getName();

@@ -11,7 +11,7 @@ import org.hibernate.criterion.SimpleExpression;
 import java.util.List;
 
 /**
- * Created by ddhananjaya on 7/15/15.
+ * @author dedunu
  */
 public class ConfigurationDAO {
     private static Logger log = GlobalLogger.getLogger();

@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.Set;
 
 /**
- * Created by dedunu on 7/29/15.
+ * @author dedunu
  */
 @Entity
 @Table

@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by dedunu on 11/4/14.
+ * @author dedunu
  */
 public class EmployeeAttendanceDAO {
     private static Logger log = GlobalLogger.getLogger();

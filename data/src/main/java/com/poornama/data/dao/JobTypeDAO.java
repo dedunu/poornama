@@ -7,6 +7,9 @@ import org.apache.log4j.Logger;
 
 import java.util.List;
 
+/**
+ * @author dedunu
+ */
 public class JobTypeDAO {
 	private static Logger log = GlobalLogger.getLogger();
 	private static String className = JobTypeDAO.class.getName();

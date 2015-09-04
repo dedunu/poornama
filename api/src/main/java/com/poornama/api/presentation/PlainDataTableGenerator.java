@@ -1,5 +1,8 @@
 package com.poornama.api.presentation;
 
+/**
+ * @author dedunu
+ */
 public class PlainDataTableGenerator{
     private String tableType = "table-hover";
 

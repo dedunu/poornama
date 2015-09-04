@@ -15,6 +15,9 @@ import org.hibernate.criterion.SimpleExpression;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author dedunu
+ */
 public class JobDAO {
 	private static Logger log = GlobalLogger.getLogger();
 	private static String className = JobDAO.class.getName();

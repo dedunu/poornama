@@ -11,7 +11,7 @@ import javax.persistence.UniqueConstraint;
 import java.util.Date;
 
 /**
- * Created by dedunu on 10/21/14.
+ * @author dedunu
  */
 @Entity
 @Table(name = "EmployeeAttendance", uniqueConstraints = @UniqueConstraint(columnNames = {"date", "employeeId"}))

@@ -5,6 +5,9 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+/**
+ * @author dedunu
+ */
 public class SessionGenerator {
 
     private static Logger log = GlobalLogger.getLogger();

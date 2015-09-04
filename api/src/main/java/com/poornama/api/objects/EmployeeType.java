@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 /**
- * Created by dedunu on 10/23/14.
+ * @author dedunu
  */
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))

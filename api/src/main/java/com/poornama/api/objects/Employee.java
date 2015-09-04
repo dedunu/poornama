@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * Created by dedunu on 10/21/14.
+ * @author dedunu
  */
 @Entity
 @Table

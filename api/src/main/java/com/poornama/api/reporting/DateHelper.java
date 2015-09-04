@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * @author dedunu
+ */
 public class DateHelper {
 
     public Date getDate(String dateString) {

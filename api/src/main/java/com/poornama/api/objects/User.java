@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+/**
+ * @author dedunu
+ */
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"userName"}))
 public class User {

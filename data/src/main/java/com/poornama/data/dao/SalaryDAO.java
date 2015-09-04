@@ -13,6 +13,9 @@ import org.hibernate.criterion.Restrictions;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author dedunu
+ */
 public class SalaryDAO {
 	private static Logger log = GlobalLogger.getLogger();
 	private static String className = SalaryDAO.class.getName();

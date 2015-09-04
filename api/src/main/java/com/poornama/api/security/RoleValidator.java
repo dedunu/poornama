@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by dedunu on 11/8/14.
+ * @author dedunu
  */
 public class RoleValidator {
     private static Logger log = GlobalLogger.getLogger();
@@ -39,7 +39,7 @@ public class RoleValidator {
      * @param session  HttpSession
      * @param request  HttpServletRequest
      * @param response HttpServletResponse
-     * @param roleList List<String>
+     * @param roleList List&lt;String&gt;
      * @throws IOException
      */
     public void validate(HttpSession session, HttpServletRequest request, HttpServletResponse response, List<String> roleList)
@@ -67,7 +67,7 @@ public class RoleValidator {
      * @param session  HttpSession
      * @param request  HttpServletRequest
      * @param response HttpServletResponse
-     * @param roleList List<String>
+     * @param roleList List&lt;String&gt;
      * @return true if current user's role contains in roleList
      * @throws IOException
      */

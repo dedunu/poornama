@@ -10,6 +10,9 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * @author dedunu
+ */
 @Entity
 @Table
 public class Job {

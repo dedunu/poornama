@@ -10,7 +10,7 @@ import org.hibernate.criterion.Order;
 import java.util.List;
 
 /**
- * Created by dedunu on 7/29/15.
+ * @author dedunu
  */
 public class ExpenseDAO {
     private static Logger log = GlobalLogger.getLogger();
