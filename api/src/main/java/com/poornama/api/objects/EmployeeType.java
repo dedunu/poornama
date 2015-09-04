@@ -23,28 +23,46 @@ public class EmployeeType {
     
     private String displayName;
 
-    public String getDisplayName() {
-        return displayName;
-    }
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public int getId() {
-        return id;
-    }
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	/**
+	 * @return the displayName
+	 */
+	public String getDisplayName() {
+		return displayName;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	/**
+	 * @param displayName the displayName to set
+	 */
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
 
 }

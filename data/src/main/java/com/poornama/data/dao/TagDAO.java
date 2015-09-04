@@ -24,43 +24,25 @@ public class TagDAO {
 
     public void create(Tag tag) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.save(tag);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] create()");
     }
 
     public void delete(Tag tag) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.delete(tag);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] delete()");
-    }
-
-    public void deleteById(int id) {
-        Tag tag = getById(id);
-        delete(tag);
-        log.debug("[" + className + "] deleteById()");
     }
 
     public void update(Tag tag) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.update(tag);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] update()");
     }
 
     public Tag getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         Tag tag = (Tag) databaseSession.getById(Tag.class, id);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getById()");
         return tag;
     }
@@ -88,19 +70,6 @@ public class TagDAO {
         databaseSession.close();
         log.debug("[" + className + "] getByDisplayName()");
         return tag;
-    }
-
-    public List<Tag> searchByDisplayName(String displayName) {
-        DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
-        Criteria criteria = databaseSession.createCriteria(Tag.class);
-        SimpleExpression simpleExpression = Restrictions.like("displayName", displayName + "%");
-        criteria.addOrder(Order.asc("displayName"));
-        List<Tag> tagList = criteria.add(simpleExpression).list();
-        databaseSession.commitTransaction();
-        databaseSession.close();
-        log.debug("[" + className + "] searchByDisplayName()");
-        return tagList;
     }
 
     public List<Tag> getAll() {

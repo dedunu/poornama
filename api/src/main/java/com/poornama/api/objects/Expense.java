@@ -31,43 +31,73 @@ public class Expense {
 
     private String description;
 
-    public int getId() {
-        return id;
-    }
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+	/**
+	 * @return the date
+	 */
+	public Date getDate() {
+		return date;
+	}
 
-    public Date getDate() {
-        return date;
-    }
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    public void setTags(Set<Tag> tags) {
-        this.tags = tags;
-    }
+	/**
+	 * @return the tags
+	 */
+	public Set<Tag> getTags() {
+		return tags;
+	}
 
-    public Set<Tag> getTags() {
-        return tags;
-    }
+	/**
+	 * @param tags the tags to set
+	 */
+	public void setTags(Set<Tag> tags) {
+		this.tags = tags;
+	}
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
+	/**
+	 * @return the amount
+	 */
+	public BigDecimal getAmount() {
+		return amount;
+	}
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

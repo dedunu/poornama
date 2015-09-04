@@ -25,35 +25,60 @@ public class Tag {
     @ManyToMany(mappedBy = "tags")
     private List<Expense> expenses;
 
-    public int getId() {
-        return id;
-    }
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getDisplayName() {
-        return displayName;
-    }
+	/**
+	 * @return the displayName
+	 */
+	public String getDisplayName() {
+		return displayName;
+	}
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
+	/**
+	 * @param displayName the displayName to set
+	 */
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
 
-    public List<Expense> getExpenses() {
-        return expenses;
-    }
+	/**
+	 * @return the expenses
+	 */
+	public List<Expense> getExpenses() {
+		return expenses;
+	}
 
-    public void setExpenses(List<Expense> expenses) {
-        this.expenses = expenses;
-    }
+	/**
+	 * @param expenses the expenses to set
+	 */
+	public void setExpenses(List<Expense> expenses) {
+		this.expenses = expenses;
+	}
+
 }

@@ -41,91 +41,158 @@ public class Employee {
     @JoinColumn(name = "employeeTypeId")
     private EmployeeType employeeType;
 
-    public int getId() {
-        return id;
-    }
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getFirstName() {
-        return firstName;
-    }
+	/**
+	 * @return the firstName
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	/**
+	 * @param firstName the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public String getLastName() {
-        return lastName;
-    }
+	/**
+	 * @return the lastName
+	 */
+	public String getLastName() {
+		return lastName;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	/**
+	 * @param lastName the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    public int getNic() {
-        return nic;
-    }
+	/**
+	 * @return the nic
+	 */
+	public int getNic() {
+		return nic;
+	}
 
-    public void setNic(int nic) {
-        this.nic = nic;
-    }
+	/**
+	 * @param nic the nic to set
+	 */
+	public void setNic(int nic) {
+		this.nic = nic;
+	}
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
+	/**
+	 * @return the dateOfBirth
+	 */
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+	/**
+	 * @param dateOfBirth the dateOfBirth to set
+	 */
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
 
-    public Date getDateOfJoining() {
-        return dateOfJoining;
-    }
+	/**
+	 * @return the dateOfJoining
+	 */
+	public Date getDateOfJoining() {
+		return dateOfJoining;
+	}
 
-    public void setDateOfJoining(Date dateOfJoining) {
-        this.dateOfJoining = dateOfJoining;
-    }
+	/**
+	 * @param dateOfJoining the dateOfJoining to set
+	 */
+	public void setDateOfJoining(Date dateOfJoining) {
+		this.dateOfJoining = dateOfJoining;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	/**
+	 * @return the address
+	 */
+	public String getAddress() {
+		return address;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public String getTelephoneNumber() {
-        return telephoneNumber;
-    }
+	/**
+	 * @return the telephoneNumber
+	 */
+	public String getTelephoneNumber() {
+		return telephoneNumber;
+	}
 
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
+	/**
+	 * @param telephoneNumber the telephoneNumber to set
+	 */
+	public void setTelephoneNumber(String telephoneNumber) {
+		this.telephoneNumber = telephoneNumber;
+	}
 
-    public String getEmergencyContact() {
-        return emergencyContact;
-    }
+	/**
+	 * @return the emergencyContact
+	 */
+	public String getEmergencyContact() {
+		return emergencyContact;
+	}
 
-    public void setEmergencyContact(String emergencyContact) {
-        this.emergencyContact = emergencyContact;
-    }
+	/**
+	 * @param emergencyContact the emergencyContact to set
+	 */
+	public void setEmergencyContact(String emergencyContact) {
+		this.emergencyContact = emergencyContact;
+	}
 
-    public EmployeeType getEmployeeType() {
-        return employeeType;
-    }
+	/**
+	 * @return the employeeType
+	 */
+	public EmployeeType getEmployeeType() {
+		return employeeType;
+	}
 
-    public void setEmployeeType(EmployeeType employeeType) {
-        this.employeeType = employeeType;
-    }
+	/**
+	 * @param employeeType the employeeType to set
+	 */
+	public void setEmployeeType(EmployeeType employeeType) {
+		this.employeeType = employeeType;
+	}
+
 }

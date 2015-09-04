@@ -28,36 +28,60 @@ public class EmployeeAttendance {
     @JoinColumn(name = "employeeId")
     private Employee employee;
 
-    public long getId() {
-        return id;
-    }
+	/**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public Employee getEmployee() {
-        return employee;
-    }
+	/**
+	 * @return the date
+	 */
+	public Date getDate() {
+		return date;
+	}
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    public Date getDate() {
-        return date;
-    }
+	/**
+	 * @return the attendance
+	 */
+	public boolean isAttendance() {
+		return attendance;
+	}
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+	/**
+	 * @param attendance the attendance to set
+	 */
+	public void setAttendance(boolean attendance) {
+		this.attendance = attendance;
+	}
 
-    public boolean isAttendance() {
-        return attendance;
-    }
+	/**
+	 * @return the employee
+	 */
+	public Employee getEmployee() {
+		return employee;
+	}
 
-    public void setAttendance(boolean attendance) {
-        this.attendance = attendance;
-    }
+	/**
+	 * @param employee the employee to set
+	 */
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 
 }

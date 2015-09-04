@@ -27,10 +27,7 @@ public class EmployeeDAO {
 
     public void delete(Employee employee) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.delete(employee);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] delete()");
     }
 
@@ -42,19 +39,13 @@ public class EmployeeDAO {
 
     public void update(Employee employee) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.update(employee);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] update()");
     }
 
     public Employee getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         Employee employee = (Employee) databaseSession.getById(Employee.class, id);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getById()");
         return employee;
     }
@@ -74,13 +65,8 @@ public class EmployeeDAO {
     public void create(Employee employee) {
         // Initialize Database session
         DatabaseSession databaseSession = new DatabaseSession();
-        // Start transactions
-        databaseSession.beginTransaction();
         // Save the employee object in database using database session
         databaseSession.save(employee);
-        // Commit the transaction and close the database session
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] create()");
     }
 

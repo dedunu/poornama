@@ -12,7 +12,8 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Client{
-    @Id
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
@@ -22,35 +23,60 @@ public class Client{
 
     private String telephoneNumber;
 
-    public int getId() {
-        return id;
-    }
+    /**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getOrganizationName() {
-        return organizationName;
-    }
+	/**
+	 * @return the organizationName
+	 */
+	public String getOrganizationName() {
+		return organizationName;
+	}
 
-    public void setOrganizationName(String organizationName) {
-        this.organizationName = organizationName;
-    }
+	/**
+	 * @param organizationName the organizationName to set
+	 */
+	public void setOrganizationName(String organizationName) {
+		this.organizationName = organizationName;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	/**
+	 * @return the address
+	 */
+	public String getAddress() {
+		return address;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public String getTelephoneNumber() {
-        return telephoneNumber;
-    }
+	/**
+	 * @return the telephoneNumber
+	 */
+	public String getTelephoneNumber() {
+		return telephoneNumber;
+	}
 
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
+	/**
+	 * @param telephoneNumber the telephoneNumber to set
+	 */
+	public void setTelephoneNumber(String telephoneNumber) {
+		this.telephoneNumber = telephoneNumber;
+	}
+
 }

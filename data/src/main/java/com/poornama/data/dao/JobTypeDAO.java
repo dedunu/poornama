@@ -20,38 +20,26 @@ public class JobTypeDAO {
 
 	public void create(JobType jobType) {
 		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
 		databaseSession.save(jobType);
-		databaseSession.commitTransaction();
-		databaseSession.close();
 		log.debug("[" + className + "] create()");
 	}
 
 	public void delete(JobType jobType) {
 		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
 		databaseSession.delete(jobType);
-		databaseSession.commitTransaction();
-		databaseSession.close();
 		log.debug("[" + className + "] delete()");
 	}
 
 	public void update(JobType jobType) {
 		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
 		databaseSession.update(jobType);
-		databaseSession.commitTransaction();
-		databaseSession.close();
 		log.debug("[" + className + "] update()");
 	}
 
 	public JobType getById(int id) {
 		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
 		JobType jobType = (JobType) databaseSession.getById(
 				JobType.class, id);
-		databaseSession.commitTransaction();
-		databaseSession.close();
 		log.debug("[" + className + "] getById()");
 		return jobType;
 	}
@@ -59,11 +47,8 @@ public class JobTypeDAO {
 	@SuppressWarnings("unchecked")
 	public List<JobType> getAll() {
 		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
 		List<JobType> jobTypeList = databaseSession
 				.getAll(JobType.class);
-		databaseSession.commitTransaction();
-		databaseSession.close();
 		log.debug("[" + className + "] getAll()");
 		return jobTypeList;
 	}

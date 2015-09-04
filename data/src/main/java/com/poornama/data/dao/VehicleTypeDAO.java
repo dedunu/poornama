@@ -11,7 +11,7 @@ import org.hibernate.criterion.SimpleExpression;
 import java.util.List;
 
 /**
- * Created by dedunu on 11/4/14.
+ * @author dedunu
  */
 public class VehicleTypeDAO {
 
@@ -24,37 +24,25 @@ public class VehicleTypeDAO {
 
     public void create(VehicleType vehicleType) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.save(vehicleType);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] create()");
     }
 
     public void delete(VehicleType vehicleType) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.delete(vehicleType);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] delete()");
     }
 
     public void update(VehicleType vehicleType) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.update(vehicleType);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] update()");
     }
 
     public VehicleType getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         VehicleType vehicleType = (VehicleType) databaseSession.getById(VehicleType.class, id);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getById()");
         return vehicleType;
     }
@@ -74,10 +62,7 @@ public class VehicleTypeDAO {
 
     public List<VehicleType> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         List<VehicleType> vehicleTypeList = databaseSession.getAll(VehicleType.class);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getAll()");
         return vehicleTypeList;
     }

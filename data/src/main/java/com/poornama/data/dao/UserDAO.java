@@ -23,37 +23,25 @@ public class UserDAO {
 
     public void create(User user) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.save(user);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] create()");
     }
 
     public void delete(User user) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.delete(user);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] delete()");
     }
 
     public void update(User user) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.update(user);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] update()");
     }
 
     public User getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         User user = (User) databaseSession.getById(User.class, id);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getById()");
         return user;
     }
@@ -84,10 +72,7 @@ public class UserDAO {
 
     public List<User> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         List<User> userList = databaseSession.getAll(User.class);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getAll()");
         return userList;
     }

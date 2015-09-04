@@ -20,38 +20,26 @@ public class JobTemplateDAO {
 
     public void create(JobTemplate jobTemplate) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.save(jobTemplate);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] create()");
     }
 
     public void delete(JobTemplate jobTemplate) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.delete(jobTemplate);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] delete()");
     }
 
     public void update(JobTemplate jobTemplate) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.update(jobTemplate);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] update()");
     }
 
     public JobTemplate getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         JobTemplate jobTemplate = (JobTemplate) databaseSession.getById(
                 JobTemplate.class, id);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getById()");
         return jobTemplate;
     }
@@ -69,11 +57,8 @@ public class JobTemplateDAO {
     @SuppressWarnings("unchecked")
     public List<JobTemplate> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         List<JobTemplate> jobTemplateList = databaseSession
                 .getAll(JobTemplate.class);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getAll()");
         return jobTemplateList;
     }

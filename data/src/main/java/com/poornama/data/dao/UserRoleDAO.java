@@ -24,37 +24,25 @@ public class UserRoleDAO {
 
     public void create(UserRole userRole) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.save(userRole);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] create()");
     }
 
     public void delete(UserRole userRole) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.delete(userRole);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] delete()");
     }
 
     public void update(UserRole userRole) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.update(userRole);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] update()");
     }
 
     public UserRole getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         UserRole userRole = (UserRole) databaseSession.getById(UserRole.class, id);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getById()");
         return userRole;
     }
@@ -74,10 +62,7 @@ public class UserRoleDAO {
 
     public List<UserRole> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         List<UserRole> userRoleList = databaseSession.getAll(UserRole.class);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getAll()");
         return userRoleList;
     }

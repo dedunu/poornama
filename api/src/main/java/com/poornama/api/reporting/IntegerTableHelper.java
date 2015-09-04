@@ -19,6 +19,17 @@ public class IntegerTableHelper extends TableHelper {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = IntegerTableHelper.class.getName();
 
+
+    /**
+     * Returns data for bar charts as a String
+     *
+     * @param dataTable     HashMap&lt;Integer, HashMap&lt;String, Integer&gt;&gt;
+     * @param startDate     Date
+     * @param endDate       Date
+     * @param labelMap      Map&lt;Integer, String&gt;
+     * @param calendarField int
+     * @return String
+     */
     public String getChartColumns(HashMap<Integer, HashMap<String, Integer>> dataTable, Date startDate, Date endDate, Map<Integer, String> labelMap, int calendarField) {
         log.debug("[" + className + "] getChartColumns() : started");
         String result = "";
@@ -68,6 +79,14 @@ public class IntegerTableHelper extends TableHelper {
         return result;
     }
 
+    /**
+     * Returns the report as a table
+     *
+     * @param dataTable HashMap&lt;Integer, HashMap&lt;String, Integer&gt;&gt;
+     * @param labelMap  Map&lt;Integer, String&gt;
+     * @param axisList  List&lt;String&gt;
+     * @return String
+     */
     public String getTable(HashMap<Integer, HashMap<String, Integer>> dataTable, Map<Integer, String> labelMap, List<String> axisList) {
         log.debug("[" + className + "] getTable() : started");
         String result;
@@ -114,7 +133,5 @@ public class IntegerTableHelper extends TableHelper {
 
         return result;
     }
-
-
 
 }

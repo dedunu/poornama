@@ -27,37 +27,25 @@ public class EmployeeAttendanceDAO {
 
     public void create(EmployeeAttendance employeeAttendance) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.save(employeeAttendance);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] create()");
     }
 
     public void saveOrUpdate(EmployeeAttendance employeeAttendance) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.saveOrUpdate(employeeAttendance);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] saveOrUpdate()");
     }
 
     public void delete(EmployeeAttendance employeeAttendance) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.delete(employeeAttendance);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] delete()");
     }
 
     public void update(EmployeeAttendance employeeAttendance) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.update(employeeAttendance);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] update()");
     }
 
@@ -110,10 +98,7 @@ public class EmployeeAttendanceDAO {
 
     public EmployeeAttendance getById(Long id) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         EmployeeAttendance employeeAttendance = (EmployeeAttendance) databaseSession.getById(EmployeeAttendance.class, id);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getById()");
         return employeeAttendance;
     }

@@ -23,37 +23,25 @@ public class EmployeeTypeDAO {
 
     public void create(EmployeeType employeeType) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.save(employeeType);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] create()");
     }
 
     public void delete(EmployeeType employeeType) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.delete(employeeType);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] delete()");
     }
 
     public void update(EmployeeType employeeType) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         databaseSession.update(employeeType);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] update()");
     }
 
     public EmployeeType getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         EmployeeType employeeType = (EmployeeType) databaseSession.getById(EmployeeType.class, id);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getById()");
         return employeeType;
     }
@@ -73,10 +61,7 @@ public class EmployeeTypeDAO {
 
     public List<EmployeeType> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
-        databaseSession.beginTransaction();
         List<EmployeeType> employeeTypeList = databaseSession.getAll(EmployeeType.class);
-        databaseSession.commitTransaction();
-        databaseSession.close();
         log.debug("[" + className + "] getAll()");
         return employeeTypeList;
     }

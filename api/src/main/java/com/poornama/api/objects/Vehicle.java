@@ -24,27 +24,46 @@ public class Vehicle {
     @JoinColumn(name = "vehicleTypeId")
     private VehicleType vehicleType;
 
-    public int getId() {
-        return id;
-    }
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getVehicleNumber() {
-        return vehicleNumber;
-    }
+	/**
+	 * @return the vehicleNumber
+	 */
+	public String getVehicleNumber() {
+		return vehicleNumber;
+	}
 
-    public void setVehicleNumber(String vehicleNumber) {
-        this.vehicleNumber = vehicleNumber;
-    }
+	/**
+	 * @param vehicleNumber the vehicleNumber to set
+	 */
+	public void setVehicleNumber(String vehicleNumber) {
+		this.vehicleNumber = vehicleNumber;
+	}
 
-    public VehicleType getVehicleType() {
-        return vehicleType;
-    }
+	/**
+	 * @return the vehicleType
+	 */
+	public VehicleType getVehicleType() {
+		return vehicleType;
+	}
 
-    public void setVehicleType(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
-    }
+	/**
+	 * @param vehicleType the vehicleType to set
+	 */
+	public void setVehicleType(VehicleType vehicleType) {
+		this.vehicleType = vehicleType;
+	}
+	
 }

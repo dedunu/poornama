@@ -4,6 +4,13 @@ package com.poornama.api.presentation;
  * @author dedunu
  */
 public class DataTableGenerator extends PlainDataTableGenerator {
+
+    /**
+     * Returns the table header with extra two columns
+     *
+     * @param columnArray String[]
+     * @return a string with table header
+     */
     public String getTableHeader(String columnArray[]) {
         String tableString;
         tableString = getStartTableHeader();
@@ -16,6 +23,14 @@ public class DataTableGenerator extends PlainDataTableGenerator {
         return tableString;
     }
 
+    /**
+     * Returns table row string
+     *
+     * @param dataArray String[]
+     * @param editUrl   String
+     * @param deleteUrl String
+     * @return table row string
+     */
     public String getTableBodyRow(String dataArray[], String editUrl, String deleteUrl) {
         String tableString = "";
         tableString = tableString + "\t\t\t<tr>\n";
@@ -28,12 +43,24 @@ public class DataTableGenerator extends PlainDataTableGenerator {
         return tableString;
     }
 
+    /**
+     * Return the editUrl text
+     *
+     * @param editUrl String
+     * @return String
+     */
     protected String getEditButton(String editUrl) {
         String tableString;
         tableString = "\t\t\t\t<td><a href=\"" + editUrl + "\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>\n";
         return tableString;
     }
 
+    /**
+     * Return the deleteUrl text
+     *
+     * @param deleteUrl String
+     * @return String
+     */
     protected String getDeleteButton(String deleteUrl) {
         String tableString;
         tableString = "\t\t\t\t<td><a href=\"" + deleteUrl + "\"><span class=\"glyphicon glyphicon-minus\" style=\"color:red\"></span></a></td>\n";

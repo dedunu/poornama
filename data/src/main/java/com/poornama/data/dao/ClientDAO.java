@@ -24,38 +24,26 @@ public class ClientDAO {
 
 	public void create(Client client) {
 		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
 		databaseSession.save(client);
-		databaseSession.commitTransaction();
-		databaseSession.close();
 		log.debug("[" + className + "] create()");
 	}
 
 	public void delete(Client client) {
 		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
 		databaseSession.delete(client);
-		databaseSession.commitTransaction();
-		databaseSession.close();
 		log.debug("[" + className + "] delete()");
 	}
 
 	public void update(Client client) {
 		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
 		databaseSession.update(client);
-		databaseSession.commitTransaction();
-		databaseSession.close();
 		log.debug("[" + className + "] update()");
 	}
 
 	public Client getById(int id) {
 		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
 		Client client = (Client) databaseSession.getById(
 				Client.class, id);
-		databaseSession.commitTransaction();
-		databaseSession.close();
 		log.debug("[" + className + "] getById()");
 		return client;
 	}
