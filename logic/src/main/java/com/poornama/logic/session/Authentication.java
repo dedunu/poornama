@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by dedunu on 10/23/14.
+ * @author dedunu
  */
 @Service
 public class Authentication {
@@ -16,6 +16,13 @@ public class Authentication {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = Authentication.class.getName();
 
+    /**
+     * Returns true if username and password are valid
+     *
+     * @param username String
+     * @param password String
+     * @return true if username and password are valid
+     */
     public boolean doAuthenticate(String username, String password) {
         log.debug("[" + className + "] doAuthenticate: doAuthenticate()");
 

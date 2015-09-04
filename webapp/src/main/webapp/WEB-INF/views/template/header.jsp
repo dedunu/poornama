@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <%@include file="style.jsp" %>
     <%@ include file="javascript.jsp" %>
-    <title><spring:message code="web.company.name" /> - ${pageTitle}</title>
+    <title><spring:message code="web.company.name"/> -
+        ${pageTitle}</title>
 </head>
 <body>
 <div class="container">

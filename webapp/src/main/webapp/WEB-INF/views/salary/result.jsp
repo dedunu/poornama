@@ -1,20 +1,21 @@
 <%@ include file="../template/headerWithNav.jsp" %>
 <%
-  RoleValidator roleValidator = new RoleValidator();
-  List<String> roles = new ArrayList<String>();
-  roles.add("manager");
-  roleValidator.validate(session, request, response, roles);
+    RoleValidator roleValidator = new RoleValidator();
+    List<String> roles = new ArrayList<String>();
+    roles.add("manager");
+    roleValidator.validate(session, request, response, roles);
 %>
 <style scoped>
-
 </style>
 
 ${salaryTable}
 
-<br />
+<br/>
 
 <a href="${pageContext.request.contextPath}">
-  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-home"></span> Home</button>
+    <button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-home"></span> Home
+    </button>
 </a>
 
 <script>

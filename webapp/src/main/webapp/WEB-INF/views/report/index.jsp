@@ -7,10 +7,10 @@
     roleValidator.validate(session, request, response, roles);
 %>
 <style scoped>
-
 </style>
 
-<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/report/index">
+<form class="form-horizontal" role="form" method="post"
+      action="${pageContext.request.contextPath}/report/index">
     <div class="form-group">
         <label for="report" class="col-sm-3 control-label">Report</label>
 
@@ -45,10 +45,10 @@
 
         <div class="col-sm-3">
             <div class='input-group date' id="startDateInputGroup">
-                <input type='text' class="form-control" id="startDate" name="startDate"/>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+                <input type='text' class="form-control" id="startDate"
+                       name="startDate"/> <span class="input-group-addon"> <span
+                    class="glyphicon glyphicon-calendar"></span>
+				</span>
             </div>
         </div>
     </div>
@@ -58,14 +58,15 @@
         <div class="col-sm-3">
             <div class='input-group date' id="endDateInputGroup">
                 <input type='text' class="form-control" id="endDate" name="endDate"/>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+				<span class="input-group-addon"> <span
+                        class="glyphicon glyphicon-calendar"></span>
+				</span>
             </div>
         </div>
     </div>
     <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-10">.
+        <div class="col-sm-offset-3 col-sm-10">
+            .
             <button type="submit" class="btn btn-success">Generate</button>
             <a href="${pageContext.request.contextPath}">
                 <button type="button" class="btn btn-default">Home</button>

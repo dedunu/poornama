@@ -1,6 +1,5 @@
 <%@ include file="../template/header.jsp" %>
 <style scoped>
-
 </style>
 
 <pre>

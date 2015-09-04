@@ -84,6 +84,7 @@
 </div>
 
 <br/>
+
 <div class="row" id="chart">
 
 </div>
@@ -146,10 +147,16 @@
             columns: [
                 ${pieChartText}
             ],
-            type : 'pie',
-            onclick: function (d, i) { console.log("onclick", d, i); },
-            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+            type: 'pie',
+            onclick: function (d, i) {
+                console.log("onclick", d, i);
+            },
+            onmouseover: function (d, i) {
+                console.log("onmouseover", d, i);
+            },
+            onmouseout: function (d, i) {
+                console.log("onmouseout", d, i);
+            }
         }
     });
 

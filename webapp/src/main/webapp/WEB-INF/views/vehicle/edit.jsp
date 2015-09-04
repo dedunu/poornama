@@ -6,21 +6,22 @@
     roleValidator.validate(session, request, response, roles);
 %>
 <style scoped>
-
 </style>
 
 <form class="form-horizontal" role="form" method="post"
       action="${pageContext.request.contextPath}/vehicle/edit/${vehicleId}">
     <div class="form-group">
-        <label for="vehicleNumber" class="col-sm-3 control-label">Vehicle Number</label>
+        <label for="vehicleNumber" class="col-sm-3 control-label">Vehicle
+            Number</label>
 
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="vehicleNumber" name="vehicleNumber" placeholder=""
-                   value="${vehicleNumber}">
+            <input type="text" class="form-control" id="vehicleNumber"
+                   name="vehicleNumber" placeholder="" value="${vehicleNumber}">
         </div>
     </div>
     <div class="form-group">
-        <label for="vehicleType" class="col-sm-3 control-label">Vehicle Type</label>
+        <label for="vehicleType" class="col-sm-3 control-label">Vehicle
+            Type</label>
 
         <div class="col-sm-3">
             <select class="form-control" id="vehicleType" name="vehicleType">

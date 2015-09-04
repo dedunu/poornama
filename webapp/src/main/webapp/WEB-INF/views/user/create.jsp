@@ -7,26 +7,32 @@
 %>
 
 <style scoped>
-
 </style>
 
 <div id="validateNotMatching" class="hidden">
-    <div class="alert alert-danger" role="alert">Please check your password.</div>
+    <div class="alert alert-danger" role="alert">Please check your
+        password.
+    </div>
 </div>
 
-<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/user/create" onsubmit="return validatePassword();">
+<form class="form-horizontal" role="form" method="post"
+      action="${pageContext.request.contextPath}/user/create"
+      onsubmit="return validatePassword();">
     <div class="form-group">
         <label for="userName" class="col-sm-3 control-label">Username</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="userName" name="userName" placeholder="">
+            <input type="text" class="form-control" id="userName" name="userName"
+                   placeholder="">
         </div>
     </div>
     <div class="form-group">
-        <label for="displayName" class="col-sm-3 control-label">Display Name</label>
+        <label for="displayName" class="col-sm-3 control-label">Display
+            Name</label>
 
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="displayName" name="displayName" placeholder="">
+            <input type="text" class="form-control" id="displayName"
+                   name="displayName" placeholder="">
         </div>
     </div>
     <div class="form-group">
@@ -42,14 +48,17 @@
         <label for="password" class="col-sm-3 control-label">Password</label>
 
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="password" name="password" placeholder="">
+            <input type="password" class="form-control" id="password"
+                   name="password" placeholder="">
         </div>
     </div>
     <div class="form-group">
-        <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password</label>
+        <label for="confirmPassword" class="col-sm-3 control-label">Confirm
+            Password</label>
 
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="">
+            <input type="password" class="form-control" id="confirmPassword"
+                   name="confirmPassword" placeholder="">
         </div>
     </div>
     <div class="form-group">

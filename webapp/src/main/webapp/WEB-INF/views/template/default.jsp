@@ -1,6 +1,5 @@
 <%@ include file="../template/headerWithNav.jsp" %>
 <style scoped>
-
 </style>
 
 <%--

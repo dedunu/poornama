@@ -9,7 +9,6 @@
     roleValidator.validate(session, request, response, roles);
 %>
 <style scoped>
-
 </style>
 
 <%
@@ -20,6 +19,7 @@
 
     List<String> employeeCreateRoleList = new ArrayList<String>();
     employeeCreateRoleList.add("manager");
+
     if (roleValidator.isVisible(session, request, response, employeeSectionRoleList)) {
 %>
 <div class="panel panel-primary">
@@ -82,6 +82,7 @@
 
     List<String> vehicleCreateRoleList = new ArrayList<String>();
     vehicleCreateRoleList.add("manager");
+
     if (roleValidator.isVisible(session, request, response, vehicleSectionRoleList)) {
 %>
 <div class="panel panel-primary">
@@ -120,6 +121,7 @@
 
     List<String> userCreateRoleList = new ArrayList<String>();
     userCreateRoleList.add("admin");
+
     if (roleValidator.isVisible(session, request, response, userSectionRoleList)) {
 %>
 <div class="panel panel-primary">
@@ -158,6 +160,7 @@
     List<String> jobCreateRoleList = new ArrayList<String>();
     jobCreateRoleList.add("manager");
     jobCreateRoleList.add("clerk");
+
     if (roleValidator.isVisible(session, request, response, jobSectionRoleList)) {
 %>
 <div class="panel panel-primary">
@@ -219,6 +222,7 @@
     List<String> expenseCreateRoleList = new ArrayList<String>();
     expenseCreateRoleList.add("manager");
     expenseCreateRoleList.add("clerk");
+
     if (roleValidator.isVisible(session, request, response, expenseSectionRoleList)) {
 %>
 <div class="panel panel-primary">
@@ -257,6 +261,7 @@
     List<String> jobTemplateCreateRoleList = new ArrayList<String>();
     jobTemplateCreateRoleList.add("manager");
     jobTemplateCreateRoleList.add("owner");
+
     if (roleValidator.isVisible(session, request, response, jobTemplateSectionRoleList)) {
 %>
 <div class="panel panel-primary">
@@ -320,6 +325,7 @@
     List<String> clientCreateRoleList = new ArrayList<String>();
     clientCreateRoleList.add("manager");
     clientCreateRoleList.add("owner");
+
     if (roleValidator.isVisible(session, request, response, clientSectionRoleList)) {
 %>
 <div class="panel panel-primary">

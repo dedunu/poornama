@@ -8,10 +8,10 @@
 %>
 
 <style scoped>
-
 </style>
 
-<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/jobTemplate/create">
+<form class="form-horizontal" role="form" method="post"
+      action="${pageContext.request.contextPath}/jobTemplate/create">
     <div class="form-group">
         <label for="client" class="col-sm-3 control-label">Client</label>
 
@@ -31,28 +31,33 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="displayName" class="col-sm-3 control-label">Display Name</label>
+        <label for="displayName" class="col-sm-3 control-label">Display
+            Name</label>
 
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="displayName" name="displayName" placeholder="">
+            <input type="text" class="form-control" id="displayName"
+                   name="displayName" placeholder="">
         </div>
     </div>
     <div class="form-group">
         <label for="fromLocation" class="col-sm-3 control-label">From</label>
 
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="fromLocation" name="fromLocation" placeholder="">
+            <input type="text" class="form-control" id="fromLocation"
+                   name="fromLocation" placeholder="">
         </div>
     </div>
     <div class="form-group">
         <label for="toLocation" class="col-sm-3 control-label">To</label>
 
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="toLocation" name="toLocation" placeholder="">
+            <input type="text" class="form-control" id="toLocation"
+                   name="toLocation" placeholder="">
         </div>
     </div>
     <div class="form-group">
-        <label for="containerSize" class="col-sm-3 control-label">Container Size</label>
+        <label for="containerSize" class="col-sm-3 control-label">Container
+            Size</label>
 
         <div class="col-sm-3">
             <div class="input-group">
@@ -65,69 +70,90 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="hireCharges" class="col-sm-3 control-label"><spring:message code="web.job.hire_charges" /></label>
+        <label for="hireCharges" class="col-sm-3 control-label"><spring:message
+                code="web.job.hire_charges"/></label>
 
         <div class="col-sm-3">
             <div class="input-group">
-                <span class="input-group-addon"><spring:message code="web.currency.symbol" /></span>
-                <input type="number" class="form-control" id="hireCharges" name="hireCharges">
-                <span class="input-group-addon"><spring:message code="web.currency.suffix" /></span>
+				<span class="input-group-addon"><spring:message
+                        code="web.currency.symbol"/></span> <input type="number"
+                                                                   class="form-control" id="hireCharges"
+                                                                   name="hireCharges"> <span
+                    class="input-group-addon"><spring:message
+                    code="web.currency.suffix"/></span>
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="labourCharges" class="col-sm-3 control-label"><spring:message code="web.job.labour_charges" /></label>
+        <label for="labourCharges" class="col-sm-3 control-label"><spring:message
+                code="web.job.labour_charges"/></label>
 
         <div class="col-sm-3">
             <div class="input-group">
-                <span class="input-group-addon"><spring:message code="web.currency.symbol" /></span>
-                <input type="number" class="form-control" id="labourCharges" name="labourCharges">
-                <span class="input-group-addon"><spring:message code="web.currency.suffix" /></span>
+				<span class="input-group-addon"><spring:message
+                        code="web.currency.symbol"/></span> <input type="number"
+                                                                   class="form-control" id="labourCharges"
+                                                                   name="labourCharges">
+				<span class="input-group-addon"><spring:message
+                        code="web.currency.suffix"/></span>
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="hourlyDetentionCharges" class="col-sm-3 control-label"><spring:message code="web.job.hourly_detention_charges" /></label>
+        <label for="hourlyDetentionCharges" class="col-sm-3 control-label"><spring:message
+                code="web.job.hourly_detention_charges"/></label>
 
         <div class="col-sm-3">
             <div class="input-group">
-                <span class="input-group-addon"><spring:message code="web.currency.symbol" /></span>
-                <input type="number" class="form-control" id="hourlyDetentionCharges" name="hourlyDetentionCharges">
-                <span class="input-group-addon"><spring:message code="web.currency.suffix" /></span>
+				<span class="input-group-addon"><spring:message
+                        code="web.currency.symbol"/></span> <input type="number"
+                                                                   class="form-control" id="hourlyDetentionCharges"
+                                                                   name="hourlyDetentionCharges"> <span
+                    class="input-group-addon"><spring:message
+                    code="web.currency.suffix"/></span>
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="dailyContainerCharges" class="col-sm-3 control-label"><spring:message code="web.job.daily_container_charges" /></label>
+        <label for="dailyContainerCharges" class="col-sm-3 control-label"><spring:message
+                code="web.job.daily_container_charges"/></label>
 
         <div class="col-sm-3">
             <div class="input-group">
-                <span class="input-group-addon"><spring:message code="web.currency.symbol" /></span>
-                <input type="number" class="form-control" id="dailyContainerCharges" name="dailyContainerCharges">
-                <span class="input-group-addon"><spring:message code="web.currency.suffix" /></span>
+				<span class="input-group-addon"><spring:message
+                        code="web.currency.symbol"/></span> <input type="number"
+                                                                   class="form-control" id="dailyContainerCharges"
+                                                                   name="dailyContainerCharges"> <span
+                    class="input-group-addon"><spring:message
+                    code="web.currency.suffix"/></span>
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="freeHours" class="col-sm-3 control-label"><spring:message code="web.job.free_hours" /></label>
+        <label for="freeHours" class="col-sm-3 control-label"><spring:message
+                code="web.job.free_hours"/></label>
 
         <div class="col-sm-3">
             <div class="input-group">
-                <input type="number" class="form-control" id="freeHours" name="freeHours">
+                <input type="number" class="form-control" id="freeHours"
+                       name="freeHours">
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="distance" class="col-sm-3 control-label">Distance (km)</label>
+        <label for="distance" class="col-sm-3 control-label">Distance
+            (km)</label>
 
         <div class="col-sm-3">
             <div class="input-group">
-                <input type="number" class="form-control" id="distance" name="distance">
+                <input type="number" class="form-control" id="distance"
+                       name="distance">
             </div>
         </div>
     </div>
     <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-10">.
+        <div class="col-sm-offset-3 col-sm-10">
+            .
             <button type="submit" class="btn btn-success">Create</button>
             <a href="${pageContext.request.contextPath}">
                 <button type="button" class="btn btn-default">Cancel</button>

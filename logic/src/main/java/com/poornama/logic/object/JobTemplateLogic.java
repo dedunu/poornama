@@ -20,13 +20,19 @@ import java.math.BigDecimal;
 import java.util.List;
 
 /**
- * Created by ddhananjaya on 6/11/15.
+ * @author dedunu
  */
 @Service
 public class JobTemplateLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = JobTemplateLogic.class.getName();
 
+    /**
+     * Creates the job template using HttpServletRequest and returns Notification object with message
+     *
+     * @param request HttpServletRequest
+     * @return the notification with the message
+     */
     public Notification createJobTemplate(HttpServletRequest request) {
         JobTemplateDAO jobTemplateDAO = new JobTemplateDAO();
         JobTypeDAO jobTypeDAO = new JobTypeDAO();
@@ -113,7 +119,13 @@ public class JobTemplateLogic {
         return notification;
     }
 
-
+    /**
+     * Edit the job template using HttpServletRequest and returns Notification object with message
+     *
+     * @param request       HttpServletRequest
+     * @param jobTemplateId Sting
+     * @return the notification with the message
+     */
     public Notification editJobTemplate(HttpServletRequest request, String jobTemplateId) {
         JobTemplateDAO jobTemplateDAO = new JobTemplateDAO();
         JobTypeDAO jobTypeDAO = new JobTypeDAO();
@@ -200,6 +212,12 @@ public class JobTemplateLogic {
         return notification;
     }
 
+    /**
+     * Deletes the job template using jobTemplateId and returns the Notification object with message
+     *
+     * @param jobTemplateId String
+     * @return the notification with the message
+     */
     public Notification deleteJobTemplate(String jobTemplateId) {
         Notification notification = new Notification();
         JobTemplateDAO jobTemplateDAO = new JobTemplateDAO();
@@ -216,6 +234,11 @@ public class JobTemplateLogic {
         return notification;
     }
 
+    /**
+     * Returns job template table for controller classes as a HTML table
+     *
+     * @return job template table as a HTML string
+     */
     public String getJobTemplateTable() {
         List<JobTemplate> jobTemplateList;
         JobTemplateDAO jobTemplateDAO = new JobTemplateDAO();
@@ -248,6 +271,12 @@ public class JobTemplateLogic {
         return table;
     }
 
+    /**
+     * Returns the job template object from the given jobTemplateId
+     *
+     * @param jobTemplateId String
+     * @return JobTemplate object
+     */
     public JobTemplate getJobTemplate(String jobTemplateId) {
         JobTemplateDAO jobTemplateDAO = new JobTemplateDAO();
         JobTemplate jobTemplate;
@@ -260,6 +289,11 @@ public class JobTemplateLogic {
         return jobTemplate;
     }
 
+    /**
+     * Returns job template list for controller classes as select list
+     *
+     * @return job template list for controller classes as String
+     */
     public String getJobTemplateSelectList() {
         JobTemplateDAO jobTemplateDAO = new JobTemplateDAO();
         List<JobTemplate> jobTemplateList = jobTemplateDAO.getAll();
@@ -272,6 +306,12 @@ public class JobTemplateLogic {
         return list;
     }
 
+    /**
+     * Return job template as JsonObject for the controller classes
+     *
+     * @param jobTemplateId String
+     * @return job template as a JsonObject
+     */
     public JsonObject getJobTemplateDetails(String jobTemplateId) {
         JobTemplateDAO jobTemplateDAO = new JobTemplateDAO();
         int parsedJobTemplateId = 0;

@@ -10,8 +10,8 @@
         padding-top: 7px;
     }
 </style>
-<div class="alert alert-danger" role="alert">Once you delete data you cannot restore it. Please be careful when you are
-    deleting records.
+<div class="alert alert-danger" role="alert">Once you delete data
+    you cannot restore it. Please be careful when you are deleting records.
 </div>
 
 <form class="form-horizontal" role="form" method="post"
@@ -19,16 +19,12 @@
     <div class="form-group">
         <label class="col-sm-3 control-label">Vehicle Number</label>
 
-        <div class="col-sm-6 data-div">
-            ${vehicleNumber}
-        </div>
+        <div class="col-sm-6 data-div">${vehicleNumber}</div>
     </div>
     <div class="form-group">
         <label class="col-sm-3 control-label">Vehicle Type</label>
 
-        <div class="col-sm-3 data-div">
-            ${vehicleType}
-        </div>
+        <div class="col-sm-3 data-div">${vehicleType}</div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-10">

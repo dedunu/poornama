@@ -13,13 +13,19 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Created by dedunu on 7/30/15.
+ * @author dedunu
  */
 @Service
 public class ClientLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = Client.class.getName();
 
+    /**
+     * Creates the client using HttpServletRequest and returns Notification object with message
+     *
+     * @param request HttpServletRequest
+     * @return the notification with the message
+     */
     public Notification createClient(HttpServletRequest request) {
         ClientDAO clientDAO = new ClientDAO();
         Client client = new Client();
@@ -43,6 +49,13 @@ public class ClientLogic {
         return notification;
     }
 
+    /**
+     * Edit the client using HttpServletRequest and returns Notification object with message
+     *
+     * @param request  HttpServletRequest
+     * @param clientId String
+     * @return the notification with the message
+     */
     public Notification editClient(HttpServletRequest request, String clientId) {
         ClientDAO clientDAO = new ClientDAO();
         Client client;
@@ -75,6 +88,12 @@ public class ClientLogic {
         return notification;
     }
 
+    /**
+     * Deletes the client using clientId and returns the Notification object with message
+     *
+     * @param clientId String
+     * @return the notification with message
+     */
     public Notification deleteClient(String clientId) {
         Notification notification = new Notification();
         ClientDAO clientDAO = new ClientDAO();
@@ -96,6 +115,12 @@ public class ClientLogic {
         return notification;
     }
 
+    /**
+     * Returns the client object from the given clientId
+     *
+     * @param clientId String
+     * @return Client object
+     */
     public Client getClient(String clientId) {
         ClientDAO clientDAO = new ClientDAO();
         Client client;
@@ -108,6 +133,11 @@ public class ClientLogic {
         return client;
     }
 
+    /**
+     * Returns client list for controller classes as select list
+     *
+     * @return client list for controller classes as String
+     */
     public String getClientSelectList() {
         ClientDAO clientDAO = new ClientDAO();
         List<Client> clientList = clientDAO.getAll();
@@ -120,6 +150,11 @@ public class ClientLogic {
         return list;
     }
 
+    /**
+     * Returns client table for controller classes as a HTML table
+     *
+     * @return client table as a HTML string
+     */
     public String getClientTable() {
         List<Client> clientList;
         ClientDAO clientDAO = new ClientDAO();

@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by dedunu on 7/29/15.
+ * @author dedunu
  */
 @Service
 public class ReportLogic {
@@ -42,22 +42,50 @@ public class ReportLogic {
 
     private HashMap<Integer, HashMap<String, Double>> doubleTable = new HashMap<Integer, HashMap<String, Double>>();
 
+    /**
+     * Returns the integerTable object
+     *
+     * @return IntegerTable for reports
+     */
     public HashMap<Integer, HashMap<String, Integer>> getIntegerTable() {
         return integerTable;
     }
 
+    /**
+     * Sets the integerTable object
+     *
+     * @param integerTable HashMap&lt;Integer, HashMap&lt;String, Integer&gt;&gt;
+     */
     public void setIntegerTable(HashMap<Integer, HashMap<String, Integer>> integerTable) {
         this.integerTable = integerTable;
     }
 
+    /**
+     * Returns the doubleTable object
+     *
+     * @return DoubleTable for reports
+     */
     public HashMap<Integer, HashMap<String, Double>> getDoubleTable() {
         return doubleTable;
     }
 
+    /**
+     * Sets the doubleTable object
+     *
+     * @param doubleTable HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public void setDoubleTable(HashMap<Integer, HashMap<String, Double>> doubleTable) {
         this.doubleTable = doubleTable;
     }
 
+    /**
+     * Returns the axis as a list of string for the report
+     *
+     * @param startDate     Date
+     * @param endDate       Date
+     * @param calendarField int
+     * @return List&lt;String&gt; of axis for the report
+     */
     private List<String> getAxisList(Date startDate, Date endDate, int calendarField) {
         log.debug("[" + className + "] getAxisList() : started");
         List<String> stringList = new ArrayList<String>();
@@ -75,6 +103,14 @@ public class ReportLogic {
         return stringList;
     }
 
+    /**
+     * Generates the report depending on the parameters provided
+     *
+     * @param reportId        int
+     * @param calendarField   int
+     * @param startDateString String
+     * @param endDateString   String
+     */
     public void generateReport(int reportId, int calendarField, String startDateString, String endDateString) {
         log.debug("[" + className + "] generateReport() : started");
         DateHelper dateHelper = new DateHelper();
@@ -147,6 +183,15 @@ public class ReportLogic {
 
     }
 
+    /**
+     * Returns the data for the bar chart depending on the parameters provided
+     *
+     * @param reportId        int
+     * @param calendarField   int
+     * @param startDateString String
+     * @param endDateString   String
+     * @return the data as a string for the bar charts
+     */
     public String getChartString(int reportId, int calendarField, String startDateString, String endDateString) {
         log.debug("[" + className + "] getChartString() : started");
         DateHelper dateHelper = new DateHelper();
@@ -220,6 +265,15 @@ public class ReportLogic {
 
     }
 
+    /**
+     * Returns the data for the pie chart depending on the parameters provided
+     *
+     * @param reportId        int
+     * @param calendarField   int
+     * @param startDateString String
+     * @param endDateString   String
+     * @return the data as a string for the pie charts
+     */
     public String getPieChartString(int reportId, int calendarField, String startDateString, String endDateString) {
         log.debug("[" + className + "] getChartString() : started");
         DateHelper dateHelper = new DateHelper();
@@ -260,6 +314,15 @@ public class ReportLogic {
 
     }
 
+    /**
+     * Returns HTML table for the report depending on the parameters provided
+     *
+     * @param reportId        int
+     * @param calendarField   int
+     * @param startDateString String
+     * @param endDateString   String
+     * @return the report as a HTML table for the controller classes
+     */
     public String getTableString(int reportId, int calendarField, String startDateString, String endDateString) {
         log.debug("[" + className + "] getTableString() : started");
         DateHelper dateHelper = new DateHelper();
@@ -334,6 +397,12 @@ public class ReportLogic {
 
     }
 
+    /**
+     * Returns label map depending on the entity number provided
+     *
+     * @param entityNumber int
+     * @return Map&lt;Integer, String&gt;
+     */
     public Map<Integer, String> getLabels(int entityNumber) {
         log.debug("[" + className + "] getLabels() : started");
         LinkedHashMap<Integer, String> result = new LinkedHashMap<Integer, String>();

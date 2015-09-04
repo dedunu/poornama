@@ -4,13 +4,16 @@
         margin-top: 15%;
     }
 </style>
-<form role="form" action="${pageContext.request.contextPath}/session/login" method="post">
-    <div class="modal fade modal-dialog-center" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal"
+<form role="form"
+      action="${pageContext.request.contextPath}/session/login" method="post">
+    <div class="modal fade modal-dialog-center" id="loginModal"
+         tabindex="-1" role="dialog" aria-labelledby="loginModal"
          aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h3 class="modal-title" id="myModalLabel" style="text-align: center;">Login</h3>
+                    <h3 class="modal-title" id="myModalLabel"
+                        style="text-align: center;">Login</h3>
                     <br/>
                     <%
                         String isLoginFailed = "";
@@ -21,27 +24,36 @@
                         }
                         if (isLoginFailed.equals("true")) {
                     %>
-                    <div class="alert alert-danger" role="alert">
-                        Enter a valid username or password.
+                    <div class="alert alert-danger" role="alert">Enter a valid
+                        username or password.
                     </div>
                     <%
                         }
                     %>
                     <div class="form-group">
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" name="username" placeholder="Username" required>
+							<span class="input-group-addon"><span
+                                    class="glyphicon glyphicon-user"></span></span> <input type="text"
+                                                                                           class="form-control"
+                                                                                           name="username"
+                                                                                           placeholder="Username"
+                                                                                           required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+							<span class="input-group-addon"><span
+                                    class="glyphicon glyphicon-lock"></span></span> <input type="password"
+                                                                                           class="form-control"
+                                                                                           name="password"
+                                                                                           placeholder="Password"
+                                                                                           required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary pull-right" style="right: 0px;">Login</button>
-                    <br/>
-                    <br/>
+                    <button type="submit" class="btn btn-primary pull-right"
+                            style="right: 0px;">Login
+                    </button>
+                    <br/> <br/>
                 </div>
             </div>
         </div>

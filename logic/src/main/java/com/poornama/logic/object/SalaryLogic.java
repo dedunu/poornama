@@ -24,13 +24,18 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by ddhananjaya on 7/14/15.
+ * @author dedunu
  */
 @Service
 public class SalaryLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = SalaryLogic.class.getName();
 
+    /**
+     * Calculates the salary from request
+     *
+     * @param request HttpServletRequest
+     */
     public void calculateSalary(HttpServletRequest request) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/yyyy");
         Date date = new Date();
@@ -44,7 +49,12 @@ public class SalaryLogic {
         calculateSalary(date);
     }
 
-    public void calculateSalary(Date date) {
+    /**
+     * Calculates the salary from the given date
+     *
+     * @param date Date
+     */
+    protected void calculateSalary(Date date) {
         double driverCommission = 0;
         double cleanerCommission = 0;
 
@@ -182,6 +192,12 @@ public class SalaryLogic {
         }
     }
 
+    /**
+     * Returns the HTML salary report from request
+     *
+     * @param request HttpServletRequest
+     * @return HTML salary report as a String
+     */
     public String getSalaryTable(HttpServletRequest request) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/yyyy");
         Date date = new Date();
@@ -195,7 +211,13 @@ public class SalaryLogic {
         return getSalaryTable(date);
     }
 
-    public String getSalaryTable(Date date) {
+    /**
+     * Returns the HTML salary report from the given date
+     *
+     * @param date Date
+     * @return HTML salary report as a String
+     */
+    protected String getSalaryTable(Date date) {
         ConfigurationDAO configurationDAO = new ConfigurationDAO();
         EmployeeDAO employeeDAO = new EmployeeDAO();
         SalaryDAO salaryDAO = new SalaryDAO();

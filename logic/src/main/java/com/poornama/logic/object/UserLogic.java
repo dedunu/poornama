@@ -17,13 +17,19 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
- * Created by dedunu on 11/8/14.
+ * @author dedunu
  */
 @Service
 public class UserLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = UserLogic.class.getName();
 
+    /**
+     * Creates the user using HttpServletRequest and returns Notification object with message
+     *
+     * @param request HttpServletRequest
+     * @return the notification with the message
+     */
     public Notification createUser(HttpServletRequest request) {
         UserDAO userDAO = new UserDAO();
         UserRoleDAO userRoleDAO = new UserRoleDAO();
@@ -62,6 +68,13 @@ public class UserLogic {
         return notification;
     }
 
+    /**
+     * Edit the user using HttpServletRequest and returns Notification object with message
+     *
+     * @param request HttpServletRequest
+     * @param userId  String
+     * @return the notification with the message
+     */
     public Notification editUser(HttpServletRequest request, String userId) {
         UserDAO userDAO = new UserDAO();
         UserRoleDAO userRoleDAO = new UserRoleDAO();
@@ -119,6 +132,12 @@ public class UserLogic {
         return notification;
     }
 
+    /**
+     * Deletes the user using userId and returns the Notification object with message
+     *
+     * @param userId String
+     * @return the notification with the message
+     */
     public Notification deleteUser(String userId) {
         Notification notification = new Notification();
         UserDAO userDAO = new UserDAO();
@@ -141,6 +160,11 @@ public class UserLogic {
         return notification;
     }
 
+    /**
+     * Returns the user HTML table as a String
+     *
+     * @return the user HTML table as a String
+     */
     public String getUserTable() {
         List<User> userList;
         UserDAO userDAO = new UserDAO();
@@ -168,12 +192,24 @@ public class UserLogic {
         return table;
     }
 
+    /**
+     * Returns the User object for the given userName
+     *
+     * @param userName String
+     * @return the User object for the given userName
+     */
     public User getUserByUserName(String userName) {
         UserDAO userDAO = new UserDAO();
         User user = userDAO.getByUserName(userName);
         return user;
     }
 
+    /**
+     * Returns the User object for the given userId
+     *
+     * @param userId String
+     * @return the User object for the given userId
+     */
     public User getUserById(String userId) {
         int id = 0;
         try {
@@ -186,6 +222,12 @@ public class UserLogic {
         return user;
     }
 
+    /**
+     * Changes the password of the user from provided request and returns the Notification object with message
+     *
+     * @param request HttpServletRequest
+     * @return the notification with the message
+     */
     public Notification changePassword(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String userId = session.getAttribute("userId").toString();
@@ -217,6 +259,13 @@ public class UserLogic {
         return notification;
     }
 
+    /**
+     * Returns true if username and password are valid
+     *
+     * @param username String
+     * @param password String
+     * @return true if username and password are valid
+     */
     public boolean doAuthenticate(String username, String password) {
         Authentication authentication = new Authentication();
         return authentication.doAuthenticate(username, password);

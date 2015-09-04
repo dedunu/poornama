@@ -15,13 +15,19 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Created by dedunu on 11/8/14.
+ * @author dedunu
  */
 @Service
 public class VehicleLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = VehicleLogic.class.getName();
 
+    /**
+     * Creates the vehicle using HttpServletRequest and returns Notification object with message
+     *
+     * @param request HttpServletRequest
+     * @return the notification with the message
+     */
     public Notification createVehicle(HttpServletRequest request) {
         VehicleDAO vehicleDAO = new VehicleDAO();
         VehicleTypeDAO vehicleTypeDAO = new VehicleTypeDAO();
@@ -56,6 +62,13 @@ public class VehicleLogic {
         return notification;
     }
 
+    /**
+     * Edit the vehicle using HttpServletRequest and returns Notification object with message
+     *
+     * @param request HttpServletRequest
+     * @param vehicleId String
+     * @return the notification with the message
+     */
     public Notification editVehicle(HttpServletRequest request, String vehicleId) {
         VehicleDAO vehicleDAO = new VehicleDAO();
         VehicleTypeDAO vehicleTypeDAO = new VehicleTypeDAO();
@@ -95,6 +108,12 @@ public class VehicleLogic {
         return notification;
     }
 
+    /**
+     * Deletes the vehicle using employeeId and returns the Notification object with message
+     *
+     * @param vehicleId String
+     * @return the notification with the message
+     */
     public Notification deleteVehicle(String vehicleId) {
         Notification notification = new Notification();
         VehicleDAO vehicleDAO = new VehicleDAO();
@@ -119,6 +138,11 @@ public class VehicleLogic {
         return notification;
     }
 
+    /**
+     * Returns vehicle table for controller classes as a HTML table
+     *
+     * @return vehicle  table as a HTML string
+     */
     public String getVehicleTable() {
         List<Vehicle> vehicleList;
         VehicleDAO vehicleDAO = new VehicleDAO();
@@ -144,17 +168,11 @@ public class VehicleLogic {
         return table;
     }
 
-    public String getVehicleSelectList() {
-        VehicleDAO vehicleDAO = new VehicleDAO();
-        List<Vehicle> vehicleList = vehicleDAO.getAll();
-        String list = "";
-        for (Vehicle vehicle : vehicleList) {
-            list = list + "\t\t<option value =\"" + vehicle.getId() + "\">" + vehicle.getVehicleNumber() + "</option>\n";
-        }
-        log.debug("[" + className + "] getVehicleSelectList()");
-        return list;
-    }
-
+    /**
+     * Returns prime mover list for controller classes as select list
+     *
+     * @return prime mover list for controller classes as String
+     */
     public String getPrimeMoverVehicleSelectList() {
         VehicleDAO vehicleDAO = new VehicleDAO();
         VehicleTypeDAO vehicleTypeDAO = new VehicleTypeDAO();
@@ -168,6 +186,12 @@ public class VehicleLogic {
         return list;
     }
 
+    /**
+     * Returns the vehicle object for the given vehicleId
+     *
+     * @param vehicleId
+     * @return Vehicle object
+     */
     public Vehicle getVehicleById(String vehicleId) {
         VehicleDAO vehicleDAO = new VehicleDAO();
         Vehicle vehicle;

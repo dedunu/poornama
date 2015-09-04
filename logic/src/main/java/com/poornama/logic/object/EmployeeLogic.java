@@ -18,13 +18,19 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by dedunu on 11/7/14.
+ * @author dedunu
  */
 @Service
 public class EmployeeLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = EmployeeLogic.class.getName();
 
+    /**
+     * Creates the employee using HttpServletRequest and returns Notification object with message
+     *
+     * @param request HttpServletRequest
+     * @return the notification with the message
+     */
     public Notification createEmployee(HttpServletRequest request) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();
@@ -88,6 +94,13 @@ public class EmployeeLogic {
         return notification;
     }
 
+    /**
+     * Edit the employee using HttpServletRequest and returns Notification object with message
+     *
+     * @param request    HttpServletRequest
+     * @param employeeId String
+     * @return the notification with the message
+     */
     public Notification editEmployee(HttpServletRequest request, String employeeId) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();
@@ -156,6 +169,12 @@ public class EmployeeLogic {
         return notification;
     }
 
+    /**
+     * Deletes the employee using employeeId and returns the Notification object with message
+     *
+     * @param employeeId String
+     * @return the notification with the message
+     */
     public Notification deleteEmployee(String employeeId) {
         Notification notification = new Notification();
         EmployeeDAO employeeDAO = new EmployeeDAO();
@@ -173,6 +192,12 @@ public class EmployeeLogic {
         return notification;
     }
 
+    /**
+     * Returns employee table for controller classes as a HTML table for given searchCriteria
+     *
+     * @param searchCriteria String
+     * @return employee table as a HTML string
+     */
     public String getEmployeeTable(String searchCriteria) {
         List<Employee> employeeList;
         EmployeeDAO employeeDAO = new EmployeeDAO();
@@ -207,6 +232,12 @@ public class EmployeeLogic {
         return table;
     }
 
+    /**
+     * Returns the employee object from the given employeeId
+     *
+     * @param employeeId String
+     * @return Employee object
+     */
     public Employee getEmployee(String employeeId) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee employee;
@@ -219,17 +250,11 @@ public class EmployeeLogic {
         return employee;
     }
 
-    public String getEmployeeSelectList() {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        List<Employee> employeeList = employeeDAO.getAll();
-        String list = "";
-        for (Employee employee : employeeList) {
-            list = list + "\t\t<option value =\"" + employee.getId() + "\">" + employee.getFirstName() + " " + employee.getLastName() + "</option>\n";
-        }
-        log.debug("[" + className + "] getEmployeeSelectList()");
-        return list;
-    }
-
+    /**
+     * Returns driver list for controller classes as select list
+     *
+     * @return driver list for controller classes as String
+     */
     public String getDriverSelectList() {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();
@@ -243,6 +268,11 @@ public class EmployeeLogic {
         return list;
     }
 
+    /**
+     * Returns cleaner list for controller classes as select list
+     *
+     * @return cleaner list for controller classes as String
+     */
     public String getCleanerSelectList() {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         EmployeeTypeDAO employeeTypeDAO = new EmployeeTypeDAO();

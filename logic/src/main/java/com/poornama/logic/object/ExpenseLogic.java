@@ -22,13 +22,19 @@ import java.util.HashSet;
 import java.util.List;
 
 /**
- * Created by dedunu on 7/29/15.
+ * @author dedunu
  */
 @Service
 public class ExpenseLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = ExpenseLogic.class.getName();
 
+    /**
+     * Creates the expense using HttpServletRequest and returns Notification object with message
+     *
+     * @param request HttpServletRequest
+     * @return the notification with the message
+     */
     public Notification createExpense(HttpServletRequest request) {
         Notification notification = new Notification();
         ExpenseDAO expenseDAO = new ExpenseDAO();
@@ -93,7 +99,13 @@ public class ExpenseLogic {
         return notification;
     }
 
-
+    /**
+     * Edit the expense using HttpServletRequest and returns Notification object with message
+     *
+     * @param request   HttpServletRequest
+     * @param expenseId String
+     * @return the notification with the message
+     */
     public Notification editExpense(HttpServletRequest request, String expenseId) {
         ExpenseDAO expenseDAO = new ExpenseDAO();
         TagDAO tagDAO = new TagDAO();
@@ -158,6 +170,12 @@ public class ExpenseLogic {
         return notification;
     }
 
+    /**
+     * Deletes the expense using expenseId and returns the Notification object with message
+     *
+     * @param expenseId String
+     * @return the notification with the message
+     */
     public Notification deleteExpense(String expenseId) {
         Notification notification = new Notification();
         ExpenseDAO expenseDAO = new ExpenseDAO();
@@ -175,6 +193,12 @@ public class ExpenseLogic {
         return notification;
     }
 
+    /**
+     * Returns the expense object from the given expenseId
+     *
+     * @param expenseId String
+     * @return Expense object
+     */
     public Expense getExpense(String expenseId) {
         ExpenseDAO expenseDAO = new ExpenseDAO();
         Expense expense;
@@ -187,6 +211,12 @@ public class ExpenseLogic {
         return expense;
     }
 
+    /**
+     * Returns expense table for controller classes as a HTML table for given searchCriteria
+     *
+     * @param searchCriteria String
+     * @return expense table as a HTML string
+     */
     public String getExpenseTable(String searchCriteria) {
         List<Expense> expenseList = new ArrayList<Expense>();
         List<Expense> tempExpenseList;

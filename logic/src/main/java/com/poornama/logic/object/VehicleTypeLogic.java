@@ -9,13 +9,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by dedunu on 11/8/14.
+ * @author dedunu
  */
 @Service
 public class VehicleTypeLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = VehicleTypeLogic.class.getName();
 
+    /**
+     * Returns vehicle type list for controller classes as select list
+     *
+     * @return vehicle type list for controller classes as String
+     */
     public String getVehicleTypeSelectList() {
         VehicleTypeDAO vehicleTypeDAO = new VehicleTypeDAO();
         List<VehicleType> vehicleTypeList = vehicleTypeDAO.getAll();

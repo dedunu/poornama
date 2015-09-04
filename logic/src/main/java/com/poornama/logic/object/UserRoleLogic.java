@@ -9,13 +9,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by dedunu on 11/8/14.
+ * @author dedunu
  */
 @Service
 public class UserRoleLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = UserRoleLogic.class.getName();
 
+    /**
+     * Returns user role list for controller classes as select list
+     *
+     * @return user role list for controller classes as String
+     */
     public String getUserRoleSelectList() {
         UserRoleDAO userRoleDAO = new UserRoleDAO();
         List<UserRole> userRoleList = userRoleDAO.getAll();

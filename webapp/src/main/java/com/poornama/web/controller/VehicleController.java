@@ -16,15 +16,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-/**
- * Created by dedunu on 10/24/14.
- */
 @Controller
 @RequestMapping("/vehicle/")
 public class VehicleController {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = VehicleController.class.getName();
 
+    /**
+     * Returns the create Vehicle form
+     *
+     * @param model Model
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
         VehicleTypeLogic vehicleTypeLogic = new VehicleTypeLogic();

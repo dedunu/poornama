@@ -19,13 +19,21 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by dedunu on 11/8/14.
+ * @author dedunu
  */
 @Service
 public class EmployeeAttendanceLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = EmployeeAttendanceLogic.class.getName();
 
+    /**
+     * Accepts the | separated attendance list with given date and saves them in database. Employee ID
+     * and date index is separated by _ char
+     *
+     * @param data       String
+     * @param dateString String
+     * @return the notification with the message
+     */
     public Notification save(String data, String dateString) {
         Notification notification = new Notification();
         String array[] = data.split("\\|");
@@ -73,6 +81,12 @@ public class EmployeeAttendanceLogic {
         return notification;
     }
 
+    /**
+     * Returns the HTML table of employee attendance as a String for the given date.
+     *
+     * @param startDate String
+     * @return the employee attendance HTML table with checkboxes as a String
+     */
     public String getEmployeeAttendanceTable(String startDate) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         EmployeeAttendanceDAO employeeAttendanceDAO = new EmployeeAttendanceDAO();

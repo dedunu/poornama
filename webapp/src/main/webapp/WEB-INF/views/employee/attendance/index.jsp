@@ -7,21 +7,23 @@
     roleValidator.validate(session, request, response, roles);
 %>
 <style scoped>
-
 </style>
 <div id="alertArea"></div>
 <div class="week-picker"></div>
 <br/>
 
 <div class="row">
-    <div id="tableContainer">
-    </div>
+    <div id="tableContainer"></div>
 </div>
 
 <div class="div-hidden" id="buttonDiv">
-    <button class="btn btn-primary" type="button" id="saveButton" name="saveButton">Save</button>
+    <button class="btn btn-primary" type="button" id="saveButton"
+            name="saveButton">Save
+    </button>
     <a href="${pageContext.request.contextPath}">
-        <button class="btn btn-primary" type="button" id="cancelButton" name="saveButton">Cancel</button>
+        <button class="btn btn-primary" type="button" id="cancelButton"
+                name="saveButton">Cancel
+        </button>
     </a>
 </div>
 <script>

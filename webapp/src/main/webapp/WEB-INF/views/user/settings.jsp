@@ -9,41 +9,54 @@
     roleValidator.validate(session, request, response, roles);
 %>
 <style scoped>
-
 </style>
 
 <div id="validateNotMatching" class="hidden">
-    <div class="alert alert-danger" role="alert">Passwords are not matching.</div>
+    <div class="alert alert-danger" role="alert">Passwords are not
+        matching.
+    </div>
 </div>
 <div id="validateEmpty" class="hidden">
-    <div class="alert alert-danger" role="alert">You can't leave any of these text boxes empty. Please type your password.</div>
+    <div class="alert alert-danger" role="alert">You can't leave any
+        of these text boxes empty. Please type your password.
+    </div>
 </div>
 
-<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/user/changePassword" onsubmit="return validatePassword()">
+<form class="form-horizontal" role="form" method="post"
+      action="${pageContext.request.contextPath}/user/changePassword"
+      onsubmit="return validatePassword()">
     <div class="form-group">
-        <label for="oldPassword" class="col-sm-3 control-label">Old Password</label>
+        <label for="oldPassword" class="col-sm-3 control-label">Old
+            Password</label>
 
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="oldPassword" name="oldPassword" placeholder="" required>
+            <input type="password" class="form-control" id="oldPassword"
+                   name="oldPassword" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
-        <label for="newPassword" class="col-sm-3 control-label">New Password</label>
+        <label for="newPassword" class="col-sm-3 control-label">New
+            Password</label>
 
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="" required>
+            <input type="password" class="form-control" id="newPassword"
+                   name="newPassword" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
-        <label for="confirmPassword" class="col-sm-3 control-label">Confirm New Password</label>
+        <label for="confirmPassword" class="col-sm-3 control-label">Confirm
+            New Password</label>
 
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="" required>
+            <input type="password" class="form-control" id="confirmPassword"
+                   name="confirmPassword" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-10">
-            <button type="submit" class="btn btn-success">Change Password</button>
+            <button type="submit" class="btn btn-success">Change
+                Password
+            </button>
             <a href="${pageContext.request.contextPath}">
                 <button type="button" class="btn btn-default">Cancel</button>
             </a>

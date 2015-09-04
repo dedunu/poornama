@@ -9,13 +9,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by dedunu on 7/30/15.
+ * @author dedunu
  */
 @Service
 public class JobTypeLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = JobTemplateLogic.class.getName();
 
+    /**
+     * Returns job type list for controller classes as select list
+     *
+     * @return job type list for controller classes as String
+     */
     public String getJobTypeSelectList() {
         JobTypeDAO jobTypeDAO = new JobTypeDAO();
         List<JobType> jobTypeList = jobTypeDAO.getAll();

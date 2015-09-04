@@ -8,7 +8,6 @@
 %>
 
 <style scoped>
-
 </style>
 
 <form class="form-horizontal" role="form" method="post"
@@ -32,31 +31,33 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="displayName" class="col-sm-3 control-label">Display Name</label>
+        <label for="displayName" class="col-sm-3 control-label">Display
+            Name</label>
 
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="displayName" name="displayName" placeholder=""
-                   value="${displayName}">
+            <input type="text" class="form-control" id="displayName"
+                   name="displayName" placeholder="" value="${displayName}">
         </div>
     </div>
     <div class="form-group">
         <label for="fromLocation" class="col-sm-3 control-label">From</label>
 
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="fromLocation" name="fromLocation" placeholder=""
-                   value="${fromLocation}">
+            <input type="text" class="form-control" id="fromLocation"
+                   name="fromLocation" placeholder="" value="${fromLocation}">
         </div>
     </div>
     <div class="form-group">
         <label for="toLocation" class="col-sm-3 control-label">To</label>
 
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="toLocation" name="toLocation" placeholder=""
-                   value="${toLocation}">
+            <input type="text" class="form-control" id="toLocation"
+                   name="toLocation" placeholder="" value="${toLocation}">
         </div>
     </div>
     <div class="form-group">
-        <label for="containerSize" class="col-sm-3 control-label">Container Size</label>
+        <label for="containerSize" class="col-sm-3 control-label">Container
+            Size</label>
 
         <div class="col-sm-3">
             <div class="input-group">
@@ -69,13 +70,18 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="hireCharges" class="col-sm-3 control-label"><spring:message code="web.job.hire_charges"/></label>
+        <label for="hireCharges" class="col-sm-3 control-label"><spring:message
+                code="web.job.hire_charges"/></label>
 
         <div class="col-sm-3">
             <div class="input-group">
-                <span class="input-group-addon"><spring:message code="web.currency.symbol"/></span>
-                <input type="number" class="form-control" id="hireCharges" name="hireCharges" value="${hireCharges}">
-                <span class="input-group-addon"><spring:message code="web.currency.suffix"/></span>
+				<span class="input-group-addon"><spring:message
+                        code="web.currency.symbol"/></span> <input type="number"
+                                                                   class="form-control" id="hireCharges"
+                                                                   name="hireCharges"
+                                                                   value="${hireCharges}"> <span
+                    class="input-group-addon"><spring:message
+                    code="web.currency.suffix"/></span>
             </div>
         </div>
     </div>
@@ -85,10 +91,13 @@
 
         <div class="col-sm-3">
             <div class="input-group">
-                <span class="input-group-addon"><spring:message code="web.currency.symbol"/></span>
-                <input type="number" class="form-control" id="labourCharges" name="labourCharges"
-                       value="${labourCharges}">
-                <span class="input-group-addon"><spring:message code="web.currency.suffix"/></span>
+				<span class="input-group-addon"><spring:message
+                        code="web.currency.symbol"/></span> <input type="number"
+                                                                   class="form-control" id="labourCharges"
+                                                                   name="labourCharges"
+                                                                   value="${labourCharges}"> <span
+                    class="input-group-addon"><spring:message
+                    code="web.currency.suffix"/></span>
             </div>
         </div>
     </div>
@@ -98,10 +107,14 @@
 
         <div class="col-sm-3">
             <div class="input-group">
-                <span class="input-group-addon"><spring:message code="web.currency.symbol"/></span>
-                <input type="number" class="form-control" id="hourlyDetentionCharges" name="hourlyDetentionCharges"
-                       value="${hourlyDetentionCharges}" onchange="onHourlyDetentionChargesChange();">
-                <span class="input-group-addon"><spring:message code="web.currency.suffix"/></span>
+				<span class="input-group-addon"><spring:message
+                        code="web.currency.symbol"/></span> <input type="number"
+                                                                   class="form-control" id="hourlyDetentionCharges"
+                                                                   name="hourlyDetentionCharges"
+                                                                   value="${hourlyDetentionCharges}"
+                                                                   onchange="onHourlyDetentionChargesChange();"> <span
+                    class="input-group-addon"><spring:message
+                    code="web.currency.suffix"/></span>
             </div>
         </div>
     </div>
@@ -111,37 +124,49 @@
 
         <div class="col-sm-3">
             <div class="input-group">
-                <span class="input-group-addon"><spring:message code="web.currency.symbol"/></span>
-                <input type="number" class="form-control" id="dailyContainerCharges" name="dailyContainerCharges"
-                       value="${dailyContainerCharges}" onchange="onDailyContainerChargesChange();">
-                <span class="input-group-addon"><spring:message code="web.currency.suffix"/></span>
+				<span class="input-group-addon"><spring:message
+                        code="web.currency.symbol"/></span> <input type="number"
+                                                                   class="form-control" id="dailyContainerCharges"
+                                                                   name="dailyContainerCharges"
+                                                                   value="${dailyContainerCharges}"
+                                                                   onchange="onDailyContainerChargesChange();"> <span
+                    class="input-group-addon"><spring:message
+                    code="web.currency.suffix"/></span>
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="freeHours" class="col-sm-3 control-label"><spring:message code="web.job.free_hours"/></label>
+        <label for="freeHours" class="col-sm-3 control-label"><spring:message
+                code="web.job.free_hours"/></label>
 
         <div class="col-sm-3">
             <div class="input-group">
-                <input type="number" class="form-control" id="freeHours" name="freeHours" value="${freeHours}"
+                <input type="number" class="form-control" id="freeHours"
+                       name="freeHours" value="${freeHours}"
                        onchange="onFreeHoursChange();">
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="distance" class="col-sm-3 control-label">Distance (km)</label>
+        <label for="distance" class="col-sm-3 control-label">Distance
+            (km)</label>
 
         <div class="col-sm-3">
             <div class="input-group">
-                <input type="number" class="form-control" id="distance" name="distance" value="${distance}">
+                <input type="number" class="form-control" id="distance"
+                       name="distance" value="${distance}">
             </div>
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-10">
-            <button type="submit" class="btn btn-primary"><spring:message code="web.button.save"/></button>
+            <button type="submit" class="btn btn-primary">
+                <spring:message code="web.button.save"/>
+            </button>
             <a href="${pageContext.request.contextPath}">
-                <button type="button" class="btn btn-default"><spring:message code="web.button.cancel"/></button>
+                <button type="button" class="btn btn-default">
+                    <spring:message code="web.button.cancel"/>
+                </button>
             </a>
         </div>
     </div>

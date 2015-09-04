@@ -7,33 +7,34 @@
 %>
 
 <style scoped>
-
 </style>
 
-<form id="expenseEditForm" class="form-horizontal" role="form" method="post"
+<form id="expenseEditForm" class="form-horizontal" role="form"
+      method="post"
       action="${pageContext.request.contextPath}/expense/edit/${expenseId}">
     <div class="form-group">
         <label for="expenseDate" class="col-sm-3 control-label">Date</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="expenseDate" name="expenseDate" placeholder=""
-                   value="${expenseDate}"/>
+            <input type="text" class="form-control" id="expenseDate"
+                   name="expenseDate" placeholder="" value="${expenseDate}"/>
         </div>
     </div>
     <div class="form-group">
         <label for="tagList" class="col-sm-3 control-label">Tags</label>
 
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="tagList" name="tagList" value="${tagValue}"/>
-            <input type="hidden" id="tagString" name="tagString"/>
+            <input type="text" class="form-control" id="tagList" name="tagList"
+                   value="${tagValue}"/> <input type="hidden" id="tagString"
+                                                name="tagString"/>
         </div>
     </div>
     <div class="form-group">
         <label for="description" class="col-sm-3 control-label">Description</label>
 
         <div class="col-sm-9">
-            <textarea class="form-control" id="description" name="description" rows="3"
-                      placeholder="">${description}</textarea>
+			<textarea class="form-control" id="description" name="description"
+                      rows="3" placeholder="">${description}</textarea>
         </div>
     </div>
     <div class="form-group">
@@ -41,17 +42,24 @@
 
         <div class="col-sm-3">
             <div class="input-group">
-                <span class="input-group-addon"><spring:message code="web.currency.symbol"/></span>
-                <input type="number" class="form-control" id="amount" name="amount" value="${amount}"/>
-                <span class="input-group-addon"><spring:message code="web.currency.suffix"/></span>
+				<span class="input-group-addon"><spring:message
+                        code="web.currency.symbol"/></span> <input type="number"
+                                                                   class="form-control" id="amount" name="amount"
+                                                                   value="${amount}"/>
+				<span class="input-group-addon"><spring:message
+                        code="web.currency.suffix"/></span>
             </div>
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-10">
-            <button type="submit" class="btn btn-primary"><spring:message code="web.button.save"/></button>
+            <button type="submit" class="btn btn-primary">
+                <spring:message code="web.button.save"/>
+            </button>
             <a href="${pageContext.request.contextPath}/expense/search">
-                <button type="button" class="btn btn-default"><spring:message code="web.button.cancel"/></button>
+                <button type="button" class="btn btn-default">
+                    <spring:message code="web.button.cancel"/>
+                </button>
             </a>
         </div>
     </div>

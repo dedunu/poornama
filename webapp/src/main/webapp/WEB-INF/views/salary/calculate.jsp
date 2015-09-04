@@ -6,20 +6,20 @@
     roleValidator.validate(session, request, response, roles);
 %>
 <style scoped>
-
 </style>
 
-<form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/salary/calculate">
+<form class="form-horizontal" role="form" method="post"
+      action="${pageContext.request.contextPath}/salary/calculate">
     <div class="form-group">
-        <label for="salaryMonth" class="col-sm-3 control-label">Month </label>
+        <label for="salaryMonth" class="col-sm-3 control-label">Month
+        </label>
 
         <div class="col-sm-6">
             <div class='input-group date' id='salaryMonthGroup'>
-                <input type='text' class="form-control" id="salaryMonth" name="salaryMonth"/>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar">
-                    </span>
-                </span>
+                <input type='text' class="form-control" id="salaryMonth"
+                       name="salaryMonth"/> <span class="input-group-addon"> <span
+                    class="glyphicon glyphicon-calendar"> </span>
+				</span>
             </div>
         </div>
     </div>

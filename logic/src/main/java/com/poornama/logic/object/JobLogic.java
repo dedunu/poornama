@@ -25,13 +25,19 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by ddhananjaya on 6/11/15.
+ * @author dedunu
  */
 @Service
 public class JobLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = JobLogic.class.getName();
 
+    /**
+     * Creates the job using HttpServletRequest and returns Notification object with message
+     *
+     * @param request HttpServletRequest
+     * @return the notification with the message
+     */
     public Notification createJob(HttpServletRequest request) {
         JobDAO jobDAO = new JobDAO();
         JobTemplateDAO jobTemplateDAO = new JobTemplateDAO();
@@ -134,6 +140,13 @@ public class JobLogic {
         return notification;
     }
 
+    /**
+     * Edit the job using HttpServletRequest and returns Notification object with message
+     *
+     * @param request HttpServletRequest
+     * @param jobId   String
+     * @return the notification with the message
+     */
     public Notification editJob(HttpServletRequest request, String jobId) {
         JobDAO jobDAO = new JobDAO();
         JobTemplateDAO jobTemplateDAO = new JobTemplateDAO();
@@ -244,6 +257,12 @@ public class JobLogic {
         return notification;
     }
 
+    /**
+     * Deletes the job using jobId and returns the Notification object with message
+     *
+     * @param jobId String
+     * @return the notification with the message
+     */
     public Notification deleteJob(String jobId) {
         Notification notification = new Notification();
         JobDAO jobDAO = new JobDAO();
@@ -261,6 +280,12 @@ public class JobLogic {
         return notification;
     }
 
+    /**
+     * Returns the job object from the given jobId
+     *
+     * @param jobId String
+     * @return Job object
+     */
     public Job getJob(String jobId) {
         JobDAO jobDAO = new JobDAO();
         Job job;
@@ -273,7 +298,12 @@ public class JobLogic {
         return job;
     }
 
-
+    /**
+     * Returns job table for controller classes as a HTML table for given jobId
+     *
+     * @param jobId String
+     * @return job table as a HTML string
+     */
     public String getJobTable(String jobId) {
         List<Job> jobList;
         JobDAO jobDAO = new JobDAO();
@@ -334,6 +364,13 @@ public class JobLogic {
         return table;
     }
 
+    /**
+     * Returns invoice table for controller classes as a HTML table for given jobId. This
+     * table is printable version of the invoice
+     *
+     * @param jobId String
+     * @return invoice table as a HTML string
+     */
     public String getInvoiceTable(String jobId) {
         JobDAO jobDAO = new JobDAO();
         Job job = jobDAO.getById(jobId);

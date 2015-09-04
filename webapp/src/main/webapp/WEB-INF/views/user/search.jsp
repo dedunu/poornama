@@ -8,13 +8,10 @@
     roleValidator.validate(session, request, response, roles);
 %>
 <style scoped>
-
 </style>
 
 <div class="row">
-    <div id="tableContainer">
-        ${table}
-    </div>
+    <div id="tableContainer">${table}</div>
 </div>
 
 <script>

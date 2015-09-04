@@ -10,13 +10,18 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by dedunu on 7/29/15.
+ * @author dedunu
  */
 @Service
 public class TagLogic {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = TagLogic.class.getName();
 
+    /**
+     * Returns Tags as a comma separated String
+     *
+     * @return tags as a comma separated Stromg
+     */
     public String getTagValueJS() {
         String result = "";
 
@@ -35,6 +40,12 @@ public class TagLogic {
         return result;
     }
 
+    /**
+     * Returns Tag display values as comma separated String
+     *
+     * @param tagList Set&lt;Tag&gt;
+     * @return tag display values as comma separated String
+     */
     public String getTagValue(Set<Tag> tagList) {
         String result = "";
 
@@ -49,17 +60,4 @@ public class TagLogic {
         return result;
     }
 
-    public String getTagValue(List<Tag> tagList) {
-        String result = "";
-
-        for (Tag tag : tagList) {
-            result = result + tag.getDisplayName() + ",";
-        }
-
-        if (result.length() > 0 && result.charAt(result.length() - 1) == ',') {
-            result = result.substring(0, result.length() - 1);
-        }
-
-        return result;
-    }
 }
