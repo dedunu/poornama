@@ -16,7 +16,7 @@ import com.poornama.data.dao.VehicleTypeDAO;
 /**
  * @author dedunu
  */
-public class ApplicationInitializer {
+public class MetadataInitializer {
 
     /**
      * Initialize meta date and prepare the date base for the applicaton

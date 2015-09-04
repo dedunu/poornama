@@ -1,6 +1,7 @@
 package com.poornama.web.controller;
 
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.logic.ApplicationInitializer;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpSession;
 public class MainController {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = MainController.class.getName();
+    private static boolean initialized = false;
 
     @Autowired
     private MessageSource messageSource;
@@ -34,6 +36,12 @@ public class MainController {
     public String index(Model model, HttpSession session) {
         try {
             log.debug("[" + className + "] index: index()");
+
+            if (!initialized) {
+                ApplicationInitializer applicationInitializer = new ApplicationInitializer();
+                applicationInitializer.initialize();
+                initialized = true;
+            }
 
             String isLoggedIn = "false";
 
