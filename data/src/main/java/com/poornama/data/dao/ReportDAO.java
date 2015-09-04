@@ -29,22 +29,49 @@ public class ReportDAO {
 
     private HashMap<Integer, HashMap<String, Double>> doubleTable = new HashMap<Integer, HashMap<String, Double>>();
 
+    /**
+     * Returns the integerTable object
+     *
+     * @return IntegerTable for reports
+     */
     public HashMap<Integer, HashMap<String, Integer>> getIntegerTable() {
         return integerTable;
     }
 
+    /**
+     * Sets the integerTable object
+     *
+     * @param integerTable HashMap&lt;Integer, HashMap&lt;String, Integer&gt;&gt;
+     */
     public void setIntegerTable(HashMap<Integer, HashMap<String, Integer>> integerTable) {
         this.integerTable = integerTable;
     }
 
+    /**
+     * Returns the doubleTable object
+     *
+     * @return DoubleTable for reports
+     */
     public HashMap<Integer, HashMap<String, Double>> getDoubleTable() {
         return doubleTable;
     }
 
+    /**
+     * Sets the doubleTable object
+     *
+     * @param doubleTable HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public void setDoubleTable(HashMap<Integer, HashMap<String, Double>> doubleTable) {
         this.doubleTable = doubleTable;
     }
 
+    /**
+     * Returns data table for the monthly employee attendance report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Integer&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Integer>> getMonthlyEmployeeAttendanceReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -82,6 +109,13 @@ public class ReportDAO {
         return getIntegerTable();
     }
 
+    /**
+     * Returns data table for the annual employee attendance report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Integer&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Integer>> getAnnualEmployeeAttendanceReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -120,6 +154,13 @@ public class ReportDAO {
         return getIntegerTable();
     }
 
+    /**
+     * Returns data table for the monthly employee salary report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Double>> getMonthlyEmployeeSalaryReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -158,6 +199,13 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
+    /**
+     * Returns data table for the annual employee salary report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Double>> getAnnualEmployeeSalaryReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -196,6 +244,13 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
+    /**
+     * Returns data table for the monthly employee revenue report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Double>> getMonthlyEmployeeRevenueReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -242,6 +297,13 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
+    /**
+     * Returns data table for the annual employee revenue report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Double>> getAnnualEmployeeRevenueReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -288,6 +350,13 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
+    /**
+     * Returns data table for the monthly client revenue report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Double>> getMonthlyClientRevenueReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -326,6 +395,13 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
+    /**
+     * Returns data table for the annual client revenue report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Double>> getAnnualClientRevenueReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -365,6 +441,13 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
+    /**
+     * Returns data table for the monthly vehicle revenue report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Double>> getMonthlyVehicleRevenueReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -403,6 +486,13 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
+    /**
+     * Returns data table for the annual vehicle revenue report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Double>> getAnnualVehicleRevenueReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -442,7 +532,14 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
-    public HashMap<Integer, HashMap<String, Double>> getMonthlyVehicleMilageReport(final Date startDate, final Date endDate) {
+    /**
+     * Returns data table for the monthly vehicle mileage report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
+    public HashMap<Integer, HashMap<String, Double>> getMonthlyVehicleMileageReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
         session.doWork(
@@ -456,7 +553,7 @@ public class ReportDAO {
                         queryString = queryString + "INNER JOIN Vehicle AS v ON j.vehicleId = v.id ";
                         queryString = queryString + "WHERE j.startDate >= \'" + simpleDateFormat.format(startDate) + "\' AND j.startDate <= \'" + simpleDateFormat.format(endDate) + "\' ";
                         queryString = queryString + "GROUP BY v.id, YEAR(j.startDate), MONTH(j.startDate) ";
-                        log.debug("[" + className + "] getMonthlyVehicleMilageReport() :" + queryString);
+                        log.debug("[" + className + "] getMonthlyVehicleMileageReport() :" + queryString);
 
                         ResultSet resultSet = statement.executeQuery(queryString);
 
@@ -480,6 +577,13 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
+    /**
+     * Returns data table for the annual vehicle mileage report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Double>> getAnnualVehicleMileageReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -519,6 +623,13 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
+    /**
+     * Returns data table for the monthly expense report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Double>> getMonthlyExpenseReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();
@@ -557,6 +668,13 @@ public class ReportDAO {
         return getDoubleTable();
     }
 
+    /**
+     * Returns data table for the annual expense report
+     *
+     * @param startDate Date
+     * @param endDate   Date
+     * @return HashMap&lt;Integer, HashMap&lt;String, Double&gt;&gt;
+     */
     public HashMap<Integer, HashMap<String, Double>> getAnnualExpenseReport(final Date startDate, final Date endDate) {
         DatabaseSession databaseSession = new DatabaseSession();
         Session session = databaseSession.getSession();

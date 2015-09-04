@@ -19,112 +19,135 @@ import java.util.List;
  * @author dedunu
  */
 public class JobDAO {
-	private static Logger log = GlobalLogger.getLogger();
-	private static String className = JobDAO.class.getName();
+    private static Logger log = GlobalLogger.getLogger();
+    private static String className = JobDAO.class.getName();
 
-	public JobDAO() {
-		log.debug("[" + className + "] JobDAO: constructor()");
-	}
+    /**
+     * Create the job
+     *
+     * @param job Job
+     */
+    public void create(Job job) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.save(job);
+        log.debug("[" + className + "] create()");
+    }
 
-	public void create(Job job) {
-		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.save(job);
-		log.debug("[" + className + "] create()");
-	}
+    /**
+     * Delete the job
+     *
+     * @param job Job
+     */
+    public void delete(Job job) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.delete(job);
+        log.debug("[" + className + "] delete()");
+    }
 
-	public void delete(Job job) {
-		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.delete(job);
-		log.debug("[" + className + "] delete()");
-	}
+    /**
+     * Update the job
+     *
+     * @param job Job
+     */
+    public void update(Job job) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.update(job);
+        log.debug("[" + className + "] update()");
+    }
 
-	public void update(Job job) {
-		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.update(job);
-		log.debug("[" + className + "] update()");
-	}
+    /**
+     * Returns the job from the given id
+     *
+     * @param id int
+     * @return Job
+     */
+    public Job getById(int id) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        Job job = (Job) databaseSession.getById(
+                Job.class, id);
+        log.debug("[" + className + "] getById()");
+        return job;
+    }
 
-	public Job getById(int id) {
-		DatabaseSession databaseSession = new DatabaseSession();
-		Job job = (Job) databaseSession.getById(
-				Job.class, id);
-		log.debug("[" + className + "] getById()");
-		return job;
-	}
+    /**
+     * Return the job from given String id
+     *
+     * @param id String
+     * @return Job
+     */
+    public Job getById(String id) {
+        int jobId = 0;
+        try {
+            jobId = Integer.parseInt(id);
+        } catch (NumberFormatException ex) {
+            return null;
+        }
+        return getById(jobId);
+    }
 
-	public Job getById(String id) {
-		int jobId = 0;
-		try {
-			jobId = Integer.parseInt(id);
-		} catch (NumberFormatException ex) {
-			return null;
-		}
-		return getById(jobId);
-	}
+    /**
+     * Return the list of jobs for the given driver
+     *
+     * @param employee Employee
+     * @param fromDate Date
+     * @param toDate   Date
+     * @return List&lt;Job&gt;
+     */
+    public List<Job> getByDriverDate(Employee employee, Date fromDate, Date toDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(Job.class);
+        Criterion employeeIdCriterion = Restrictions.eq("driver", employee);
+        Criterion startDateCriterion = Restrictions.ge("startDate", fromDate);
+        Criterion endDateCriterion = Restrictions.le("startDate", toDate);
+        LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, startDateCriterion);
+        LogicalExpression logicalExpression1 = Restrictions.and(logicalExpression, endDateCriterion);
+        criteria.add(logicalExpression1);
+        List<Job> jobList = criteria.list();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        log.debug("[" + className + "] getByDriverDate()");
+        return jobList;
+    }
 
-	public List<Job> getByDriverDate(Employee employee, Date fromDate, Date toDate) {
-		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
-		Criteria criteria = databaseSession.createCriteria(Job.class);
-		Criterion employeeIdCriterion = Restrictions.eq("driver", employee);
-		Criterion startDateCriterion = Restrictions.ge("startDate", fromDate);
-		Criterion endDateCriterion = Restrictions.le("startDate", toDate);
-		LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, startDateCriterion);
-		LogicalExpression logicalExpression1 = Restrictions.and(logicalExpression, endDateCriterion);
-		criteria.add(logicalExpression1);
-		List<Job> jobList = criteria.list();
-		databaseSession.commitTransaction();
-		databaseSession.close();
-		log.debug("[" + className + "] getByDriverDate()");
-		return jobList;
-	}
+    /**
+     * Return the list of jobs for the given cleaner
+     *
+     * @param employee Employee
+     * @param fromDate Date
+     * @param toDate   Date
+     * @return List&lt;Job&gt;
+     */
+    public List<Job> getByCleanerDate(Employee employee, Date fromDate, Date toDate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(Job.class);
+        Criterion employeeIdCriterion = Restrictions.eq("cleaner", employee);
+        Criterion startDateCriterion = Restrictions.ge("startDate", fromDate);
+        Criterion endDateCriterion = Restrictions.le("startDate", toDate);
+        LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, startDateCriterion);
+        LogicalExpression logicalExpression1 = Restrictions.and(logicalExpression, endDateCriterion);
+        criteria.add(logicalExpression1);
+        List<Job> jobList = criteria.list();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        log.debug("[" + className + "] getByDriverDate()");
+        return jobList;
+    }
 
-	public List<Job> getByCleanerDate(Employee employee, Date fromDate, Date toDate) {
-		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
-		Criteria criteria = databaseSession.createCriteria(Job.class);
-		Criterion employeeIdCriterion = Restrictions.eq("cleaner", employee);
-		Criterion startDateCriterion = Restrictions.ge("startDate", fromDate);
-		Criterion endDateCriterion = Restrictions.le("startDate", toDate);
-		LogicalExpression logicalExpression = Restrictions.and(employeeIdCriterion, startDateCriterion);
-		LogicalExpression logicalExpression1 = Restrictions.and(logicalExpression, endDateCriterion);
-		criteria.add(logicalExpression1);
-		List<Job> jobList = criteria.list();
-		databaseSession.commitTransaction();
-		databaseSession.close();
-		log.debug("[" + className + "] getByDriverDate()");
-		return jobList;
-	}
+    /**
+     * Returns all the jobs
+     *
+     * @return List&lt;Job&gt;
+     */
+    @SuppressWarnings("unchecked")
+    public List<Job> getAll() {
+        DatabaseSession databaseSession = new DatabaseSession();
+        List<Job> jobList = databaseSession
+                .getAll(Job.class);
+        log.debug("[" + className + "] getAll()");
+        return jobList;
+    }
 
-	@SuppressWarnings("unchecked")
-	public List<Job> getAll() {
-		DatabaseSession databaseSession = new DatabaseSession();
-		List<Job> jobList = databaseSession
-				.getAll(Job.class);
-		log.debug("[" + className + "] getAll()");
-		return jobList;
-	}
 
-	public List<Job> searchById(int id) {
-		DatabaseSession databaseSession = new DatabaseSession();
-		databaseSession.beginTransaction();
-		Criteria criteria = databaseSession.createCriteria(Job.class);
-		SimpleExpression simpleExpression = Restrictions.like("id", id + "%");
-		criteria.addOrder(Order.asc("id"));
-		List<Job> jobList = criteria.add(simpleExpression).list();
-		databaseSession.commitTransaction();
-		databaseSession.close();
-		log.debug("[" + className + "] searchById()");
-		return jobList;
-	}
-
-	public List<Job> searchById(String id) {
-		int jobId = 0;
-		try {
-			jobId = Integer.parseInt(id);
-		} catch (NumberFormatException ex) {
-			return null;
-		}
-		return searchById(jobId);
-	}
 }

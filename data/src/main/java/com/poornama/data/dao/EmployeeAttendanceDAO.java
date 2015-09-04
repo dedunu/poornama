@@ -21,34 +21,57 @@ public class EmployeeAttendanceDAO {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = EmployeeAttendanceDAO.class.getName();
 
-    public EmployeeAttendanceDAO() {
-        log.debug("[" + className + "] EmployeeAttendanceDAO: constructor()");
-    }
-
+    /**
+     * Create employee attendance
+     *
+     * @param employeeAttendance EmployeeAttendance
+     */
     public void create(EmployeeAttendance employeeAttendance) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.save(employeeAttendance);
         log.debug("[" + className + "] create()");
     }
 
+    /**
+     * Save or update employee attendance
+     *
+     * @param employeeAttendance EmployeeAttendance
+     */
     public void saveOrUpdate(EmployeeAttendance employeeAttendance) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.saveOrUpdate(employeeAttendance);
         log.debug("[" + className + "] saveOrUpdate()");
     }
 
+    /**
+     * Delete employee attendance
+     *
+     * @param employeeAttendance EmployeeAttendance
+     */
     public void delete(EmployeeAttendance employeeAttendance) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(employeeAttendance);
         log.debug("[" + className + "] delete()");
     }
 
+    /**
+     * Update employee attendance
+     *
+     * @param employeeAttendance EmployeeAttendance
+     */
     public void update(EmployeeAttendance employeeAttendance) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.update(employeeAttendance);
         log.debug("[" + className + "] update()");
     }
 
+    /**
+     * Returns the employee attendance from given employee and date
+     *
+     * @param employee Employee
+     * @param date     Date
+     * @return EmployeeAttendance
+     */
     public EmployeeAttendance getByIdDate(Employee employee, Date date) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -64,12 +87,26 @@ public class EmployeeAttendanceDAO {
         return employeeAttendance;
     }
 
+    /**
+     * Return the employee attendance from the give employeeId and the date
+     *
+     * @param employeeId int
+     * @param date       Date
+     * @return EmployeeAttendance
+     */
     public EmployeeAttendance getByIdDate(int employeeId, Date date) {
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee employee = employeeDAO.getById(employeeId);
         return getByIdDate(employee, date);
     }
 
+    /**
+     * Return the employee attendance from the give employeeId and the date
+     *
+     * @param id   String
+     * @param date Date
+     * @return EmployeeAttendance
+     */
     public EmployeeAttendance getByIdDate(String id, Date date) {
         int employeeId = 0;
 
@@ -81,6 +118,13 @@ public class EmployeeAttendanceDAO {
         return getByIdDate(employeeId, date);
     }
 
+    /**
+     * Return the employee attendance from the give employeeId and the date
+     *
+     * @param id   String
+     * @param date String
+     * @return EmployeeAttendance
+     */
     public EmployeeAttendance getByIdDate(String id, String date) {
         Date attendanceDate = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
@@ -92,10 +136,12 @@ public class EmployeeAttendanceDAO {
         return getByIdDate(id, attendanceDate);
     }
 
-    public EmployeeAttendance getByIdDate(int id, String date) {
-        return getByIdDate(Integer.toString(id), date);
-    }
-
+    /**
+     * Returns the employee attendance from employeeAttendanceId
+     *
+     * @param id Long
+     * @return EmployeeAttendance
+     */
     public EmployeeAttendance getById(Long id) {
         DatabaseSession databaseSession = new DatabaseSession();
         EmployeeAttendance employeeAttendance = (EmployeeAttendance) databaseSession.getById(EmployeeAttendance.class, id);

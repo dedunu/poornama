@@ -18,28 +18,45 @@ public class VehicleDAO {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = VehicleDAO.class.getName();
 
-    public VehicleDAO() {
-        log.debug("[" + className + "] VehicleDAO: constructor()");
-    }
-
+    /**
+     * Create vehicle
+     *
+     * @param vehicle Vehicle
+     */
     public void create(Vehicle vehicle) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.save(vehicle);
         log.debug("[" + className + "] create()");
     }
 
+    /**
+     * Delete vehicle
+     *
+     * @param vehicle Vehicle
+     */
     public void delete(Vehicle vehicle) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(vehicle);
         log.debug("[" + className + "] delete()");
     }
 
+    /**
+     * Update vehicle
+     *
+     * @param vehicle Vehicle
+     */
     public void update(Vehicle vehicle) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.update(vehicle);
         log.debug("[" + className + "] update()");
     }
 
+    /**
+     * Return vehicle by id
+     *
+     * @param id int
+     * @return Vehicle
+     */
     public Vehicle getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
         Vehicle vehicle = (Vehicle) databaseSession.getById(Vehicle.class, id);
@@ -47,6 +64,12 @@ public class VehicleDAO {
         return vehicle;
     }
 
+    /**
+     * Return vehicle by id
+     *
+     * @param id String
+     * @return Vehicle
+     */
     public Vehicle getById(String id) {
         int vehicleId = 0;
         try {
@@ -57,6 +80,11 @@ public class VehicleDAO {
         return getById(vehicleId);
     }
 
+    /**
+     * Return all the vehicles
+     *
+     * @return List&lt;Vehicle&gt;
+     */
     public List<Vehicle> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
         List<Vehicle> vehicleList = databaseSession.getAll(Vehicle.class);
@@ -64,6 +92,12 @@ public class VehicleDAO {
         return vehicleList;
     }
 
+    /**
+     * Returns vehicle by vehicle type
+     *
+     * @param vehicleType VehicleType
+     * @return List&lt;Vehicle&gt;
+     */
     public List<Vehicle> getByVehicleType(VehicleType vehicleType) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();

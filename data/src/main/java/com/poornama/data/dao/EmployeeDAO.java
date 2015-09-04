@@ -20,29 +20,34 @@ public class EmployeeDAO {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = EmployeeDAO.class.getName();
 
-    public EmployeeDAO() {
-        log.debug("[" + className + "] EmployeeDAO: constructor()");
-    }
-
-
+    /**
+     * Delete employee
+     *
+     * @param employee Employee
+     */
     public void delete(Employee employee) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(employee);
         log.debug("[" + className + "] delete()");
     }
 
-    public void deleteById(int id) {
-        Employee employee = getById(id);
-        delete(employee);
-        log.debug("[" + className + "] deleteById()");
-    }
-
+    /**
+     * Update employee
+     *
+     * @param employee Employee
+     */
     public void update(Employee employee) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.update(employee);
         log.debug("[" + className + "] update()");
     }
 
+    /**
+     * Return employee by Id
+     *
+     * @param id int
+     * @return Employee
+     */
     public Employee getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
         Employee employee = (Employee) databaseSession.getById(Employee.class, id);
@@ -50,6 +55,12 @@ public class EmployeeDAO {
         return employee;
     }
 
+    /**
+     * Return employee by Id
+     *
+     * @param id String
+     * @return Employee
+     */
     public Employee getById(String id) {
         int employeeId;
         Employee employee = null;
@@ -62,6 +73,11 @@ public class EmployeeDAO {
         return employee;
     }
 
+    /**
+     * Create employee
+     *
+     * @param employee Employee
+     */
     public void create(Employee employee) {
         // Initialize Database session
         DatabaseSession databaseSession = new DatabaseSession();
@@ -70,26 +86,12 @@ public class EmployeeDAO {
         log.debug("[" + className + "] create()");
     }
 
-    public Employee getByFirstName(String firstName) {
-        // Initialize Database session
-        DatabaseSession databaseSession = new DatabaseSession();
-        // Start transactions
-        databaseSession.beginTransaction();
-        // Creates a criteria for the Employee Class
-        Criteria criteria = databaseSession.createCriteria(Employee.class);
-        // Creates the condition as an expression for firstName
-        SimpleExpression simpleExpression = Restrictions.eq("firstName", firstName);
-        // Grabs the unique result
-        Employee employee = (Employee) criteria.add(simpleExpression)
-                .uniqueResult();
-        // Commit the transaction and close the database session
-        databaseSession.commitTransaction();
-        databaseSession.close();
-        log.debug("[" + className + "] getByFirstName()");
-        //Returns employee object
-        return employee;
-    }
-
+    /**
+     * List all the employees from the given employee type
+     *
+     * @param employeeType EmployeeType
+     * @return List&lt;Employee&gt;
+     */
     public List<Employee> getByEmployeeType(EmployeeType employeeType) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -102,6 +104,12 @@ public class EmployeeDAO {
         return employeeList;
     }
 
+    /**
+     * Search employees from the first name
+     *
+     * @param firstName String
+     * @return List&lt;Employee&gt;
+     */
     public List<Employee> searchByFirstName(String firstName) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -115,6 +123,11 @@ public class EmployeeDAO {
         return employeeList;
     }
 
+    /**
+     * Return all the employees as a list
+     *
+     * @return List&lt;Employee&gt;
+     */
     public List<Employee> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();

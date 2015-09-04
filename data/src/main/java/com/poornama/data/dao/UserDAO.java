@@ -17,28 +17,45 @@ public class UserDAO {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = UserDAO.class.getName();
 
-    public UserDAO() {
-        log.debug("[" + className + "] UserDAO: constructor()");
-    }
-
+    /**
+     * Create user
+     *
+     * @param user User
+     */
     public void create(User user) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.save(user);
         log.debug("[" + className + "] create()");
     }
 
+    /**
+     * Delete user
+     *
+     * @param user User
+     */
     public void delete(User user) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(user);
         log.debug("[" + className + "] delete()");
     }
 
+    /**
+     * Update user
+     *
+     * @param user User
+     */
     public void update(User user) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.update(user);
         log.debug("[" + className + "] update()");
     }
 
+    /**
+     * Return user from id
+     *
+     * @param id int
+     * @return User
+     */
     public User getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
         User user = (User) databaseSession.getById(User.class, id);
@@ -46,6 +63,12 @@ public class UserDAO {
         return user;
     }
 
+    /**
+     * Return user from id
+     *
+     * @param id String
+     * @return User
+     */
     public User getById(String id) {
         int userId = 0;
 
@@ -57,6 +80,12 @@ public class UserDAO {
         return getById(userId);
     }
 
+    /**
+     * Return user from userName
+     *
+     * @param userName String
+     * @return User
+     */
     public User getByUserName(String userName) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -70,6 +99,11 @@ public class UserDAO {
         return user;
     }
 
+    /**
+     * Return all the users
+     *
+     * @return List&lt;User&gt;
+     */
     public List<User> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
         List<User> userList = databaseSession.getAll(User.class);

@@ -18,28 +18,45 @@ public class TagDAO {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = TagDAO.class.getName();
 
-    public TagDAO() {
-        log.debug("[" + className + "] TagDAO: constructor()");
-    }
-
+    /**
+     * Create tag
+     *
+     * @param tag Tag
+     */
     public void create(Tag tag) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.save(tag);
         log.debug("[" + className + "] create()");
     }
 
+    /**
+     * Delete tag
+     *
+     * @param tag Tag
+     */
     public void delete(Tag tag) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(tag);
         log.debug("[" + className + "] delete()");
     }
 
+    /**
+     * Update tag
+     *
+     * @param tag Tag
+     */
     public void update(Tag tag) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.update(tag);
         log.debug("[" + className + "] update()");
     }
 
+    /**
+     * Returns the tag from the id
+     *
+     * @param id int
+     * @return Tag
+     */
     public Tag getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
         Tag tag = (Tag) databaseSession.getById(Tag.class, id);
@@ -47,6 +64,12 @@ public class TagDAO {
         return tag;
     }
 
+    /**
+     * Returns the tag from the id
+     *
+     * @param id String
+     * @return Tag
+     */
     public Tag getById(String id) {
         int tagId;
         Tag tag = null;
@@ -59,6 +82,12 @@ public class TagDAO {
         return tag;
     }
 
+    /**
+     * Returns the tag from the display name
+     *
+     * @param displayName String
+     * @return Tag
+     */
     public Tag getByDisplayName(String displayName) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -72,6 +101,11 @@ public class TagDAO {
         return tag;
     }
 
+    /**
+     * Return all the tags
+     *
+     * @return List&lt;Tag&gt;
+     */
     public List<Tag> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();

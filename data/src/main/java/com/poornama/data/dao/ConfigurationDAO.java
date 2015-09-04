@@ -17,28 +17,45 @@ public class ConfigurationDAO {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = ConfigurationDAO.class.getName();
 
-    public ConfigurationDAO() {
-        log.debug("[" + className + "] ConfigurationDAO: constructor()");
-    }
-
+    /**
+     * Create the configuration
+     *
+     * @param configuration Configuration
+     */
     public void create(Configuration configuration) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.save(configuration);
         log.debug("[" + className + "] create()");
     }
 
+    /**
+     * Delete the configuration
+     *
+     * @param configuration Configuration
+     */
     public void delete(Configuration configuration) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(configuration);
         log.debug("[" + className + "] delete()");
     }
 
+    /**
+     * Update the configuration
+     *
+     * @param configuration Configuration
+     */
     public void update(Configuration configuration) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.update(configuration);
         log.debug("[" + className + "] update()");
     }
 
+    /**
+     * Return the configuration from id
+     *
+     * @param id int
+     * @return Configuration
+     */
     public Configuration getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
         Configuration configuration = (Configuration) databaseSession.getById(
@@ -47,6 +64,12 @@ public class ConfigurationDAO {
         return configuration;
     }
 
+    /**
+     * Return the configuration by name
+     *
+     * @param name String
+     * @return Configuration
+     */
     public Configuration getByName(String name) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -60,6 +83,11 @@ public class ConfigurationDAO {
         return configuration;
     }
 
+    /**
+     * Return all the configuration
+     *
+     * @return List&lt;Configuration&gt;
+     */
     @SuppressWarnings("unchecked")
     public List<Configuration> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();

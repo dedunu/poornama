@@ -14,28 +14,45 @@ public class JobTemplateDAO {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = JobTemplateDAO.class.getName();
 
-    public JobTemplateDAO() {
-        log.debug("[" + className + "] JobTemplateDAO: constructor()");
-    }
-
+    /**
+     * Create the job template
+     *
+     * @param jobTemplate JobTemplate
+     */
     public void create(JobTemplate jobTemplate) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.save(jobTemplate);
         log.debug("[" + className + "] create()");
     }
 
+    /**
+     * Delete the job template
+     *
+     * @param jobTemplate JobTemplate
+     */
     public void delete(JobTemplate jobTemplate) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(jobTemplate);
         log.debug("[" + className + "] delete()");
     }
 
+    /**
+     * Update the job template
+     *
+     * @param jobTemplate JobTemplate
+     */
     public void update(JobTemplate jobTemplate) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.update(jobTemplate);
         log.debug("[" + className + "] update()");
     }
 
+    /**
+     * Return the job template by given id
+     *
+     * @param id int
+     * @return JobTemplate
+     */
     public JobTemplate getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
         JobTemplate jobTemplate = (JobTemplate) databaseSession.getById(
@@ -44,6 +61,12 @@ public class JobTemplateDAO {
         return jobTemplate;
     }
 
+    /**
+     * Return job template by given id
+     *
+     * @param id String
+     * @return JobTemplate
+     */
     public JobTemplate getById(String id) {
         int jobTemplateId = 0;
         try {
@@ -54,6 +77,11 @@ public class JobTemplateDAO {
         return getById(jobTemplateId);
     }
 
+    /**
+     * Return a list of all the job template
+     *
+     * @return List&lt;JobTemplate&gt;
+     */
     @SuppressWarnings("unchecked")
     public List<JobTemplate> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();

@@ -163,7 +163,7 @@ public class ReportLogic {
                 break;
             case 6:
                 if (calendarField == Calendar.MONTH) {
-                    setDoubleTable(reportDAO.getMonthlyVehicleMilageReport(startMonthlyDate, endMonthlyDate));
+                    setDoubleTable(reportDAO.getMonthlyVehicleMileageReport(startMonthlyDate, endMonthlyDate));
                 }
                 if (calendarField == Calendar.YEAR) {
                     setDoubleTable(reportDAO.getAnnualVehicleMileageReport(startAnnuallyDate, endAnnuallyDate));

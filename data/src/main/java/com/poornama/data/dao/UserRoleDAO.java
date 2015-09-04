@@ -18,28 +18,45 @@ public class UserRoleDAO {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = UserRoleDAO.class.getName();
 
-    public UserRoleDAO() {
-        log.debug("[" + className + "] UserDAO: constructor()");
-    }
-
+    /**
+     * Create user role
+     *
+     * @param userRole UserRole
+     */
     public void create(UserRole userRole) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.save(userRole);
         log.debug("[" + className + "] create()");
     }
 
+    /**
+     * Delete user role
+     *
+     * @param userRole UserRole
+     */
     public void delete(UserRole userRole) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(userRole);
         log.debug("[" + className + "] delete()");
     }
 
+    /**
+     * Update user role
+     *
+     * @param userRole UserRole
+     */
     public void update(UserRole userRole) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.update(userRole);
         log.debug("[" + className + "] update()");
     }
 
+    /**
+     * Return user role by id
+     *
+     * @param id int
+     * @return UserRole
+     */
     public UserRole getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
         UserRole userRole = (UserRole) databaseSession.getById(UserRole.class, id);
@@ -47,6 +64,12 @@ public class UserRoleDAO {
         return userRole;
     }
 
+    /**
+     * Return user role by name
+     *
+     * @param name String
+     * @return UserRole
+     */
     public UserRole getByName(String name) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -60,6 +83,11 @@ public class UserRoleDAO {
         return userRole;
     }
 
+    /**
+     * Return all the user roles
+     *
+     * @return List&lt;UserRole&gt;
+     */
     public List<UserRole> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
         List<UserRole> userRoleList = databaseSession.getAll(UserRole.class);

@@ -17,35 +17,58 @@ public class EmployeeTypeDAO {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = EmployeeTypeDAO.class.getName();
 
-    public EmployeeTypeDAO() {
-        log.debug("[" + className + "] EmployeeTypeDAO: constructor()");
-    }
-
+    /**
+     * Create employee type
+     *
+     * @param employeeType EmployeeType
+     */
     public void create(EmployeeType employeeType) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.save(employeeType);
         log.debug("[" + className + "] create()");
     }
 
+    /**
+     * Delete employee type
+     *
+     * @param employeeType EmployeeType
+     */
     public void delete(EmployeeType employeeType) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(employeeType);
         log.debug("[" + className + "] delete()");
     }
 
+    /**
+     * Update employee type
+     *
+     * @param employeeType EmployeeType
+     */
     public void update(EmployeeType employeeType) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.update(employeeType);
         log.debug("[" + className + "] update()");
     }
 
+    /**
+     * Returns the employee type from given id
+     *
+     * @param id int
+     * @return EmployeeType
+     */
     public EmployeeType getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
         EmployeeType employeeType = (EmployeeType) databaseSession.getById(EmployeeType.class, id);
         log.debug("[" + className + "] getById()");
         return employeeType;
     }
-    
+
+    /**
+     * Returns the employee type from the give name
+     *
+     * @param name String
+     * @return EmployeeType
+     */
     public EmployeeType getByName(String name) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -59,6 +82,11 @@ public class EmployeeTypeDAO {
         return employeeType;
     }
 
+    /**
+     * Returns all the employee type as a list
+     *
+     * @return List&lt;EmployeeType&gt;
+     */
     public List<EmployeeType> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
         List<EmployeeType> employeeTypeList = databaseSession.getAll(EmployeeType.class);
