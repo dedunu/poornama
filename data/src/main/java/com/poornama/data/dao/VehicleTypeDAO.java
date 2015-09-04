@@ -18,28 +18,41 @@ public class VehicleTypeDAO {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = VehicleTypeDAO.class.getName();
 
-    public VehicleTypeDAO() {
-        log.debug("[" + className + "] VehicleTypeDAO: constructor()");
-    }
-
+    /**
+     * Create vehicle type
+     * @param vehicleType VehicleType
+     */
     public void create(VehicleType vehicleType) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.save(vehicleType);
         log.debug("[" + className + "] create()");
     }
 
+    /**
+     * Delete vehicle type
+     * @param vehicleType VehicleType
+     */
     public void delete(VehicleType vehicleType) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(vehicleType);
         log.debug("[" + className + "] delete()");
     }
 
+    /**
+     * Update vehicle type
+     * @param vehicleType VehicleType
+     */
     public void update(VehicleType vehicleType) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.update(vehicleType);
         log.debug("[" + className + "] update()");
     }
 
+    /**
+     * Returns vehicle type by id
+     * @param id int
+     * @return VehicleType
+     */
     public VehicleType getById(int id) {
         DatabaseSession databaseSession = new DatabaseSession();
         VehicleType vehicleType = (VehicleType) databaseSession.getById(VehicleType.class, id);
@@ -47,6 +60,11 @@ public class VehicleTypeDAO {
         return vehicleType;
     }
 
+    /**
+     * Returns vehicle type by name
+     * @param name String
+     * @return VehicleType
+     */
     public VehicleType getByName(String name) {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.beginTransaction();
@@ -60,6 +78,10 @@ public class VehicleTypeDAO {
         return vehicleType;
     }
 
+    /**
+     * Returns all the vehicle types
+     * @return List&lt;VehicleType&gt;
+     */
     public List<VehicleType> getAll() {
         DatabaseSession databaseSession = new DatabaseSession();
         List<VehicleType> vehicleTypeList = databaseSession.getAll(VehicleType.class);
