@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * Created by dedunu on 7/29/15.
+ * @author dedunu
  */
 @Controller
 @RequestMapping("/report/")
@@ -20,6 +20,13 @@ public class ReportController {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = ReportController.class.getName();
 
+    /**
+     * Returns the empty report form
+     *
+     * @param model Model
+     * @return view path as a String
+     * @throws IOException
+     */
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String index(Model model) throws IOException {
         model.addAttribute("pageTitle", "Poornama Transport Service - Report");
@@ -27,6 +34,14 @@ public class ReportController {
         return "report/index";
     }
 
+    /**
+     * Returns the report page
+     *
+     * @param model   Model
+     * @param request HttpServletRequest
+     * @return view path as a String
+     * @throws IOException
+     */
     @RequestMapping(value = "index", method = RequestMethod.POST)
     public String reportHub(Model model, HttpServletRequest request) throws IOException {
         ReportLogic reportLogic = new ReportLogic();

@@ -15,6 +15,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * @author dedunu
+ */
 @Controller
 @RequestMapping("/system/")
 public class SystemController {
@@ -25,25 +28,43 @@ public class SystemController {
     @Autowired
     private MessageSource messageSource;
 
+    /**
+     * Returns internal log page
+     *
+     * @param model Model
+     * @return view path as a String
+     */
     @RequestMapping(value = "logs", method = RequestMethod.GET)
-    public String login(Model model) {
+    public String getLogs(Model model) {
         model.addAttribute("pageTitle", "Poornama Transport Service - Log");
         return "system/logs";
     }
 
+    /**
+     * Returns log page content to the logging page
+     *
+     * @param response HttpServletResponse
+     * @throws IOException
+     */
     @RequestMapping(value = "logsAJAX", method = RequestMethod.GET)
     public void searchAJAX(HttpServletResponse response) throws IOException {
         File file = new File(System.getProperty("user.home") + "/poornama.log");
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
-        while((line = bufferedReader.readLine()) != null){
+        while ((line = bufferedReader.readLine()) != null) {
             response.getWriter().println(line);
         }
         bufferedReader.close();
         fileReader.close();
     }
 
+    /**
+     * Shows error page with home button
+     *
+     * @param model Model
+     * @return view path as a String
+     */
     @RequestMapping(value = "error", method = RequestMethod.GET)
     public String error(Model model) {
         log.error("[" + className + "] accessDenied: Success, redirected to notify/danger");

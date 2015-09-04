@@ -10,6 +10,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
+/**
+ * @author dedunu
+ */
 @Configuration
 @ImportResource("classpath:poornama-context.xml")
 @ComponentScan("com.poornama")

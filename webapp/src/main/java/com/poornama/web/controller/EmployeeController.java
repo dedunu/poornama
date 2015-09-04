@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by dedunu on 10/24/14.
+ * @author dedunu
  */
 @Controller
 @RequestMapping("/employee/")
@@ -36,6 +36,12 @@ public class EmployeeController {
     @Autowired
     EmployeeTypeLogic employeeTypeLogic;
 
+    /**
+     * Returns the create form for the employee entity
+     *
+     * @param model Model
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
         model.addAttribute("employeeTypeList", employeeTypeLogic.getEmployeeTypeSelectList());
@@ -44,6 +50,13 @@ public class EmployeeController {
         return "employee/create";
     }
 
+    /**
+     * Creates the employee and shows the notification
+     *
+     * @param model   Model
+     * @param request HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createEmployee(Model model, HttpServletRequest request) {
         Notification notification = employeeLogic.createEmployee(request);
@@ -61,6 +74,13 @@ public class EmployeeController {
         return "redirect:/";
     }
 
+    /**
+     * Returns the edit form for employee entity
+     *
+     * @param model      Model
+     * @param employeeId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("employeeId") String employeeId) {
         Employee employee;
@@ -90,6 +110,14 @@ public class EmployeeController {
         return "employee/edit";
     }
 
+    /**
+     * Edits the employee and show the notification
+     *
+     * @param model      Model
+     * @param employeeId String
+     * @param request    HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{employeeId}", method = RequestMethod.POST)
     public String editEmployee(Model model, @PathVariable("employeeId") String employeeId, HttpServletRequest request) {
         Notification notification = employeeLogic.editEmployee(request, employeeId);
@@ -108,6 +136,13 @@ public class EmployeeController {
         return "redirect:/";
     }
 
+    /**
+     * Show the delete confirmation form for the employee entity
+     *
+     * @param model      Model
+     * @param employeeId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("employeeId") String employeeId) {
         Employee employee;
@@ -130,6 +165,13 @@ public class EmployeeController {
         return "employee/delete";
     }
 
+    /**
+     * Deletes the employee and show the notification
+     *
+     * @param model      Model
+     * @param employeeId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{employeeId}", method = RequestMethod.POST)
     public String deleteEmployee(Model model, @PathVariable("employeeId") String employeeId) {
         Notification notification = employeeLogic.deleteEmployee(employeeId);
@@ -150,6 +192,13 @@ public class EmployeeController {
         }
     }
 
+    /**
+     * Shows the search form for the employee entity
+     *
+     * @param model Model
+     * @return view path as a String
+     * @throws IOException
+     */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
         String table = employeeLogic.getEmployeeTable("");
@@ -159,6 +208,13 @@ public class EmployeeController {
         return "employee/search";
     }
 
+    /**
+     * Returns HTML table for the search page depending the search query
+     *
+     * @param name     String
+     * @param response HttpServletResponse
+     * @throws IOException
+     */
     @RequestMapping(value = "search/{name}", method = RequestMethod.POST)
     public void searchAJAX(@PathVariable("name") String name, HttpServletResponse response) throws IOException {
         String table = employeeLogic.getEmployeeTable(name);
@@ -166,6 +222,12 @@ public class EmployeeController {
         log.debug("[" + className + "] searchAJAX()");
     }
 
+    /**
+     * Returns HTML table for the search page
+     *
+     * @param response HttpServletResponse
+     * @throws IOException
+     */
     @RequestMapping(value = "search", method = RequestMethod.POST)
     public void searchAJAXAll(HttpServletResponse response) throws IOException {
         searchAJAX("", response);

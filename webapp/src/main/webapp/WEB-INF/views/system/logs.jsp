@@ -1,4 +1,11 @@
 <%@ include file="../template/header.jsp" %>
+<%
+    RoleValidator roleValidator = new RoleValidator();
+    List<String> roles = new ArrayList<String>();
+    roles.add("admin");
+    roleValidator.validate(session, request, response, roles);
+%>
+
 <style scoped>
 </style>
 

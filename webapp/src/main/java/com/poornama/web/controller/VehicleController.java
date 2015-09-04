@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * @author dedunu
+ */
 @Controller
 @RequestMapping("/vehicle/")
 public class VehicleController {
@@ -23,7 +26,7 @@ public class VehicleController {
     private static String className = VehicleController.class.getName();
 
     /**
-     * Returns the create Vehicle form
+     * Returns the create form for the vehicle entity
      *
      * @param model Model
      * @return view path as a String
@@ -37,6 +40,13 @@ public class VehicleController {
         return "vehicle/create";
     }
 
+    /**
+     * Creates the vehicle and shows the notification
+     *
+     * @param model   Model
+     * @param request HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createVehicle(Model model, HttpServletRequest request) {
         VehicleLogic vehicleLogic = new VehicleLogic();
@@ -55,6 +65,13 @@ public class VehicleController {
         return "redirect:/";
     }
 
+    /**
+     * Returns the edit form for vehicle entity
+     *
+     * @param model     Model
+     * @param vehicleId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{vehicleId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("vehicleId") String vehicleId) {
         VehicleLogic vehicleLogic = new VehicleLogic();
@@ -76,6 +93,14 @@ public class VehicleController {
         return "vehicle/edit";
     }
 
+    /**
+     * Edits the vehicle and show the notification
+     *
+     * @param model     Model
+     * @param vehicleId String
+     * @param request   HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{vehicleId}", method = RequestMethod.POST)
     public String editVehicle(Model model, @PathVariable("vehicleId") String vehicleId, HttpServletRequest request) {
         VehicleLogic vehicleLogic = new VehicleLogic();
@@ -95,6 +120,13 @@ public class VehicleController {
         return "redirect:/";
     }
 
+    /**
+     * Show the delete confirmation form for the vehicle entity
+     *
+     * @param model     Model
+     * @param vehicleId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{vehicleId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("vehicleId") String vehicleId) {
         VehicleLogic vehicleLogic = new VehicleLogic();
@@ -115,6 +147,13 @@ public class VehicleController {
         return "vehicle/delete";
     }
 
+    /**
+     * Deletes the employee and show the notification
+     *
+     * @param model     Model
+     * @param vehicleId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{vehicleId}", method = RequestMethod.POST)
     public String deleteVehicle(Model model, @PathVariable("vehicleId") String vehicleId) {
         VehicleLogic vehicleLogic = new VehicleLogic();
@@ -136,6 +175,13 @@ public class VehicleController {
         }
     }
 
+    /**
+     * Shows the search form for the employee entity
+     *
+     * @param model Model
+     * @return view path as a String
+     * @throws IOException
+     */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
         VehicleLogic vehicleLogic = new VehicleLogic();

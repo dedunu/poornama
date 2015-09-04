@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by ddhananjaya on 7/15/15.
+ * @author dedunu
  */
 @Controller
 @RequestMapping("/salary/")
@@ -28,6 +28,12 @@ public class SalaryController {
     @Autowired
     SalaryLogic salaryLogic;
 
+    /**
+     * Returns salary calculation form
+     *
+     * @param model Model
+     * @return view path as a String
+     */
     @RequestMapping(value = "calculate", method = RequestMethod.GET)
     public String calculateForm(Model model) {
         // Set the html page titple
@@ -37,8 +43,15 @@ public class SalaryController {
         return "salary/calculate";
     }
 
+    /**
+     * Calculates the salary and returns the salary report
+     *
+     * @param model   Model
+     * @param request HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "calculate", method = RequestMethod.POST)
-    public String createJob(Model model, HttpServletRequest request) {
+    public String calculateSalary(Model model, HttpServletRequest request) {
         // Call the business logic class to calculate the salary
         salaryLogic.calculateSalary(request);
         // Set the salary table for the front-end

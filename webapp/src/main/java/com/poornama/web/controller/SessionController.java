@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by dedunu on 10/23/14.
+ * @author dedunu
  */
 @Controller
 @RequestMapping("/session/")
@@ -31,6 +31,14 @@ public class SessionController {
     @Autowired
     private MessageSource messageSource;
 
+    /**
+     * Validates the logging and initialize the session
+     *
+     * @param session  HttpSession
+     * @param userName String
+     * @param password String
+     * @return view path as a String
+     */
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(HttpSession session, @RequestParam("username") String userName, @RequestParam("password") String password) {
         log.debug("[" + className + "] login: login()");
@@ -65,18 +73,31 @@ public class SessionController {
         }
     }
 
+    /**
+     * Shows access denied page
+     *
+     * @param model   Model
+     * @param session HttpSession
+     * @return view path as a String
+     */
     @RequestMapping(value = "denied", method = RequestMethod.GET)
     public String accessDenied(Model model, HttpSession session) {
         try {
-            session.setAttribute("message", messageSource.getMessage("web.session.denied.message", null,null));
+            session.setAttribute("message", messageSource.getMessage("web.session.denied.message", null, null));
         } catch (Exception e) {
             log.error("[" + className + "] accessDenied: exception while setting sessionAttribute");
         }
         log.warn("[" + className + "] accessDenied: Success, reidrected to notify/danger");
-        model.addAttribute("pageTitle", messageSource.getMessage("web.session.denied.title", null,null));
+        model.addAttribute("pageTitle", messageSource.getMessage("web.session.denied.title", null, null));
         return "notify/danger";
     }
 
+    /**
+     * Dispose the session return the to context.root
+     *
+     * @param session HttpSession
+     * @return view path as a String
+     */
     @RequestMapping(value = "logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
         try {

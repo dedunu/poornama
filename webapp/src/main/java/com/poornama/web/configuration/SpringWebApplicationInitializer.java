@@ -10,6 +10,9 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration.Dynamic;
 
+/**
+ * @author dedunu
+ */
 public class SpringWebApplicationInitializer implements WebApplicationInitializer {
 
     private static Logger log = GlobalLogger.getLogger();

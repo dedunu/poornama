@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * Created by dedunu on 7/29/15.
+ * @author dedunu
  */
 @Controller
 @RequestMapping("/jobTemplate/")
@@ -36,6 +36,12 @@ public class JobTemplateController {
     @Autowired
     JobTemplateLogic jobTemplateLogic;
 
+    /**
+     * Returns the create form for the job template entity
+     *
+     * @param model Model
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
         model.addAttribute("jobTypeList", jobTypeLogic.getJobTypeSelectList());
@@ -45,6 +51,13 @@ public class JobTemplateController {
         return "job/template/create";
     }
 
+    /**
+     * Creates the job template and shows the notification
+     *
+     * @param model   Model
+     * @param request HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createJobTemplate(Model model, HttpServletRequest request) {
         Notification notification = jobTemplateLogic.createJobTemplate(request);
@@ -62,6 +75,13 @@ public class JobTemplateController {
         return "redirect:/";
     }
 
+    /**
+     * Returns the edit form for job template entity
+     *
+     * @param model         Model
+     * @param jobTemplateId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{jobTemplateId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("jobTemplateId") String jobTemplateId) {
         JobTemplate jobTemplate;
@@ -84,12 +104,20 @@ public class JobTemplateController {
         model.addAttribute("hireCharges", jobTemplate.getHireCharges().toBigInteger().toString());
         model.addAttribute("hourlyDetentionCharges", jobTemplate.getHourlyDetentionCharges().toBigInteger().toString());
         model.addAttribute("dailyContainerCharges", jobTemplate.getDailyContainerCharges().toBigInteger().toString());
-        model.addAttribute("freeHours",jobTemplate.getFreeHours());
-        model.addAttribute("distance",jobTemplate.getDistance());
+        model.addAttribute("freeHours", jobTemplate.getFreeHours());
+        model.addAttribute("distance", jobTemplate.getDistance());
         model.addAttribute("pageTitle", "Poornama Transport Service - Job Template");
         return "job/template/edit";
     }
 
+    /**
+     * Edits the job template and show the notification
+     *
+     * @param model         Model
+     * @param jobTemplateId String
+     * @param request       HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{jobTemplateId}", method = RequestMethod.POST)
     public String editJobTemplate(Model model, @PathVariable("jobTemplateId") String jobTemplateId, HttpServletRequest request) {
         Notification notification = jobTemplateLogic.editJobTemplate(request, jobTemplateId);
@@ -108,6 +136,13 @@ public class JobTemplateController {
         return "redirect:/";
     }
 
+    /**
+     * Show the delete confirmation form for the job template entity
+     *
+     * @param model         Model
+     * @param jobTemplateId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{jobTemplateId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("jobTemplateId") String jobTemplateId) {
         JobTemplate jobTemplate;
@@ -124,12 +159,19 @@ public class JobTemplateController {
         model.addAttribute("hireCharges", jobTemplate.getHireCharges().toBigInteger().toString());
         model.addAttribute("hourlyDetentionCharges", jobTemplate.getHourlyDetentionCharges().toBigInteger().toString());
         model.addAttribute("dailyContainerCharges", jobTemplate.getDailyContainerCharges().toBigInteger().toString());
-        model.addAttribute("freeHours",jobTemplate.getFreeHours());
-        model.addAttribute("distance",jobTemplate.getDistance());
+        model.addAttribute("freeHours", jobTemplate.getFreeHours());
+        model.addAttribute("distance", jobTemplate.getDistance());
         model.addAttribute("pageTitle", "Poornama Transport Service - Job Template");
         return "job/template/delete";
     }
 
+    /**
+     * Deletes the job template and show the notification
+     *
+     * @param model         Model
+     * @param jobTemplateId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{jobTemplateId}", method = RequestMethod.POST)
     public String deleteJobTemplate(Model model, @PathVariable("jobTemplateId") String jobTemplateId) {
         Notification notification = jobTemplateLogic.deleteJobTemplate(jobTemplateId);
@@ -150,6 +192,13 @@ public class JobTemplateController {
         }
     }
 
+    /**
+     * Shows the search form for the job template entity
+     *
+     * @param model Model
+     * @return view path as a String
+     * @throws IOException
+     */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
         String table = jobTemplateLogic.getJobTemplateTable();

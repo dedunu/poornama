@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by dedunu on 7/29/15.
+ * @author dedunu
  */
 @Controller
 @RequestMapping("/expense/")
@@ -36,6 +36,12 @@ public class ExpenseController {
     @Autowired
     ExpenseLogic expenseLogic;
 
+    /**
+     * Returns the create form for the expense entity
+     *
+     * @param model Model
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
         model.addAttribute("tagValueJS", tagLogic.getTagValueJS());
@@ -44,6 +50,13 @@ public class ExpenseController {
         return "expense/create";
     }
 
+    /**
+     * Creates the expense and shows the notification
+     *
+     * @param model   Model
+     * @param request HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createExpense(Model model, HttpServletRequest request) {
         Notification notification = expenseLogic.createExpense(request);
@@ -61,6 +74,13 @@ public class ExpenseController {
         return "redirect:/";
     }
 
+    /**
+     * Returns the edit form for expense entity
+     *
+     * @param model     Model
+     * @param expenseId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{expenseId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("expenseId") String expenseId) {
         Expense expense;
@@ -83,6 +103,14 @@ public class ExpenseController {
         return "expense/edit";
     }
 
+    /**
+     * Edits the expense and show the notification
+     *
+     * @param model     Model
+     * @param expenseId String
+     * @param request   HttpServletResponse
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{expenseId}", method = RequestMethod.POST)
     public String editExpense(Model model, @PathVariable("expenseId") String expenseId, HttpServletRequest request) {
         Notification notification = expenseLogic.editExpense(request, expenseId);
@@ -101,6 +129,13 @@ public class ExpenseController {
         return "redirect:/";
     }
 
+    /**
+     * Show the delete confirmation form for the expense entity
+     *
+     * @param model     Model
+     * @param expenseId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{expenseId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("expenseId") String expenseId) {
         Expense expense;
@@ -116,7 +151,13 @@ public class ExpenseController {
         return "expense/delete";
     }
 
-
+    /**
+     * Deletes the employee and show the notification
+     *
+     * @param model     Model
+     * @param expenseId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{expenseId}", method = RequestMethod.POST)
     public String deleteExpense(Model model, @PathVariable("expenseId") String expenseId) {
         Notification notification = expenseLogic.deleteExpense(expenseId);
@@ -137,6 +178,13 @@ public class ExpenseController {
         }
     }
 
+    /**
+     * Shows the search form for the expense entity
+     *
+     * @param model Model
+     * @return view path as a String
+     * @throws IOException
+     */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
         String table = expenseLogic.getExpenseTable("");
@@ -146,6 +194,13 @@ public class ExpenseController {
         return "expense/search";
     }
 
+    /**
+     * Returns HTML table for the search page depending the search query
+     *
+     * @param expenseId String
+     * @param response  HttpServletResponse
+     * @throws IOException
+     */
     @RequestMapping(value = "search/{expenseId}", method = RequestMethod.POST)
     public void searchAJAX(@PathVariable("expenseId") String expenseId, HttpServletResponse response) throws IOException {
         String table = expenseLogic.getExpenseTable(expenseId);
@@ -153,6 +208,12 @@ public class ExpenseController {
         log.debug("[" + className + "] searchAJAX()");
     }
 
+    /**
+     * Returns HTML table for the search page
+     *
+     * @param response HttpServletResponse
+     * @throws IOException
+     */
     @RequestMapping(value = "search", method = RequestMethod.POST)
     public void searchAJAXAll(HttpServletResponse response) throws IOException {
         searchAJAX("", response);

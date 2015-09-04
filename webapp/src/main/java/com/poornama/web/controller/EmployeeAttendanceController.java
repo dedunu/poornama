@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by dedunu on 11/8/14.
+ * @author dedunu
  */
 @Controller
 @RequestMapping("/attendance")
@@ -31,6 +31,13 @@ public class EmployeeAttendanceController {
 
     @Autowired
     private MessageSource messageSource;
+
+    /**
+     * Returns the attendance page
+     *
+     * @param model Model
+     * @return view path as a String
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
         log.debug("[" + className + "] index: index()");
@@ -38,6 +45,13 @@ public class EmployeeAttendanceController {
         return "employee/attendance/index";
     }
 
+    /**
+     * Returns employee attendance table
+     *
+     * @param startDate String
+     * @param response  HttpServletResponse
+     * @throws IOException
+     */
     @RequestMapping(value = "search/{startDate}", method = RequestMethod.POST)
     public void searchAJAX(@PathVariable("startDate") String startDate, HttpServletResponse response) throws IOException {
         startDate = startDate.replace("_", "/");
@@ -46,6 +60,14 @@ public class EmployeeAttendanceController {
         log.debug("[" + className + "] searchAJAX()");
     }
 
+    /**
+     * Persists attendance
+     *
+     * @param data     String
+     * @param date     String
+     * @param response HttpServletResponse
+     * @throws IOException
+     */
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public void saveAJAX(@RequestParam("data") String data, @RequestParam("date") String date, HttpServletResponse response) throws IOException {
         Notification notification = employeeAttendanceLogic.save(data, date);

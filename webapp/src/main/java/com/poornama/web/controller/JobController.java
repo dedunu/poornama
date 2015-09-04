@@ -27,6 +27,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @author dedunu
+ */
 @Controller
 @RequestMapping("/job/")
 public class JobController {

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * Created by dedunu on 7/30/15.
+ * @author dedunu
  */
 @Controller
 @RequestMapping("/client/")
@@ -28,6 +28,12 @@ public class ClientController {
     @Autowired
     ClientLogic clientLogic;
 
+    /**
+     * Returns the create form for the client entity
+     *
+     * @param model Model
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
         model.addAttribute("pageTitle", "Poornama Transport Service - Client");
@@ -35,6 +41,13 @@ public class ClientController {
         return "client/create";
     }
 
+    /**
+     * Creates the client and shows the notification
+     *
+     * @param model   Model
+     * @param request HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createClient(Model model, HttpServletRequest request) {
         Notification notification = clientLogic.createClient(request);
@@ -52,6 +65,13 @@ public class ClientController {
         return "redirect:/";
     }
 
+    /**
+     * Returns the edit form for client entity
+     *
+     * @param model    Model
+     * @param clientId HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{clientId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("clientId") String clientId) {
         Client client;
@@ -69,6 +89,14 @@ public class ClientController {
         return "client/edit";
     }
 
+    /**
+     * Edits the client and show the notification
+     *
+     * @param model    Model
+     * @param clientId String
+     * @param request  HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{clientId}", method = RequestMethod.POST)
     public String editEmployee(Model model, @PathVariable("clientId") String clientId, HttpServletRequest request) {
         Notification notification = clientLogic.editClient(request, clientId);
@@ -87,6 +115,13 @@ public class ClientController {
         return "redirect:/";
     }
 
+    /**
+     * Show the delete confirmation form for the employee entity
+     *
+     * @param model    Model
+     * @param clientId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{clientId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("clientId") String clientId) {
         Client client;
@@ -100,6 +135,13 @@ public class ClientController {
         return "client/delete";
     }
 
+    /**
+     * Deletes the client and show the notification
+     *
+     * @param model    Model
+     * @param clientId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{clientId}", method = RequestMethod.POST)
     public String deleteClient(Model model, @PathVariable("clientId") String clientId) {
         Notification notification = clientLogic.deleteClient(clientId);
@@ -120,6 +162,13 @@ public class ClientController {
         }
     }
 
+    /**
+     * Shows the search form for the client entity
+     *
+     * @param model Model
+     * @return view path as a String
+     * @throws IOException
+     */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
         String table = clientLogic.getClientTable();

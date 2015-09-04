@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * Created by dedunu on 10/24/14.
+ * @author dedunu
  */
 @Controller
 @RequestMapping("/user/")
@@ -25,6 +25,12 @@ public class UserController {
     private static Logger log = GlobalLogger.getLogger();
     private static String className = UserController.class.getName();
 
+    /**
+     * Returns the create form for the user entity
+     *
+     * @param model Model
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.GET)
     public String createForm(Model model) {
         UserRoleLogic userRoleLogic = new UserRoleLogic();
@@ -34,9 +40,16 @@ public class UserController {
         return "user/create";
     }
 
+    /**
+     * Creates the user and shows the notification
+     *
+     * @param model   Model
+     * @param request HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String createUser(Model model, HttpServletRequest request) {
-       UserLogic userLogic = new UserLogic();
+        UserLogic userLogic = new UserLogic();
         Notification notification = userLogic.createUser(request);
         model.addAttribute("message", notification.getMessage());
         model.addAttribute("pageTitle", "Poornama Transport Service - User");
@@ -52,6 +65,13 @@ public class UserController {
         return "redirect:/";
     }
 
+    /**
+     * Returns the edit form for user entity
+     *
+     * @param model  Model
+     * @param userId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{userId}", method = RequestMethod.GET)
     public String editForm(Model model, @PathVariable("userId") String userId) {
         UserLogic userLogic = new UserLogic();
@@ -72,6 +92,14 @@ public class UserController {
         return "user/edit";
     }
 
+    /**
+     * Edits the user and show the notification
+     *
+     * @param model   Model
+     * @param userId  String
+     * @param request HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "edit/{userId}", method = RequestMethod.POST)
     public String editUser(Model model, @PathVariable("userId") String userId, HttpServletRequest request) {
         UserLogic userLogic = new UserLogic();
@@ -91,6 +119,13 @@ public class UserController {
         return "redirect:/";
     }
 
+    /**
+     * Show the delete confirmation form for the user entity
+     *
+     * @param model  Model
+     * @param userId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{userId}", method = RequestMethod.GET)
     public String deleteForm(Model model, @PathVariable("userId") String userId) {
         UserLogic userLogic = new UserLogic();
@@ -110,6 +145,13 @@ public class UserController {
         return "user/delete";
     }
 
+    /**
+     * Deletes the employee and show the notification
+     *
+     * @param model  Model
+     * @param userId String
+     * @return view path as a String
+     */
     @RequestMapping(value = "delete/{userId}", method = RequestMethod.POST)
     public String deleteUser(Model model, @PathVariable("userId") String userId) {
         UserLogic userLogic = new UserLogic();
@@ -131,6 +173,13 @@ public class UserController {
         }
     }
 
+    /**
+     * Shows te settings page to the user
+     *
+     * @param model Model
+     * @return view path as a String
+     * @throws IOException
+     */
     @RequestMapping(value = "settings", method = RequestMethod.GET)
     public String settingPage(Model model) throws IOException {
         log.debug("[" + className + "] settingPage()");
@@ -138,6 +187,13 @@ public class UserController {
         return "user/settings";
     }
 
+    /**
+     * Changes the password for the given user and shows the notification
+     *
+     * @param model   Model
+     * @param request HttpServletRequest
+     * @return view path as a String
+     */
     @RequestMapping(value = "changePassword", method = RequestMethod.POST)
     public String changePassword(Model model, HttpServletRequest request) {
         UserLogic userLogic = new UserLogic();
@@ -157,7 +213,13 @@ public class UserController {
         return "redirect:/";
     }
 
-
+    /**
+     * Shows the search form for the employee entity
+     *
+     * @param model Model
+     * @return view path as a String
+     * @throws IOException
+     */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String searchForm(Model model) throws IOException {
         UserLogic userLogic = new UserLogic();
