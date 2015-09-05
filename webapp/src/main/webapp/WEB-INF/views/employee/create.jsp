@@ -17,7 +17,7 @@
 
         <div class="col-sm-6">
             <input type="text" class="form-control" id="firstName"
-                   name="firstName" placeholder="">
+                   name="firstName" placeholder="" required/>
         </div>
     </div>
     <div class="form-group">
@@ -25,7 +25,7 @@
 
         <div class="col-sm-6">
             <input type="text" class="form-control" id="lastName" name="lastName"
-                   placeholder="">
+                   placeholder="" required/>
         </div>
     </div>
     <div class="form-group">
@@ -42,8 +42,8 @@
 
         <div class="col-sm-3">
             <div class="input-group">
-                <input type="text" class="form-control" id="nic" name="nic"
-                       placeholder=""> <span class="input-group-addon">V</span>
+                <input type="number" class="form-control" id="nic" name="nic"
+                       placeholder="" step="0" max="99999999" required> <span class="input-group-addon">V</span>
             </div>
 
         </div>
@@ -53,7 +53,7 @@
 
         <div class="col-sm-9">
 			<textarea class="form-control" id="address" name="address" rows="3"
-                      placeholder=""></textarea>
+                      placeholder="" required></textarea>
         </div>
     </div>
     <div class="form-group">
@@ -61,8 +61,8 @@
             of Birth</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="dateOfBirth"
-                   name="dateOfBirth" placeholder="">
+            <input type="date" class="form-control" id="dateOfBirth"
+                   name="dateOfBirth" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
@@ -70,8 +70,8 @@
             of Joining</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="dateOfJoining"
-                   name="dateOfJoining" placeholder="">
+            <input type="date" class="form-control" id="dateOfJoining"
+                   name="dateOfJoining" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
@@ -87,8 +87,8 @@
             Number</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="telephone"
-                   name="telephone" placeholder="">
+            <input type="number" class="form-control" id="telephone"
+                   name="telephone" placeholder="" step="1" required>
         </div>
     </div>
     <div class="form-group">
@@ -96,8 +96,8 @@
             Contact</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="emergencyContact"
-                   name="emergencyContact" placeholder="">
+            <input type="number" class="form-control" id="emergencyContact"
+                   name="emergencyContact" placeholder="" step="1" required>
         </div>
     </div>
     <div class="form-group">
@@ -111,16 +111,14 @@
 </form>
 
 <script>
-    $(function () {
-        $("#dateOfBirth").datepicker({
-            changeMonth: true,
-            changeYear: true
-        });
+    $("#dateOfBirth").change(function () {
+                $("#dateOfJoining").attr("min", $("#dateOfBirth").val());
+            }
+    );
 
-        $("#dateOfJoining").datepicker({
-            changeMonth: true,
-            changeYear: true
-        });
-    });
+    $("#dateOfJoining").change(function () {
+                $("#dateOfBirth").attr("max", $("#dateOfJoining").val());
+            }
+    );
 </script>
 <%@ include file="../template/footer.jsp" %>

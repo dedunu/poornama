@@ -20,7 +20,7 @@
 
         <div class="col-sm-6">
             <input type="text" class="form-control" id="vehicleNumber"
-                   name="vehicleNumber" placeholder="">
+                   name="vehicleNumber" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
@@ -28,7 +28,7 @@
             Type</label>
 
         <div class="col-sm-3">
-            <select class="form-control" id="vehicleType" name="vehicleType">
+            <select class="form-control" id="vehicleType" name="vehicleType" required>
                 ${vehicleTypeList}
             </select>
         </div>

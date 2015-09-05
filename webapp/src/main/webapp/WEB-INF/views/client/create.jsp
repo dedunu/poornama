@@ -18,7 +18,7 @@
 
         <div class="col-sm-6">
             <input type="text" class="form-control" id="organizationName"
-                   name="organizationName" placeholder="">
+                   name="organizationName" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
@@ -26,7 +26,7 @@
 
         <div class="col-sm-9">
 			<textarea class="form-control" id="address" name="address" rows="3"
-                      placeholder=""></textarea>
+                      placeholder="" required></textarea>
         </div>
     </div>
     <div class="form-group">
@@ -34,8 +34,8 @@
             Number</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="telephone"
-                   name="telephone" placeholder="">
+            <input type="number" class="form-control" id="telephone"
+                   name="telephone" placeholder="" required step="1" />
         </div>
     </div>
     <div class="form-group">

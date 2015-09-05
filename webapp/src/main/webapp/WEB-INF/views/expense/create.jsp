@@ -17,8 +17,8 @@
         <label for="expenseDate" class="col-sm-3 control-label">Date</label>
 
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="expenseDate"
-                   name="expenseDate" placeholder="">
+            <input type="date" class="form-control" id="expenseDate"
+                   name="expenseDate" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
@@ -34,7 +34,7 @@
 
         <div class="col-sm-9">
 			<textarea class="form-control" id="description" name="description"
-                      rows="3" placeholder=""></textarea>
+                      rows="3" placeholder="" required></textarea>
         </div>
     </div>
     <div class="form-group">
@@ -44,7 +44,7 @@
             <div class="input-group">
 				<span class="input-group-addon"><spring:message
                         code="web.currency.symbol"/></span> <input type="number"
-                                                                   class="form-control" id="amount" name="amount"> <span
+                                                                   class="form-control" id="amount" name="amount" required> <span
                     class="input-group-addon"><spring:message
                     code="web.currency.suffix"/></span>
             </div>
@@ -61,13 +61,6 @@
 </form>
 
 <script>
-
-    $(function () {
-        $("#expenseDate").datepicker({
-            changeMonth: true,
-            changeYear: true
-        });
-    });
 
     $('#tagList').tokenfield({
         autocomplete: {

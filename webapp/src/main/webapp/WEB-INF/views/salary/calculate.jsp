@@ -17,7 +17,7 @@
         <div class="col-sm-6">
             <div class='input-group date' id='salaryMonthGroup'>
                 <input type='text' class="form-control" id="salaryMonth"
-                       name="salaryMonth"/> <span class="input-group-addon"> <span
+                       name="salaryMonth" required /> <span class="input-group-addon"> <span
                     class="glyphicon glyphicon-calendar"> </span>
 				</span>
             </div>

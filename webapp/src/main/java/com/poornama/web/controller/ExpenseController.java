@@ -101,7 +101,7 @@ public class ExpenseController {
                 log.error("[" + className + "] editForm: retrieving Expense failed");
             }
 
-            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date expenseDate = expense.getDate();
 
             model.addAttribute("expenseId", expense.getId());
@@ -161,7 +161,7 @@ public class ExpenseController {
         try {
             Expense expense;
             expense = expenseLogic.getExpense(expenseId);
-            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date expenseDate = expense.getDate();
             model.addAttribute("expenseId", expense.getId());
             model.addAttribute("expenseDate", dateFormat.format(expenseDate));

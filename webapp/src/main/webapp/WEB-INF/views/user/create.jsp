@@ -23,7 +23,7 @@
 
         <div class="col-sm-3">
             <input type="text" class="form-control" id="userName" name="userName"
-                   placeholder="">
+                   placeholder="" required>
         </div>
     </div>
     <div class="form-group">
@@ -32,14 +32,14 @@
 
         <div class="col-sm-6">
             <input type="text" class="form-control" id="displayName"
-                   name="displayName" placeholder="">
+                   name="displayName" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
         <label for="userRole" class="col-sm-3 control-label">Role</label>
 
         <div class="col-sm-3">
-            <select class="form-control" id="userRole" name="userRole">
+            <select class="form-control" id="userRole" name="userRole" required>
                 ${userRoleList}
             </select>
         </div>
@@ -49,7 +49,7 @@
 
         <div class="col-sm-3">
             <input type="password" class="form-control" id="password"
-                   name="password" placeholder="">
+                   name="password" placeholder="" required>
         </div>
     </div>
     <div class="form-group">
@@ -58,7 +58,7 @@
 
         <div class="col-sm-3">
             <input type="password" class="form-control" id="confirmPassword"
-                   name="confirmPassword" placeholder="">
+                   name="confirmPassword" placeholder="" required>
         </div>
     </div>
     <div class="form-group">

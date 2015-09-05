@@ -16,7 +16,7 @@
         <label for="client" class="col-sm-3 control-label">Client</label>
 
         <div class="col-sm-3">
-            <select class="form-control" id="client" name="client">
+            <select class="form-control" id="client" name="client" required>
                 ${clientList}
             </select>
         </div>
@@ -36,7 +36,7 @@
 
         <div class="col-sm-6">
             <input type="text" class="form-control" id="displayName"
-                   name="displayName" placeholder="" value="${displayName}">
+                   name="displayName" placeholder="" value="${displayName}" required>
         </div>
     </div>
     <div class="form-group">
@@ -44,7 +44,7 @@
 
         <div class="col-sm-6">
             <input type="text" class="form-control" id="fromLocation"
-                   name="fromLocation" placeholder="" value="${fromLocation}">
+                   name="fromLocation" placeholder="" value="${fromLocation}" required>
         </div>
     </div>
     <div class="form-group">
@@ -52,7 +52,7 @@
 
         <div class="col-sm-6">
             <input type="text" class="form-control" id="toLocation"
-                   name="toLocation" placeholder="" value="${toLocation}">
+                   name="toLocation" placeholder="" value="${toLocation}" required>
         </div>
     </div>
     <div class="form-group">
@@ -79,7 +79,7 @@
                         code="web.currency.symbol"/></span> <input type="number"
                                                                    class="form-control" id="hireCharges"
                                                                    name="hireCharges"
-                                                                   value="${hireCharges}"> <span
+                                                                   value="${hireCharges}" required> <span
                     class="input-group-addon"><spring:message
                     code="web.currency.suffix"/></span>
             </div>
@@ -95,7 +95,7 @@
                         code="web.currency.symbol"/></span> <input type="number"
                                                                    class="form-control" id="labourCharges"
                                                                    name="labourCharges"
-                                                                   value="${labourCharges}"> <span
+                                                                   value="${labourCharges}" required> <span
                     class="input-group-addon"><spring:message
                     code="web.currency.suffix"/></span>
             </div>
@@ -112,7 +112,7 @@
                                                                    class="form-control" id="hourlyDetentionCharges"
                                                                    name="hourlyDetentionCharges"
                                                                    value="${hourlyDetentionCharges}"
-                                                                   onchange="onHourlyDetentionChargesChange();"> <span
+                                                                   onchange="onHourlyDetentionChargesChange();" required> <span
                     class="input-group-addon"><spring:message
                     code="web.currency.suffix"/></span>
             </div>
@@ -129,7 +129,7 @@
                                                                    class="form-control" id="dailyContainerCharges"
                                                                    name="dailyContainerCharges"
                                                                    value="${dailyContainerCharges}"
-                                                                   onchange="onDailyContainerChargesChange();"> <span
+                                                                   onchange="onDailyContainerChargesChange();" required> <span
                     class="input-group-addon"><spring:message
                     code="web.currency.suffix"/></span>
             </div>
@@ -143,7 +143,7 @@
             <div class="input-group">
                 <input type="number" class="form-control" id="freeHours"
                        name="freeHours" value="${freeHours}"
-                       onchange="onFreeHoursChange();">
+                       onchange="onFreeHoursChange();" required step="1">
             </div>
         </div>
     </div>
@@ -154,7 +154,7 @@
         <div class="col-sm-3">
             <div class="input-group">
                 <input type="number" class="form-control" id="distance"
-                       name="distance" value="${distance}">
+                       name="distance" value="${distance}" required>
             </div>
         </div>
     </div>

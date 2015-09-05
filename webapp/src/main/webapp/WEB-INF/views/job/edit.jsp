@@ -17,7 +17,7 @@
 
         <div class="col-sm-3">
             <select class="form-control" id="jobTemplate" name="jobTemplate"
-                    onchange="getJobTemplateDetails()"> ${jobTemplateList}
+                    onchange="getJobTemplateDetails()" required> ${jobTemplateList}
             </select>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 code="web.general.vehicle"/></label>
 
         <div class="col-sm-3">
-            <select class="form-control" id="vehicle" name="vehicle">
+            <select class="form-control" id="vehicle" name="vehicle" required>
                 ${vehicleList}
             </select>
         </div>
@@ -36,7 +36,7 @@
                 code="web.general.driver"/></label>
 
         <div class="col-sm-3">
-            <select class="form-control" id="driver" name="driver">
+            <select class="form-control" id="driver" name="driver" required>
                 ${driverList}
             </select>
         </div>
@@ -46,7 +46,7 @@
                 code="web.general.cleaner"/></label>
 
         <div class="col-sm-3">
-            <select class="form-control" id="cleaner" name="cleaner">
+            <select class="form-control" id="cleaner" name="cleaner" required>
                 ${cleanerList}
             </select>
         </div>
@@ -59,7 +59,7 @@
         <div class="col-sm-3">
             <div class='input-group date' id="startDateInputGroup">
                 <input type='text' class="form-control" id="startDate"
-                       name="startDate" value="${startDate}"/> <span
+                       name="startDate" value="${startDate}" required/> <span
                     class="input-group-addon"> <span
                     class="glyphicon glyphicon-calendar"></span>
 				</span>
@@ -74,7 +74,7 @@
         <div class="col-sm-3">
             <div class='input-group date' id="endDateInputGroup">
                 <input type='text' class="form-control" id="endDate" name="endDate"
-                       value="${endDate}"/> <span class="input-group-addon"> <span
+                       value="${endDate}" required/> <span class="input-group-addon"> <span
                     class="glyphicon glyphicon-calendar"></span>
 				</span>
             </div>
@@ -91,7 +91,7 @@
                         code="web.currency.symbol"/></span> <input type="number"
                                                                    class="form-control" id="hireCharges"
                                                                    name="hireCharges"
-                                                                   value="${hireCharges}"> <span
+                                                                   value="${hireCharges}" required> <span
                     class="input-group-addon"><spring:message
                     code="web.currency.suffix"/></span>
             </div>
@@ -108,7 +108,7 @@
                         code="web.currency.symbol"/></span> <input type="number"
                                                                    class="form-control" id="labourCharges"
                                                                    name="labourCharges"
-                                                                   value="${labourCharges}"> <span
+                                                                   value="${labourCharges}" required> <span
                     class="input-group-addon"><spring:message
                     code="web.currency.suffix"/></span>
             </div>
@@ -125,7 +125,7 @@
                         code="web.currency.symbol"/></span> <input type="number"
                                                                    class="form-control" id="containerCharges"
                                                                    name="containerCharges"
-                                                                   value="${containerCharges}"> <span
+                                                                   value="${containerCharges}" required> <span
                     class="input-group-addon"><spring:message
                     code="web.currency.suffix"/></span>
             </div>
@@ -142,7 +142,7 @@
                         code="web.currency.symbol"/></span> <input type="number"
                                                                    class="form-control" id="detentionCharges"
                                                                    name="detentionCharges"
-                                                                   value="${detentionCharges}"> <span
+                                                                   value="${detentionCharges}" required> <span
                     class="input-group-addon"><spring:message
                     code="web.currency.suffix"/></span>
             </div>
@@ -160,7 +160,7 @@
                                                                    class="form-control" id="hourlyDetentionCharges"
                                                                    name="hourlyDetentionCharges"
                                                                    value="${hourlyDetentionCharges}"
-                                                                   onchange="onHourlyDetentionChargesChange();"> <span
+                                                                   onchange="onHourlyDetentionChargesChange();" required> <span
                     class="input-group-addon"><spring:message
                     code="web.currency.suffix"/></span>
             </div>
@@ -178,7 +178,7 @@
                                                                    class="form-control" id="dailyContainerCharges"
                                                                    name="dailyContainerCharges"
                                                                    value="${dailyContainerCharges}"
-                                                                   onchange="onDailyContainerChargesChange();"> <span
+                                                                   onchange="onDailyContainerChargesChange();" required> <span
                     class="input-group-addon"><spring:message
                     code="web.currency.suffix"/></span>
             </div>
@@ -193,7 +193,7 @@
             <div class="input-group">
                 <input type="number" class="form-control" id="freeHours"
                        name="freeHours" value="${freeHours}"
-                       onchange="onFreeHoursChange();">
+                       onchange="onFreeHoursChange();" required step="1">
             </div>
         </div>
     </div>

@@ -101,7 +101,7 @@ public class EmployeeController {
                 log.error("[" + className + "] editForm: retrieving Employee failed");
             }
 
-            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date dateOfBirth = employee.getDateOfBirth();
             Date dateOfJoining = employee.getDateOfJoining();
 
@@ -168,7 +168,7 @@ public class EmployeeController {
         try {
             Employee employee;
             employee = employeeLogic.getEmployee(employeeId);
-            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date dateOfBirth = employee.getDateOfBirth();
             Date dateOfJoining = employee.getDateOfJoining();
             model.addAttribute("employeeId", employeeId);
