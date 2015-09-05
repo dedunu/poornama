@@ -2,6 +2,7 @@ package com.poornama.data.dao;
 
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.api.objects.JobTemplate;
 import com.poornama.api.objects.Vehicle;
 import com.poornama.api.objects.VehicleType;
 import org.apache.log4j.Logger;
@@ -35,6 +36,8 @@ public class VehicleDAO {
      * @param vehicle Vehicle
      */
     public void delete(Vehicle vehicle) {
+        JobDAO jobDAO = new JobDAO();
+        jobDAO.deleteByVehicle(vehicle);
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(vehicle);
         log.debug("[" + className + "] delete()");

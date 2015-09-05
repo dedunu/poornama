@@ -1,5 +1,6 @@
 package com.poornama.api.objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,7 +44,7 @@ public class JobTemplate {
 	@JoinColumn(name = "jobTypeId")
 	private JobType jobType;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.DETACH)
 	@JoinColumn(name = "clientId")
 	private Client client;
 

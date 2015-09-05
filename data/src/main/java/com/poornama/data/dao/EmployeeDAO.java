@@ -4,6 +4,7 @@ package com.poornama.data.dao;
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.Employee;
+import com.poornama.api.objects.EmployeeAttendance;
 import com.poornama.api.objects.EmployeeType;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
@@ -26,6 +27,12 @@ public class EmployeeDAO {
      * @param employee Employee
      */
     public void delete(Employee employee) {
+        SalaryDAO salaryDAO = new SalaryDAO();
+        salaryDAO.deleteByEmployee(employee);
+        EmployeeAttendanceDAO employeeAttendanceDAO = new EmployeeAttendanceDAO();
+        employeeAttendanceDAO.deletebyEmployee(employee);
+        JobDAO jobDAO = new JobDAO();
+        jobDAO.deleteByEmployee(employee);
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(employee);
         log.debug("[" + className + "] delete()");

@@ -2,8 +2,12 @@ package com.poornama.data.dao;
 
 import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
+import com.poornama.api.objects.Client;
 import com.poornama.api.objects.JobTemplate;
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -31,9 +35,31 @@ public class JobTemplateDAO {
      * @param jobTemplate JobTemplate
      */
     public void delete(JobTemplate jobTemplate) {
+        JobDAO jobDAO = new JobDAO();
+        jobDAO.deleteByJobTemplate(jobTemplate);
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(jobTemplate);
         log.debug("[" + className + "] delete()");
+    }
+
+    /**
+     * Delete the job template by client
+     *
+     * @param client Client
+     */
+    public void deleteByClient(Client client) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(JobTemplate.class);
+        Criterion employeeIdCriterion = Restrictions.eq("client", client);
+        criteria.add(employeeIdCriterion);
+        List<JobTemplate> jobTemplateList = criteria.list();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        for (JobTemplate jobTemplate : jobTemplateList) {
+            this.delete(jobTemplate);
+        }
+        log.debug("[" + className + "] deleteByVehicle()");
     }
 
     /**

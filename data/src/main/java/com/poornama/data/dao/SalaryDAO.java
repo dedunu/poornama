@@ -43,6 +43,26 @@ public class SalaryDAO {
     }
 
     /**
+     * Delete salary entry by Employee
+     *
+     * @param employee Employee
+     */
+    public void deleteByEmployee(Employee employee) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(Salary.class);
+        Criterion employeeIdCriterion = Restrictions.eq("employee", employee);
+        criteria.add(employeeIdCriterion);
+        List<Salary> salaryList = criteria.list();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        for (Salary salary : salaryList) {
+            this.delete(salary);
+        }
+        log.debug("[" + className + "] deleteByEmployee()");
+    }
+
+    /**
      * Save or update salary entry
      *
      * @param salary Salary

@@ -4,6 +4,8 @@ import com.poornama.api.db.DatabaseSession;
 import com.poornama.api.logging.GlobalLogger;
 import com.poornama.api.objects.Employee;
 import com.poornama.api.objects.Job;
+import com.poornama.api.objects.JobTemplate;
+import com.poornama.api.objects.Vehicle;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
@@ -42,6 +44,78 @@ public class JobDAO {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(job);
         log.debug("[" + className + "] delete()");
+    }
+
+    /**
+     * Delete jobs by Employee
+     *
+     * @param employee Employee
+     */
+    public void deleteByEmployee(Employee employee) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(Job.class);
+        Criterion employeeIdCriterion = Restrictions.eq("driver", employee);
+        criteria.add(employeeIdCriterion);
+        List<Job> jobList = criteria.list();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        for (Job job : jobList) {
+            this.delete(job);
+        }
+
+        databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        criteria = databaseSession.createCriteria(Job.class);
+        employeeIdCriterion = Restrictions.eq("cleaner", employee);
+        criteria.add(employeeIdCriterion);
+        jobList = criteria.list();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        for (Job job : jobList) {
+            this.delete(job);
+        }
+        log.debug("[" + className + "] deleteByEmployee()");
+    }
+
+    /**
+     * Delete jobs by vehicle
+     *
+     * @param vehicle Vehicle
+     */
+    public void deleteByVehicle(Vehicle vehicle) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(Job.class);
+        Criterion employeeIdCriterion = Restrictions.eq("vehicle", vehicle);
+        criteria.add(employeeIdCriterion);
+        List<Job> jobList = criteria.list();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        for (Job job : jobList) {
+            this.delete(job);
+        }
+        log.debug("[" + className + "] deleteByVehicle()");
+    }
+
+    /**
+     * Delete jobs by job template
+     *
+     * @param jobTemplate JobTemplate
+     */
+    public void deleteByJobTemplate(JobTemplate jobTemplate) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(Job.class);
+        Criterion employeeIdCriterion = Restrictions.eq("jobTemplate", jobTemplate);
+        criteria.add(employeeIdCriterion);
+        List<Job> jobList = criteria.list();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        for (Job job : jobList) {
+            this.delete(job);
+        }
+        log.debug("[" + className + "] deleteByJobTemplate()");
     }
 
     /**

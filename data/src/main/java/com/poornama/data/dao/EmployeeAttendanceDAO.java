@@ -13,6 +13,7 @@ import org.hibernate.criterion.Restrictions;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author dedunu
@@ -52,6 +53,26 @@ public class EmployeeAttendanceDAO {
         DatabaseSession databaseSession = new DatabaseSession();
         databaseSession.delete(employeeAttendance);
         log.debug("[" + className + "] delete()");
+    }
+
+    /**
+     * Delete employee attendance by employee
+     *
+     * @param employee Employee
+     */
+    public void deletebyEmployee(Employee employee) {
+        DatabaseSession databaseSession = new DatabaseSession();
+        databaseSession.beginTransaction();
+        Criteria criteria = databaseSession.createCriteria(EmployeeAttendance.class);
+        Criterion employeeIdCriterion = Restrictions.eq("employee", employee);
+        criteria.add(employeeIdCriterion);
+        List<EmployeeAttendance> employeeAttendanceList = criteria.list();
+        databaseSession.commitTransaction();
+        databaseSession.close();
+        for (EmployeeAttendance employeeAttendance : employeeAttendanceList) {
+            this.delete(employeeAttendance);
+        }
+        log.debug("[" + className + "] deleteByEmployee()");
     }
 
     /**
