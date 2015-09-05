@@ -43,7 +43,7 @@
         <div class="col-sm-3">
             <div class="input-group">
                 <input type="number" class="form-control" id="nic" name="nic"
-                       placeholder="" step="0" max="99999999" required> <span class="input-group-addon">V</span>
+                       placeholder="" step="0" max="999999999" required> <span class="input-group-addon">V</span>
             </div>
 
         </div>
